@@ -7,18 +7,18 @@ plugins {
 
 repositories {
 	mavenLocal()
-	maven {
-		name = "CurseForge"
-		url = "https://minecraft.curseforge.com/api/maven"
-	}
-	maven {
-		name = "GitHub"
-		url = "https://maven.pkg.github.com"
-	}
-	maven {
-		name = "JitPack"
-		url = "https://jitpack.io"
-	}
+//	maven {
+//		name = "CurseForge"
+//		url = "https://minecraft.curseforge.com/api/maven"
+//	}
+//	maven {
+//		name = "GitHub"
+//		url = "https://maven.pkg.github.com"
+//	}
+//	maven {
+//		name = "JitPack"
+//		url = "https://jitpack.io"
+//	}
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +49,38 @@ dependencies {
 	}
 }
 
+sourceSets {
+	data {
+		compileClasspath += sourceSets.main.compileClasspath
+		compileClasspath += sourceSets.main.output
+		runtimeClasspath += sourceSets.main.compileClasspath
+		runtimeClasspath += sourceSets.main.output
+	}
+}
+
+def dataDir = project.file("$buildDir/datadump/")
+def dataCacheDir = new File(dataDir, "/.cache/")
+
+task generateData(type: JavaExec) {
+	doFirst {
+		dataDir.mkdirs()
+	}
+
+	classpath = sourceSets.data.runtimeClasspath
+
+	main = "com.fabriccommunity.spookytime.SpookyData"
+
+	// arguments to pass to the application
+
+	workingDir dataDir
+	outputs.dir dataDir
+	args dataDir.getAbsolutePath()
+	
+	doLast {
+		dataCacheDir.delete()
+	}
+}
+
 processResources {
 	inputs.property "version", project.version
 	
@@ -73,6 +105,10 @@ tasks.withType(JavaCompile) {
 }
 
 jar {
+	from(generateData.outputs.files) {
+		include "/data/"
+	}
+	
 	from "LICENSE"
 	manifest
 	{
@@ -85,7 +121,10 @@ jar {
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
+	from(generateData.outputs.files) {
+		include "/data/"
+	}
+	archiveClassifier.set "sources"
 	from sourceSets.main.allSource
 	manifest
 	{
