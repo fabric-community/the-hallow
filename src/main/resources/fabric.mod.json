@@ -14,7 +14,7 @@
     "sources": "https://github.com/fabric-community/spooky-time"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/spookytime/icon.png",
 
   "environment": "*",
