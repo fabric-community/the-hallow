@@ -15,5 +15,6 @@ public class SpookyTime implements ModInitializer
 		SpookyBlocks.init();
 		SpookyItems.init();
 		SpookyEntities.init();
+		Registry.regiser(RegAttackBlockCallback.EVENT
 	}
 }
