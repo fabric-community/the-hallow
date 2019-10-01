@@ -15,16 +15,10 @@ public class SpookyItems
     public static BlockItem TINY_PUMPKIN;
 
     public static void init() {
-        register("tiny_pumpkin", TINY_PUMPKIN = new BlockItem(SpookyBlocks.TINY_PUMPKIN, new Item.Settings().group(ItemGroup.MISC)));
+        TINY_PUMPKIN = register("tiny_pumpkin", new BlockItem(SpookyBlocks.TINY_PUMPKIN, new Item.Settings().group(ItemGroup.MISC)));
     }
 
-    private static Item register(String name, Item item)
-    {
-        return Registry.register(Registry.ITEM, new Identifier(SpookyTime.MODID, name), item);
-    }
-
-    private static Item register(String name, BlockItem item)
-    {
+    private static <T extends Item> T register(String name, T item) {
         return Registry.register(Registry.ITEM, new Identifier(SpookyTime.MODID, name), item);
     }
 

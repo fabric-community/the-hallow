@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.common.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -17,13 +17,11 @@ public class SpookyBlocks
     public static Block TINY_PUMPKIN;
 
     public static void init() {
-        register("tiny_pumpkin", TINY_PUMPKIN = new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build())); 
-        // NO-OP
+        TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build())); 
     }
 
-    private static Block register(String name, Block item)
-    {
-        return Registry.register(Registry.BLOCK, new Identifier(SpookyTime.MODID, name), item);
+    private static <T extends Block> T register(String name, T block) {
+        return Registry.register(Registry.BLOCK, new Identifier(SpookyTime.MODID, name), block);
     }
 
     private SpookyBlocks() {

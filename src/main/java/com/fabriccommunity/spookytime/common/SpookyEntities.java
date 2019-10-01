@@ -17,14 +17,12 @@ public class SpookyEntities
         // NO-OP
     }
 
-    private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> be)
-    {
-        return Registry.register(Registry.BLOCK_ENTITY, new Identifier(SpookyTime.MODID, name), be);
+    private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> blockEntity) {
+        return Registry.register(Registry.BLOCK_ENTITY, new Identifier(SpookyTime.MODID, name), blockEntity);
     }
 
-    private static <T extends Entity> EntityType<T> register(String name, EntityType<T> be)
-    {
-        return Registry.register(Registry.ENTITY_TYPE, new Identifier(SpookyTime.MODID, name), be);
+    private static <T extends Entity> EntityType<T> register(String name, EntityType<T> entity) {
+        return Registry.register(Registry.ENTITY_TYPE, new Identifier(SpookyTime.MODID, name), entity);
     }
 
     private SpookyEntities() {

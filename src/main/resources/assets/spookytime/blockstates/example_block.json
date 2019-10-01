@@ -1,5 +1,7 @@
 {
-  "variants": {
-    "": { "model": "modid:block/andesite" }
-  }
+	"variants": {
+		"": {
+			"model": "modid:block/andesite"
+		}
+	}
 }
