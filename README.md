@@ -2,7 +2,7 @@
 Fabric Community mod for Hacktoberfest!
 
 # Hacktoberfest
-Hacktoberfest is a fun event that takes place every October which teaches people about open source (and helps them make their first contributions). If you make 4+ PRs from October 1st to October 31st, you'll get a fun tshirt! More information can be found on the [Hacktoberfest website](https://hacktoberfest.digitalocean.com/).
+Hacktoberfest is a fun event that takes place every October which teaches people about open source (and helps them make their first contributions). If you make 4+ PRs from October 1st to October 31st, you'll get a fun tshirt! More information can be found on the [Hacktoberfest website](https://hacktoberfest.digitalocean.com/). Available loot can be found [here](https://hacktoberfestswaglist.com/).
 
 # General
  Spooky Time is a Halloween themed community mod. If you have any spooky ideas, PR it! At the end of the month, we'll publish the mod to curseforge so everyone can play it.
