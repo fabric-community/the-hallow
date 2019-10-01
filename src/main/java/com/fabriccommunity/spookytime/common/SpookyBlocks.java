@@ -6,13 +6,14 @@ import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks
 {
-
+    
 
     public static Block TINY_PUMPKIN;
 
