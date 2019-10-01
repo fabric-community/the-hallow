@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Minecraft Client",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/run",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "net.fabricmc.loader.launch.knot.KnotClient",
+      "vmArgs": "-Dfabric.development\u003dtrue",
+      "args": " --assetIndex \"1.14.4-1.14\" --assetsDir \"C:\\Users\\vini2003\\.gradle\\caches\\fabric-loom\\assets\""
+    },
+    {
+      "type": "java",
+      "name": "Minecraft Server",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/run",
+      "console": "internalConsole",
+      "stopOnEntry": false,
+      "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+      "vmArgs": "-Dfabric.development\u003dtrue",
+      "args": ""
+    }
+  ]
+}
