@@ -21,7 +21,10 @@
   "entrypoints": {
     "main": [
       "com.fabriccommunity.spookytime.SpookyTime"
-    ]
+    ],
+	"client": [
+	  "com.fabriccommunity.spookytime.SpookyTimeClient"
+	]
   },
   "mixins": [
     "spookytime.mixins.json"
