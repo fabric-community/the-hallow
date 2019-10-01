@@ -7,6 +7,8 @@ import net.fabricmc.api.ModInitializer;
 
 public class SpookyTime implements ModInitializer
 {
+
+	
 	public static final String MODID = "spookytime";
 
 	@Override
