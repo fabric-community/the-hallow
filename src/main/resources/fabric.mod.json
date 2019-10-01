@@ -4,14 +4,14 @@
   "id": "spookytime",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Spooky Time",
+  "description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
   "authors": [
-    "Me!"
+    "The Fabric Community"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/fabric-community/spooky-time"
   },
 
   "license": "CC0-1.0",
@@ -30,8 +30,5 @@
   "depends": {
     "fabricloader": ">=0.4.0",
     "fabric": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
   }
 }
