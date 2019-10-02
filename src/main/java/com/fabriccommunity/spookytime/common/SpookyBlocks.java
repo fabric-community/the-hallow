@@ -10,10 +10,19 @@ import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks
 {
-
-
-    public static void init() {
-        register("spooky_lantern", new Block(FabricBlockSettings.of(Material.REDSTONE_LAMP).breakByHand(true).lightLevel(5).ticksRandomly().build()){});
+	public static final Block SPOOKY_LANTERN = register(
+		"spooky_lantern",
+		new Block(
+			FabricBlockSettings.of(Material.REDSTONE_LAMP)
+				.breakByHand(true)
+				.lightLevel(5)
+				.ticksRandomly()
+				.build()
+		)
+	); 
+    
+	public static void init() {
+        // NO-OP
     }
 
     private static Block register(String name, Block item)
