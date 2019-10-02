@@ -20,8 +20,15 @@ import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.packet.ChatMessageC2SPacket;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import net.minecraft.world.loot.LootSupplier;
+import net.minecraft.world.loot.context.LootContext;
+import net.minecraft.world.loot.context.LootContextParameters;
+import net.minecraft.world.loot.context.LootContextTypes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,9 +64,15 @@ public abstract class ServerPlayNetworkHandlerMixin {
 				CandyComponent comp = SpookyEntities.CANDY.get(entity);
 				if (comp.canGiveCandy(player)) {
 					comp.setLastCandyTime(player, world.getTime());
-					//Eventually I want to add an assortment of candies for villagers to give, for now, pie
-					ItemStack stack = new ItemStack(Items.PUMPKIN_PIE, 1);
-					LookTargetUtil.give(entity, stack, player);
+					LootSupplier supplier = world.getServer().getLootManager().getSupplier(new Identifier("spookytime", "gameplay/trick_or_treat_candy"));
+					LootContext context = (new LootContext.Builder((ServerWorld) world))
+						.put(LootContextParameters.POSITION, new BlockPos(entity))
+						.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRand())
+						.build(LootContextTypes.GIFT);
+					List<ItemStack> stacks = supplier.getDrops(context);
+					for(ItemStack stack: stacks){
+						LookTargetUtil.give(entity, stack, player);
+					}
 				}
 			}
 		}
