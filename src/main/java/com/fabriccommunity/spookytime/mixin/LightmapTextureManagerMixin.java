@@ -24,25 +24,10 @@ public class LightmapTextureManagerMixin {
 		NativeImage image = self.getImage();
 		int height = image.getHeight();
 		for (int x = image.getWidth(); x >= 0; x--)
-			for (int y = height; y >= 0; y--) {
+			for (int y = x; y < height; y++) {
 				int pixelValue = image.getPixelRGBA(x, y);
-				
-				int alpha = ((pixelValue) >> 24) & 255;
-				int blue = (pixelValue >> 16) & 255;
-				int green = (pixelValue >> 8) & 255;
-				int red = (pixelValue >> 0) & 255;
-				
-				blue = 255 - blue;
-				green = 255 - green;
-				red = 255 - red;
-				
-				pixelValue = (
-					(alpha << 24)
-				  | (blue << 16)
-				  | (green << 8)
-				  | (red << 0)
-				);
-				image.setPixelRGBA(x, y, pixelValue);
+				image.setPixelRGBA(x, y, image.getPixelRGBA(y, x));
+				image.setPixelRGBA(y, x, pixelValue);
 			}
 		self.upload();
 	}
