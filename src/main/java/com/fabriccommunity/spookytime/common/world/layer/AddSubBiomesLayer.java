@@ -47,6 +47,7 @@ public enum AddSubBiomesLayer implements SouthEastSamplingLayer {
 	static class ChanceBiomeEntry {
 		final Biome biome;
 		final double chance;
+		
 		ChanceBiomeEntry(Biome biome, double chance) {
 			this.biome = biome;
 			this.chance = chance;

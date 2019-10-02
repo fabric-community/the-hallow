@@ -16,6 +16,7 @@ public class SpookyBiomeGroup {
 	private final int id;
 	private double weightTotal = 0;
 	private List<WeightedBiomeEntry> entries = new ArrayList<>();
+	
 	public SpookyBiomeGroup(int id) {
 		this.id = id;
 	}
@@ -58,6 +59,7 @@ public class SpookyBiomeGroup {
 	static class WeightedBiomeEntry {
 		final Biome biome;
 		final double weight;
+		
 		WeightedBiomeEntry(Biome biome, double weight) {
 			this.biome = biome;
 			this.weight = weight;
