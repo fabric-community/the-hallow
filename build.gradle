@@ -13,6 +13,13 @@ minecraft {
 
 repositories {
 	maven { url = "https://maven.fabricmc.net/" }
+	maven {
+		url = "https://jitpack.io"
+	}
+	maven {
+		name = "NerdHubMC"
+		url = "https://maven.abusedmaster.xyz/"
+	}
 }
 
 dependencies {
@@ -22,6 +29,8 @@ dependencies {
 	modApi "net.fabricmc.fabric-api:fabric-api:0.3.0+build.207"
 
 	modApi ("io.github.prospector:modmenu:1.7.9+build.118")
+	modImplementation "com.github.emilyploszaj:trinkets:v1.1.4"
+	include "com.github.emilyploszaj:trinkets:v1.1.4"
 }
 
 // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
