@@ -14,7 +14,8 @@ import net.minecraft.client.render.entity.model.CowEntityModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 
 @Environment(EnvType.CLIENT)
-public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends FeatureRenderer<T, CowEntityModel<T>> {
+public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends FeatureRenderer<T, CowEntityModel<T>>
+{
 
 	public PumpcownStemFeatureRenderer(FeatureRendererContext<T, CowEntityModel<T>> rendererContext) {
 		super(rendererContext);
