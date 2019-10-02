@@ -1,6 +1,7 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.common.world.SpookyBiomeSource;
 import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
 import com.github.draylar.worldtraveler.api.dimension.EntityPlacerBuilder;
 import com.github.draylar.worldtraveler.api.dimension.FabricDimension;
@@ -14,6 +15,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.chunk.ChunkGeneratorType;
+import net.minecraft.world.gen.chunk.OverworldChunkGeneratorConfig;
 
 public class SpookyDimensions
 {
@@ -23,7 +26,7 @@ public class SpookyDimensions
                     .renderFog(true)
                     .fogColor((long_1, float_1) -> new Vec3d(75F / 255F, 0F / 255F, 125F / 255F))
                     .visibleSky(false)
-                    .setChunkGenerator(new ChunkGeneratorTemplateBuilder().getSingleBiomeVanillaBuilder(world, SpookyBiomes.SPOOKY_FOREST))
+                    .setChunkGenerator(ChunkGeneratorType.SURFACE.create(world, new SpookyBiomeSource(world.getSeed()), new OverworldChunkGeneratorConfig()))
                     .setLightLevelsToBrightness(getLightLevels())
                     .build(world, type))
             .defaultPlacer(new EntityPlacerBuilder().build())
