@@ -4,15 +4,13 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.item.SkirtCostume;
 import dev.emi.trinkets.api.TrinketSlots;
 
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SpookyItems
 {
+    public static Item BLAZE_SKIRT;
     public static Item PUMPCOWN_SPAWN_EGG;
     public static Item BAKED_PUMPKIN_SEEDS;
 
