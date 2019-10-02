@@ -3,10 +3,11 @@
   "package": "com.fabriccommunity.spookytime.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EndermanEntityMixin"
+    "EndermanEntityMixin",
+    "AnvilBlockMixin",
+    "ServerWorldLightningMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1

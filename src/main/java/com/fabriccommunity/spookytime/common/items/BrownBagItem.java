@@ -11,9 +11,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class SpookyMaskItem extends Item implements ITrinket {
+public class BrownBagItem extends Item implements ITrinket {
 
-    public SpookyMaskItem(Settings settings) {
+    public BrownBagItem(Settings settings) {
         super(settings);
     }
 
@@ -24,7 +24,7 @@ public class SpookyMaskItem extends Item implements ITrinket {
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> list, TooltipContext tooltipContext) {
-        list.add(new TranslatableText("spookytime.spooky_mask_tooltip").formatted(Formatting.GRAY));
+        list.add(new TranslatableText("spookytime.brown_bag_tooltip").formatted(Formatting.GRAY));
 
         super.appendTooltip(itemStack, world, list, tooltipContext);
     }
