@@ -24,10 +24,11 @@ public class LightmapTextureManagerMixin {
 		NativeImage image = self.getImage();
 		int height = image.getHeight();
 		for (int x = image.getWidth(); x >= 0; x--)
-			for (int y = x; y < height; y++) {
+			for (int y = height / 2; y < height; y++) {
+				int y2 = height - y;
 				int pixelValue = image.getPixelRGBA(x, y);
-				image.setPixelRGBA(x, y, image.getPixelRGBA(y, x));
-				image.setPixelRGBA(y, x, pixelValue);
+				image.setPixelRGBA(x, y, image.getPixelRGBA(x, y2));
+				image.setPixelRGBA(x, y2, pixelValue);
 			}
 		self.upload();
 	}

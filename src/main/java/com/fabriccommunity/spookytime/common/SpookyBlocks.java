@@ -1,14 +1,19 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
 import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.Material;
-import net.minecraft.entity.passive.CowEntity;
+import net.minecraft.block.MaterialColor;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks
@@ -19,13 +24,14 @@ public class SpookyBlocks
 	public static Block DECEASED_GRASS_BLOCK;
 	public static Block TAINTED_SAND;
 	public static Block TAINTED_GRAVEL;
+	public static Block SPOOKY_LANTERN;
 	
 	private SpookyBlocks() {
 		// NO-OP
 	}
 	
 	public static void init() {
-		SPOOKY_LANTERN = register("spooky_lantern", new Block(FabricBlockSettings.of(Material.REDSTONE_LAMP).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(ItemGroup.DECORATION_BLOCK);
+		SPOOKY_LANTERN = register("spooky_lantern", new Block(FabricBlockSettings.of(Material.REDSTONE_LAMP).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(ItemGroup.DECORATIONS));
 		
 		TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(ItemGroup.MISC));
 		
@@ -46,7 +52,7 @@ public class SpookyBlocks
 	static <T extends Block> T register(String name, T block, BlockItem item) {
 		T b = Registry.register(Registry.BLOCK, SpookyTime.id(name), block);
 		BlockItem bi = SpookyItems.register(name, item);
-		bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
+		bi.appendBlocks(Item.BLOCK_ITEMS, bi);
 		return b;
 	}
 }
