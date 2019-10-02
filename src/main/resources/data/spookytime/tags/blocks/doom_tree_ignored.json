@@ -1,0 +1,20 @@
+{
+	"replace": false,
+	"values": [
+		"spookytime:miasma",
+		"spookytime:doom_gleam",
+		"spookytime:doom_tree_heart",
+		"spookytime:doom_sapling",
+		"spookytime:doom_leaves",
+		"spookytime:doom_log_p",
+		"spookytime:doom_log_channel_p",
+		"spookytime:doom_log_terminal_p",
+		"spookytime:doom_log",
+		"spookytime:doom_log_channel",
+		"spookytime:doom_log_terminal",
+		"spookytime:doomed_log",
+		"spookytime:doomed_earth",
+		"spookytime:doomed_stone",
+		"spookytime:witch_water"
+	]
+}

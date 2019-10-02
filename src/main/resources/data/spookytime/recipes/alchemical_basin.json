@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"dgd",
+		"lbl",
+		"ele"
+	],
+	"key": {
+		"b": {
+			"item": "spookytime:alchemical_basin_frame"
+		},
+		"l": {
+			"item": "minecraft:lapis_lazuli"
+		},
+		"g": {
+			"item": "minecraft:glass"
+		},
+		"d": {
+			"item": "minecraft:diamond"
+		},
+		"e": {
+			"item": "minecraft:emerald"
+		}
+	},
+	"result": {
+		"item": "spookytime:alchemical_basin"
+	}
+}
