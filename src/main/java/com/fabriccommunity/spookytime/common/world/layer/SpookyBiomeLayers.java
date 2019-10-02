@@ -1,23 +1,10 @@
 package com.fabriccommunity.spookytime.common.world.layer;
 
-import java.util.function.LongFunction;
-
 import com.google.common.collect.ImmutableList;
 
-import net.minecraft.world.biome.RiverBiome;
-import net.minecraft.world.biome.layer.AddHillsLayer;
-import net.minecraft.world.biome.layer.AddRiversLayer;
-import net.minecraft.world.biome.layer.BiomeLayerSampler;
-import net.minecraft.world.biome.layer.CachingLayerContext;
-import net.minecraft.world.biome.layer.CachingLayerSampler;
-import net.minecraft.world.biome.layer.CellScaleLayer;
-import net.minecraft.world.biome.layer.LayerFactory;
-import net.minecraft.world.biome.layer.LayerSampleContext;
-import net.minecraft.world.biome.layer.LayerSampler;
-import net.minecraft.world.biome.layer.NoiseToRiverLayer;
-import net.minecraft.world.biome.layer.ScaleLayer;
-import net.minecraft.world.biome.layer.SimpleLandNoiseLayer;
-import net.minecraft.world.biome.layer.SmoothenShorelineLayer;
+import net.minecraft.world.biome.layer.*;
+
+import java.util.function.LongFunction;
 
 public class SpookyBiomeLayers {
 	
@@ -78,7 +65,7 @@ public class SpookyBiomeLayers {
 		BiomeLayerSampler noiseLayer = new BiomeLayerSampler(list.get(0));
 		BiomeLayerSampler biomeLayer = new BiomeLayerSampler(list.get(1));
 		
-		return new BiomeLayerSampler[] {noiseLayer, biomeLayer};
+		return new BiomeLayerSampler[]{noiseLayer, biomeLayer};
 	}
 }
 

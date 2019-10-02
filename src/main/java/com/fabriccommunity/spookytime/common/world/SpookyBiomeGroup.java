@@ -1,26 +1,39 @@
 package com.fabriccommunity.spookytime.common.world;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.layer.LayerRandomnessSource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SpookyBiomeGroup {
 	
 	private static List<SpookyBiomeGroup> spookyBiomeGroups = new ArrayList<>();
 	private static Int2ObjectMap<SpookyBiomeGroup> reverseMap = new Int2ObjectArrayMap<>();
+	private final int id;
+	private double weightTotal = 0;
+	private List<WeightedBiomeEntry> entries = new ArrayList<>();
 	
 	public SpookyBiomeGroup(int id) {
 		this.id = id;
 	}
 	
-	private final int id;
+	public static int pickRandomBiomeGroup(LayerRandomnessSource rand) {
+		return spookyBiomeGroups.get(rand.nextInt(spookyBiomeGroups.size())).id;
+	}
 	
-	private double weightTotal = 0;
-	private List<WeightedBiomeEntry> entries = new ArrayList<>();
+	public static SpookyBiomeGroup getById(int id) {
+		return reverseMap.get(id);
+	}
+	
+	public static SpookyBiomeGroup addBiomeGroup(SpookyBiomeGroup group) {
+		spookyBiomeGroups.add(group);
+		reverseMap.put(group.id, group);
+		return group;
+	}
 	
 	public int getId() {
 		return id;
@@ -43,27 +56,13 @@ public class SpookyBiomeGroup {
 		return this;
 	}
 	
-	public static int pickRandomBiomeGroup(LayerRandomnessSource rand) {
-		return spookyBiomeGroups.get(rand.nextInt(spookyBiomeGroups.size())).id;
-	}
-	
-	public static SpookyBiomeGroup getById(int id) {
-		return reverseMap.get(id);
-	}
-	
-	public static SpookyBiomeGroup addBiomeGroup(SpookyBiomeGroup group) {
-		spookyBiomeGroups.add(group);
-		reverseMap.put(group.id, group);
-		return group;
-	}
-	
 	static class WeightedBiomeEntry {
+		final Biome biome;
+		final double weight;
+		
 		WeightedBiomeEntry(Biome biome, double weight) {
 			this.biome = biome;
 			this.weight = weight;
 		}
-		
-		final Biome biome;
-		final double weight;
 	}
 }

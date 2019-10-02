@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.common.world;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-
 import com.fabriccommunity.spookytime.common.SpookyBiomes;
 import com.fabriccommunity.spookytime.common.world.layer.SpookyBiomeLayers;
 import com.google.common.collect.Sets;
@@ -16,14 +11,19 @@ import net.minecraft.world.biome.layer.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-public class SpookyBiomeSource extends BiomeSource {
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
+public class SpookyBiomeSource extends BiomeSource {
+	
 	public final Biome[] allowedBiomes;
 	
 	public final BiomeLayerSampler biomeLayer, noiseLayer;
-
+	
 	public SpookyBiomeSource(long seed) {
-		allowedBiomes = new Biome[] {
+		allowedBiomes = new Biome[]{
 				SpookyBiomes.SPOOKY_FOREST
 		};
 		
@@ -32,22 +32,22 @@ public class SpookyBiomeSource extends BiomeSource {
 		noiseLayer = samplers[0];
 		biomeLayer = samplers[1];
 	}
-
+	
 	@Override
 	public Biome getBiome(int x, int z) {
 		return biomeLayer.sample(x, z);
 	}
-
+	
 	@Override
 	public Biome getBiomeForNoiseGen(int x, int z) {
 		return noiseLayer.sample(x, z);
 	}
-
+	
 	@Override
 	public Biome[] sampleBiomes(int x, int z, int xSize, int zSize, boolean cacheFlag) {
 		return this.biomeLayer.sample(x, z, xSize, zSize);
 	}
-
+	
 	@Override
 	public Set<Biome> getBiomesInArea(int x, int z, int range) {
 		int int_4 = x - range >> 2;
@@ -60,7 +60,7 @@ public class SpookyBiomeSource extends BiomeSource {
 		Collections.addAll(set_1, this.noiseLayer.sample(int_4, int_5, int_8, int_9));
 		return set_1;
 	}
-
+	
 	@Override
 	public BlockPos locateBiome(int x, int z, int range, List<Biome> biomes, Random random) {
 		int i = x - range >> 2;
@@ -72,12 +72,12 @@ public class SpookyBiomeSource extends BiomeSource {
 		BlockPos blockpos = null;
 		int k1 = 0;
 		Biome[] biomesInArea = this.sampleBiomes(x, z, i1, j1);
-
+		
 		for (int l1 = 0; l1 < i1 * j1; ++l1) {
 			int i2 = i + l1 % i1 << 2;
 			int j2 = j + l1 / i1 << 2;
 			Biome biome = biomesInArea[l1];
-
+			
 			if (biomes.contains(biome) && (blockpos == null || random.nextInt(k1 + 1) == 0)) {
 				blockpos = new BlockPos(i2, 0, j2);
 				++k1;
@@ -85,26 +85,26 @@ public class SpookyBiomeSource extends BiomeSource {
 		}
 		return blockpos;
 	}
-
+	
 	@Override
 	public boolean hasStructureFeature(StructureFeature<?> var1) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
 	@Override
 	public Set<BlockState> getTopMaterials() {
 		if (this.topMaterials.isEmpty()) {
 			Biome[] var1 = this.allowedBiomes;
 			int var2 = var1.length;
-
-			for(int var3 = 0; var3 < var2; ++var3) {
+			
+			for (int var3 = 0; var3 < var2; ++var3) {
 				Biome biome_1 = var1[var3];
 				this.topMaterials.add(biome_1.getSurfaceConfig().getTopMaterial());
 			}
 		}
-
+		
 		return this.topMaterials;
 	}
-
+	
 }
