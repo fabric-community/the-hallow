@@ -13,6 +13,8 @@ minecraft {
 
 repositories {
 	maven { url = "https://maven.fabricmc.net/" }
+	maven { url = "https://jitpack.io" }
+	maven { url 'http://server.bbkr.space:8081/artifactory/libs-release' }
 }
 
 dependencies {
@@ -22,6 +24,9 @@ dependencies {
 	modApi "net.fabricmc.fabric-api:fabric-api:0.4.0+build.240-1.14"
 
 	modApi ("io.github.prospector:modmenu:1.7.13+build.123")
+
+	modImplementation "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
+	include "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
 }
 
 // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
