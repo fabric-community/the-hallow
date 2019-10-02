@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.common.CandyComponent.VillagerCandyComponnt;
+import com.fabriccommunity.spookytime.common.CandyComponent.VillagerCandyComponent;
 
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
@@ -27,7 +27,7 @@ public class SpookyEntities
 	public static EntityType<PumpcownEntity> PUMPCOWN;
 
     public static void init(){
-		EntityComponentCallback.event(VillagerEntity.class).register((player, components) -> components.put(CANDY, new VillagerCandyComponnt()));
+		EntityComponentCallback.event(VillagerEntity.class).register((player, components) -> components.put(CANDY, new VillagerCandyComponent()));
         PUMPCOWN = register("pumpcown", FabricEntityTypeBuilder.create(EntityCategory.CREATURE, PumpcownEntity::new).size(EntityDimensions.fixed(0.9F, 1.4F)).build());
     }
 

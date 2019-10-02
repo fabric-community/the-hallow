@@ -15,7 +15,7 @@ public interface CandyComponent extends Component {
 
 	public void setLastCandyTime(Entity entity, long time);
 
-	public class VillagerCandyComponnt implements CandyComponent {
+	public class VillagerCandyComponent implements CandyComponent {
 		public Map<UUID, Long> lastGivenCandy = new HashMap<UUID, Long>();
 
 		public boolean canGiveCandy(Entity entity) {
