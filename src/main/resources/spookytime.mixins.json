@@ -5,7 +5,9 @@
 	"mixins": [
 		"AnvilBlockMixin",
 		"ServerWorldLightningMixin",
-		"MixinPlantBlock"
+		"MixinPlantBlock",
+		"MixinAbstractSkeletonEntity",
+		"MixinSkeletonEntity"
 	],
 	"client": [
 

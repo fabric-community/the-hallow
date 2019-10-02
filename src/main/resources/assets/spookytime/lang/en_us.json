@@ -17,5 +17,7 @@
     "block.spookytime.tainted_gravel": "Tainted Gravel",
     "block.spookytime.tainted_sand": "Tainted Sand",
     
-    "entity.spookytime.pumpcown": "Pumpcown"
+    "entity.spookytime.pumpcown": "Pumpcown",
+
+    "item.spookytime.spooky_trumpet": "Spooky Trumpet"
 }
