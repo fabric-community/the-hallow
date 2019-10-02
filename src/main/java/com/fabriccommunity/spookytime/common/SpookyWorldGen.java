@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime.common;
 
-import com.fabriccommunity.spookytime.common.world.SpookyBiomeGroup;
-import com.fabriccommunity.spookytime.common.world.layer.AddSubBiomesLayer;
+import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
+import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 

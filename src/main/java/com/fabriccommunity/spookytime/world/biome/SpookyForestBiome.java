@@ -1,4 +1,6 @@
-package com.fabriccommunity.spookytime.common.biome;
+package com.fabriccommunity.spookytime.world.biome;
+
+import com.fabriccommunity.spookytime.common.SpookyEntities;
 
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
@@ -43,6 +45,7 @@ public class SpookyForestBiome extends Biome {
 		DefaultBiomeFeatures.addDefaultLakes(this);
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(net.minecraft.world.gen.feature.Feature.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		SpookyBiomeFeatures.addSpookyForestTrees(this);
+		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.PUMPCOWN, 8, 4, 8));
 		this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ZOMBIE, 95, 4, 4));

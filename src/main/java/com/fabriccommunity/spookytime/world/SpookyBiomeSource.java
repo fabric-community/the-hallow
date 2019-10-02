@@ -1,7 +1,7 @@
-package com.fabriccommunity.spookytime.common.world;
+package com.fabriccommunity.spookytime.world;
 
 import com.fabriccommunity.spookytime.common.SpookyBiomes;
-import com.fabriccommunity.spookytime.common.world.layer.SpookyBiomeLayers;
+import com.fabriccommunity.spookytime.world.layer.SpookyBiomeLayers;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.BlockState;

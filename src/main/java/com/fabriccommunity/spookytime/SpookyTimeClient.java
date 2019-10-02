@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime;
 
-import com.fabriccommunity.spookytime.client.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.client.SpookyColors;
+import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 
 import net.fabricmc.api.ClientModInitializer;

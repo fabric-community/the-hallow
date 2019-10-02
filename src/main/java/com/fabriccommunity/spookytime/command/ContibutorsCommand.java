@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.cmd;
+package com.fabriccommunity.spookytime.command;
 
 import com.fabriccommunity.spookytime.util.Contributors;
 import com.mojang.brigadier.context.CommandContext;

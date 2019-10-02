@@ -1,6 +1,6 @@
-package com.fabriccommunity.spookytime.common.world.layer;
+package com.fabriccommunity.spookytime.world.layer;
 
-import com.fabriccommunity.spookytime.common.world.SpookyBiomeGroup;
+import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
 
 import net.minecraft.world.biome.layer.InitLayer;
 import net.minecraft.world.biome.layer.LayerRandomnessSource;

@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.world.layer;
+package com.fabriccommunity.spookytime.world.layer;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
