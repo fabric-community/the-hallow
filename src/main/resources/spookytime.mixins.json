@@ -15,8 +15,8 @@
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"AnvilBlockMixin",
-    "ServerWorldLightningMixin",
-    "ZombiePumpkinMixin",
+		"ServerWorldLightningMixin",
+		"ZombiePumpkinMixin",
 		"SkeletonPumpkinMixin",
 		"EndermanPumpkinMixin",
 		"MixinPlantBlock",
