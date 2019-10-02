@@ -5,7 +5,8 @@
 	"mixins": [
 		"AnvilBlockMixin",
         "ServerWorldLightningMixin",
-        "MobPumpkinMixin"
+        "ZombiePumpkinMixin",
+		"SkeletonPumpkinMixin"
 	],
 	"client": [
 
