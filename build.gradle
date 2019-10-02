@@ -3,6 +3,12 @@ plugins {
 }
 
 repositories {
+	maven {
+		url = "https://maven.fabricmc.net/"
+	}
+ 	maven {
+		 url = "https://jitpack.io"
+	}
 	mavenLocal()
 	maven {
 		name = "CurseForge"
@@ -11,10 +17,6 @@ repositories {
 	maven {
 		name = "GitHub"
 		url = "https://maven.pkg.github.com"
-	}
-	maven {
-		name = "JitPack"
-		url = "https://jitpack.io"
 	}
 	maven {
 		name = "NerdHubMC"
@@ -61,24 +63,6 @@ processResources {
 	
 	from(sourceSets.main.resources.srcDirs) {
 		exclude "fabric.mod.json"
-	}
-}
-
-repositories {
-	maven { url = "https://maven.fabricmc.net/" }
-  maven { url = "https://jitpack.io" }
-}
-
-dependencies {
-	minecraft "com.mojang:minecraft:1.14.4"
-	mappings "net.fabricmc:yarn:1.14.4+build.13"
-	modApi "net.fabricmc:fabric-loader:0.6.2+build.166"
-	modApi "net.fabricmc.fabric-api:fabric-api:0.4.0+build.240-1.14"
-  
-    modImplementation "com.github.Draylar:world-traveler:1.0.4"
-
-	modApi ("io.github.prospector:modmenu:1.7.13+build.123") {
-		transitive = false
 	}
 }
 
