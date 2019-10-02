@@ -16,7 +16,7 @@ public class EndermanEntityMixin {
     @Inject(at = @At("HEAD"), method = "isPlayerStaring", cancellable = true)
     private void isPlayerStaring(final PlayerEntity playerEntity, final CallbackInfoReturnable<Boolean> info) {
         TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(playerEntity);
-        if(trinketPlayer.getStack("head:mask").getItem().equals(SpookyItems.BROWN_BAG)) {
+        if(trinketPlayer.getStack("head:mask").getItem().equals(SpookyItems.PAPER_BAG)) {
             info.setReturnValue(false);
         }
     }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "spookytime:item/brown_bag"
+    "layer0": "spookytime:item/paper_bag"
   }
 }
