@@ -5,13 +5,17 @@
     "spookytime.github": "https://github.com/fabric-community/spooky-time",
     "spookytime.contrib.title": "=====Contributors=====",
     "spookytime.contrib.entry": "%d, ",
+    
     "spookytime.cmd.spooktober": "It is Spooktober!",
     "spookytime.cmd.tillspooktober": "It is %d days till Spooktober",
+    
     "item.spookytime.pumpcown_spawn_egg": "Pumpcown Spawn Egg",
+    
     "block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
     "block.spookytime.deceased_grass_block": "Deceased Grass Block",
     "block.spookytime.deceased_dirt": "Deceased Dirt",
     "block.spookytime.tainted_gravel": "Tainted Gravel",
     "block.spookytime.tainted_sand": "Tainted Sand",
+    
     "entity.spookytime.pumpcown": "Pumpcown"
 }
