@@ -10,10 +10,9 @@ public class SpookyTime implements ModInitializer
 	public static final String MODID = "spookytime";
 
 	@Override
-	public void onInitialize()
-	{
+	public void onInitialize() {
+		SpookyEntities.init();
 		SpookyBlocks.init();
 		SpookyItems.init();
-		SpookyEntities.init();
 	}
 }

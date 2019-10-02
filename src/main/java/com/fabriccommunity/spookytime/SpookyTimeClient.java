@@ -8,10 +8,8 @@ import net.fabricmc.fabric.api.client.render.EntityRendererRegistry;
 
 public class SpookyTimeClient implements ClientModInitializer
 {
-
 	@Override
-	public void onInitializeClient()
-	{
+	public void onInitializeClient() {
 		EntityRendererRegistry.INSTANCE.register(PumpcownEntity.class, (dispatcher, context) -> new PumpcownEntityRenderer(dispatcher));
 	}
 }
