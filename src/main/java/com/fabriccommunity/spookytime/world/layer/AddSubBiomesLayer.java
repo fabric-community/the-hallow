@@ -1,15 +1,11 @@
 package com.fabriccommunity.spookytime.world.layer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.layer.LayerRandomnessSource;
 import net.minecraft.world.biome.layer.SouthEastSamplingLayer;
+
+import java.util.*;
 
 public enum AddSubBiomesLayer implements SouthEastSamplingLayer {
 	LARGE,
@@ -17,6 +13,10 @@ public enum AddSubBiomesLayer implements SouthEastSamplingLayer {
 	SMALL;
 	
 	private final Map<Biome, List<ChanceBiomeEntry>> biomes = new HashMap<>();
+	
+	private static double nextDouble(LayerRandomnessSource rand) {
+		return (double) rand.nextInt(Integer.MAX_VALUE) / (double) Integer.MAX_VALUE;
+	}
 	
 	@Override
 	public int sample(LayerRandomnessSource rand, int value) {
@@ -44,17 +44,13 @@ public enum AddSubBiomesLayer implements SouthEastSamplingLayer {
 		this.biomes.computeIfAbsent(parent, b -> new ArrayList<>()).add(new ChanceBiomeEntry(subBiome, chance));
 	}
 	
-	private static double nextDouble(LayerRandomnessSource rand) {
-		return (double) rand.nextInt(Integer.MAX_VALUE) / (double) Integer.MAX_VALUE;
-	}
-	
 	static class ChanceBiomeEntry {
+		final Biome biome;
+		final double chance;
+		
 		ChanceBiomeEntry(Biome biome, double chance) {
 			this.biome = biome;
 			this.chance = chance;
 		}
-		
-		final Biome biome;
-		final double chance;
 	}
 }

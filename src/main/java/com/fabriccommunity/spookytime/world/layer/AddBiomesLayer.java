@@ -8,7 +8,7 @@ import net.minecraft.world.biome.layer.LayerRandomnessSource;
 
 public enum AddBiomesLayer implements IdentitySamplingLayer {
 	INSTANCE;
-
+	
 	@Override
 	public int sample(LayerRandomnessSource rand, int groupId) {
 		SpookyBiomeGroup group = SpookyBiomeGroup.getById(groupId);

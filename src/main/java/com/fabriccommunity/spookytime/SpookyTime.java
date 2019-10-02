@@ -1,23 +1,22 @@
 package com.fabriccommunity.spookytime;
 
+import com.fabriccommunity.spookytime.common.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.fabriccommunity.spookytime.common.SpookyBiomes;
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
-import com.fabriccommunity.spookytime.common.SpookyCommands;
-import com.fabriccommunity.spookytime.common.SpookyDimensions;
-import com.fabriccommunity.spookytime.common.SpookyEntities;
-import com.fabriccommunity.spookytime.common.SpookyItems;
-import com.fabriccommunity.spookytime.common.SpookyWorldGen;
-
 import net.fabricmc.api.ModInitializer;
+
+import net.minecraft.util.Identifier;
 
 public class SpookyTime implements ModInitializer {
 	
 	public static final String MODID = "spookytime";
 	public static final Logger LOGGER = LogManager.getLogger("SpookyTime");
-
+	
+	public static Identifier id(String name) {
+		return new Identifier(MODID, name);
+	}
+	
 	@Override
 	public void onInitialize() {
 		SpookyEntities.init();

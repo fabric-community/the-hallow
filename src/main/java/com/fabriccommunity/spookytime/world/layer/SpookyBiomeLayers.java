@@ -76,7 +76,7 @@ public class SpookyBiomeLayers {
 		BiomeLayerSampler noiseLayer = new BiomeLayerSampler(list.get(0));
 		BiomeLayerSampler biomeLayer = new BiomeLayerSampler(list.get(1));
 		
-		return new BiomeLayerSampler[] {noiseLayer, biomeLayer};
+		return new BiomeLayerSampler[]{noiseLayer, biomeLayer};
 	}
 }
 
