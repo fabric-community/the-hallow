@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.block;
+package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.common.SpookyBlocks;
 import net.minecraft.block.*;

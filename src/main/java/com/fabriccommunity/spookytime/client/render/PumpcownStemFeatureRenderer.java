@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.client;
+package com.fabriccommunity.spookytime.client.render;
 
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import com.mojang.blaze3d.platform.GlStateManager;

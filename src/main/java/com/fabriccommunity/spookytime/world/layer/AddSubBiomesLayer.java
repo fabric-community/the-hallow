@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.world.layer;
+package com.fabriccommunity.spookytime.world.layer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

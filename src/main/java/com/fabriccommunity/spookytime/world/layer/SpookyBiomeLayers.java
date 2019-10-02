@@ -1,11 +1,9 @@
-package com.fabriccommunity.spookytime.common.world.layer;
+package com.fabriccommunity.spookytime.world.layer;
 
 import java.util.function.LongFunction;
 
 import com.google.common.collect.ImmutableList;
 
-import net.minecraft.world.biome.RiverBiome;
-import net.minecraft.world.biome.layer.AddHillsLayer;
 import net.minecraft.world.biome.layer.AddRiversLayer;
 import net.minecraft.world.biome.layer.BiomeLayerSampler;
 import net.minecraft.world.biome.layer.CachingLayerContext;

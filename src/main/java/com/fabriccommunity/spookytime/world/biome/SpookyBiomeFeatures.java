@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.biome;
+package com.fabriccommunity.spookytime.world.biome;
 
 import com.fabriccommunity.spookytime.common.SpookyBlocks;
 import com.google.common.collect.Lists;

@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.world;
+package com.fabriccommunity.spookytime.world;
 
 import java.util.ArrayList;
 import java.util.List;

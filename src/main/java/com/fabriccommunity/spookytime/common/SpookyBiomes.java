@@ -1,7 +1,8 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.common.biome.SpookyForestBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
+
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
