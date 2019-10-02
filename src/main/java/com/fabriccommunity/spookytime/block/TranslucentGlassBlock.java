@@ -4,8 +4,8 @@ import net.minecraft.block.AbstractGlassBlock;
 import net.minecraft.block.BlockRenderLayer;
 
 public class TranslucentGlassBlock extends AbstractGlassBlock {
-	public TranslucentGlassBlock(Settings block$Settings_1) {
-		super(block$Settings_1);
+	public TranslucentGlassBlock(Settings settings) {
+		super(settings);
 	}
 	
 	public BlockRenderLayer getRenderLayer() {
