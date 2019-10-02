@@ -6,6 +6,9 @@ Hacktoberfest is a fun event that takes place every October which teaches people
 
 # General
  Spooky Time is a Halloween themed community mod. If you have any spooky ideas, PR it! At the end of the month, we'll publish the mod to curseforge so everyone can play it.
+ 
+ # Style Guidelines
+ When PRing to Fabric Community projects, we ask that you make an attempt to follow our style rules. A repo with more information [can be found here](https://github.com/fabric-community/style-guidelines). 
 
 # Rules
  1. all contributions must be serious; no simple whitespace fixes or single character changes.
