@@ -13,8 +13,6 @@ import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks
 {
-    
-
     public static Block TINY_PUMPKIN;
 
     public static void init() {

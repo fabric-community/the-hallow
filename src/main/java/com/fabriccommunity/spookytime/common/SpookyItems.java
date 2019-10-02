@@ -11,7 +11,7 @@ import net.minecraft.util.registry.Registry;
 
 public class SpookyItems
 {
-	  public static Item PUMPCOWN_SPAWN_EGG;
+	public static Item PUMPCOWN_SPAWN_EGG;
 
     public static BlockItem TINY_PUMPKIN;
 

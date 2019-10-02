@@ -12,9 +12,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class TinyPumpkinBlock extends HorizontalFacingBlock {
-
-
+public class TinyPumpkinBlock extends HorizontalFacingBlock
+{
     protected static final VoxelShape Y_SHAPE = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D);    
 
     public TinyPumpkinBlock(Settings blockSettings) {
