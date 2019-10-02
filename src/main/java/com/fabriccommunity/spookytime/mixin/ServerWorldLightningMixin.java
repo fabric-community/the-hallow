@@ -14,7 +14,7 @@ import java.util.Random;
  */
 @Mixin(ServerWorld.class)
 public class ServerWorldLightningMixin {
-	@Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I", ordinal = 0))
+	@Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I", ordinal = 0, remap = false))
 	private int makeItThunderrr(Random random, int bound) {
 		return random.nextInt(bound) / 80;
 	}
