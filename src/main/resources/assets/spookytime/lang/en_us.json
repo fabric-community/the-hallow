@@ -13,12 +13,5 @@
     "item.spookytime.blaze_skirt": "Blaze Skirt",
     
     "block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
-    "block.spookytime.deceased_grass_block": "Deceased Grass Block",
-    "block.spookytime.deceased_dirt": "Deceased Dirt",
-    "block.spookytime.tainted_gravel": "Tainted Gravel",
-    "block.spookytime.tainted_sand": "Tainted Sand",
-    
-    "entity.spookytime.pumpcown": "Pumpcown",
-    
-    "biome.spookytime.spooky_forest": "Spooky Forest"
+    "item.spookytime.baked_pumpkin_seeds": "Baked Pumpkin Seeds"
 }
