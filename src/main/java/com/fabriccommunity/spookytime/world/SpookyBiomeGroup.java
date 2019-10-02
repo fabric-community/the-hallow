@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common.world;
+package com.fabriccommunity.spookytime.world;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;

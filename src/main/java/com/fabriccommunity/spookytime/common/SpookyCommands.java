@@ -1,8 +1,11 @@
 package com.fabriccommunity.spookytime.common;
 
-import com.fabriccommunity.spookytime.common.cmd.ContibutorsCommand;
-import com.fabriccommunity.spookytime.common.cmd.SpooktoberCommand;
-import com.fabriccommunity.spookytime.common.cmd.SpookyCommand;
+import static net.minecraft.server.command.CommandManager.literal;
+
+import com.fabriccommunity.spookytime.command.ContibutorsCommand;
+import com.fabriccommunity.spookytime.command.SpooktoberCommand;
+import com.fabriccommunity.spookytime.command.SpookyCommand;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
@@ -10,8 +13,6 @@ import com.mojang.brigadier.tree.RootCommandNode;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
 
 import net.minecraft.server.command.ServerCommandSource;
-
-import static net.minecraft.server.command.CommandManager.literal;
 
 public class SpookyCommands {
 	
