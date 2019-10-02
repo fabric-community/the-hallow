@@ -1,11 +1,17 @@
 package com.fabriccommunity.spookytime.mixin;
 
+<<<<<<< HEAD
 import com.fabriccommunity.spookytime.SpookyConfig;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.level.LevelProperties;
+=======
+>>>>>>> pr
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.level.LevelProperties;
 
 import java.util.Random;
 
