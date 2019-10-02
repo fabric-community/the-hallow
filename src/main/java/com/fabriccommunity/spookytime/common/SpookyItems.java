@@ -12,6 +12,12 @@ import net.minecraft.util.registry.Registry;
 
 public class SpookyItems {
 	public static Item BLAZE_SKIRT;
+	
+	public static Item SPOOKIUM_INGOT;
+	public static Item SPOOKIUM_NUGGET;
+	
+	public static Item SOUL_BOTTLE;
+	
 	public static Item PUMPCOWN_SPAWN_EGG;
 	
 	private SpookyItems() {

@@ -2,6 +2,8 @@ package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
 import com.fabriccommunity.spookytime.common.block.DeceasedGrassBlock;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
@@ -21,6 +23,14 @@ public class SpookyBlocks {
 	public static Block TAINTED_SAND;
 	public static Block TAINTED_GRAVEL;
 	
+	public static Block TAINTED_GLASS;
+	public static Block TAINTED_GLASS_PANE;
+	public static Block SOUL_GLASS;
+	public static Block SOUL_GLASS_PANE;
+	
+	public static Block SPOOKIUM_ORE;
+	public static Block SPOOKIUM_BLOCK;
+	
 	private SpookyBlocks() {
 		// NO-OP
 	}
@@ -32,6 +42,14 @@ public class SpookyBlocks {
 		DECEASED_GRASS_BLOCK = register("deceased_grass_block", new DeceasedGrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).materialColor(MaterialColor.PURPLE).build()));
 		TAINTED_SAND = register("tainted_sand", new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).materialColor(MaterialColor.PURPLE).build()));
 		TAINTED_GRAVEL = register("tainted_gravel", new FallingBlock(FabricBlockSettings.copy(Blocks.GRAVEL).materialColor(MaterialColor.PURPLE).build()));
+		
+		TAINTED_GLASS = register("tainted_glass", new TranslucentGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.PURPLE).build()));
+		TAINTED_GLASS_PANE = register("tainted_glass_pane", new TranslucentGlassPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build()));
+		SOUL_GLASS = register("soul_glass", new TranslucentGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.BROWN).build()));
+		SOUL_GLASS_PANE = register("soul_glass_pane", new TranslucentGlassPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build()));
+		
+		SPOOKIUM_ORE = register("spookium_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()));
+		SPOOKIUM_BLOCK = register("spookium_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()));
 	}
 	
 	static <T extends Block> T register(String name, T block, Item.Settings settings) {
