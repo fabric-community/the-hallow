@@ -28,6 +28,7 @@ public class SpookyBlocks {
 	public static void init() {
         CARVABLE_PUMPKIN = register("carvable_pumpkin", new CarvablePumpkinBlock());
         CARVABLE_PUMPKIN_BLOCK_ENTITY = BlockEntityType.Builder.create(CarvablePumpkinBlockEntity::new, CARVABLE_PUMPKIN).build(null);
+        Registry.register(Registry.BLOCK_ENTITY, new Identifier(SpookyTime.MODID, "carvable_pumpkin"), CARVABLE_PUMPKIN_BLOCK_ENTITY);
 		TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(ItemGroup.MISC));
 		
 		DECEASED_DIRT = register("deceased_dirt", new Block(FabricBlockSettings.copy(Blocks.DIRT).materialColor(MaterialColor.PURPLE).build()));
