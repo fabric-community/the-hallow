@@ -3,9 +3,11 @@
     "package": "com.fabriccommunity.spookytime.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "LightmapTextureManagerMixin"
-    ],
-    "client": [
+        "LightmapTextureManagerMixin",
+		"AnvilBlockMixin",
+        "ServerWorldLightningMixin"
+	],
+	"client": [
 
     ],
     "injectors": {

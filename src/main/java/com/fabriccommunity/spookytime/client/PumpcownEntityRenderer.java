@@ -9,7 +9,8 @@ import net.minecraft.client.render.entity.model.CowEntityModel;
 import net.minecraft.util.Identifier;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
-public class PumpcownEntityRenderer extends MobEntityRenderer<PumpcownEntity, CowEntityModel<PumpcownEntity>> {
+public class PumpcownEntityRenderer extends MobEntityRenderer<PumpcownEntity, CowEntityModel<PumpcownEntity>>
+{
 	private static final Identifier SKIN = new Identifier(SpookyTime.MODID, "textures/entity/pumpcown.png");
 	
 	public PumpcownEntityRenderer(EntityRenderDispatcher dispatcher) {

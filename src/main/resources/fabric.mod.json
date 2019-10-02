@@ -1,37 +1,33 @@
 
 {
-  "schemaVersion": 1,
-  "id": "spookytime",
-  "version": "${version}",
-
-  "name": "Spooky Time",
-  "description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
-  "authors": [
-    "The Fabric Community"
-  ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/fabric-community/spooky-time"
-  },
-
-  "license": "MIT",
-  "icon": "assets/spookytime/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.fabriccommunity.spookytime.SpookyTime"
-    ],
-	"client": [
-	  "com.fabriccommunity.spookytime.SpookyTimeClient"
-	]
-  },
-  "mixins": [
-    "spookytime.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.4.0",
-    "fabric": "*"
-  }
+	"schemaVersion": 1,
+	"id": "spookytime",
+	"version": "${version}",
+	"name": "Spooky Time",
+	"description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
+	"authors": [
+		"The Fabric Community"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/fabric-community/spooky-time"
+	},
+	"license": "MIT",
+	"icon": "assets/spookytime/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.fabriccommunity.spookytime.SpookyTime"
+		],
+		"client": [
+			"com.fabriccommunity.spookytime.SpookyTimeClient"
+		]
+	},
+	"mixins": [
+		"spookytime.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	}
 }

@@ -26,7 +26,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class PumpcownEntity extends CowEntity {
+public class PumpcownEntity extends CowEntity
+{
 	public static final BlockState STEM_FEATURE = Blocks.PUMPKIN_STEM.getDefaultState().with(StemBlock.AGE, 7);
 
 	public PumpcownEntity(EntityType<? extends CowEntity> entity, World world) {
@@ -50,6 +51,7 @@ public class PumpcownEntity extends CowEntity {
 		return itemStack_1.getItem() == Items.PUMPKIN_PIE;
 	}
 	
+	@Override
 	public boolean interactMob(PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.getItem() == Items.SHEARS && this.getBreedingAge() >= 0) {
