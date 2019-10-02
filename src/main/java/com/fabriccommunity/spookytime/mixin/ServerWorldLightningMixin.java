@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime.mixin;
 
+import com.fabriccommunity.spookytime.SpookyConfig;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.level.LevelProperties;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,10 +16,10 @@ import java.util.Random;
 public class ServerWorldLightningMixin {
     @Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I", ordinal = 0))
     private int makeItThunderrr(Random random, int bound) {
-        return random.nextInt(bound) / 80;
+        return random.nextInt(bound) / SpookyConfig.SpookyWeather.thunderModifier;
     }
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/LevelProperties;getClearWeatherTime()I", ordinal = 0))
     private int ofcWeAllLoveThunderstorms(LevelProperties levelProperties) {
-        return levelProperties.getClearWeatherTime() > 1 ? levelProperties.getClearWeatherTime() - 50 : 0;
+        return SpookyConfig.SpookyWeather.lessClearSkies ? levelProperties.getClearWeatherTime() > 1 ? levelProperties.getClearWeatherTime() - 50 : 0 : levelProperties.getClearWeatherTime();
     }
 }
