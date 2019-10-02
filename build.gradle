@@ -2,6 +2,28 @@ plugins {
 	id 'fabric-loom' version '0.2.5-SNAPSHOT'
 }
 
+repositories {
+	maven {
+		url = "https://maven.fabricmc.net/"
+	}
+ 	maven {
+		 url = "https://jitpack.io"
+	}
+	mavenLocal()
+	maven {
+		name = "CurseForge"
+		url = "https://minecraft.curseforge.com/api/maven"
+	}
+	maven {
+		name = "GitHub"
+		url = "https://maven.pkg.github.com"
+	}
+	maven {
+		name = "NerdHubMC"
+		url = "https://maven.abusedmaster.xyz/"
+	}
+}
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -9,11 +31,7 @@ archivesBaseName = "spooky-time"
 version = "1.0.0"
 
 minecraft {
-}
-
-repositories {
-	maven { url = "https://maven.fabricmc.net/" }
-  maven { url = "https://jitpack.io" }
+	
 }
 
 dependencies {
@@ -26,6 +44,25 @@ dependencies {
 
 	modApi ("io.github.prospector:modmenu:1.7.13+build.123") {
 		transitive = false
+	}
+	
+	modCompile "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-base:${cardinal_components_version}"
+	include "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-base:${cardinal_components_version}"
+	modCompile "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-entity:${cardinal_components_version}"
+	include "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-entity:${cardinal_components_version}"
+	modImplementation "com.github.emilyploszaj:trinkets:${trinkets_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+	
+	from(sourceSets.main.resources.srcDirs) {
+		include "fabric.mod.json"
+		expand "version": project.version
+	}
+	
+	from(sourceSets.main.resources.srcDirs) {
+		exclude "fabric.mod.json"
 	}
 }
 

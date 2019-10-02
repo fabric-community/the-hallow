@@ -5,7 +5,8 @@
 	"mixins": [
 		"AnvilBlockMixin",
 		"ServerWorldLightningMixin",
-		"MixinPlantBlock"
+		"MixinPlantBlock",
+		"ServerPlayNetworkHandlerMixin"
 	],
 	"client": [
 
