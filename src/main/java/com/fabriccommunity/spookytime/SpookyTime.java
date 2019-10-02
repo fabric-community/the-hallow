@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.fabriccommunity.spookytime.common.SpookyBiomes;
 import com.fabriccommunity.spookytime.common.SpookyBlocks;
+import com.fabriccommunity.spookytime.common.SpookyCommands;
 import com.fabriccommunity.spookytime.common.SpookyDimensions;
 import com.fabriccommunity.spookytime.common.SpookyEntities;
 import com.fabriccommunity.spookytime.common.SpookyItems;
