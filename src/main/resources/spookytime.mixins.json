@@ -6,7 +6,8 @@
 		"AnvilBlockMixin",
         "ServerWorldLightningMixin",
         "ZombiePumpkinMixin",
-		"SkeletonPumpkinMixin"
+		"SkeletonPumpkinMixin",
+		"EndermanPumpkinMixin"
 	],
 	"client": [
 
