@@ -27,8 +27,8 @@ public abstract class EndermanPumpkinMixin extends HostileEntity {
     }
 
     @Override
-    public EntityData initialize(IWorld iWorld_1, LocalDifficulty localDifficulty_1, SpawnType spawnType_1, EntityData entityData_1, CompoundTag compoundTag_1) {
+    public EntityData initialize(IWorld iWorld, LocalDifficulty localDifficulty, SpawnType spawnType, EntityData entityData, CompoundTag compoundTag) {
         if (MixinHelpers.RANDOM.nextInt(10) == 0) this.setCarriedBlock((MixinHelpers.RANDOM.nextBoolean() ? Blocks.PUMPKIN : (MixinHelpers.RANDOM.nextBoolean() ? Blocks.CARVED_PUMPKIN : Blocks.JACK_O_LANTERN)).getDefaultState());
-        return super.initialize(iWorld_1, localDifficulty_1, spawnType_1, entityData_1, compoundTag_1);
+        return super.initialize(iWorld, localDifficulty, spawnType, entityData, compoundTag);
     }
 }

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(AbstractSkeletonEntity.class)
 public class SkeletonPumpkinMixin {
     @Redirect(method = "initialize", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/AbstractSkeletonEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
-    private ItemStack getStack(AbstractSkeletonEntity entity, EquipmentSlot equipmentSlot_1) {
-        return MixinHelpers.getEquippedOrPumpkin(entity, equipmentSlot_1);
+    private ItemStack getStack(AbstractSkeletonEntity entity, EquipmentSlot equipmentSlot) {
+        return MixinHelpers.getEquippedOrPumpkin(entity, equipmentSlot);
     }
 }
