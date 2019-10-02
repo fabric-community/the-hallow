@@ -30,7 +30,7 @@ import net.minecraft.world.World;
 
 @Mixin(ServerPlayNetworkHandler.class)
 public abstract class ServerPlayNetworkHandlerMixin{
-	public static final List<Item> costumeItems = new ArrayList<Item>();
+	private static final List<Item> costumeItems = new ArrayList<Item>();
 	static{
 		costumeItems.add(Items.ZOMBIE_HEAD);
 		costumeItems.add(Items.CREEPER_HEAD);
@@ -62,7 +62,7 @@ public abstract class ServerPlayNetworkHandlerMixin{
 			}
 		}
 	}
-	public boolean isPlayerWearingCostume(PlayerEntity player){
+	private boolean isPlayerWearingCostume(PlayerEntity player){
 		for(int i = 0; i < 4; i++){
 			if(costumeItems.contains(player.inventory.getArmorStack(i).getItem())) return true;
 		}
