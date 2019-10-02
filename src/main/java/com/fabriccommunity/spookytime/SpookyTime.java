@@ -1,10 +1,11 @@
 package com.fabriccommunity.spookytime;
 
 import com.fabriccommunity.spookytime.common.*;
+
 import net.fabricmc.api.ModInitializer;
 
-public class SpookyTime implements ModInitializer
-{
+public class SpookyTime implements ModInitializer {
+	
 	public static final String MODID = "spookytime";
 
 	@Override
@@ -12,6 +13,7 @@ public class SpookyTime implements ModInitializer
 		SpookyEntities.init();
 		SpookyBlocks.init();
 		SpookyItems.init();
+		SpookyCommands.init();
     SpookyBiomes.init();
     SpookyDimensions.init();
 	}
