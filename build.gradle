@@ -16,6 +16,9 @@ repositories {
 		url = "https://maven.abusedmaster.xyz/"
 	}
 	maven {
+		url 'http://server.bbkr.space:8081/artifactory/libs-release'
+	}
+	maven {
 		name = "CurseForge"
 		url = "https://minecraft.curseforge.com/api/maven"
 	}
@@ -73,6 +76,9 @@ dependencies {
 	modImplementation("com.github.emilyploszaj:trinkets:${trinkets_version}") {
 		transitive = false
 	}
+	
+	modImplementation "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
+	include "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
 }
 
 processResources {
