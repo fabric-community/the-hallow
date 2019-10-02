@@ -8,10 +8,10 @@ import net.minecraft.world.biome.Biome;
 
 public class SpookyBiomes
 {
-    public static SpookyForestBiome SPOOKY_FOREST;
+    public static final SpookyForestBiome SPOOKY_FOREST = register("spooky_forest", new SpookyForestBiome());
 
     public static void init() {
-        SPOOKY_FOREST = register("spooky_forest", new SpookyForestBiome());
+
     }
 
     private static <T extends Biome> T register(String name, T biome)

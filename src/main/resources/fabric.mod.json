@@ -23,7 +23,6 @@
       "com.fabriccommunity.spookytime.SpookyTime"
     ],
 	  "client": [
-      "com.fabriccommunity.spookytime.client.ClientInitializer"
 	    "com.fabriccommunity.spookytime.SpookyTimeClient"
 	  ]
   },

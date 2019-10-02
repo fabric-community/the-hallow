@@ -38,6 +38,7 @@ public class SpookyForestBiome extends Biome {
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDefaultStructures(this);
         DefaultBiomeFeatures.addDungeons(this);
+        SpookyBiomeFeatures.addDisks(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultGrass(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
@@ -55,12 +56,12 @@ public class SpookyForestBiome extends Biome {
     }
 
     @Override
-    public int getGrassColorAt(BlockPos pos) {
+    public int getGrassColorAt(BlockPos blockPos) {
         return GRASS_COLOR;
     }
 
     @Override
-    public int getFoliageColorAt(BlockPos blockPos_1) {
+    public int getFoliageColorAt(BlockPos blockPos) {
         return FOLIAGE_COLOR;
     }
 }

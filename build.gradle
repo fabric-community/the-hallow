@@ -22,7 +22,7 @@ dependencies {
 	modApi "net.fabricmc:fabric-loader:0.6.2+build.166"
 	modApi "net.fabricmc.fabric-api:fabric-api:0.4.0+build.240-1.14"
   
-  modImplementation "com.github.Draylar:world-traveler:1.0.4"
+    modImplementation "com.github.Draylar:world-traveler:1.0.4"
 
 	modApi ("io.github.prospector:modmenu:1.7.13+build.123") {
 		transitive = false
