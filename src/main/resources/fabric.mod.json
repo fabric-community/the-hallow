@@ -22,9 +22,10 @@
     "main": [
       "com.fabriccommunity.spookytime.SpookyTime"
     ],
-	"client": [
+	  "client": [
       "com.fabriccommunity.spookytime.client.ClientInitializer"
-    ]
+	    "com.fabriccommunity.spookytime.SpookyTimeClient"
+	  ]
   },
   "mixins": [
     "spookytime.mixins.json"
