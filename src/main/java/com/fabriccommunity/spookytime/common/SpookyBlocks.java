@@ -1,19 +1,19 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
 import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 
+import com.fabriccommunity.spookytime.block.entity.CarvablePumpkinBlockEntity;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-
-import net.minecraft.block.*;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.block.Block;
+import net.minecraft.block.Material;
+import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks {
+    public static BlockEntityType<CarvablePumpkinBlockEntity> CARVABLE_PUMPKIN_BLOCK_ENTITY;
+    public static Block CARVABLE_PUMPKIN;
 	public static Block TINY_PUMPKIN;
 	
 	public static Block DECEASED_DIRT;
@@ -26,6 +26,8 @@ public class SpookyBlocks {
 	}
 	
 	public static void init() {
+        CARVABLE_PUMPKIN = register("carvable_pumpkin", new CarvablePumpkinBlock());
+        CARVABLE_PUMPKIN_BLOCK_ENTITY = BlockEntityType.Builder.create(CarvablePumpkinBlockEntity::new, CARVABLE_PUMPKIN).build(null);
 		TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(ItemGroup.MISC));
 		
 		DECEASED_DIRT = register("deceased_dirt", new Block(FabricBlockSettings.copy(Blocks.DIRT).materialColor(MaterialColor.PURPLE).build()));
@@ -48,4 +50,5 @@ public class SpookyBlocks {
 		bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
 		return b;
 	}
+        
 }
