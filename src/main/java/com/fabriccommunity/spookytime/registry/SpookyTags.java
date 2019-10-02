@@ -1,12 +1,10 @@
 package com.fabriccommunity.spookytime.registry;
 
-import net.fabricmc.fabric.api.tag.TagRegistry;
+import com.fabriccommunity.spookytime.SpookyTime;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
-
-import com.fabriccommunity.spookytime.SpookyTime;
 
 public class SpookyTags {
 	public static final Tag<Item> COSTUMES = registerItem("costumes");
@@ -22,11 +20,11 @@ public class SpookyTags {
 	private SpookyTags() {
 		// NO-OP
 	}
-	
+
 	public static void init() {
 		// NO-OP
 	}
-	
+
 	public static Tag<Item> registerItem(String name) {
 		return TagRegistry.item(SpookyTime.id(name));
 	}

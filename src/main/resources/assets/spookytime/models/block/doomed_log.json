@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "spookytime:block/doomed_log_top",
+        "side": "spookytime:block/doomed_log"
+    }
+}

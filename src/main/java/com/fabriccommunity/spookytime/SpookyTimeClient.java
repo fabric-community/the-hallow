@@ -23,6 +23,7 @@ import com.fabriccommunity.spookytime.client.render.SpookyCactusEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
+import com.fabriccommunity.spookytime.doomtree.DoomTreeClient;
 import com.fabriccommunity.spookytime.entity.CrowEntity;
 import com.fabriccommunity.spookytime.entity.CultistEntity;
 import com.fabriccommunity.spookytime.entity.MummyEntity;
@@ -40,15 +41,18 @@ public class SpookyTimeClient implements ClientModInitializer {
 		EntityRendererRegistry.INSTANCE.register(SpookyCactusEntity.class, (dispatcher, context) -> new SpookyCactusEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(MummyEntity.class, (dispatcher, context) -> new MummyEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(CultistEntity.class, (dispatcher, context) -> new CultistEntityRenderer(dispatcher));
-		
+
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionPillarBlockEntity.class, new InfusionPillarBlockEntityRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionAltarBlockEntity.class, new InfusionAltarBlockEntityRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(SpookyTreasureChestBlockEntity.class, new SpookyTreasureChestBlockEntityRenderer());
-		
+
 		SpookyClientNetworking.init();
 		SpookyColors.init();
-		
+
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new FluidResourceLoader());
+
+		SpookyModels.init();
+		DoomTreeClient.init();
 	}
 }

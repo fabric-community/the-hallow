@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"ini",
+		"i i",
+		"iii"
+	],
+	"key": {
+		"i": {
+			"item": "minecraft:gold_ingot"
+		},
+		"n": {
+			"item": "minecraft:gold_nugget"
+		}
+	},
+	"result": {
+		"item": "spookytime:alchemical_basin_frame"
+	}
+}

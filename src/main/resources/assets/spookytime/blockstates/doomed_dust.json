@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "spookytime:block/doomed_dust" },
+            { "model": "spookytime:block/doomed_dust", "y": 90 },
+            { "model": "spookytime:block/doomed_dust", "y": 180 },
+            { "model": "spookytime:block/doomed_dust", "y": 270 }
+        ]
+    }
+}
