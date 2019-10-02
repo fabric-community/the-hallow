@@ -11,8 +11,8 @@ public class SpookyTime implements ModInitializer
 
 	@Override
 	public void onInitialize() {
+		SpookyEntities.init();
 		SpookyBlocks.init();
 		SpookyItems.init();
-		SpookyEntities.init();
 	}
 }
