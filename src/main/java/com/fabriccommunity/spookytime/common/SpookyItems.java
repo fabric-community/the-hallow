@@ -26,7 +26,7 @@ public class SpookyItems
     }
 
     private static <T extends Item> T register(String name, T item) {
-        return Registry.register(Registry.ITEM, new Identifier(SpookyTime.MODID, name), item);
+        return Registry.register(Registry.ITEM, SpookyTime.id(name), item);
     }
 
     private SpookyItems() {
