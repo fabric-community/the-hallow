@@ -45,7 +45,7 @@ public class CarvablePumpkinBlockEntity extends BlockEntity {
         return tag;
     }
     public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
-        world.rayTrace()
+
         Random random = new Random();
         carving[random.nextInt(4)][random.nextInt(16)][random.nextInt(16)] = true;
         return true;

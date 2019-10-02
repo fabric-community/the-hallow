@@ -1,14 +1,18 @@
 package com.fabriccommunity.spookytime.common;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.CarvablePumpkinBlock;
+import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
 import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
-
 import com.fabriccommunity.spookytime.block.entity.CarvablePumpkinBlockEntity;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
-import net.minecraft.entity.passive.CowEntity;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks {
