@@ -4,6 +4,7 @@ import com.fabriccommunity.spookytime.common.world.SpookyBiomeGroup;
 import com.fabriccommunity.spookytime.common.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
 import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
@@ -16,7 +17,7 @@ public class SpookyWorldGen {
 		addBiomeGroups(DEFAULT);
 	}
 	
-	private static void addBiomeGroups(SpookyBiomeGroup...biomeGroups) {
+	private static void addBiomeGroups(SpookyBiomeGroup... biomeGroups) {
 		for (SpookyBiomeGroup group : biomeGroups) {
 			SpookyBiomeGroup.addBiomeGroup(group);
 		}
@@ -37,5 +38,5 @@ public class SpookyWorldGen {
 	private static void setRiverBiome(Biome parent, Biome river) {
 		OverworldBiomes.setRiverBiome(parent, river);
 	}
-
+	
 }

@@ -11,26 +11,24 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class SpookyEntities
-{
+public class SpookyEntities {
 	public static EntityType<PumpcownEntity> PUMPCOWN;
-
-    public static void init() {
-        PUMPCOWN = register("pumpcown", FabricEntityTypeBuilder.create(EntityCategory.CREATURE, PumpcownEntity::new).size(EntityDimensions.fixed(0.9F, 1.4F)).build());
-    }
-
-    private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> blockEntity) {
-        return Registry.register(Registry.BLOCK_ENTITY, new Identifier(SpookyTime.MODID, name), blockEntity);
-    }
-
-    private static <T extends Entity> EntityType<T> register(String name, EntityType<T> entity) {
-        return Registry.register(Registry.ENTITY_TYPE, new Identifier(SpookyTime.MODID, name), entity);
-    }
-
-    private SpookyEntities() {
-        // NO-OP
-    }
+	
+	private SpookyEntities() {
+		// NO-OP
+	}
+	
+	public static void init() {
+		PUMPCOWN = register("pumpcown", FabricEntityTypeBuilder.create(EntityCategory.CREATURE, PumpcownEntity::new).size(EntityDimensions.fixed(0.9F, 1.4F)).build());
+	}
+	
+	private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> blockEntity) {
+		return Registry.register(Registry.BLOCK_ENTITY, SpookyTime.id(name), blockEntity);
+	}
+	
+	private static <T extends Entity> EntityType<T> register(String name, EntityType<T> entity) {
+		return Registry.register(Registry.ENTITY_TYPE, SpookyTime.id(name), entity);
+	}
 }
