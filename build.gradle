@@ -19,6 +19,10 @@ repositories {
 		name = "JitPack"
 		url = "https://jitpack.io"
 	}
+	maven {
+		name = "NerdHubMC"
+		url = "https://maven.abusedmaster.xyz/"
+	}
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -46,7 +50,13 @@ dependencies {
 	
 	modApi("io.github.prospector:modmenu:${modmenu_version}") {
 		transitive = false
-	}
+	}	
+	
+	modCompile "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-base:${cardinal_components_version}"
+	include "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-base:${cardinal_components_version}"
+	modCompile "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-entity:${cardinal_components_version}"
+	include "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-entity:${cardinal_components_version}"
+	modImplementation "com.github.emilyploszaj:trinkets:${trinkets_version}"
 }
 
 processResources {
