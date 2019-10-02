@@ -12,5 +12,4 @@ public enum SetBiomeGroupsLayer implements InitLayer {
 	public int sample(LayerRandomnessSource rand, int x, int z) {
 		return SpookyBiomeGroup.pickRandomBiomeGroup(rand);
 	}
-	
 }

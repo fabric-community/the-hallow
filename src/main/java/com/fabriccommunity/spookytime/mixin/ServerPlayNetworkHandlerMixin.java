@@ -1,8 +1,8 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import com.fabriccommunity.spookytime.common.CandyComponent;
-import com.fabriccommunity.spookytime.common.SpookyEntities;
-import com.fabriccommunity.spookytime.common.SpookyItems;
+import com.fabriccommunity.spookytime.component.CandyComponent;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
 import dev.emi.trinkets.api.TrinketsApi;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,6 +34,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Handles trick or treat functionality when saying "trick or treat" to a villager.
+ * @author Emi
+ */
 @Mixin(ServerPlayNetworkHandler.class)
 public abstract class ServerPlayNetworkHandlerMixin {
 	private static final List<Item> costumeItems = new ArrayList<Item>();

@@ -1,21 +1,17 @@
-package com.fabriccommunity.spookytime.common;
-
-import static net.minecraft.server.command.CommandManager.literal;
+package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.command.ContibutorsCommand;
 import com.fabriccommunity.spookytime.command.SpooktoberCommand;
 import com.fabriccommunity.spookytime.command.SpookyCommand;
-
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
-
 import net.fabricmc.fabric.api.registry.CommandRegistry;
-
 import net.minecraft.server.command.ServerCommandSource;
 
+import static net.minecraft.server.command.CommandManager.literal;
+
 public class SpookyCommands {
-	
 	private SpookyCommands() {
 		// NO-OP
 	}
@@ -25,8 +21,7 @@ public class SpookyCommands {
 	}
 	
 	private static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-		
-		RootCommandNode<ServerCommandSource> root = dispatcher.getRoot();
+	    RootCommandNode<ServerCommandSource> root = dispatcher.getRoot();
 		
 		LiteralCommandNode<ServerCommandSource> baseCmd = literal("spook").executes(SpookyCommand::run).build();
 		

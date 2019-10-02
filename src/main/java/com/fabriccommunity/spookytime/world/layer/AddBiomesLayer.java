@@ -15,6 +15,4 @@ public enum AddBiomesLayer implements IdentitySamplingLayer {
 		
 		return Registry.BIOME.getRawId(group.pickBiome(rand));
 	}
-	
-	
 }

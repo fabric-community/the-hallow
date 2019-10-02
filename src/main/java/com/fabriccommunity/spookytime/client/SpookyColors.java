@@ -1,6 +1,6 @@
 package com.fabriccommunity.spookytime.client;
 
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 import net.fabricmc.fabric.api.client.render.ColorProviderRegistry;
 

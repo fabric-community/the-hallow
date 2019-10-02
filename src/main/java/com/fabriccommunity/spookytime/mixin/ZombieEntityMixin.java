@@ -9,10 +9,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
+ * Handles zombies sometimes spawning wearing pumpkins on their heads.
  * @author Indigo Amann
  */
 @Mixin(ZombieEntity.class)
-public class ZombiePumpkinMixin {
+public class ZombieEntityMixin {
     @Redirect(method = "initialize", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/ZombieEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
     private ItemStack getStack(ZombieEntity zombieEntity, EquipmentSlot equipmentSlot) {
         return MixinHelpers.getEquippedOrPumpkin(zombieEntity, equipmentSlot);
