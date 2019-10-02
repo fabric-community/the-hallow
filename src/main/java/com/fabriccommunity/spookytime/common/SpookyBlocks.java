@@ -9,7 +9,7 @@ public class SpookyBlocks
 {
 
 
-    public static void init() {
+	public static void init() {
         // NO-OP
     }
 

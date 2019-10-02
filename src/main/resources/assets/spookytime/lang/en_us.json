@@ -1,3 +1,10 @@
 {
-
+  "spookytime.about.name": "Spooky-Time",
+  "spookytime.about.description": "A Fabric Community mod for Hacktoberfest!",
+  "spookytime.about.github": "Our github link can be found here: ",
+  "spookytime.github": "https://github.com/fabric-community/spooky-time",
+  "spookytime.contrib.title": "=====Contributors=====",
+  "spookytime.contrib.entry": "%d, ",
+  "spookytime.cmd.spooktober": "It is Spooktober!",
+  "spookytime.cmd.tillspooktober": "It is %d days till Spooktober"
 }
