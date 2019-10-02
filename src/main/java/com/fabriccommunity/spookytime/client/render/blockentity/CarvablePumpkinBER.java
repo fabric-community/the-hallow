@@ -29,19 +29,19 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
             drawFace(top, Direction.UP, 0, 0, 16, 16);
             drawFace(top, Direction.DOWN, 0, 0, 16, 16);
         }
-        /*for (int f = 0; f < 4; f++) {
+        for (int f = 0; f < 4; f++) {
             for (int x = 0; x < 16; x++) {
                 for (int y = 0; y < 16; y++) {
                     if(!blockEntity.carving[f][x][y]) {
-                        drawFace(side, f == 0 ? Direction.NORTH : Direction.SOUTH, x, y, x+1, y+1);
+                        drawFace(side, Direction.byId(f + 2), x, y, x+1, y+1);
                     }
                 }
             }
-        }*/
-        drawFace(side, Direction.NORTH, 0, 0, 16, 16);
+        }
+        /*drawFace(side, Direction.NORTH, 0, 0, 16, 16);
         drawFace(side, Direction.SOUTH, 0, 0, 16, 16);
         drawFace(side, Direction.EAST, 0, 0, 16, 16);
-        drawFace(side, Direction.WEST, 0, 0, 16, 16);
+        drawFace(side, Direction.WEST, 0, 0, 16, 16);*/
         GlStateManager.popMatrix();
     }
     private void drawFace(Sprite sprite, Direction direction, int x, int z, int mx, int mz) {
