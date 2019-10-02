@@ -3,7 +3,8 @@
 	"package": "com.fabriccommunity.spookytime.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"AnvilBlockMixin"
+		"AnvilBlockMixin",
+    "ServerWorldLightningMixin"
 	],
 	"client": [
 
