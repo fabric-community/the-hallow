@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime.mixin;
 
+import com.fabriccommunity.spookytime.common.SpookyBlocks;
 import com.fabriccommunity.spookytime.common.SpookyItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,7 +28,7 @@ public class AnvilBlockMixin {
 		if (checkBlock instanceof PumpkinBlock) {
 			Block.dropStack(world, upPosition, anvilBlock.getPickStack(world, upPosition, world.getBlockState(downPosition)));
 			world.clearBlockState(upPosition, true);
-			Block.dropStack(world, downPosition, new ItemStack(SpookyItems.TINY_PUMPKIN));
+			Block.dropStack(world, downPosition, new ItemStack(SpookyBlocks.TINY_PUMPKIN));
 			world.clearBlockState(downPosition, true);
 		}
 	}
