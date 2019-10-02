@@ -18,7 +18,7 @@ public class MixinHelpers {
         }
         ItemStack stack = entity.getEquippedStack(EquipmentSlot.HEAD);
         if (stack.isEmpty()) {
-            if (RANDOM.nextInt(3) == 0) {
+            if (RANDOM.nextInt(10) == 0) {
                 stack = new ItemStack(RANDOM.nextBoolean() ? Items.CARVED_PUMPKIN : Items.JACK_O_LANTERN);
                 entity.setEquippedStack(EquipmentSlot.HEAD, stack);
             }
