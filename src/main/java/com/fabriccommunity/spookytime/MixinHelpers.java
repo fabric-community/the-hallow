@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class MixinHelpers {
     public static final Random RANDOM = new Random();
-    public static ItemStack getEquippedPumpkin(LivingEntity entity, EquipmentSlot slot) {
+    public static ItemStack getEquippedOrPumpkin(LivingEntity entity, EquipmentSlot slot) {
         if (slot != EquipmentSlot.HEAD) {
             return entity.getEquippedStack(slot);
         }
