@@ -12,6 +12,7 @@ import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
+import com.fabriccommunity.spookytime.client.model.SpookyModels;
 import com.fabriccommunity.spookytime.client.render.CrowEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionAltarBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionPillarBlockEntityRenderer;
@@ -20,6 +21,7 @@ import com.fabriccommunity.spookytime.client.render.SpookyCactusEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
+import com.fabriccommunity.spookytime.doomtree.DoomTreeClient;
 import com.fabriccommunity.spookytime.entity.CrowEntity;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
@@ -42,5 +44,8 @@ public class SpookyTimeClient implements ClientModInitializer {
 		SpookyClientNetworking.init();
 		
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new FluidResourceLoader());
+		
+		SpookyModels.init();
+		DoomTreeClient.init();
 	}
 }

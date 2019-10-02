@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "spookytime:block/doom_sapling"
+    }
+}

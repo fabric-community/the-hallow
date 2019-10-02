@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"ddd",
+		"ddd",
+		"ddd"
+	],
+	"key": {
+		"d": {
+			"item": "spookytime:doomed_residue"
+		}
+	},
+	"result": {
+		"item": "spookytime:doomed_residue_block"
+	}
+}

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
+import com.fabriccommunity.spookytime.doomtree.DoomTree;
 import com.fabriccommunity.spookytime.registry.SpookyBiomes;
 import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
@@ -57,5 +58,6 @@ public class SpookyTime implements ModInitializer {
 		SpookyTags.init();
 		SpookyNetworking.init();
 		SpookyEvents.init();
+		DoomTree.init();
 	}
 }
