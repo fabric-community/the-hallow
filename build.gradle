@@ -1,8 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.2.5-SNAPSHOT"
-	id "eclipse"
-	id "maven-publish"
-	id "com.matthewprenger.cursegradle" version "1.4.0"
+	id 'fabric-loom' version '0.2.5-SNAPSHOT'
 }
 
 repositories {
@@ -25,15 +22,11 @@ repositories {
 	}
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
-
-def ENV = System.getenv()
-version = version + (ENV.BUILD_NUMBER ? ("+build." + ENV.BUILD_NUMBER) : "")
+archivesBaseName = "spooky-time"
+version = "1.0.0"
 
 minecraft {
 	
@@ -72,89 +65,28 @@ processResources {
 	}
 }
 
-eclipse {
-	project {
-		name = mod_name
+repositories {
+	maven { url = "https://maven.fabricmc.net/" }
+  maven { url = "https://jitpack.io" }
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:1.14.4"
+	mappings "net.fabricmc:yarn:1.14.4+build.13"
+	modApi "net.fabricmc:fabric-loader:0.6.2+build.166"
+	modApi "net.fabricmc.fabric-api:fabric-api:0.4.0+build.240-1.14"
+  
+    modImplementation "com.github.Draylar:world-traveler:1.0.4"
+
+	modApi ("io.github.prospector:modmenu:1.7.13+build.123") {
+		transitive = false
 	}
 }
 
-tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
-}
-
-jar {
-	from "LICENSE"
-	manifest
-	{
-		attributes "Implementation-Title": project.archivesBaseName
-		attributes "Implementation-Version": project.version
-		attributes "Maven-Artifact": "${project.group}:${project.archivesBaseName}:${project.version}"
-		attributes "Built-On-Minecraft": "${project.minecraft_version}"
-		attributes "Built-On-Java": "${System.getProperty("java.vm.version")} (${System.getProperty("java.vm.vendor")})"
-	}
-}
-
+// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+// if it is present.
+// If you remove this task, sources will not be generated.
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
+	classifier = 'sources'
 	from sourceSets.main.allSource
-	manifest
-	{
-		attributes "Implementation-Title": project.archivesBaseName + "-sources"
-		attributes "Implementation-Version": project.version
-		attributes "Maven-Artifact": "${project.group}:${project.archivesBaseName}:${project.version}:sources"
-		attributes "Built-On-Minecraft": "${project.minecraft_version}"
-		attributes "Built-On-Java": "${System.getProperty("java.vm.version")} (${System.getProperty("java.vm.vendor")})"
-	}
-}
-
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				classifier = "sources"
-				builtBy remapSourcesJar
-			}
-		}
-	}
-	
-	repositories {
-		mavenLocal()
-	}
-}
-
-curseforge {
-	if(project.hasProperty("curseforge_api_key")) {
-		apiKey = project.properties.curseforge_api_key
-	}
-	
-	if(project.hasProperty("curseforge_id")) {
-		project {
-			id = project.properties.curseforge_id
-			
-			releaseType = project.release_type
-			addGameVersion project.release_version
-			addGameVersion "Fabric"
-			
-			mainArtifact(remapJar) {
-				displayName = "${mod_name}-${minecraft_version}-${project.version}.jar"
-				relations {
-					requiredDependency "fabric-api"
-				}
-			}
-			
-			addArtifact(sourcesJar) {
-				displayName = "${mod_name}-${minecraft_version}-${project.version}-sources.jar"
-			}
-			
-			afterEvaluate {
-				uploadTask.dependsOn remapSourcesJar
-			}
-		}
-		options {
-			forgeGradleIntegration = false
-		}
-	}
 }
