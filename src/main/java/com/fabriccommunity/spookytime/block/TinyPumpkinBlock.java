@@ -22,7 +22,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext placementContext) {
-        return (BlockState)this.getDefaultState().with(FACING, placementContext.getPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, placementContext.getPlayerFacing().getOpposite());
     }
       
 
