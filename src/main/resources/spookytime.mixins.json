@@ -1,15 +1,16 @@
 {
-  "required": true,
-  "package": "com.fabriccommunity.spookytime.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "ServerWorldLightningMixin",
-    "MobPumpkinMixin"
-  ],
-  "client": [
+	"required": true,
+	"package": "com.fabriccommunity.spookytime.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"AnvilBlockMixin",
+        "ServerWorldLightningMixin",
+        "MobPumpkinMixin"
+	],
+	"client": [
 
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }
