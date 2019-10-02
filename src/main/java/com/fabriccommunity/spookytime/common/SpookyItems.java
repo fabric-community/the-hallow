@@ -34,7 +34,7 @@ public class SpookyItems
         return Registry.register(Registry.ITEM, new Identifier(SpookyTime.MODID, name), item);
     }
 
-    private SpookyItems() {
-        // NO-OP
-    }
+	private SpookyItems() {
+		// NO-OP
+	}
 }

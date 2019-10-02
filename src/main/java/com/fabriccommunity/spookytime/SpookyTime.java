@@ -12,8 +12,8 @@ import com.fabriccommunity.spookytime.common.SpookyWorldGen;
 
 import net.fabricmc.api.ModInitializer;
 
-public class SpookyTime implements ModInitializer
-{
+public class SpookyTime implements ModInitializer {
+	
 	public static final String MODID = "spookytime";
 	public static final Logger LOGGER = LogManager.getLogger("SpookyTime");
 
@@ -22,6 +22,7 @@ public class SpookyTime implements ModInitializer
 		SpookyEntities.init();
 		SpookyBlocks.init();
 		SpookyItems.init();
+		SpookyCommands.init();
 		SpookyBiomes.init();
 		SpookyWorldGen.init();
 		SpookyDimensions.init();
