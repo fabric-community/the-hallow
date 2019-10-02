@@ -28,11 +28,11 @@ public class DoomGleamBlock extends Block {
 		public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 			return VoxelShapes.empty();
 		}
-		
+
 		@Override
 		public void onBlockRemoved(BlockState myState, World world, BlockPos blockPos, BlockState newState, boolean someFlag) {
 			super.onBlockRemoved(myState, world, blockPos, newState, someFlag);
-			
+
 			if (!world.isClient) {
 				DoomTreeTracker.reportBreak(world, blockPos, false);
 			}
@@ -42,7 +42,7 @@ public class DoomGleamBlock extends Block {
 		public int getLuminance(BlockState blockState) {
 			return 7;
 		}
-		
+
 //		@Override
 //		@Environment(EnvType.CLIENT)
 //		public void randomDisplayTick(BlockState blockState, World world, BlockPos pos, Random rand) {

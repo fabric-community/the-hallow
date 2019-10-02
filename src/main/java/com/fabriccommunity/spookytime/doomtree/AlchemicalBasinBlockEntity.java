@@ -16,14 +16,14 @@ public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable,
 	public static final int MODE_BURNING = 3;
 	public static final int MODE_INFUSING = 4;
 	public static final int MAX_LEVEL = 32;
-	
+
 	protected static final String TAG_MODE = "mode";
 	protected static final String TAG_LEVEL = "level";
-	
+
 	protected int mode = MODE_EMPTY;
-	
+
 	protected int level = 0;
-	
+
 	public AlchemicalBasinBlockEntity(BlockEntityType<?> entityType) {
 		super(entityType);
 	}
@@ -31,15 +31,15 @@ public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable,
 	public AlchemicalBasinBlockEntity() {
 		this(DoomTree.ALCHEMICAL_BASIN);
 	}
-	
+
 	public int mode() {
 		return mode;
 	}
-	
+
 	public int level() {
 		return level;
 	}
- 
+
 	public boolean setState(int mode, int level) {
 		if (world != null && !world.isClient) {
 			this.mode = mode;
@@ -50,7 +50,7 @@ public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable,
 			return false;
 		}
 	}
-	
+
 	@Override
 	public void setPos(BlockPos pos) {
 		super.setPos(pos);
@@ -60,7 +60,7 @@ public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable,
 	public void validate() {
 		super.validate();
 	}
-	
+
 
 	@Override
 	public void invalidate() {
@@ -79,12 +79,12 @@ public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable,
 		tag.putInt(TAG_LEVEL, level);
 		return tag;
 	}
-	
+
 	protected void readTag(CompoundTag tag) {
 		mode = tag.getInt(TAG_MODE);
 		level = tag.getInt(TAG_LEVEL);
 	}
-	
+
 	@Override
 	public void fromTag(CompoundTag tag) {
 		super.fromTag(tag);
@@ -100,7 +100,7 @@ public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable,
 	public void fromClientTag(CompoundTag tag) {
 		readTag(tag);
 		final BlockPos pos = this.pos;
-		
+
 		if (pos != null) {
 			DoomTree.RENDER_REFRESH_HANDLER.accept(pos);
 		}

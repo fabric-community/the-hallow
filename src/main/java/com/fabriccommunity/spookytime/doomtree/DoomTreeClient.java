@@ -33,13 +33,13 @@ public class DoomTreeClient {
 		SpookyModels.register("alchemical_basin_frame", new SimpleUnbakedModel(AlchemicalBasin::createFrame, AlchemicalBasin.TEXTURES));
 
 		SpookyModels.register("doom_tree_heart", new SimpleUnbakedModel(DoomTreeHeart::create, DoomTreeHeart.TERMINAL_TEXTURES));
-		
+
 		SimpleRandomModel.register("doom_leaves", "block/doom_leaves_0_0", "block/doom_leaves_0_1", "block/doom_leaves_0_2", "block/doom_leaves_0_3");
 		SimpleRandomModel.register("doomed_residue_block", "block/doomed_residue_block");
 		SimpleRandomModel.register("warding_essence_block", "block/warding_essence_block");
-		
+
 		ClientSidePacketRegistry.INSTANCE.register(DoomTreePacket.IDENTIFIER, DoomTreePacketHandler::accept);
-		
+
 		InvalidateRenderStateCallback.EVENT.register(() -> {
 			DoomTree.RENDER_REFRESH_HANDLER = p -> {
 				final MinecraftClient client = MinecraftClient.getInstance();

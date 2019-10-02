@@ -10,7 +10,10 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
 
-import java.util.function.Supplier;
+import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.util.registry.Registry;
 
 import static com.fabriccommunity.spookytime.registry.SpookyBlocks.INFUSION_ALTAR_BLOCK;
 import static com.fabriccommunity.spookytime.registry.SpookyBlocks.INFUSION_PILLAR_BLOCK;

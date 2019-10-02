@@ -38,14 +38,14 @@ public class DoomTree {
 
 	public static Block PLACED_DOOM_LOG = SpookyBlocks.register("doom_log_p", new DoomLogBlock(logSettings().build(), true, 1));
 	public static Item PLACED_DOOM_LOG_ITEM = Item.fromBlock(PLACED_DOOM_LOG);
-	
+
 	public static Block PLACED_DOOM_LOG_CHANNEL = SpookyBlocks.register("doom_log_channel_p", new DoomLogBlock(logSettings().build(), true, 1));
 	public static Block PLACED_DOOM_LOG_TERMINAL = SpookyBlocks.register("doom_log_terminal_p", new DoomLogBlock(logSettings().build(), true, 1));
 
 	public static Block DOOM_LOG = Registry.register(Registry.BLOCK, SpookyTime.id("doom_log"),
 			new DoomLogBlock.Height(logSettings().dropsLike(PLACED_DOOM_LOG).build(), 0.04f));
 	public static Item DOOM_LOG_ITEM = Item.fromBlock(DOOM_LOG);
-	
+
 	public static Block DOOM_LOG_CHANNEL = Registry.register(Registry.BLOCK, SpookyTime.id("doom_log_channel"),
 			new DoomLogBlock.Height(logSettings().dropsLike(PLACED_DOOM_LOG_CHANNEL).build(), 0.02f));
 	public static Block DOOM_LOG_TERMINAL = Registry.register(Registry.BLOCK, SpookyTime.id("doom_log_terminal"),

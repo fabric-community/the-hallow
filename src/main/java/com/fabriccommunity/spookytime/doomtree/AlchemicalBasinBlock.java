@@ -118,9 +118,9 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 			} else {
 				return false;
 			}
-		} 
+		}
 
-		final int doomFuelValue = item == DoomTree.DOOM_FRAGMENT_ITEM || item  == DoomTree.DOOM_LEAF_ITEM ? 1 
+		final int doomFuelValue = item == DoomTree.DOOM_FRAGMENT_ITEM || item  == DoomTree.DOOM_LEAF_ITEM ? 1
 				: item == DoomTree.DOOM_LOG_ITEM || item  == DoomTree.PLACED_DOOM_LOG_ITEM ? 4 : 0;
 
 		if (doomFuelValue > 0) {
@@ -135,7 +135,7 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 
 						myBe.setState(MODE_BURNING, currentLevel + consumed * doomFuelValue);
 						world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-						
+
 						if (mode != MODE_BURNING) {
 							world.setBlockState(pos, blockState.with(LIT, true), 3);
 						}

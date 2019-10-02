@@ -6,8 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-
 public class SpookyTags {
 	public static final Tag<Item> COSTUMES = registerItem("costumes");
 	public static final Tag<Item> PUMPKIN_ITEMS = registerItem("pumpkin");

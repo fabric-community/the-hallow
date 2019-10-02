@@ -57,28 +57,28 @@ public class AlchemicalBasin extends SimpleModel {
 	protected static final float PX13 = 13f / 16f;
 	protected static final float PX14 = 14f / 16f;
 	protected static final float PX15 = 15f / 16f;
-	
+
 	protected static final float FLUID_BOTTOM_DEPTH = 1f - PX3;
 	/** negative, because added to depth, making fluid stop surface less deep */
 	protected static final float FLUID_DEPTH_SPAN = PX1 - FLUID_BOTTOM_DEPTH;
 	protected static final float LEVEL_MULTIPLIER = FLUID_DEPTH_SPAN / AlchemicalBasinBlockEntity.MAX_LEVEL;
-			
+
 	public static final int WITCH_WATER_COLOR = 0xFF5900A3;
 	public static final int WATER_COLOR = 0xFF188DFF;
 	public static final int BURNING_COLOR = 0xFFFF8060;
-	
+
 	protected final Renderer renderer = RendererAccess.INSTANCE.getRenderer();
 	protected final RenderMaterial matCutout = renderer.materialFinder().blendMode(0, BlockRenderLayer.CUTOUT).find();
 	protected final RenderMaterial matSolid = renderer.materialFinder().blendMode(0, BlockRenderLayer.SOLID).find();
 	protected final RenderMaterial matTranslucent = renderer.materialFinder().blendMode(0, BlockRenderLayer.TRANSLUCENT).find();
 	protected final RenderMaterial matGlow = renderer.materialFinder().blendMode(0, BlockRenderLayer.SOLID).emissive(0, true)
 			.disableAo(0, true).disableDiffuse(0, true).find();
-	
+
 	protected final int sideIndexA;
 	protected final int sideIndexB;
-	
+
 	protected final Sprite waterSprite;
-	
+
 	protected AlchemicalBasin(Sprite sprite, Function<Identifier, Sprite> spriteMap, boolean isFrame) {
 		super(sprite, ModelHelper.MODEL_TRANSFORM_BLOCK);
 		for (int i = 0; i < sprites.length; i++) {
@@ -98,22 +98,22 @@ public class AlchemicalBasin extends SimpleModel {
 
 	private void emitContents(QuadEmitter qe, Object renderData) {
 		if (renderData == null || !(renderData instanceof AlchemicalBasinBlockEntity)) return;
-		
+
 		AlchemicalBasinBlockEntity myBe = (AlchemicalBasinBlockEntity) renderData;
-		
+
 		switch (myBe.mode()) {
 		case MODE_PRIMED_WITCHWATER:
 			renderFluidContent(qe, WITCH_WATER_COLOR, MAX_LEVEL, false);
 			break;
-			
+
 		case MODE_PRIMED_WATER:
 			renderFluidContent(qe, WATER_COLOR, MAX_LEVEL, false);
 			break;
-			
+
 		case MODE_BURNING:
 			renderFluidContent(qe, BURNING_COLOR, myBe.level(), true);
 			break;
-			
+
 		case MODE_INFUSING:
 		default:
 		}
@@ -122,13 +122,13 @@ public class AlchemicalBasin extends SimpleModel {
 	private void renderFluidContent(QuadEmitter qe, int color, int level, boolean glow) {
 		final float depth = FLUID_BOTTOM_DEPTH + LEVEL_MULTIPLIER * level;
 		final float height = Math.min(PX13, 1f - depth);
-		
+
 		qe.material(glow ? matGlow: matTranslucent)
 		.square(Direction.UP, PX1, PX1, PX15, PX15, depth)
 		.spriteColor(0, color, color, color, color)
 		.spriteBake(0, waterSprite, MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		qe.material(glow ? matGlow: matSolid)
 		.square(Direction.EAST, PX2, PX4, PX14, height , PX1)
 		.spriteColor(0, color, color, color, color)
@@ -167,7 +167,7 @@ public class AlchemicalBasin extends SimpleModel {
 		.spriteColor(0, -1, -1, -1, -1)
 		.spriteBake(0, sprites[BASE], MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		qe.material(matCutout)
 		.square(Direction.DOWN, 0, 0, 1, 1, 0)
 		.spriteColor(0, -1, -1, -1, -1)
@@ -187,7 +187,7 @@ public class AlchemicalBasin extends SimpleModel {
 		qe.emit();
 
 		// OUTER SIDES
-		
+
 		qe.material(matTranslucent)
 		.square(Direction.EAST, 0, 0, 1, 1, 0)
 		.spriteColor(0, -1, -1, -1, -1)
@@ -211,7 +211,7 @@ public class AlchemicalBasin extends SimpleModel {
 		.spriteColor(0, -1, -1, -1, -1)
 		.spriteBake(0, sprites[sideIndexB], MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		// INNER SIDES TOP
 		qe.material(matTranslucent)
 		.square(Direction.EAST, PX1, PX3, PX15, 1, PX15)
@@ -236,7 +236,7 @@ public class AlchemicalBasin extends SimpleModel {
 		.spriteColor(0, -1, -1, -1, -1)
 		.spriteBake(0, sprites[sideIndexB], MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		// INNER SIDES BOTTOM
 		qe.material(matTranslucent)
 		.square(Direction.EAST, 0, 0, 1, PX2, PX14)
@@ -261,20 +261,20 @@ public class AlchemicalBasin extends SimpleModel {
 		.spriteColor(0, -1, -1, -1, -1)
 		.spriteBake(0, sprites[sideIndexB], MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		// FRAME OUTER EDGES
 		qe.material(matCutout)
 		.square(Direction.UP, 0, 0, 1, 1, PX12)
 		.spriteColor(0, -1, -1, -1, -1)
 		.spriteBake(0, sprites[BASE], MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		qe.material(matCutout)
 		.square(Direction.DOWN, 0, 0, 1, 1, PX13)
 		.spriteColor(0, -1, -1, -1, -1)
 		.spriteBake(0, sprites[BASE], MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
-		
+
 		qe.material(matCutout)
 		.square(Direction.EAST, 0, PX4, 1, PX14, PX14)
 		.spriteColor(0, -1, -1, -1, -1)
@@ -304,7 +304,7 @@ public class AlchemicalBasin extends SimpleModel {
 	public static AlchemicalBasin create(Function<Identifier, Sprite> spriteMap) {
 		return new AlchemicalBasin(spriteMap.apply(TEXTURES.get(SIDE_A)), spriteMap, false);
 	}
-	
+
 	public static AlchemicalBasin createFrame(Function<Identifier, Sprite> spriteMap) {
 		return new AlchemicalBasin(spriteMap.apply(TEXTURES.get(SIDE_A)), spriteMap, true);
 	}

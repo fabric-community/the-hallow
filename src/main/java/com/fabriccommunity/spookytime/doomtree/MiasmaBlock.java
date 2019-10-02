@@ -30,16 +30,16 @@ public class MiasmaBlock extends Block {
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return VoxelShapes.empty();
 	}
-	
+
 	@Override
 	public void onBlockRemoved(BlockState myState, World world, BlockPos blockPos, BlockState newState, boolean someFlag) {
 		super.onBlockRemoved(myState, world, blockPos, newState, someFlag);
-		
+
 		if (!world.isClient) {
 			final FluidState fluidState = newState.getFluidState();
 			if(fluidState != null && !fluidState.isStill()) {
 				//TODO: handle flowing fluids as separate queue
-				
+
 			} else {
 				DoomTreeTracker.reportBreak(world, blockPos, false);
 			}
