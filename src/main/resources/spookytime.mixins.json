@@ -4,10 +4,10 @@
     "compatibilityLevel": "JAVA_8",
     "mixins": [
         "LightmapTextureManagerMixin",
-		"AnvilBlockMixin",
+	"AnvilBlockMixin",
         "ServerWorldLightningMixin"
-	],
-	"client": [
+    ],
+    "client": [
 
     ],
     "injectors": {
