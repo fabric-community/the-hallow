@@ -11,9 +11,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 /**
  * @author Indigo Amann
@@ -45,8 +44,11 @@ public class CarvablePumpkinBlockEntity extends BlockEntity {
     }
     public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
         if (hitResult.getSide().getAxis() == Direction.Axis.Y) return false;
-        Random random = new Random();
-        carving[hitResult.getSide().getId() - 2][random.nextInt(16)][random.nextInt(16)] = true;
+        Vec3d onBlock = hitResult.getPos().subtract(new Vec3d(hitResult.getBlockPos()));
+        int x = (int) Math.floor(onBlock.x * 16f);
+        int y = (int) Math.floor(onBlock.y * 16f);
+        int z = (int) Math.floor(onBlock.z * 16f);
+        carving[hitResult.getSide().getId() - 2][hitResult.getSide().getAxis() == Direction.Axis.Z ? x : z][y] = true;
         return true;
     }
 }
