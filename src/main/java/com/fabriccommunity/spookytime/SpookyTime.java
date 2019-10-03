@@ -1,20 +1,17 @@
 package com.fabriccommunity.spookytime;
 
-import com.fabriccommunity.spookytime.common.*;
+import com.fabriccommunity.spookytime.registry.*;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.fabricmc.api.ModInitializer;
-
-import net.minecraft.util.Identifier;
-
 public class SpookyTime implements ModInitializer {
-	
-	public static final String MODID = "spookytime";
-	public static final Logger LOGGER = LogManager.getLogger("SpookyTime");
+	public static final String MOD_ID = "spookytime";
+	public static final Logger LOGGER = LogManager.getLogger("Spooky Time");
 	
 	public static Identifier id(String name) {
-		return new Identifier(MODID, name);
+		return new Identifier(MOD_ID, name);
 	}
 	
 	@Override

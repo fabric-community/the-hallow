@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common;
+package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
@@ -14,12 +14,14 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.WildCropFeature;
 
 public class SpookyWorldGen {
+    public static final SpookyBiomeGroup DEFAULT = new SpookyBiomeGroup(0)
+            .addBiome(SpookyBiomes.SPOOKY_FOREST, 1);
+
+    void SpookyWorldGen() {
+        // NO-OP
+    }
 	
 	public static void init() {
-		// Add dimension biome placement stuff here
-		SpookyBiomeGroup DEFAULT = new SpookyBiomeGroup(0)
-				.addBiome(SpookyBiomes.SPOOKY_FOREST, 1);
-		
 		addBiomeGroups(DEFAULT);
 	}
 	
@@ -44,5 +46,4 @@ public class SpookyWorldGen {
 	private static void setRiverBiome(Biome parent, Biome river) {
 		OverworldBiomes.setRiverBiome(parent, river);
 	}
-	
 }

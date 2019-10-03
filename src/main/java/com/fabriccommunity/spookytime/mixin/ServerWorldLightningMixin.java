@@ -7,12 +7,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.level.LevelProperties;
-
 import java.util.Random;
 
 /**
+ * Allows increasing the chance of thunder during a thunderstorm, and thunderstorms themselves.
  * @author Indigo Amann
  */
 @Mixin(ServerWorld.class)

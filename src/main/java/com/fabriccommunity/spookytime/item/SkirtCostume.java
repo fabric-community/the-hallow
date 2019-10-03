@@ -24,8 +24,8 @@ public class SkirtCostume extends Item implements ITrinket {
 	}
 	
 	@Override
-	public TypedActionResult<ItemStack> use(World world_1, PlayerEntity playerEntity_1, Hand hand_1) {
-		return ITrinket.equipTrinket(playerEntity_1, hand_1);
+	public TypedActionResult<ItemStack> use(World world_1, PlayerEntity playerEntity, Hand hand) {
+		return ITrinket.equipTrinket(playerEntity, hand);
 	}
 	
 	@Override

@@ -1,7 +1,8 @@
-package com.fabriccommunity.spookytime.common;
+package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.common.CandyComponent.VillagerCandyComponent;
+import com.fabriccommunity.spookytime.component.CandyComponent;
+import com.fabriccommunity.spookytime.component.CandyComponent.VillagerCandyComponent;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;

@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common;
+package com.fabriccommunity.spookytime.component;
 
 import nerdhub.cardinal.components.api.component.Component;
 

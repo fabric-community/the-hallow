@@ -1,10 +1,7 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
-import com.fabriccommunity.spookytime.common.SpookyEntities;
-import com.fabriccommunity.spookytime.common.SpookyWorldGen;
-
-import net.minecraft.block.Blocks;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
@@ -19,7 +16,6 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
 public class SpookyForestBiome extends Biome {
-	
 	static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyBiomeFeatures.SPOOKY_FOREST);
 	static final Precipitation PRECIPITATION = Precipitation.NONE;
 	static final Category CATEGORY = Category.FOREST;

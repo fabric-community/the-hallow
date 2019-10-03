@@ -1,21 +1,23 @@
 package com.fabriccommunity.spookytime;
 
-import io.github.cottonmc.jankson.JanksonFactory;
 import io.github.indicode.fabric.tinyconfig.ModConfig;
 
 /**
  * @author Indigo Amann
  */
 public class SpookyConfig {
-    private static ModConfig modConfig = new ModConfig(SpookyTime.MODID);
+    private static ModConfig modConfig = new ModConfig(SpookyTime.MOD_ID);
+
     public static class SpookyWeather {
         public static int thunderModifier = 80;
         public static boolean lessClearSkies = true;
     }
+
     public static class PumpkinMobs {
         public static boolean headArmor = true;
         public static boolean endermen = true;
     }
+
     public static void sync(boolean overwrite) {
         modConfig.configure(overwrite, config -> {
             config.accessChild("weather", weather -> {
