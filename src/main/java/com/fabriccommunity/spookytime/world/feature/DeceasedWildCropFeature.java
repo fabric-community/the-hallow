@@ -16,9 +16,9 @@ import java.util.function.Function;
 public class DeceasedWildCropFeature extends Feature<DefaultFeatureConfig> {
     protected final BlockState crop;
 
-    public DeceasedWildCropFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> featureConfig, BlockState blockState_1) {
+    public DeceasedWildCropFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> featureConfig, BlockState blockState) {
         super(featureConfig);
-        this.crop = blockState_1;
+        this.crop = blockState;
     }
 
     @Override
@@ -26,9 +26,9 @@ public class DeceasedWildCropFeature extends Feature<DefaultFeatureConfig> {
         int numCrop = 0;
 
         for(int i = 0; i < 64; ++i) {
-            BlockPos blockPos2 = blockPos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
-            if (world.isAir(blockPos2) && world.getBlockState(blockPos2.down()).getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK) {
-                world.setBlockState(blockPos2, this.crop, 2);
+            BlockPos randomBlockPos = blockPos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+            if (world.isAir(randomBlockPos) && world.getBlockState(randomBlockPos.down()).getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK) {
+                world.setBlockState(randomBlockPos, this.crop, 2);
                 ++numCrop;
             }
         }
