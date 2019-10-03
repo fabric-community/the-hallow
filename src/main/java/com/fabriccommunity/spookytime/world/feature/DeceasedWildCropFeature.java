@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.fabriccommunity.spookytime.world.feature;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
@@ -21,8 +16,8 @@ import java.util.function.Function;
 public class DeceasedWildCropFeature extends Feature<DefaultFeatureConfig> {
     protected final BlockState crop;
 
-    public DeceasedWildCropFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function_1, BlockState blockState_1) {
-        super(function_1);
+    public DeceasedWildCropFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> featureConfig, BlockState blockState_1) {
+        super(featureConfig);
         this.crop = blockState_1;
     }
 
@@ -31,9 +26,9 @@ public class DeceasedWildCropFeature extends Feature<DefaultFeatureConfig> {
         int numCrop = 0;
 
         for(int i = 0; i < 64; ++i) {
-            BlockPos blockPos_2 = blockPos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
-            if (world.isAir(blockPos_2) && world.getBlockState(blockPos_2.down()).getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK) {
-                world.setBlockState(blockPos_2, this.crop, 2);
+            BlockPos blockPos2 = blockPos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
+            if (world.isAir(blockPos2) && world.getBlockState(blockPos2.down()).getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK) {
+                world.setBlockState(blockPos2, this.crop, 2);
                 ++numCrop;
             }
         }
