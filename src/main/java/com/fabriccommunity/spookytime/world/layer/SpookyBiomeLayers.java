@@ -69,5 +69,3 @@ public class SpookyBiomeLayers {
 		return new BiomeLayerSampler[]{noiseLayer, biomeLayer};
 	}
 }
-
-	

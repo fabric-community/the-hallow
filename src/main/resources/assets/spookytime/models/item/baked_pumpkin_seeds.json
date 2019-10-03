@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "spookytime:item/baked_pumpkin_seeds"
-    }
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "spookytime:item/baked_pumpkin_seeds"
+	}
 }

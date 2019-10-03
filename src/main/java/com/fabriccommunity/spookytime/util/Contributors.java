@@ -19,8 +19,7 @@ import java.util.List;
  * SpookyTime
  */
 public class Contributors {
-	// Please add names to the fabric mod json
-	
+	// Please add names to the Fabric mod json
 	private static final List<Text> USER_INFO = new ArrayList<>();
 	
 	static {

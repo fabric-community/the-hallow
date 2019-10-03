@@ -22,8 +22,6 @@ import net.minecraft.world.World;
  */
 @Mixin(AnvilBlock.class)
 public class AnvilBlockMixin {
-	
-	
 	@Inject(method = "onLanding", at = @At("HEAD"))
 	protected void onLanding(World world, BlockPos upPosition, BlockState blockState_1, BlockState blockState_2, CallbackInfo info) {
 		BlockPos downPosition = upPosition.offset(Direction.DOWN);

@@ -11,7 +11,6 @@ import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 
 public class SpooktoberCommand {
 	public static int run(CommandContext<ServerCommandSource> ctx) {
-		
 		long daysLeft = TimeUtil.daysTillSpooktober();
 		
 		if (daysLeft != 0) {

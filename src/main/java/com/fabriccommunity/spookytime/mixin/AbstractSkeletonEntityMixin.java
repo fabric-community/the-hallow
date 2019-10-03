@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.feature.AbstractTreeFeature;
 
 /**
  * Handles skeletons sometimes spawning wearing pumpkins on their heads.

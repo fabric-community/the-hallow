@@ -20,7 +20,6 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 // TODO
 public class SpookyShoreBiome extends SpookyBaseBiome {
-	
 	protected static final int GRASS_COLOR = 0x20003B;
 	protected static final int FOLIAGE_COLOR = 0x20003B;
 	

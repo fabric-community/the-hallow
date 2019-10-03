@@ -23,7 +23,6 @@ import net.minecraft.world.LocalDifficulty;
  */
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin {
-	
 	@Inject(method = "initialize", at = @At("RETURN"))
 	public void initialize(IWorld iWorld, LocalDifficulty localDifficulty, SpawnType spawnType, EntityData entityData, CompoundTag compoundTag, CallbackInfoReturnable<EntityData> cir) {
 		if (((Object) this) instanceof EndermanEntity && SpookyConfig.PumpkinMobs.endermen && MixinHelpers.RANDOM.nextInt(10) == 0)

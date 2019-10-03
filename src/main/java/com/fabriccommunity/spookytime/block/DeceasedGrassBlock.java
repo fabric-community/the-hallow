@@ -71,7 +71,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 						continue;
 					}
 					
-					stateToPlace = ((FlowerFeature) ((DecoratedFeatureConfig) (list.get(0)).config).feature.feature).getFlowerToPlace(random, randomPos);
+					stateToPlace = ((FlowerFeature)((DecoratedFeatureConfig)(list.get(0)).config).feature.feature).getFlowerToPlace(random, randomPos);
 				} else {
 					stateToPlace = grassBlock;
 				}
@@ -103,4 +103,4 @@ public class DeceasedGrassBlock extends GrassBlock {
 			}
 		}
 	}
-}
+}	
