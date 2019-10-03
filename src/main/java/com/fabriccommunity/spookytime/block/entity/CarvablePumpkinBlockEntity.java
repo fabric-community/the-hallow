@@ -48,6 +48,7 @@ public class CarvablePumpkinBlockEntity extends BlockEntity {
         int x = (int) Math.floor(onBlock.x * 16f);
         int y = (int) Math.floor(onBlock.y * 16f);
         int z = (int) Math.floor(onBlock.z * 16f);
+        if (carving[hitResult.getSide().getId() - 2][hitResult.getSide().getAxis() == Direction.Axis.Z ? x : z][y]) return false;
         carving[hitResult.getSide().getId() - 2][hitResult.getSide().getAxis() == Direction.Axis.Z ? x : z][y] = true;
         return true;
     }
