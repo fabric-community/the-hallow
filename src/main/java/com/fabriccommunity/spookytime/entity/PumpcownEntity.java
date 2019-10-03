@@ -1,6 +1,6 @@
 package com.fabriccommunity.spookytime.entity;
 
-import com.fabriccommunity.spookytime.common.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -11,8 +11,7 @@ import java.util.TimeZone;
  * Provides utilities to obtain the amount of time between current date and Spooktober
  */
 public class TimeUtil {
-	
-	private static final ImmutableList<Integer> NEXT_YEAR_MONTHS = ImmutableList.of(11, 12);
+    private static final ImmutableList<Integer> NEXT_YEAR_MONTHS = ImmutableList.of(11, 12);
 	
 	private TimeUtil() {
 	}

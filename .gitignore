@@ -3,6 +3,7 @@
 
 # gradle
 
+gradle-wrapper.properties
 .gradle/
 build/
 out/
