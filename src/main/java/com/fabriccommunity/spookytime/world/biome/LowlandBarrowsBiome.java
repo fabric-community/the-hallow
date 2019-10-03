@@ -31,7 +31,7 @@ public class LowlandBarrowsBiome extends SpookyBaseBiome {
 		
 		DefaultBiomeFeatures.addDefaultGrass(this);
 		DefaultBiomeFeatures.addDefaultLakes(this);
-		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(net.minecraft.world.gen.feature.Feature.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyBiomeFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 		SpookyBiomeFeatures.addSpookyForestTrees(this);
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.PUMPCOWN, 8, 4, 8));
