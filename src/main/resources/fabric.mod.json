@@ -1,65 +1,58 @@
 
 {
-	"schemaVersion": 1,
-	"id": "spookytime",
-	"version": "${version}",
+  "schemaVersion": 1,
+  "id": "spookytime",
+  "version": "${version}",
 
-	"name": "Spooky Time",
-	"description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
-	"authors": [
-		{
-			"name": "The Fabric Community",
-			"contact": {
-				"github": "https://github.com/fabric-community"
-			}
-		},
-		{
-			"name": "Shnupbups",
-			"contact": {
-				"github": "https://github.com/Shnupbups",
-				"minecraft": "b14df521-191f-4652-b9fb-ef5a437cde08"
-			}
-		},
-		{
-			"name": "Draylar",
-			"contact": {
-				"github": "https://github.com/Draylar",
-				"minecraft": "4397d1df-1138-424a-8454-ac0c958f72b3"
-			}
-		},
-		{
-			"name": "vini2003",
-			"contact": {
-				"github": "https://github.com/vini2003",
-				"minecraft": "15331286-6cb2-4f9e-bae9-4da8b246a00f"
-			}
-		}
-	],
-	"contributors": [
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/fabric-community/spooky-time"
-	},
+  "name": "Spooky Time",
+  "description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
+  "authors": [
+    {
+      "name": "The Fabric Community",
+      "contact": {
+        "github": "https://github.com/fabric-community"
+      }
+    },
+    {
+      "name": "Shnupbups",
+      "contact": {
+        "github": "https://github.com/Shnupbups",
+        "minecraft": "b14df521-191f-4652-b9fb-ef5a437cde08"
+      }
+    },
+    {
+      "name": "Draylar",
+      "contact": {
+        "github": "https://github.com/Draylar",
+        "minecraft": "4397d1df-1138-424a-8454-ac0c958f72b3"
+      }
+    }
+  ],
+  "contributors": [
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/fabric-community/spooky-time"
+  },
 
-	"license": "MIT",
-	"icon": "assets/spookytime/icon.png",
+  "license": "MIT",
+  "icon": "assets/spookytime/icon.png",
 
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.fabriccommunity.spookytime.SpookyTime"
-		],
-		"client": [
-			"com.fabriccommunity.spookytime.SpookyTimeClient"
-		]
-	},
-	"mixins": [
-		"spookytime.mixins.json"
-	],
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.fabriccommunity.spookytime.SpookyTime"
+    ],
+	  "client": [
+	    "com.fabriccommunity.spookytime.SpookyTimeClient"
+	  ]
+  },
+  "mixins": [
+    "spookytime.mixins.json"
+  ],
 
-	"depends": {
-		"fabricloader": ">=0.4.0",
-		"fabric": "*"
-	}
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  }
 }
