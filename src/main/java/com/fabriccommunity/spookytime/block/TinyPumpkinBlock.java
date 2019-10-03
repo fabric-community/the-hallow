@@ -1,5 +1,7 @@
 package com.fabriccommunity.spookytime.block;
 
+import com.fabriccommunity.spookytime.SpookyConfig;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
@@ -61,6 +63,10 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements Waterlogg
 	
 	@Override
 	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
-		builder.add(HorizontalFacingBlock.FACING, Properties.WATERLOGGED);
+		builder.add(HorizontalFacingBlock.FACING);
+		
+		if(SpookyConfig.TinyPumpkin.waterloggable) {
+			builder.add(Properties.WATERLOGGED);
+		}
 	}
 }
