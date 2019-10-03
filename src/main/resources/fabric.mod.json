@@ -1,4 +1,3 @@
-
 {
 	"schemaVersion": 1,
 	"id": "spookytime",
@@ -32,6 +31,13 @@
 			"contact": {
 				"github": "https://github.com/vini2003",
 				"minecraft": "15331286-6cb2-4f9e-bae9-4da8b246a00f"
+			}
+		},
+		{
+			"name": "Juuz",
+			"contact": {
+				"github": "https://github.com/Juuxel",
+				"minecraft": "517a5403-1ce3-4aaa-98e2-b682d69b201d"
 			}
 		},
 		{
