@@ -10,7 +10,8 @@
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
 		"ZombieEntityMixin",
-		"BlockMixin"
+		"BlockMixin",
+		"WildCropFeatureMixin"
 	],
 	"client": [
 
