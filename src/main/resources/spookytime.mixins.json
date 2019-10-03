@@ -1,15 +1,4 @@
 {
-<<<<<<< HEAD
-    "required": true,
-    "package": "com.fabriccommunity.spookytime.mixin",
-    "compatibilityLevel": "JAVA_8",
-    "mixins": [
-        "LightmapTextureManagerMixin",
-	"AnvilBlockMixin",
-        "ServerWorldLightningMixin"
-    ],
-    "client": [
-=======
 	"required": true,
 	"package": "com.fabriccommunity.spookytime.mixin",
 	"compatibilityLevel": "JAVA_8",
@@ -20,13 +9,13 @@
 		"SkeletonPumpkinMixin",
 		"EndermanPumpkinMixin",
 		"MixinPlantBlock",
-		"ServerPlayNetworkHandlerMixin"
+		"ServerPlayNetworkHandlerMixin",
+		"LightmapTextureManagerMixin"
 	],
 	"client": [
->>>>>>> branch 'master' of https://github.com/fabric-community/spooky-time.git
 
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }
