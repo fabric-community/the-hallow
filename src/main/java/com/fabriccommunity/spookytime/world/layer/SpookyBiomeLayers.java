@@ -1,24 +1,11 @@
 package com.fabriccommunity.spookytime.world.layer;
 
+import com.google.common.collect.ImmutableList;
+import net.minecraft.world.biome.layer.*;
+
 import java.util.function.LongFunction;
 
-import com.google.common.collect.ImmutableList;
-
-import net.minecraft.world.biome.layer.AddRiversLayer;
-import net.minecraft.world.biome.layer.BiomeLayerSampler;
-import net.minecraft.world.biome.layer.CachingLayerContext;
-import net.minecraft.world.biome.layer.CachingLayerSampler;
-import net.minecraft.world.biome.layer.CellScaleLayer;
-import net.minecraft.world.biome.layer.LayerFactory;
-import net.minecraft.world.biome.layer.LayerSampleContext;
-import net.minecraft.world.biome.layer.LayerSampler;
-import net.minecraft.world.biome.layer.NoiseToRiverLayer;
-import net.minecraft.world.biome.layer.ScaleLayer;
-import net.minecraft.world.biome.layer.SimpleLandNoiseLayer;
-import net.minecraft.world.biome.layer.SmoothenShorelineLayer;
-
 public class SpookyBiomeLayers {
-	
 	private static final int biomeSize = 4; // 3 should be the *minimum* value for this
 	
 	private static <R extends LayerSampler, T extends LayerSampleContext<R>> ImmutableList<LayerFactory<R>> create(LongFunction<T> contextProvider) {
@@ -49,10 +36,9 @@ public class SpookyBiomeLayers {
 		// So that rivers generate around the biome edges
 		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L), rivers);
 		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1001L), rivers);
-		for (int i = 0; i < biomeSize - 2; ++i) {
+		for (int i = 0; i < biomeSize - 1; ++i) {
 			rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L + (long) i), rivers);
 		}
-		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L), rivers);
 		
 		// Noise to river
 		rivers = NoiseToRiverLayer.INSTANCE.create(contextProvider.apply(201L), rivers);

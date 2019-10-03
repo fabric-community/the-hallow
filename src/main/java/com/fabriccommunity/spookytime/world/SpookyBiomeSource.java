@@ -1,6 +1,6 @@
 package com.fabriccommunity.spookytime.world;
 
-import com.fabriccommunity.spookytime.common.SpookyBiomes;
+import com.fabriccommunity.spookytime.registry.SpookyBiomes;
 import com.fabriccommunity.spookytime.world.layer.SpookyBiomeLayers;
 import com.google.common.collect.Sets;
 
@@ -17,14 +17,17 @@ import java.util.Random;
 import java.util.Set;
 
 public class SpookyBiomeSource extends BiomeSource {
-	
 	public final Biome[] allowedBiomes;
 	
 	public final BiomeLayerSampler biomeLayer, noiseLayer;
 	
 	public SpookyBiomeSource(long seed) {
 		allowedBiomes = new Biome[]{
-				SpookyBiomes.SPOOKY_FOREST
+				SpookyBiomes.SPOOKY_FOREST,
+				SpookyBiomes.SPOOKY_LOWLANDS,
+				SpookyBiomes.SPOOKY_LOWLANDS_BARROWS,
+				SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS,
+				SpookyBiomes.SPOOKY_RIVER
 		};
 		
 		BiomeLayerSampler[] samplers = SpookyBiomeLayers.build(seed);
@@ -106,5 +109,4 @@ public class SpookyBiomeSource extends BiomeSource {
 		
 		return this.topMaterials;
 	}
-	
 }

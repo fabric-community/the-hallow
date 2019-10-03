@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpookyBiomeGroup {
-	
 	private static List<SpookyBiomeGroup> spookyBiomeGroups = new ArrayList<>();
 	private static Int2ObjectMap<SpookyBiomeGroup> reverseMap = new Int2ObjectArrayMap<>();
 	private final int id;
