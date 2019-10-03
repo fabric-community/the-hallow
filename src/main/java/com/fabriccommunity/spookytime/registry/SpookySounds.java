@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common;
+package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import net.minecraft.sound.SoundEvent;
@@ -14,6 +14,6 @@ public class SpookySounds {
 
     private static SoundEvent register(String name)
     {
-        return Registry.register(Registry.SOUND_EVENT, new Identifier(SpookyTime.MODID, name), new SoundEvent(new Identifier(SpookyTime.MODID, name)));
+        return Registry.register(Registry.SOUND_EVENT, SpookyTime.id(name), new SoundEvent(SpookyTime.id(name)));
     }
 }

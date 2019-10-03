@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import com.fabriccommunity.spookytime.common.SpookyItems;
-import com.fabriccommunity.spookytime.common.SpookySounds;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
+import com.fabriccommunity.spookytime.registry.SpookySounds;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.sound.SoundEvent;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SkeletonEntity.class)
-public class MixinSkeletonEntity {
+public class SkeletonEntityMixin {
     @Inject(method = "getAmbientSound", at = @At("RETURN"), cancellable = true)
     protected void getAmbientSound(CallbackInfoReturnable<SoundEvent> cb) {
         //noinspection ConstantConditions

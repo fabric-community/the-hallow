@@ -37,7 +37,9 @@
     "block.spookytime.spookium_block": "Spookium Block",
     
     "entity.spookytime.pumpcown": "Pumpcown",
-
+    
     "biome.spookytime.spooky_forest": "Spooky Forest",
-    "biome.spookytime.spooky_lowlands": "Spooky Lowlands"
+    "biome.spookytime.spooky_lowlands": "Spooky Lowlands",
+    
+    "subtitle.spookytime.doot": "Trumpet Doots Spookily"
 }

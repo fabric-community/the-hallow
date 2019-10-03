@@ -1,6 +1,6 @@
 package com.fabriccommunity.spookytime.item;
 
-import com.fabriccommunity.spookytime.common.SpookySounds;
+import com.fabriccommunity.spookytime.registry.SpookySounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
