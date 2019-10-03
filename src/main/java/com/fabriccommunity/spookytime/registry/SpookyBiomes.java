@@ -7,6 +7,8 @@ import com.fabriccommunity.spookytime.world.biome.SpookyBaseBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyLowlandsBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyRiverBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookySeaBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyShoreBiome;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 import net.minecraft.util.registry.Registry;
@@ -23,6 +25,10 @@ public class SpookyBiomes {
 	
 	// Spooky River
 	public static final SpookyBaseBiome SPOOKY_RIVER = register("spooky_river", new SpookyRiverBiome());
+	
+	// Spooky Sea
+	public static final SpookyBaseBiome SPOOKY_SEA = register("spooky_sea", new SpookySeaBiome());
+	public static final SpookyBaseBiome SPOOKY_SHORE = register("spooky_shore", new SpookyShoreBiome());
 	
 	private SpookyBiomes() {
 		// NO-OP
