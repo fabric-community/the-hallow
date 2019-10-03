@@ -18,7 +18,7 @@ public class SpookySkyAngleCalculator implements SkyAngleCalculator {
 	}
 	
 	protected float zigzagDayFunction(long ticks) {
-		return repeatThisVee((ticks - cycleLength - cycleStart) % (2 * cycleLength));
+		return repeatThisVee((long) ((ticks - cycleLength - cycleStart) % (2 * cycleLength)));
 	}
 	
 	protected float waveDayFunction(long ticks) {
