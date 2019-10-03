@@ -1,28 +1,27 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-
-import net.minecraft.block.Blocks;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.WildCropFeature;
 
 public class SpookyWorldGen {
-    public static final SpookyBiomeGroup DEFAULT = new SpookyBiomeGroup(0)
-            .addBiome(SpookyBiomes.SPOOKY_FOREST, 1);
+	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)
+			.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
+			.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1);
 
-    void SpookyWorldGen() {
+    private SpookyWorldGen() {
         // NO-OP
     }
 	
 	public static void init() {
-		addBiomeGroups(DEFAULT);
+		// Add dimension biome placement stuff here
+		
+		addLargeSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.33f);
+		addHillsSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_BARROWS);
+		
+		addBiomeGroups(SPOOKY);
 	}
 	
 	private static void addBiomeGroups(SpookyBiomeGroup... biomeGroups) {
@@ -39,7 +38,7 @@ public class SpookyWorldGen {
 		AddSubBiomesLayer.SMALL.addSubBiome(parent, subBiome, chance);
 	}
 	
-	private static void addHillsBiome(Biome parent, Biome hillsBiome) {
+	private static void addHillsSubBiome(Biome parent, Biome hillsBiome) {
 		AddSubBiomesLayer.HILLS.addSubBiome(parent, hillsBiome, 0.3f);
 	}
 	

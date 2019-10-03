@@ -36,10 +36,9 @@ public class SpookyBiomeLayers {
 		// So that rivers generate around the biome edges
 		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L), rivers);
 		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1001L), rivers);
-		for (int i = 0; i < biomeSize - 2; ++i) {
+		for (int i = 0; i < biomeSize - 1; ++i) {
 			rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L + (long) i), rivers);
 		}
-		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L), rivers);
 		
 		// Noise to river
 		rivers = NoiseToRiverLayer.INSTANCE.create(contextProvider.apply(201L), rivers);
