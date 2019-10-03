@@ -1,7 +1,6 @@
 package com.fabriccommunity.spookytime.item.tool;
 
-import com.fabriccommunity.spookytime.common.SpookyItems;
-
+import com.fabriccommunity.spookytime.registry.SpookyItems;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
