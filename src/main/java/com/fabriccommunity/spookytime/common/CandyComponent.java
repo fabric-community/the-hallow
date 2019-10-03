@@ -20,9 +20,9 @@ public interface CandyComponent extends Component {
 		public Map<UUID, Long> lastGivenCandy = new HashMap<UUID, Long>();
 		
 		public boolean canGiveCandy(Entity entity) {
-			if (!lastGivenCandy.containsKey(entity.getUuid()))
+			if (!lastGivenCandy.containsKey(entity.getUuid())) {
 				return true;
-			else {
+			} else {
 				return lastGivenCandy.get(entity.getUuid()) + 24000L < entity.getEntityWorld().getTime();
 			}
 		}

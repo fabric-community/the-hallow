@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "spookytime:spookium_ore"
+  },
+  "result": "spookytime:spookium_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}
