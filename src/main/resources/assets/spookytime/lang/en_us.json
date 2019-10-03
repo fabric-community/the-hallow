@@ -5,6 +5,8 @@
     "spookytime.github": "https://github.com/fabric-community/spooky-time",
     "spookytime.contrib.title": "=====Contributors=====",
     "spookytime.contrib.entry": "%d, ",
+
+    "itemGroup.spookytime.group": "Spooky Time",
     
     "spookytime.cmd.spooktober": "It is Spooktober!",
     "spookytime.cmd.tillspooktober": "It is %d days till Spooktober",
