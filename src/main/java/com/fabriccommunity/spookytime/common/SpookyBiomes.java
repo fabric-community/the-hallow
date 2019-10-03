@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.common;
 
-import java.util.List;
-
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.biome.LowlandBarrowsBiome;
 import com.fabriccommunity.spookytime.world.biome.PumpkinPatchBiome;
@@ -9,7 +7,6 @@ import com.fabriccommunity.spookytime.world.biome.SpookyBaseBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyLowlandsBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyRiverBiome;
-import com.google.common.collect.Lists;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 import net.minecraft.util.registry.Registry;
@@ -26,8 +23,6 @@ public class SpookyBiomes {
 	
 	// Spooky River
 	public static final SpookyBaseBiome SPOOKY_RIVER = register("spooky_river", new SpookyRiverBiome());
-
-	public static final List<Biome> BIOMES = Lists.newArrayList();
 	
 	private SpookyBiomes() {
 		// NO-OP
@@ -35,7 +30,7 @@ public class SpookyBiomes {
 	
 	public static void init() {
 		// Make default river the spooky river in each biome
-		BIOMES.forEach(biome -> OverworldBiomes.setRiverBiome(biome, SPOOKY_RIVER));
+		SpookyBaseBiome.BIOMES.forEach(biome -> OverworldBiomes.setRiverBiome(biome, SPOOKY_RIVER));
 	}
 	
 	private static <T extends Biome> T register(String name, T biome) {

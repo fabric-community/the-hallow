@@ -1,6 +1,8 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.common.SpookyBiomes;
+import java.util.List;
+
+import com.google.common.collect.Lists;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -8,6 +10,8 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
 public abstract class SpookyBaseBiome extends Biome {
+	
+	public static final List<Biome> BIOMES = Lists.newArrayList();
 	
 	protected static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyBiomeFeatures.SPOOKY_FOREST);
 	
@@ -18,7 +22,7 @@ public abstract class SpookyBaseBiome extends Biome {
 		SpookyBiomeFeatures.addDisks(this);
 		DefaultBiomeFeatures.addDefaultOres(this);
 		
-		SpookyBiomes.BIOMES.add(this);
+		BIOMES.add(this);
 	}
 
 }
