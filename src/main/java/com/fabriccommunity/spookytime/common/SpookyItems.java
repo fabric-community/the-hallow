@@ -19,7 +19,7 @@ public class SpookyItems {
 	public static Item CARAMEL_APPLE;
 	public static Item PUMPKIN_CANDY;
 	public static Item RARE_CANDY;
-	public static Item WINGED_STRAWBERRY_CANDY
+	public static Item WINGED_STRAWBERRY_CANDY;
   public static Item BAKED_PUMPKIN_SEEDS;
 	
 	public static Item SPOOKIUM_INGOT;

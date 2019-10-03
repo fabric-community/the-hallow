@@ -1,6 +1,5 @@
 package com.fabriccommunity.spookytime;
 
-import io.github.cottonmc.jankson.JanksonFactory;
 import io.github.indicode.fabric.tinyconfig.ModConfig;
 
 /**
