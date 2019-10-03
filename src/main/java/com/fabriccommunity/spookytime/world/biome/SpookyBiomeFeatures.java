@@ -19,7 +19,7 @@ public class SpookyBiomeFeatures {
 	public static TernarySurfaceConfig SPOOKY_FOREST = new TernarySurfaceConfig(/*SpookyBlocks.DECEASED_GRASS_BLOCK.getDefaultState()*/Blocks.GRASS_BLOCK.getDefaultState(), SpookyBlocks.DECEASED_DIRT.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	
 	public static void addSpookyForestTrees(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.DARK_OAK_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(12, 0.1F, 1)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.DARK_OAK_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(1, 0.05F, 1)));
 		//Still needs work
 	}
 	
