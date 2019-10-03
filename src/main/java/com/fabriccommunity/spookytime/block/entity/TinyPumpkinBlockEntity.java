@@ -22,7 +22,7 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 	private ItemStack rightItem = ItemStack.EMPTY;
 
 	public TinyPumpkinBlockEntity() {
-		super(SpookyBlocks.TINY_PUMPKIN_ENTITY);
+		super(SpookyBlocks.TINY_PUMPKIN_BLOCK_ENTITY);
 	}
 
 	public boolean use(PlayerEntity player, Hand hand, BlockHitResult hit) {
