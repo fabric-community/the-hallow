@@ -33,7 +33,7 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
             for (int x = 0; x < 16; x++) {
                 for (int y = 0; y < 16; y++) {
                     if(!blockEntity.carving[f][x][y]) {
-                        drawFace(side, Direction.byId(f + 2), x, y, x+1, y+1);
+                        drawFace(side, Direction.byId(f + 2), x + 1, 16 - y,  15 - x, y);
                     }
                 }
             }
@@ -47,22 +47,22 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
     private void drawFace(Sprite sprite, Direction direction, int x, int z, int mx, int mz) {
         BufferBuilder bufferBuilder = Tessellator.getInstance().getBufferBuilder();
         bufferBuilder.begin(GL11.GL_QUADS, VertexFormats.POSITION_UV);
-        float u = sprite.getU(x), mu = sprite.getU(mx), v = sprite.getV(z), mv = sprite.getV(mz);
+        float u = sprite.getU(z), mu = sprite.getU(mz), v = sprite.getV(x), mv = sprite.getV(mx);
         int y;
         switch (direction) {
             case DOWN:
                 y = 0;
-                bufferBuilder.vertex((double) mx, (double) y, (double) z).texture((double) u, (double) v).next();
-                bufferBuilder.vertex((double) mx, (double) y, (double) mz).texture((double) mu, (double) v).next();
-                bufferBuilder.vertex((double) x, (double) y, (double) mz).texture((double) mu, (double) mv).next();
-                bufferBuilder.vertex((double) x, (double) y, (double) z).texture((double) u, (double) mv).next();
+                bufferBuilder.vertex((double) mx, (double) y, (double) z).texture((double) mu, (double) v).next();
+                bufferBuilder.vertex((double) mx, (double) y, (double) mz).texture((double) u, (double) v).next();
+                bufferBuilder.vertex((double) x, (double) y, (double) mz).texture((double) u, (double) mv).next();
+                bufferBuilder.vertex((double) x, (double) y, (double) z).texture((double) mu, (double) mv).next();
                 break;
             case UP:
                 y = 16;
-                bufferBuilder.vertex((double) x, (double) y, (double) z).texture((double) u, (double) mv).next();
-                bufferBuilder.vertex((double) x, (double) y, (double) mz).texture((double) mu, (double) mv).next();
-                bufferBuilder.vertex((double) mx, (double) y, (double) mz).texture((double) mu, (double) v).next();
-                bufferBuilder.vertex((double) mx, (double) y, (double) z).texture((double) u, (double) v).next();
+                bufferBuilder.vertex((double) x, (double) y, (double) z).texture((double) u, (double) v).next();
+                bufferBuilder.vertex((double) x, (double) y, (double) mz).texture((double) mu, (double) v).next();
+                bufferBuilder.vertex((double) mx, (double) y, (double) mz).texture((double) mu, (double) mv).next();
+                bufferBuilder.vertex((double) mx, (double) y, (double) z).texture((double) u, (double) mv).next();
                 break;
             case NORTH:
                 y = 0;
