@@ -11,7 +11,7 @@ public class SpookyTimeClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		EntityRendererRegistry.INSTANCE.register(PumpcownEntity.class, (dispatcher, context) -> new PumpcownEntityRenderer(dispatcher));
-		
+
 		SpookyColors.init();
 	}
 }
