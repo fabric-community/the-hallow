@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.common;
+package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
@@ -7,17 +7,21 @@ import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
+	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)
+			.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
+			.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1);
+
+    private SpookyWorldGen() {
+        // NO-OP
+    }
 	
 	public static void init() {
 		// Add dimension biome placement stuff here
-		SpookyBiomeGroup DEFAULT = new SpookyBiomeGroup(0)
-				.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
-				.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1);
 		
 		addLargeSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.33f);
 		addHillsSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_BARROWS);
 		
-		addBiomeGroups(DEFAULT);
+		addBiomeGroups(SPOOKY);
 	}
 	
 	private static void addBiomeGroups(SpookyBiomeGroup... biomeGroups) {
@@ -41,5 +45,4 @@ public class SpookyWorldGen {
 	private static void setRiverBiome(Biome parent, Biome river) {
 		OverworldBiomes.setRiverBiome(parent, river);
 	}
-	
 }

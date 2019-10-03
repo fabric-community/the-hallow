@@ -13,14 +13,14 @@ import net.minecraft.world.LocalDifficulty;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
+ * Gives Endermen a chance to hold pumpkin blocks when spawning.
  * @author Indigo Amann
  */
 @Mixin(MobEntity.class)
-public abstract class EndermanPumpkinMixin {
+public abstract class MobEntityMixin {
 
     @Inject(method = "initialize", at = @At("RETURN"))
     public void initialize(IWorld iWorld, LocalDifficulty localDifficulty, SpawnType spawnType, EntityData entityData, CompoundTag compoundTag, CallbackInfoReturnable<EntityData> cir) {

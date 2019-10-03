@@ -1,6 +1,6 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.google.common.collect.Lists;
 
 import net.minecraft.block.BlockState;

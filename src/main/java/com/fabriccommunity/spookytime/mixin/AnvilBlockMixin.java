@@ -1,7 +1,6 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
-import com.fabriccommunity.spookytime.common.SpookyItems;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -16,6 +15,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
+/**
+ * Turns pumpkins into a tiny pumpkin when an anvil is dropped on top.
+ * @author vini2003
+ */
 @Mixin(AnvilBlock.class)
 public class AnvilBlockMixin {
 	

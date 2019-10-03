@@ -5,10 +5,14 @@ import com.fabriccommunity.spookytime.item.CandyItem;
 import com.fabriccommunity.spookytime.item.SkirtCostume;
 import com.fabriccommunity.spookytime.item.tool.ScytheItem;
 import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
-import dev.emi.trinkets.api.TrinketSlots;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
-import net.minecraft.item.*;
-import net.minecraft.recipe.Ingredient;
+import dev.emi.trinkets.api.TrinketSlots;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
