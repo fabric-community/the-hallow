@@ -10,6 +10,11 @@ public enum SetBiomeGroupsLayer implements InitLayer {
 	
 	@Override
 	public int sample(LayerRandomnessSource rand, int x, int z) {
-		return SpookyBiomeGroup.pickRandomBiomeGroup(rand);
+		int result = SpookyBiomeGroup.pickRandomBiomeGroup(rand);
+		if (x == 0 && z == 0) {
+			return result == 1 ? 0 : result; // Sea region is 1
+		} else {
+			return result;
+		}
 	}
 }
