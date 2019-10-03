@@ -1,20 +1,13 @@
 package com.fabriccommunity.spookytime.entity;
 
-import com.fabriccommunity.spookytime.common.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.StemBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.ai.goal.AnimalMateGoal;
-import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.FollowParentGoal;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,10 +19,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class PumpcownEntity extends CowEntity
-{
+public class PumpcownEntity extends CowEntity {
 	public static final BlockState STEM_FEATURE = Blocks.PUMPKIN_STEM.getDefaultState().with(StemBlock.AGE, 7);
-
+	
 	public PumpcownEntity(EntityType<? extends CowEntity> entity, World world) {
 		super(entity, world);
 	}
@@ -68,7 +60,7 @@ public class PumpcownEntity extends CowEntity
 				
 				this.world.spawnEntity(cow);
 				
-				for(int i = 0; i < 5; ++i) {
+				for (int i = 0; i < 5; ++i) {
 					this.world.spawnEntity(new ItemEntity(this.world, this.x, this.y + (double) this.getHeight(), this.z, new ItemStack(STEM_FEATURE.getBlock())));
 				}
 				

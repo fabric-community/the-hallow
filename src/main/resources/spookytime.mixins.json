@@ -3,12 +3,14 @@
 	"package": "com.fabriccommunity.spookytime.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
+		"AbstractSkeletonEntityMixin",
 		"AnvilBlockMixin",
-		"ServerWorldLightningMixin",
-		"MixinPlantBlock",
-		"MixinAbstractSkeletonEntity",
-		"MixinSkeletonEntity",
-		"ServerPlayNetworkHandlerMixin"
+		"MobEntityMixin",
+		"PlantBlockMixin",
+		"ServerPlayNetworkHandlerMixin",
+		"ServerWorldMixin",
+		"SkeletonEntityMixin",
+		"ZombieEntityMixin"
 	],
 	"client": [
 
