@@ -5,8 +5,8 @@ import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
 import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
-
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
+
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.*;
