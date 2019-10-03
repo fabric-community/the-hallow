@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 
 /**
  * Turns pumpkins into a tiny pumpkin when an anvil is dropped on top.
+ *
  * @author vini2003
  */
 @Mixin(AnvilBlock.class)

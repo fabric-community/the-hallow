@@ -1,7 +1,6 @@
 package com.fabriccommunity.spookytime.world.biome;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
