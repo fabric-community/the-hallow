@@ -1,19 +1,19 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"ss ",
-		"# s",
-		"#  "
-	],
-	"key": {
-		"s": {
-			"item": "spookytime:spookium_ingot"
-		},
-		"#": {
-			"item": "minecraft:stick"
-		}
-	},
-	"result": {
-		"item": "spookytime:reapers_scythe"
-	}
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ss ",
+        "# s",
+        "#  "
+    ],
+    "key": {
+        "s": {
+            "item": "spookytime:spookium_ingot"
+        },
+        "#": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "spookytime:reapers_scythe"
+    }
 }

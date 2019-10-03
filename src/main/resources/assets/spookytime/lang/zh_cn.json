@@ -38,5 +38,8 @@
     "entity.spookytime.pumpcown": "南瓜牛",
 
     "biome.spookytime.spooky_forest": "吓人森林",
-    "biome.spookytime.spooky_lowlands": "吓人洼地"
+    "biome.spookytime.spooky_lowlands": "吓人洼地",
+    
+    "social.spookytime.github": "GitHub",
+    "social.spookytime.minecraft": "Minecraft"
 }

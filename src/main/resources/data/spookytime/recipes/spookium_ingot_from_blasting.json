@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "spookytime:spookium_ore"
-  },
-  "result": "spookytime:spookium_ingot",
-  "experience": 1.0,
-  "cookingtime": 100
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "spookytime:spookium_ore"
+    },
+    "result": "spookytime:spookium_ingot",
+    "experience": 1,
+    "cookingtime": 100
 }

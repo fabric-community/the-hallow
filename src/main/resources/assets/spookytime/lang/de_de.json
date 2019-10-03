@@ -10,11 +10,11 @@
     "item.spookytime.spookium_ingot": "Spookiumbarren",
     "item.spookytime.spookium_nugget": "Spookiumklumpen",
     "item.spookytime.soul_bottle": "Seeleflasche",
-    "item.spookytime.pumpkin_candy": "Kürbisbonbon",
+    "item.spookytime.pumpkin_candy": "Kï¿½rbisbonbon",
     "item.spookytime.rare_candy": "Seltenes Bonbon",
-    "item.spookytime.winged_strawberry_candy": "Geflügeltes Erdbeerebonbon",
+    "item.spookytime.winged_strawberry_candy": "Geflï¿½geltes Erdbeerebonbon",
     "item.spookytime.caramel_apple": "Karamelapfel",
-    "item.spookytime.baked_pumpkin_seeds": "Gebackene Kürbiskerne",
+    "item.spookytime.baked_pumpkin_seeds": "Gebackene Kï¿½rbiskerne",
     
     "block.spookytime.deceased_grass_block": "Verstorbener Grasblock",
     "block.spookytime.deceased_dirt": "Verstorbene Erde",
@@ -28,5 +28,8 @@
     "block.spookytime.spookium_block": "Spookiumblock",
     
     "biome.spookytime.spooky_forest": "Gespenstischer Wald",
-    "biome.spookytime.spooky_lowlands": "Gespenstisches Flachland"
+    "biome.spookytime.spooky_lowlands": "Gespenstisches Flachland",
+
+    "social.spookytime.github": "GitHub",
+    "social.spookytime.minecraft": "Minecraft"
 }

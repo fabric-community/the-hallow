@@ -1,20 +1,18 @@
 {
-	"required": true,
-	"package": "com.fabriccommunity.spookytime.mixin",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [
-		"AbstractSkeletonEntityMixin",
-		"AnvilBlockMixin",
-		"MobEntityMixin",
-		"PlantBlockMixin",
-		"ServerPlayNetworkHandlerMixin",
-		"ServerWorldMixin",
-		"ZombieEntityMixin"
-	],
-	"client": [
-
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+    "required": true,
+    "package": "com.fabriccommunity.spookytime.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "AbstractSkeletonEntityMixin",
+        "AnvilBlockMixin",
+        "MobEntityMixin",
+        "PlantBlockMixin",
+        "ServerPlayNetworkHandlerMixin",
+        "ServerWorldMixin",
+        "ZombieEntityMixin"
+    ],
+    "client": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
 }
