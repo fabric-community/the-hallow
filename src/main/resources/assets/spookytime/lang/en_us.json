@@ -5,6 +5,8 @@
     "spookytime.github": "https://github.com/fabric-community/spooky-time",
     "spookytime.contrib.title": "=====Contributors=====",
     "spookytime.contrib.entry": "%d, ",
+
+    "itemGroup.spookytime.group": "Spooky Time",
     
     "spookytime.cmd.spooktober": "It is Spooktober!",
     "spookytime.cmd.tillspooktober": "It is %d days till Spooktober",
@@ -15,6 +17,11 @@
     "item.spookytime.spookium_nugget": "Spookium Nugget",
     "item.spookytime.soul_bottle": "Soul Bottle",
     "item.spookytime.reapers_scythe": "Reaper's Scythe",
+    "item.spookytime.pumpkin_candy": "Pumpkin Candy",
+    "item.spookytime.rare_candy": "Rare Candy",
+    "item.spookytime.winged_strawberry_candy": "Winged Strawberry Candy",
+    "item.spookytime.caramel_apple": "Caramel Apple",
+    "item.spookytime.baked_pumpkin_seeds": "Baked Pumpkin Seeds",
     
     "block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
     "block.spookytime.deceased_grass_block": "Deceased Grass Block",
@@ -31,5 +38,7 @@
     "entity.spookytime.pumpcown": "Pumpcown",
     
     "biome.spookytime.spooky_forest": "Spooky Forest",
-    "item.spookytime.baked_pumpkin_seeds": "Baked Pumpkin Seeds"
+    "biome.spookytime.spooky_lowlands": "Spooky Lowlands",
+    "social.spookytime.github": "GitHub",
+    "social.spookytime.minecraft": "Minecraft"
 }

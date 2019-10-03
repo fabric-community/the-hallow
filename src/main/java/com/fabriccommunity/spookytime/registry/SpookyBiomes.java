@@ -1,14 +1,10 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.biome.LowlandBarrowsBiome;
-import com.fabriccommunity.spookytime.world.biome.PumpkinPatchBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyBaseBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyLowlandsBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyRiverBiome;
+import com.fabriccommunity.spookytime.world.biome.*;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
@@ -23,6 +19,10 @@ public class SpookyBiomes {
 	
 	// Spooky River
 	public static final SpookyBaseBiome SPOOKY_RIVER = register("spooky_river", new SpookyRiverBiome());
+	
+	// Spooky Sea
+	public static final SpookyBaseBiome SPOOKY_SEA = register("spooky_sea", new SpookySeaBiome());
+	public static final SpookyBaseBiome SPOOKY_SHORE = register("spooky_shore", new SpookyShoreBiome());
 	
 	private SpookyBiomes() {
 		// NO-OP

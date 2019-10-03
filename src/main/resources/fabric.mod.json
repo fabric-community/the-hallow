@@ -7,7 +7,28 @@
   "name": "Spooky Time",
   "description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
   "authors": [
-    "The Fabric Community"
+    {
+      "name": "The Fabric Community",
+      "contact": {
+        "github": "https://github.com/fabric-community"
+      }
+    },
+    {
+      "name": "Shnupbups",
+      "contact": {
+        "github": "https://github.com/Shnupbups",
+        "minecraft": "b14df521-191f-4652-b9fb-ef5a437cde08"
+      }
+    },
+    {
+      "name": "Draylar",
+      "contact": {
+        "github": "https://github.com/Draylar",
+        "minecraft": "4397d1df-1138-424a-8454-ac0c958f72b3"
+      }
+    }
+  ],
+  "contributors": [
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",

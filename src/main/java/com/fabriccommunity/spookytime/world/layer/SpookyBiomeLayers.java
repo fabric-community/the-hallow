@@ -1,6 +1,7 @@
 package com.fabriccommunity.spookytime.world.layer;
 
 import com.google.common.collect.ImmutableList;
+
 import net.minecraft.world.biome.layer.*;
 
 import java.util.function.LongFunction;
@@ -22,9 +23,14 @@ public class SpookyBiomeLayers {
 		biomes = ScaleLayer.NORMAL.create(contextProvider.apply(1001L), biomes);
 		
 		biomes = AddSubBiomesLayer.HILLS.create(contextProvider.apply(51L), biomes);
+		biomes = AddSubBiomesLayer.SMALL.create(contextProvider.apply(53L), biomes);
 		
 		for (int i = 0; i < biomeSize; ++i) {
 			biomes = ScaleLayer.NORMAL.create(contextProvider.apply(1000L + (long) i), biomes);
+			
+			if (biomeSize == 1 || i == 1) {
+				biomes = AddSpookyShoreLayer.DEFAULT.create(contextProvider.apply(52L), biomes);
+			}
 		}
 		
 		biomes = SmoothenShorelineLayer.INSTANCE.create(contextProvider.apply(101L), biomes);
@@ -32,8 +38,6 @@ public class SpookyBiomeLayers {
 		// River
 		LayerFactory<R> rivers = SimpleLandNoiseLayer.INSTANCE.create(contextProvider.apply(200L), biomeInit);
 		
-		// Scaling based off of the biome layer scaling
-		// So that rivers generate around the biome edges
 		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1000L), rivers);
 		rivers = ScaleLayer.NORMAL.create(contextProvider.apply(1001L), rivers);
 		for (int i = 0; i < biomeSize - 1; ++i) {

@@ -27,7 +27,9 @@ public class SpookyBiomeSource extends BiomeSource {
 				SpookyBiomes.SPOOKY_LOWLANDS,
 				SpookyBiomes.SPOOKY_LOWLANDS_BARROWS,
 				SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS,
-				SpookyBiomes.SPOOKY_RIVER
+				SpookyBiomes.SPOOKY_RIVER,
+				SpookyBiomes.SPOOKY_SEA,
+				SpookyBiomes.SPOOKY_SHORE
 		};
 		
 		BiomeLayerSampler[] samplers = SpookyBiomeLayers.build(seed);

@@ -2,6 +2,7 @@ package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.SpookyBiomeSource;
+import com.fabriccommunity.spookytime.world.dimension.SpookySkyAngleCalculator;
 import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
 import com.github.draylar.worldtraveler.api.dimension.EntityPlacerBuilder;
 
@@ -17,7 +18,8 @@ public class SpookyDimensions {
 			.factory((world, type) -> new DimensionBuilder()
 					.renderFog(true)
 					.fogColor((long_1, float_1) -> new Vec3d(75F / 255F, 0F / 255F, 125F / 255F))
-					.visibleSky(false)
+					.visibleSky(true)
+					.skyAngle(new SpookySkyAngleCalculator())
 					.setChunkGenerator(ChunkGeneratorType.SURFACE.create(world, new SpookyBiomeSource(world.getSeed()), new OverworldChunkGeneratorConfig()))
 					.setLightLevelsToBrightness(getLightLevels())
 					.build(world, type))
