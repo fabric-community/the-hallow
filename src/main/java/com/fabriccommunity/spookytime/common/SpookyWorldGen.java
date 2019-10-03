@@ -1,11 +1,17 @@
 package com.fabriccommunity.spookytime.common;
 
+import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 
+import net.minecraft.block.Blocks;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.WildCropFeature;
 
 public class SpookyWorldGen {
 	
