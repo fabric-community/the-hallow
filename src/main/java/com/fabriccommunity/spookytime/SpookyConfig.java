@@ -33,8 +33,7 @@ public class SpookyConfig {
 		public static boolean headArmor = true;
 		public static boolean endermen = true;
 	}
-}
-	
+
 	public static class TinyPumpkin {
 		public static boolean waterloggable = true;
 	}
