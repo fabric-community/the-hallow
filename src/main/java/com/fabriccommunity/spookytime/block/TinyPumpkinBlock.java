@@ -8,6 +8,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.EntityContext;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -67,6 +68,29 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements Waterlogg
 		
 		if(SpookyConfig.TinyPumpkin.waterloggable) {
 			builder.add(Properties.WATERLOGGED);
+		}
+	}
+	
+	@Override
+	public boolean canFillWithFluid(BlockView blockView, BlockPos pos, BlockState state, Fluid fluid) {
+		return state.contains(Properties.WATERLOGGED) && Waterloggable.super.canFillWithFluid(blockView, pos, state, fluid);
+	}
+	
+	@Override
+	public Fluid tryDrainFluid(IWorld world, BlockPos pos, BlockState state) {
+		if(state.contains(Properties.WATERLOGGED)) {
+			return Waterloggable.super.tryDrainFluid(world, pos, state);
+		} else {
+			return Fluids.EMPTY;
+		}
+	}
+	
+	@Override
+	public boolean tryFillWithFluid(IWorld world, BlockPos pos, BlockState blockState, FluidState fluidState) {
+		if(blockState.contains(Properties.WATERLOGGED)) {
+			return Waterloggable.super.tryFillWithFluid(world, pos, blockState, fluidState);
+		} else {
+			return false;
 		}
 	}
 }
