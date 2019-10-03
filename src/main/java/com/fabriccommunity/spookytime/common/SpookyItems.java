@@ -33,7 +33,7 @@ public class SpookyItems {
         TINY_PUMPKIN = register("tiny_pumpkin", new BlockItem(SpookyBlocks.TINY_PUMPKIN, new Item.Settings().group(ItemGroup.MISC)));
   }
 
-  private static <T extends Item> T register(String name, T item) {
+  static <T extends Item> T register(String name, T item) {
         return Registry.register(Registry.ITEM, SpookyTime.id(name), item);
   }
 
