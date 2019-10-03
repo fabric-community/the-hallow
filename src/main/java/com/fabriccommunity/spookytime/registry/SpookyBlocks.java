@@ -6,14 +6,19 @@ import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
 
+import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+
+import java.util.function.Supplier;
 
 public class SpookyBlocks {
 	public static Block TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()));
@@ -31,6 +36,8 @@ public class SpookyBlocks {
 	public static Block SPOOKIUM_ORE = register("spookium_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
 	public static Block SPOOKIUM_BLOCK = register("spookium_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
 	;
+
+	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN_ENTITY = register("tiny_pumpkin", TinyPumpkinBlockEntity::new, TINY_PUMPKIN);
 	
 	private SpookyBlocks() {
 		// NO-OP
@@ -53,5 +60,9 @@ public class SpookyBlocks {
 		BlockItem bi = SpookyItems.register(name, item);
 		bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
 		return b;
+	}
+
+	private static <B extends BlockEntity> BlockEntityType<B> register(String name, Supplier<B> supplier, Block... supportedBlocks) {
+		return Registry.register(Registry.BLOCK_ENTITY, SpookyTime.id(name), BlockEntityType.Builder.create(supplier, supportedBlocks).build(null));
 	}
 }
