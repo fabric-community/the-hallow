@@ -33,7 +33,6 @@ public class LargeSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
         if (canTreeReplace(modifiableTestableWorld, blockPos)) {
             this.setBlockState(set, modifiableTestableWorld, blockPos, LOG.with(PillarBlock.AXIS, axis), mutableIntBoundingBox);
         }
-
     }
 
     private static boolean isPlantableOn(TestableWorld testableWorld, BlockPos blockPos) {
@@ -58,6 +57,7 @@ public class LargeSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
         generateBranch(set, world, random, pos, mibb, random.nextInt(4), null);
         return true;
     }
+    
     protected boolean generateBranch(Set<BlockPos> set, ModifiableTestableWorld world, Random random, BlockPos pos, MutableIntBoundingBox mibb, int maxBranchouts, Direction lastDir) {
         int baseHeight = random.nextInt(4) + 2;
 

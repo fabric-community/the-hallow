@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 @Mixin(AbstractTreeFeature.class)
 public class AbstractTreeFeatureMixin {
-
     @Inject(method = "isNaturalDirtOrGrass", at = @At(value = "HEAD"), cancellable = true)
     private static void isNaturalDeceased(TestableWorld testableWorld_1, BlockPos blockPos, CallbackInfoReturnable<Boolean> cir) {
         if (testableWorld_1.testBlockState(blockPos, (blockState) -> {

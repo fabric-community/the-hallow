@@ -20,7 +20,6 @@ import java.util.function.Function;
 
 /**
  * @author Indigo Amann
- * This one is easy
  */
 public class SmallSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeatureConfig> {
     private static final BlockState LOG = Blocks.BONE_BLOCK.getDefaultState();
@@ -30,7 +29,9 @@ public class SmallSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
     }
 
     public boolean generate(Set<BlockPos> set, ModifiableTestableWorld world, Random random, BlockPos pos, MutableIntBoundingBox mibb) {
-        if (!isPlantableOn(world, pos.down())) return false;
+        if (!isPlantableOn(world, pos.down())) {
+            return false;
+        }
         int y;
         for (y = 0; y < random.nextInt(5) + 3; y++) {
             addLog(set, world, pos.offset(Direction.UP, y), Direction.Axis.Y, mibb);
@@ -49,7 +50,6 @@ public class SmallSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
         if (canTreeReplace(modifiableTestableWorld, blockPos)) {
             this.setBlockState(set, modifiableTestableWorld, blockPos, LOG.with(PillarBlock.AXIS, axis), mutableIntBoundingBox);
         }
-
     }
 
     protected static boolean isPlantableOn(TestableWorld testableWorld, BlockPos blockPos) {
