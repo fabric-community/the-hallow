@@ -18,6 +18,9 @@ public class SpookyConfig {
 				PumpkinMobs.headArmor = pumpkinMobs.getBool("pumpkin_head", PumpkinMobs.headArmor, "Zombies, Skeletons, and Wither Skeletons have a 1/3 chance of spawning with a pumpkin on their head");
 				PumpkinMobs.endermen = pumpkinMobs.getBool("endermen_hold", PumpkinMobs.endermen, "Endermen have a 1/3 chance of spawning holding a pumpkin");
 			});
+			config.accessChild("tiny_pumpkin", tinyPumpkin -> {
+				TinyPumpkin.waterloggable = tinyPumpkin.getBool("waterloggable", TinyPumpkin.waterloggable, "Lets the Tiny Pumpkin be waterlogged");
+			});
 		});
 	}
 	
@@ -29,5 +32,10 @@ public class SpookyConfig {
 	public static class PumpkinMobs {
 		public static boolean headArmor = true;
 		public static boolean endermen = true;
+	}
+}
+	
+	public static class TinyPumpkin {
+		public static boolean waterloggable = true;
 	}
 }
