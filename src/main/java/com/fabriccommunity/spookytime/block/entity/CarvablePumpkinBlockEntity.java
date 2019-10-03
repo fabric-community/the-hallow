@@ -4,6 +4,8 @@ import com.fabriccommunity.spookytime.common.SpookyBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.ByteTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -49,7 +51,14 @@ public class CarvablePumpkinBlockEntity extends BlockEntity {
         int y = (int) Math.floor(onBlock.y * 16f);
         int z = (int) Math.floor(onBlock.z * 16f);
         if (carving[hitResult.getSide().getId() - 2][hitResult.getSide().getAxis() == Direction.Axis.Z ? x : z][y]) return false;
-        carving[hitResult.getSide().getId() - 2][hitResult.getSide().getAxis() == Direction.Axis.Z ? x : z][y] = true;
-        return true;
+        ItemStack stack = player.getStackInHand(hand);
+        if (stack.getItem() instanceof ShearsItem) {
+            if (!player.abilities.creativeMode) {
+                stack.damage(1, player, it -> {});
+            }
+            carving[hitResult.getSide().getId() - 2][hitResult.getSide().getAxis() == Direction.Axis.Z ? x : z][y] = true;
+            return true;
+        }
+        return false;
     }
 }
