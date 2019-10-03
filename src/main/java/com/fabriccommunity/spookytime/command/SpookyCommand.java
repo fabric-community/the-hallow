@@ -9,6 +9,8 @@ import net.minecraft.text.Texts;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
+import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
+
 public class SpookyCommand {
 	public static int run(CommandContext<ServerCommandSource> ctx) {
 		ctx.getSource().sendFeedback(Texts.bracketed(new TranslatableText("spookytime.about.name").formatted(Formatting.GOLD)), false);
@@ -17,6 +19,6 @@ public class SpookyCommand {
 						.append(new TranslatableText("spookytime.github").formatted(Formatting.GREEN)
 								.styled(style -> style.setClickEvent(new ClickEvent(Action.OPEN_URL, "https://github.com/fabric-community/spooky-time")))),
 				false);
-		return 1;
+		return SINGLE_SUCCESS;
 	}
 }
