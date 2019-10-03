@@ -23,7 +23,7 @@ import java.util.function.Function;
  * @author Indigo Amann
  */
 public class LargeSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeatureConfig> {
-    private static final BlockState LOG;
+    private static final BlockState LOG = Blocks.BONE_BLOCK.getDefaultState();
 
     public LargeSkeletalTreeFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function, boolean boolean1) {
         super(function, boolean1);
@@ -50,10 +50,6 @@ public class LargeSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
             if (!isAir(testableWorld, blockPos.offset(direction))) return false;
         }
         return true;
-    }
-
-    static {
-        LOG = Blocks.BONE_BLOCK.getDefaultState();
     }
 
     @Override

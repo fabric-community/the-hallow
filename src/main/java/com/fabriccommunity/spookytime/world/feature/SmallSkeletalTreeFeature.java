@@ -23,7 +23,7 @@ import java.util.function.Function;
  * This one is easy
  */
 public class SmallSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeatureConfig> {
-    private static final BlockState LOG;
+    private static final BlockState LOG = Blocks.BONE_BLOCK.getDefaultState();
 
     public SmallSkeletalTreeFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function, boolean boolean1) {
         super(function, boolean1);
@@ -57,9 +57,5 @@ public class SmallSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
             Block block = blockState_1.getBlock();
             return Block.isNaturalDirt(block) || block == Blocks.GRASS_BLOCK || block == SpookyBlocks.DECEASED_GRASS_BLOCK;
         });
-    }
-
-    static {
-        LOG = Blocks.BONE_BLOCK.getDefaultState();
     }
 }

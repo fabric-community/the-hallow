@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BlockMixin {
 
     @Inject(method = "isNaturalDirt", at = @At("HEAD"), cancellable = true)
-    private static void yesItsNatural(Block block, CallbackInfoReturnable<Boolean> cir) {
+    private static void isNaturalDeceased(Block block, CallbackInfoReturnable<Boolean> cir) {
         if (block == SpookyBlocks.DECEASED_GRASS_BLOCK || block == SpookyBlocks.DECEASED_DIRT) cir.setReturnValue(true);
     }
 }
