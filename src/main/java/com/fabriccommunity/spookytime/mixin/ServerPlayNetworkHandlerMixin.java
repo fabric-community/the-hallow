@@ -71,11 +71,11 @@ public abstract class ServerPlayNetworkHandlerMixin {
 					comp.setLastCandyTime(player, world.getTime());
 					LootSupplier supplier = world.getServer().getLootManager().getSupplier(new Identifier("spookytime", "gameplay/trick_or_treat_candy"));
 					LootContext context = (new LootContext.Builder((ServerWorld) world))
-						.put(LootContextParameters.POSITION, new BlockPos(entity))
-						.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRand())
-						.build(LootContextTypes.GIFT);
+							.put(LootContextParameters.POSITION, new BlockPos(entity))
+							.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRand())
+							.build(LootContextTypes.GIFT);
 					List<ItemStack> stacks = supplier.getDrops(context);
-					for(ItemStack stack: stacks){
+					for (ItemStack stack : stacks) {
 						LookTargetUtil.give(entity, stack, player);
 					}
 				}
