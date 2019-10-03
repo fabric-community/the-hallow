@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+		"item": "minecraft:bowl"
+		},
+		{
+		"item": "minecraft:pumpkin"
+		},
+		{
+		"item": "minecraft:carrot"
+		},
+		{
+		"item": "minecraft:baked_potato"
+		}
+	],
+	"result": {
+		"item": "spookytime:pumpkin_stew"
+	}
+  }

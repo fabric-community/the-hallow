@@ -9,6 +9,7 @@ import dev.emi.trinkets.api.TrinketSlots;
 
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.MushroomStewItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Identifier;
@@ -23,6 +24,7 @@ public class SpookyItems {
 	public static Item RARE_CANDY = register("rare_candy", new CandyItem(new Item.Settings().group(SpookyTime.GROUP), 1, 0.1F));
 	public static Item WINGED_STRAWBERRY_CANDY = register("winged_strawberry_candy", new CandyItem(new Item.Settings().group(SpookyTime.GROUP), 3, 0.3F));
 	public static Item BAKED_PUMPKIN_SEEDS = register("baked_pumpkin_seeds", new Item(new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).snack().build())));
+	public static Item PUMPKIN_STEW = register("pumpkin_stew", new MushroomStewItem(new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(1.4f).build())));
 	
 	public static Item SPOOKIUM_INGOT = register("spookium_ingot", new Item(new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC)));
 	public static Item SPOOKIUM_NUGGET = register("spookium_nugget", new Item(new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC)));
