@@ -5,9 +5,11 @@ import com.mojang.brigadier.context.CommandContext;
 
 import net.minecraft.server.command.ServerCommandSource;
 
+import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
+
 public class ContibutorsCommand {
 	public static int run(CommandContext<ServerCommandSource> ctx) {
 		Contributors.sendContributorsMessage(ctx.getSource());
-		return 1;
+		return SINGLE_SUCCESS;
 	}
 }
