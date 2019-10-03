@@ -5,6 +5,7 @@ import com.fabriccommunity.spookytime.world.layer.AddSpookyShoreLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
 import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
@@ -14,10 +15,10 @@ public class SpookyWorldGen {
 	
 	public static SpookyBiomeGroup SEA_ISLANDS = new SpookyBiomeGroup(1)
 			.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
-
-    private SpookyWorldGen() {
-        // NO-OP
-    }
+	
+	private SpookyWorldGen() {
+		// NO-OP
+	}
 	
 	public static void init() {
 		// Add dimension biome placement stuff here
