@@ -2,7 +2,7 @@
 {
   "schemaVersion": 1,
   "id": "spookytime",
-  "version": "${version}",
+  "version": "1.0.0",
 
   "name": "Spooky Time",
   "description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",

@@ -39,6 +39,12 @@
     
     "biome.spookytime.spooky_forest": "Spooky Forest",
     "biome.spookytime.spooky_lowlands": "Spooky Lowlands",
+    
     "social.spookytime.github": "GitHub",
-    "social.spookytime.minecraft": "Minecraft"
+    "social.spookytime.minecraft": "Minecraft",
+    
+    "text.spookytime.trick": "Trick!",
+    "text.spookytime.treat": "Treat!",
+    "text.spookytime.no_one_nearby": "No one heard you!",
+    "text.spookytime.not_wearing_costume": "You're not wearing a costume!"
 }
