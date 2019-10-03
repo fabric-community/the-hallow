@@ -2,6 +2,7 @@ package com.fabriccommunity.spookytime.entity;
 
 import com.fabriccommunity.spookytime.registry.SpookyDimensions;
 import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -76,7 +77,20 @@ public class PumpcownEntity extends CowEntity {
 				this.playSound(SoundEvents.ENTITY_MOOSHROOM_SHEAR, 1.0F, 1.0F);
 			}
 			return true;
-		} else {
+		} else if (stack.getItem() == Items.BOWL && this.getBreedingAge() >= 0 && !player.abilities.creativeMode) {
+			stack.decrement(1);
+			ItemStack stew = new ItemStack(SpookyItems.PUMPKIN_STEW);
+   
+			if (stack.isEmpty()) {
+				player.setStackInHand(hand, stew);
+			} else if (!player.inventory.insertStack(stew)) {
+				player.dropItem(stew, false);
+			}
+   
+			this.playSound(SoundEvents.ENTITY_MOOSHROOM_MILK, 1.0F, 1.0F);
+
+			return true;
+		 } else {
 			return super.interactMob(player, hand);
 		}
 	}
