@@ -27,6 +27,7 @@ public class SpookyTime implements ModInitializer {
 		SpookyBlocks.init();
 		SpookyItems.init();
 		SpookyCommands.init();
+		SpookyFeatures.init();
 		SpookyBiomes.init();
 		SpookyWorldGen.init();
 		SpookyDimensions.init();

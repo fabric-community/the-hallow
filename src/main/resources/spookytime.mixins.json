@@ -9,7 +9,9 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
-		"ZombieEntityMixin"
+		"ZombieEntityMixin",
+		"AbstractTreeFeatureMixin",
+		"WildCropFeatureMixin"
 	],
 	"client": [
 
