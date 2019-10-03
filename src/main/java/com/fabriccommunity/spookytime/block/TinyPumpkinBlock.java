@@ -27,8 +27,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements Waterlogg
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext placementContext) {
 		final BlockState blockState = this.getDefaultState().with(FACING, placementContext.getPlayerFacing().getOpposite());
-		if (blockState.contains(Properties.WATERLOGGED))
-		{
+		if (blockState.contains(Properties.WATERLOGGED)) {
 			final FluidState fluidState = placementContext.getWorld().getFluidState(placementContext.getBlockPos());
 			return blockState.with(Properties.WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
 		}
@@ -42,13 +41,12 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements Waterlogg
 	}
 	
 	@Override
-	public BlockState getStateForNeighborUpdate(BlockState blockState, Direction direction, BlockState blockStateOther, IWorld world, BlockPos blockPosition, BlockPos blockPositionOther) {
-		if (blockState.contains(Properties.WATERLOGGED) && blockState.get(Properties.WATERLOGGED))
-		{
-			world.getFluidTickScheduler().schedule(blockPosition, Fluids.WATER, Fluids.WATER.getTickRate(world));
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState otherState, IWorld world, BlockPos pos, BlockPos otherPos) {
+		if (state.contains(Properties.WATERLOGGED) && state.get(Properties.WATERLOGGED)) {
+			world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
 		}
 		
-		return super.getStateForNeighborUpdate(blockState, direction, blockStateOther, world, blockPosition, blockPosition);
+		return super.getStateForNeighborUpdate(state, direction, otherState, world, pos, otherPos);
 	}
 	
 	@Override
