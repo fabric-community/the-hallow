@@ -3,6 +3,7 @@ package com.fabriccommunity.spookytime.enchantment;
 import com.fabriccommunity.spookytime.registry.SpookyEnchantments;
 import com.fabriccommunity.spookytime.registry.SpookyItems;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.block.AnvilBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -28,8 +29,8 @@ public class BeheadingEnchantment extends Enchantment {
 	}
 
 	public static boolean getHead(DamageSource damageSource) {
-		if (damageSource.getAttacker() instanceof LivingEntity && hasBeheading((LivingEntity) damageSource.getAttacker())) {
-			LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
+		if (damageSource.getSource() instanceof LivingEntity && hasBeheading((LivingEntity) damageSource.getSource())) {
+			LivingEntity attacker = (LivingEntity) damageSource.getSource();
 			int enchantmentLevel = EnchantmentHelper.getEquipmentLevel(SpookyEnchantments.BEHEADING, attacker);
 			int scytheMultiplier = attacker.getActiveItem().getItem() == SpookyItems.REAPERS_SCYTHE ? 2 : 1;
 			return attacker.world.random.nextInt(100) <= BEHEAD_CHANCE.get(enchantmentLevel - 1) * scytheMultiplier;

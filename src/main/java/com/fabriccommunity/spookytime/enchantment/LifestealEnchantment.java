@@ -25,8 +25,8 @@ public class LifestealEnchantment extends Enchantment {
 	}
 
 	public static float getLifeWithSteal(DamageSource damageSource, float damage, LivingEntity attackedEntity) {
-		if (damageSource.getAttacker() instanceof LivingEntity && hasLifesteal((LivingEntity) damageSource.getAttacker()) && attackedEntity.getHealth() <= 0) {
-			LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
+		if (damageSource.getSource() instanceof LivingEntity && hasLifesteal((LivingEntity) damageSource.getSource()) && attackedEntity.getHealth() <= 0) {
+			LivingEntity attacker = (LivingEntity) damageSource.getSource();
 			int enchantmentLevel = EnchantmentHelper.getEquipmentLevel(SpookyEnchantments.LIFESTEAL, attacker);
 			float stolenHealth = damage * STEAL_MULTIPLIER.get(enchantmentLevel);
 			return Math.min(attacker.getHealthMaximum(), attacker.getHealth() + stolenHealth);
