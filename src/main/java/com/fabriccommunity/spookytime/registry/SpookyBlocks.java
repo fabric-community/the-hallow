@@ -1,10 +1,12 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.*;
+import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
+import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 
-import com.github.draylar.worldtraveler.api.generic.BlockBuilder;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.*;
@@ -13,7 +15,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Pair;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
@@ -34,8 +35,7 @@ public class SpookyBlocks {
 	
 	public static Block SPOOKIUM_ORE = register("spookium_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
 	public static Block SPOOKIUM_BLOCK = register("spookium_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
-
-	public static Block SPOOKY_TREASURE_CHEST = register("spooky_treasure_chest", new SpookyTreasureChestBlock(FabricBlockSettings.of(Material.METAL).build()), new Item.Settings().group(SpookyTime.GROUP));
+	;
 
 	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN_BLOCK_ENTITY = register("tiny_pumpkin", TinyPumpkinBlockEntity::new, TINY_PUMPKIN);
 	
