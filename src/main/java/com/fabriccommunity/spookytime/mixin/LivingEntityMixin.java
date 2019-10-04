@@ -24,7 +24,7 @@ public abstract class LivingEntityMixin {
 	@Inject(method = "drop", at = @At("HEAD"))
 	public void drop(DamageSource damageSource, CallbackInfo info) {
 		LivingEntity livingEntity = (LivingEntity) (Object) this;
-		if (livingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && BeheadingEnchantment.hasBeheading((LivingEntity) damageSource.getAttacker())) {
+		if (damageSource.getSource() instanceof LivingEntity && livingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && BeheadingEnchantment.hasBeheading((LivingEntity) damageSource.getSource())) {
 			if (BeheadingEnchantment.getHead(damageSource)) {
 				if (livingEntity.getType() == EntityType.WITHER_SKELETON) {
 					livingEntity.dropStack(new ItemStack(Items.WITHER_SKELETON_SKULL));
@@ -44,8 +44,8 @@ public abstract class LivingEntityMixin {
 	@Inject(method = "applyDamage", at = @At("RETURN"))
 	public void applyDamage(DamageSource damageSource, float damage, CallbackInfo info) {
 		LivingEntity attacked = (LivingEntity) (Object) this;
-		if (damageSource.getAttacker() instanceof LivingEntity && attacked.getHealth() < damage) {
-			LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
+		if (damageSource.getSource() instanceof LivingEntity && attacked.getHealth() < damage) {
+			LivingEntity attacker = (LivingEntity) damageSource.getSource();
 			if (!attacked.isInvulnerableTo(damageSource)) {
 				float health = LifestealEnchantment.getLifeWithSteal(damageSource, damage, attacked);
 				if (health != 0) {
