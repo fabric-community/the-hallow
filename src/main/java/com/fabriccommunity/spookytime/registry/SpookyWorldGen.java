@@ -5,7 +5,6 @@ import com.fabriccommunity.spookytime.world.layer.AddSpookyShoreLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-
 import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
