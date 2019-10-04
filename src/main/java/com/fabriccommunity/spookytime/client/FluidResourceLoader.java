@@ -43,8 +43,23 @@ public class FluidResourceLoader implements SimpleSynchronousResourceReloadListe
 				return 0x5900A3;
 			}
 		};
+
+		FluidRenderHandler bloodRenderHandler = new FluidRenderHandler() {
+			@Override
+			public Sprite[] getFluidSprites(ExtendedBlockView extendedBlockView, BlockPos blockPos, FluidState fluidState) {
+				return new Sprite[]{MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_still"), MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_flow")};
+			}
+
+			@Override
+			public int getFluidColor(ExtendedBlockView view, BlockPos pos, FluidState state) {
+				return 0xBB0A1E;
+			}
+		};
 		
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.WITCH_WATER, witchWaterRenderHandler);
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.FLOWING_WITCH_WATER, witchWaterRenderHandler);
+
+		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.BLOOD, bloodRenderHandler);
+		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.FLOWING_BLOOD, bloodRenderHandler);
 	}
 }

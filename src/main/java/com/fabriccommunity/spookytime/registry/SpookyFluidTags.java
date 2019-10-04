@@ -8,6 +8,7 @@ import net.minecraft.tag.Tag;
 
 public class SpookyFluidTags {
 	public static final Tag<Fluid> WITCH_WATER = register("witch_water");
+	public static final Tag<Fluid> BLOOD = register("blood");
 	
 	private SpookyFluidTags() {
 		// NO-OP
