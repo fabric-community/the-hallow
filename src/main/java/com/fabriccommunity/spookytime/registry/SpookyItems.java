@@ -6,12 +6,7 @@ import com.fabriccommunity.spookytime.item.SkirtCostume;
 import com.fabriccommunity.spookytime.item.tool.ScytheItem;
 import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
 import dev.emi.trinkets.api.TrinketSlots;
-
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.MushroomStewItem;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -35,7 +30,9 @@ public class SpookyItems {
 	public static Item SOUL_BOTTLE = register("soul_bottle", new Item(new Item.Settings().group(SpookyTime.GROUP)));
 	
 	public static Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 8273166, 14912029, new Item.Settings().group(SpookyTime.GROUP)));
-	
+
+	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(SpookyFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
+
 	private SpookyItems() {
 		// NO-OP
 	}
