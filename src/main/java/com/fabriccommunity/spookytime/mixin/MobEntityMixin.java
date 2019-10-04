@@ -26,7 +26,8 @@ public abstract class MobEntityMixin {
 	
 	@Inject(method = "initialize", at = @At("RETURN"))
 	public void initialize(IWorld iWorld, LocalDifficulty localDifficulty, SpawnType spawnType, EntityData entityData, CompoundTag compoundTag, CallbackInfoReturnable<EntityData> cir) {
-		if (((Object) this) instanceof EndermanEntity && SpookyConfig.PumpkinMobs.endermen && MixinHelpers.RANDOM.nextInt(10) == 0)
+		if (((Object) this) instanceof EndermanEntity && SpookyConfig.PumpkinMobs.endermen && MixinHelpers.RANDOM.nextInt(10) == 0) {
 			((EndermanEntity) (Object) this).setCarriedBlock((MixinHelpers.RANDOM.nextBoolean() ? Blocks.PUMPKIN : (MixinHelpers.RANDOM.nextBoolean() ? Blocks.CARVED_PUMPKIN : Blocks.JACK_O_LANTERN)).getDefaultState());
+		}
 	}
 }
