@@ -1,5 +1,5 @@
 {
-    "variants": {
-        "": { "model": "spookytime:block/cut_tainted_sandstone" }
-    }
+	"variants": {
+		"": {"model": "spookytime:block/cut_tainted_sandstone"}
+	}
 }
