@@ -32,7 +32,7 @@ public class BeheadingEnchantment extends Enchantment {
 			LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
 			int enchantmentLevel = EnchantmentHelper.getEquipmentLevel(SpookyEnchantments.BEHEADING, attacker);
 			int scytheMultiplier = attacker.getActiveItem().getItem() == SpookyItems.REAPERS_SCYTHE ? 2 : 1;
-			return new Random().nextInt(100) <= BEHEAD_CHANCE.get(enchantmentLevel - 1) * scytheMultiplier;
+			return attacker.world.random.nextInt(100) <= BEHEAD_CHANCE.get(enchantmentLevel - 1) * scytheMultiplier;
 		} else {
 			return false;
 		}
