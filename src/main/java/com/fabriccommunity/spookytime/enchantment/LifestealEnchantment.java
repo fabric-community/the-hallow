@@ -2,7 +2,6 @@ package com.fabriccommunity.spookytime.enchantment;
 
 import com.fabriccommunity.spookytime.registry.SpookyEnchantments;
 import com.google.common.collect.ImmutableList;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -11,7 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 
 public class LifestealEnchantment extends Enchantment {
-	protected static final ImmutableList<Float> stealMultiplier = ImmutableList.of(0.1F, 0.12F, 0.15F, 0.17F, 0.2F);
+	protected static final ImmutableList<Float> STEAL_MULTIPLIER = ImmutableList.of(0.1F, 0.12F, 0.15F, 0.17F, 0.2F);
 
 	public LifestealEnchantment(Enchantment.Weight weight, EnchantmentTarget target, EquipmentSlot[] slots) {
 		super(weight, target, slots);
@@ -26,10 +25,10 @@ public class LifestealEnchantment extends Enchantment {
 	}
 
 	public static float getLifeWithSteal(DamageSource damageSource, float damage, LivingEntity attackedEntity) {
-		if (damageSource.getAttacker() instanceof LivingEntity && hasLifesteal((LivingEntity)damageSource.getAttacker()) && attackedEntity.getHealth() <= 0) {
-			LivingEntity attacker = (LivingEntity)damageSource.getAttacker();
+		if (damageSource.getAttacker() instanceof LivingEntity && hasLifesteal((LivingEntity) damageSource.getAttacker()) && attackedEntity.getHealth() <= 0) {
+			LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
 			int enchantmentLevel = EnchantmentHelper.getEquipmentLevel(SpookyEnchantments.LIFESTEAL, attacker);
-			float stolenHealth = damage * stealMultiplier.get(enchantmentLevel);
+			float stolenHealth = damage * STEAL_MULTIPLIER.get(enchantmentLevel);
 			return Math.min(attacker.getHealthMaximum(), attacker.getHealth() + stolenHealth);
 		} else {
 			return 0;

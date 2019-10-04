@@ -2,7 +2,6 @@ package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
-
 import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -18,7 +17,7 @@ public class SpookyEnchantments {
 	}
 
 	public static void init() {
-        // NO-OP
+		// NO-OP
 	}
 
 	protected static <T extends Enchantment> T register(String name, T enchantment) {
