@@ -18,16 +18,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class WitchWaterBlock extends FluidBlock {
-    public WitchWaterBlock(BaseFluid fluid, Settings settings) {
-        super(fluid, settings);
-    }
+	public WitchWaterBlock(BaseFluid fluid, Settings settings) {
+		super(fluid, settings);
+	}
 
-    public void onEntityCollision(BlockState blockState, World world, BlockPos blockPos, Entity entity) {
-        if (entity instanceof PlayerEntity) {
-            ((LivingEntity) entity).addPotionEffect(new StatusEffectInstance(StatusEffects.POISON, 20));
+	public void onEntityCollision(BlockState blockState, World world, BlockPos blockPos, Entity entity) {
+		if (entity instanceof PlayerEntity) {
+			((LivingEntity) entity).addPotionEffect(new StatusEffectInstance(StatusEffects.POISON, 20));
 			((LivingEntity) entity).addPotionEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20));
 			((LivingEntity) entity).addPotionEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20));
-        }
+		}
 
 		if (blockPos.equals(entity.getBlockPos())) {
 			if (entity.getType() == EntityType.SKELETON) {
@@ -48,9 +48,9 @@ public class WitchWaterBlock extends FluidBlock {
 				entity.remove();
 
 				world.spawnEntity(witchEntity);
-			} else if (entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty() && ((ItemEntity) entity).getStack().getItem() == Items.PUMPKIN) {
+			} else if (entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty() && ((ItemEntity) entity).getStack().getItem()==Items.PUMPKIN) {
 				//Unimplemented
 			}
 		}
-    }
+	}
 }
