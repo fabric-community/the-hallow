@@ -10,7 +10,8 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
-		"ZombieEntityMixin"
+		"ZombieEntityMixin",
+		"LivingEntityMixin"
 	],
 	"client": [
 		"client.ClientPlayNetworkHandlerMixin",
