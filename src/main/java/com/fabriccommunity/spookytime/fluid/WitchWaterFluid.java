@@ -73,7 +73,8 @@ public class WitchWaterFluid extends BaseFluid {
 				(double) blockPos.getX() + 0.5D + (random.nextFloat() - 0.5F),
 				(double) blockPos.getY() + (fluidState.getHeight(world, blockPos) * (1F / 7F)) + 1F,
 				(double) blockPos.getZ() + 0.5D + (random.nextFloat() - 0.5F),
-				0.0D, 0.0D, 0.0D);
+				0.0D, 0.0D, 0.0D
+			);
 		}
 		
 		if (random.nextInt(15) == 0) {
@@ -81,7 +82,8 @@ public class WitchWaterFluid extends BaseFluid {
 				(double) blockPos.getX() + 0.5D + (random.nextFloat() - 0.5F),
 				(double) blockPos.getY() + (fluidState.getHeight(world, blockPos) * (1F / 7F)) + 1F,
 				(double) blockPos.getZ() + 0.5D + (random.nextFloat() - 0.5F),
-				0.0D, 0.0D, 0.0D);
+				0.0D, 0.0D, 0.0D
+			);
 		}
 	}
 	

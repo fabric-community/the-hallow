@@ -1,9 +1,9 @@
 {
-    "replace": false,
-    "values": [
-        "spookytime:deceased_dirt",
-        "spookytime:deceased_grass_block",
-        "spookytime:tainted_sand",
-        "spookytime:tainted_gravel"
-    ]
+	"replace": false,
+	"values": [
+		"spookytime:deceased_dirt",
+		"spookytime:deceased_grass_block",
+		"spookytime:tainted_sand",
+		"spookytime:tainted_gravel"
+	]
 }

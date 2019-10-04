@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"values": [
+		"spookytime:tainted_sandstone_slab",
+		"spookytime:smooth_tainted_sandstone_slab",
+		"spookytime:cut_tainted_sandstone_slab"
+	]
+}

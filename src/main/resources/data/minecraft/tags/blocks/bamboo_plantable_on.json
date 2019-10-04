@@ -1,7 +1,7 @@
 {
-    "replace": false,
-    "values": [
-        "spookytime:tainted_sand",
-        "spookytime:tainted_gravel"
-    ]
+	"replace": false,
+	"values": [
+		"spookytime:tainted_sand",
+		"spookytime:tainted_gravel"
+	]
 }

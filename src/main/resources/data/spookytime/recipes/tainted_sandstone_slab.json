@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "spookytime:tainted_sandstone"
+      },
+      {
+        "item": "spookytime:chiseled_tainted_sandstone"
+      }
+    ]
+  },
+  "result": {
+    "item": "spookytime:tainted_sandstone_slab",
+    "count": 6
+  }
+}
