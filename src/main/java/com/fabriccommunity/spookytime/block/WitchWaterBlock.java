@@ -22,6 +22,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
@@ -62,9 +64,11 @@ public class WitchWaterBlock extends FluidBlock {
 		recipes.put(Items.SMOOTH_RED_SANDSTONE_SLAB, SpookyBlocks.SMOOTH_TAINTED_SANDSTONE_SLAB);
 		recipes.put(Items.CUT_RED_SANDSTONE_SLAB, SpookyBlocks.CUT_TAINTED_SANDSTONE_SLAB);
 		recipes.put(Items.RED_SANDSTONE_WALL, SpookyBlocks.TAINTED_SANDSTONE_WALL);
+		recipes.put(SpookyBlocks.TINY_PUMPKIN.asItem(), SpookyBlocks.WITCHED_PUMPKIN);
 	}
-	
-	public void onEntityCollision(BlockState blockState, World world, BlockPos blockPos, Entity entity) {
+
+	@Override
+	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity) {
 			LivingEntity livingEntity = (LivingEntity) entity;
 			if(!livingEntity.isUndead() && !(livingEntity instanceof PumpcownEntity)) {
@@ -74,7 +78,7 @@ public class WitchWaterBlock extends FluidBlock {
 			}
 		}
 		
-		if (blockPos.equals(entity.getBlockPos())) {
+		if (pos.equals(entity.getBlockPos())) {
 			if (entity.getType() == EntityType.SKELETON) {
 				WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
 				witherSkeletonEntity.copyPositionAndRotation(entity);
@@ -107,6 +111,7 @@ public class WitchWaterBlock extends FluidBlock {
 				} else if(recipes.containsKey(stack.getItem())) {
 					ItemStack newStack = new ItemStack(recipes.get(stack.getItem()), stack.getCount());
 					itemEntity.setStack(newStack);
+					world.playSound(null, pos, SoundEvents.ENTITY_ILLUSIONER_CAST_SPELL, SoundCategory.BLOCKS, world.random.nextFloat() * 0.5f + 0.5f, 0.75f + world.random.nextFloat() * 0.5f);
 				}
 			}
 		}
