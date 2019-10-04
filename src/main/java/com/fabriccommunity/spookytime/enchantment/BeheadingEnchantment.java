@@ -3,15 +3,12 @@ package com.fabriccommunity.spookytime.enchantment;
 import com.fabriccommunity.spookytime.registry.SpookyEnchantments;
 import com.fabriccommunity.spookytime.registry.SpookyItems;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.block.AnvilBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-
-import java.util.Random;
 
 public class BeheadingEnchantment extends Enchantment {
 	protected static final ImmutableList<Integer> BEHEAD_CHANCE = ImmutableList.of(5, 7, 10, 12, 15);

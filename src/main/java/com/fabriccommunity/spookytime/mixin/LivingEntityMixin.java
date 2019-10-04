@@ -23,22 +23,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class LivingEntityMixin {
 	@Inject(method = "drop", at = @At("HEAD"))
 	public void drop(DamageSource damageSource, CallbackInfo info) {
-			LivingEntity livingEntity = (LivingEntity) (Object) this;
-			if (damageSource.getSource() instanceof LivingEntity && livingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && BeheadingEnchantment.hasBeheading((LivingEntity) damageSource.getSource())) {
-				if (BeheadingEnchantment.getHead(damageSource)) {
-					if (livingEntity.getType() == EntityType.WITHER_SKELETON) {
-						livingEntity.dropStack(new ItemStack(Items.WITHER_SKELETON_SKULL));
-					} else if (livingEntity.getType() == EntityType.SKELETON) {
-						livingEntity.dropStack(new ItemStack(Items.SKELETON_SKULL));
-					} else if (livingEntity.getType() == EntityType.ZOMBIE) {
-						livingEntity.dropStack(new ItemStack(Items.ZOMBIE_HEAD));
-					} else if (livingEntity.getType() == EntityType.CREEPER) {
-						livingEntity.dropStack(new ItemStack(Items.CREEPER_HEAD));
-					} else if (livingEntity.getType() == EntityType.PLAYER) {
-						livingEntity.dropStack(new ItemStack(Items.PLAYER_HEAD));
-					}
+		LivingEntity livingEntity = (LivingEntity) (Object) this;
+		if (damageSource.getSource() instanceof LivingEntity && livingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && BeheadingEnchantment.hasBeheading((LivingEntity) damageSource.getSource())) {
+			if (BeheadingEnchantment.getHead(damageSource)) {
+				if (livingEntity.getType() == EntityType.WITHER_SKELETON) {
+					livingEntity.dropStack(new ItemStack(Items.WITHER_SKELETON_SKULL));
+				} else if (livingEntity.getType() == EntityType.SKELETON) {
+					livingEntity.dropStack(new ItemStack(Items.SKELETON_SKULL));
+				} else if (livingEntity.getType() == EntityType.ZOMBIE) {
+					livingEntity.dropStack(new ItemStack(Items.ZOMBIE_HEAD));
+				} else if (livingEntity.getType() == EntityType.CREEPER) {
+					livingEntity.dropStack(new ItemStack(Items.CREEPER_HEAD));
+				} else if (livingEntity.getType() == EntityType.PLAYER) {
+					livingEntity.dropStack(new ItemStack(Items.PLAYER_HEAD));
 				}
 			}
+		}
 	}
 
 	@Inject(method = "applyDamage", at = @At("RETURN"))
