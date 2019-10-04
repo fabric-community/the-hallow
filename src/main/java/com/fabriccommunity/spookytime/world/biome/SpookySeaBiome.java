@@ -30,7 +30,7 @@ public class SpookySeaBiome extends SpookyBaseBiome {
 		DefaultBiomeFeatures.addDefaultGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
-		SpookyBiomeFeatures.addSpookyForestTrees(this);
+		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
 		this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ZOMBIE, 95, 4, 4));
