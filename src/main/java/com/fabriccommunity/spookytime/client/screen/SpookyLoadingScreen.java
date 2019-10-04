@@ -21,8 +21,7 @@ public class SpookyLoadingScreen extends Screen {
 		SpookyTime.id("textures/block/deceased_dirt.png"),
 		SpookyTime.id("textures/block/tainted_sand.png"),
 		SpookyTime.id("textures/block/tainted_sandstone_bottom.png"),
-		SpookyTime.id("textures/block/tainted_sandstone_top.png"),
-		//new Identifier("minecraft", "textures/block/pumpkin_side.png"),
+		SpookyTime.id("textures/block/tainted_sandstone_top.png")
 	};
 
 	private static final String[] MESSAGES = {
@@ -88,13 +87,13 @@ public class SpookyLoadingScreen extends Screen {
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder builder = tessellator.getBufferBuilder();
 		minecraft.getTextureManager().bindTexture(backgroundTexture);
-		int color = 130;
+		int brigtness = 130;
 		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		builder.begin(7, VertexFormats.POSITION_UV_COLOR);
-		builder.vertex(0, height, 0).texture(0, height / 32.0F + i).color(color, color, color, 255).next();
-		builder.vertex(width, height, 0).texture(width / 32.0F, height / 32.0F + i).color(color, color, color, 255).next();
-		builder.vertex(width, 0, 0).texture(width / 32.0F, i).color(color, color, color, 255).next();
-		builder.vertex(0, 0, 0).texture(0, i).color(color, color, color, 255).next();
+		builder.vertex(0, height, 0).texture(0, height / 32.0F + i).color(brigtness, brigtness, brigtness, 255).next();
+		builder.vertex(width, height, 0).texture(width / 32.0F, height / 32.0F + i).color(brigtness, brigtness, brigtness, 255).next();
+		builder.vertex(width, 0, 0).texture(width / 32.0F, i).color(brigtness, brigtness, brigtness, 255).next();
+		builder.vertex(0, 0, 0).texture(0, i).color(brigtness, brigtness, brigtness, 255).next();
 		tessellator.draw();
 	}
 }
