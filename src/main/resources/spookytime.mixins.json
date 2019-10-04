@@ -13,7 +13,7 @@
 		"ZombieEntityMixin"
 	],
 	"client": [
-
+		"ItemDynamicRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
