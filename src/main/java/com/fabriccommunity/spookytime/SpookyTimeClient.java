@@ -11,6 +11,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.render.EntityRendererRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+
 import net.minecraft.resource.ResourceType;
 
 public class SpookyTimeClient implements ClientModInitializer {
@@ -20,7 +21,7 @@ public class SpookyTimeClient implements ClientModInitializer {
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
 		
 		SpookyColors.init();
-
+		
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new FluidResourceLoader());
 	}
 }

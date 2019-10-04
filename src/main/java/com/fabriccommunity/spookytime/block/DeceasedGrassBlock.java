@@ -46,7 +46,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 	public void grow(World world, Random random, BlockPos blockPos, BlockState blockState) {
 		BlockPos upPos = blockPos.up();
 		BlockState grassBlock = SpookyBlocks.DECEASED_GRASS_BLOCK.getDefaultState();
-
+		
 		label48:
 		for (int i = 0; i < 128; ++i) {
 			BlockPos randomPos = upPos;

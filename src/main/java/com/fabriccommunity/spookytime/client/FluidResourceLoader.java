@@ -2,10 +2,12 @@ package com.fabriccommunity.spookytime.client;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.registry.SpookyFluids;
+
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.resource.ResourceReloadListenerKeys;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.fluid.FluidState;
@@ -22,26 +24,26 @@ public class FluidResourceLoader implements SimpleSynchronousResourceReloadListe
 	public Identifier getFabricId() {
 		return SpookyTime.id("fluid_resource_loader");
 	}
-
+	
 	@Override
 	public Collection<Identifier> getFabricDependencies() {
 		return Arrays.asList(ResourceReloadListenerKeys.MODELS, ResourceReloadListenerKeys.TEXTURES);
 	}
-
+	
 	@Override
 	public void apply(ResourceManager resourceManager) {
 		FluidRenderHandler witchWaterRenderHandler = new FluidRenderHandler() {
 			@Override
 			public Sprite[] getFluidSprites(ExtendedBlockView extendedBlockView, BlockPos blockPos, FluidState fluidState) {
-				return new Sprite[] { MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_still"), MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_flow") };
+				return new Sprite[]{MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_still"), MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_flow")};
 			}
-
+			
 			@Override
 			public int getFluidColor(ExtendedBlockView view, BlockPos pos, FluidState state) {
 				return 0x5900A3;
 			}
 		};
-
+		
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.WITCH_WATER, witchWaterRenderHandler);
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.FLOWING_WITCH_WATER, witchWaterRenderHandler);
 	}

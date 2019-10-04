@@ -10,11 +10,11 @@ import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
 	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)
-			.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
-			.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1);
+		.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
+		.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1);
 	
 	public static SpookyBiomeGroup SEA_ISLANDS = new SpookyBiomeGroup(1)
-			.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
+		.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
 	
 	private SpookyWorldGen() {
 		// NO-OP

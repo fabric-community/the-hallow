@@ -80,17 +80,17 @@ public class PumpcownEntity extends CowEntity {
 		} else if (stack.getItem() == Items.BOWL && this.getBreedingAge() >= 0 && !player.abilities.creativeMode) {
 			stack.decrement(1);
 			ItemStack stew = new ItemStack(SpookyItems.PUMPKIN_STEW);
-   
+			
 			if (stack.isEmpty()) {
 				player.setStackInHand(hand, stew);
 			} else if (!player.inventory.insertStack(stew)) {
 				player.dropItem(stew, false);
 			}
-   
+			
 			this.playSound(SoundEvents.ENTITY_MOOSHROOM_MILK, 1.0F, 1.0F);
-
+			
 			return true;
-		 } else {
+		} else {
 			return super.interactMob(player, hand);
 		}
 	}

@@ -1,8 +1,8 @@
 package com.fabriccommunity.spookytime.world.biome;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-
 import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
@@ -26,9 +26,10 @@ public class SpookyShoreBiome extends SpookyBaseBiome {
 	protected static final int FOLIAGE_COLOR = 0x20003B;
 	
 	private static final TernarySurfaceConfig TAINTED_GRAVEL_CONFIG = new TernarySurfaceConfig(
-			SpookyBlocks.TAINTED_GRAVEL.getDefaultState(),
-			SpookyBlocks.TAINTED_GRAVEL.getDefaultState(),
-			SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
+		SpookyBlocks.TAINTED_GRAVEL.getDefaultState(),
+		SpookyBlocks.TAINTED_GRAVEL.getDefaultState(),
+		SpookyBlocks.TAINTED_GRAVEL.getDefaultState()
+	);
 	
 	public SpookyShoreBiome() {
 		super(new Settings().surfaceBuilder(new ConfiguredSurfaceBuilder<TernarySurfaceConfig>(SurfaceBuilder.DEFAULT, TAINTED_GRAVEL_CONFIG)).precipitation(Precipitation.NONE).category(Category.OCEAN).depth(0.02f).scale(0.025f).temperature(0.5f).downfall(0.8f).waterColor(0x5900A3).waterFogColor(0x5900A3));

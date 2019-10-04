@@ -20,7 +20,7 @@ public class SpookyConfig {
 			});
 			config.accessChild("tiny_pumpkin", tinyPumpkin -> {
 				TinyPumpkin.waterloggable = tinyPumpkin.getBool("waterloggable", TinyPumpkin.waterloggable, "Lets the Tiny Pumpkin be waterlogged");
-      });
+			});
 			config.accessChild("trick_or_treating", trickOrTreating -> {
 				TrickOrTreating.enableTricks = trickOrTreating.getBool("enable_tricks", TrickOrTreating.enableTricks, "Enables a chance for trick or treating to result in the villagers becoming witches");
 				TrickOrTreating.trickChance = trickOrTreating.getInt("trick_chance", TrickOrTreating.trickChance, "Tricks, if enabled, will have a one in (this number) chance of happening");
@@ -40,8 +40,8 @@ public class SpookyConfig {
 	
 	public static class TinyPumpkin {
 		public static boolean waterloggable = true;
-  }
-  
+	}
+	
 	public static class TrickOrTreating {
 		public static boolean enableTricks = true;
 		public static int trickChance = 100;
