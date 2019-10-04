@@ -16,8 +16,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
 public class SpookyTreasureChestBlock extends HorizontalFacingBlock implements BlockEntityProvider {
 	
 	private static final VoxelShape SHAPE = Block.createCuboidShape(4, 0, 4, 12, 8, 12);
@@ -44,13 +42,11 @@ public class SpookyTreasureChestBlock extends HorizontalFacingBlock implements B
 		return false;
 	}
 
-	@Nullable
 	@Override
 	public BlockEntity createBlockEntity(BlockView var1) {
 		return new SpookyTreasureChestBlockEntity();
 	}
 
-	@Nullable
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		return this.getDefaultState().with(FACING, context.getPlayerFacing().getOpposite());

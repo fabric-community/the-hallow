@@ -31,21 +31,24 @@ import java.util.List;
 
 public class SpookyTreasureChestEntity extends Entity {
 
+	public static final Identifier ENTITY_ID = new Identifier(SpookyTime.MOD_ID, "spooky_treasure_chest");
 	private static final int TICKS_PER_SECOND = 20;
 
-	public static final Identifier ENTITY_ID = new Identifier(SpookyTime.MOD_ID, "spooky_treasure_chest");
+	// entity constants
+	// todo: add config options for relevant fields
+	private static final int MAX_SPIN_PROGRESS = 4 * TICKS_PER_SECOND;
+	private static final int MAX_END_PROGRESS = 2 * TICKS_PER_SECOND;
+	public static final int MAX_HINGE_PROGRESS = TICKS_PER_SECOND;
 
+	private static final float ROTATION_PER_TICK = 365f / MAX_SPIN_PROGRESS;
+
+	// stored entity data
 	private boolean shouldReplace = false;
 	private boolean hasReplaced = false;
 
-	// animation data
 	private int spinProgress = 0;
 	private int endProgress = 0;
 	private int hingeProgress = 0;
-
-	public static final int MAX_SPIN_PROGRESS = 4 * TICKS_PER_SECOND;
-	public static final int MAX_END_PROGRESS = 2 * TICKS_PER_SECOND;
-	public static final int MAX_HINGE_PROGRESS = TICKS_PER_SECOND;
 
 	private boolean isSpinningUp = true;
 	private boolean isEnding = false;
@@ -53,7 +56,6 @@ public class SpookyTreasureChestEntity extends Entity {
 
 	public float rotation = 0;
 	public float previousRotation = 0;
-	public static final float ROTATION_PER_TICK = 365f / MAX_SPIN_PROGRESS;
 	
 	public SpookyTreasureChestEntity(EntityType<?> type, World world) {
 		super(type, world);
@@ -124,6 +126,7 @@ public class SpookyTreasureChestEntity extends Entity {
 		world.addParticle(ParticleTypes.SMOKE, x, y, z, 0, -.1, 0);
 	}
 
+	// todo: add spooky treasure chest custom loot table
 	private void dropLoot(ServerWorld serverWorld) {
 		// set up loot objects
 		LootSupplier supplier = serverWorld.getServer().getLootManager().getSupplier(new Identifier(SpookyTime.MOD_ID, "gameplay/treasure_chest_common"));
@@ -146,8 +149,6 @@ public class SpookyTreasureChestEntity extends Entity {
 		double startX = x - .275f;
 		double startY = y;
 		double startZ = z - .275f;
-
-		// WIDTH TO EDGE IS .3
 
 		for(int i = 0; i < 10; i++) {
 			double frontX = .5f * random.nextDouble();
@@ -205,27 +206,11 @@ public class SpookyTreasureChestEntity extends Entity {
 		return false;
 	}
 
-	public int getSpinProgress() {
-		return spinProgress;
-	}
-
 	public int getEndProgress() {
 		return endProgress;
 	}
 
 	public int getHingeProgress() {
 		return hingeProgress;
-	}
-
-	public boolean isSpinningUp() {
-		return isSpinningUp;
-	}
-
-	public boolean isEnding() {
-		return isEnding;
-	}
-
-	public boolean isOpeningHinge() {
-		return isOpeningHinge;
 	}
 }

@@ -13,17 +13,18 @@ import net.minecraft.util.math.BlockPos;
 
 public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<SpookyTreasureChestBlockEntity> {
 
-	private static final Identifier TEXTURE = new Identifier(SpookyTime.MOD_ID, "textures/entity/treasure_chest/ender.png");
+	private static final Identifier TEXTURE = new Identifier(SpookyTime.MOD_ID, "textures/entity/treasure_chest/default_chest.png");
 	private final TreasureChestModel chestModel = new TreasureChestModel();
 
 	@Override
 	public void render(SpookyTreasureChestBlockEntity treasureChest, double x, double y, double z, float partialTicks, int breakStage) {
-		// render initialization
 		GlStateManager.pushMatrix();
 		BlockState state = getWorld().getBlockState(treasureChest.getPos());
 
+		// initial translation to center chest
 		GlStateManager.translatef((float) x + .215f, (float) y + .57f, (float) z + .785f);
 
+		// rotate based on facing direction
 		if(state.contains(SpookyTreasureChestBlock.FACING)) {
 			switch (state.get(SpookyTreasureChestBlock.FACING)) {
 				case NORTH:
@@ -46,6 +47,7 @@ public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<
 			}
 		}
 
+		// flip & scale to size
 		GlStateManager.rotatef(180, 1, 0, 0);
 		GlStateManager.scalef(.57f, .57f, .57f);
 
@@ -53,7 +55,6 @@ public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<
 		bindTexture(TEXTURE);
 		chestModel.method_2799();
 
-		// finish
 		GlStateManager.popMatrix();
 	}
 }
