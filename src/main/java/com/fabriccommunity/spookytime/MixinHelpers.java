@@ -24,6 +24,7 @@ public class MixinHelpers {
 				entity.setEquippedStack(EquipmentSlot.HEAD, stack);
 			}
 		}
+
 		return stack;
 	}
 }
