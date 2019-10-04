@@ -1,10 +1,7 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
-import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
-import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
-import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
+import com.fabriccommunity.spookytime.block.*;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
@@ -35,7 +32,8 @@ public class SpookyBlocks {
 	
 	public static Block SPOOKIUM_ORE = register("spookium_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
 	public static Block SPOOKIUM_BLOCK = register("spookium_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
-	;
+
+	public static Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(SpookyFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
 
 	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN_BLOCK_ENTITY = register("tiny_pumpkin", TinyPumpkinBlockEntity::new, TINY_PUMPKIN);
 	
@@ -57,8 +55,10 @@ public class SpookyBlocks {
 	
 	static <T extends Block> T register(String name, T block, BlockItem item) {
 		T b = Registry.register(Registry.BLOCK, SpookyTime.id(name), block);
-		BlockItem bi = SpookyItems.register(name, item);
-		bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
+		if (item != null) {
+			BlockItem bi = SpookyItems.register(name, item);
+			bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
+		}
 		return b;
 	}
 

@@ -17,17 +17,16 @@ import net.minecraft.world.gen.feature.*;
 
 // TODO
 public class SpookyRiverBiome extends SpookyBaseBiome {
-	
 	protected static final int GRASS_COLOR = 0x20003B;
 	protected static final int FOLIAGE_COLOR = 0x20003B;
 	
 	public SpookyRiverBiome() {
-		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.RIVER).depth(-0.5f).scale(0.1f).temperature(0.7f).downfall(0.8f).waterColor(0xBB0A1E).waterFogColor(0xBB0A1E));
+		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.RIVER).depth(-0.5f).scale(0.1f).temperature(0.7f).downfall(0.8f).waterColor(0x5900A3).waterFogColor(0x5900A3));
 		
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
 		
 		DefaultBiomeFeatures.addDefaultGrass(this);
-		DefaultBiomeFeatures.addDefaultLakes(this);
+		SpookyBiomeFeatures.addLakes(this);
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 		SpookyBiomeFeatures.addSpookyForestTrees(this);
