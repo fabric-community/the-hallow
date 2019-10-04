@@ -66,7 +66,7 @@ public class WitchWaterBlock extends FluidBlock {
 		recipes.put(Items.RED_SANDSTONE_WALL, SpookyBlocks.TAINTED_SANDSTONE_WALL);
 		recipes.put(SpookyBlocks.TINY_PUMPKIN.asItem(), SpookyBlocks.WITCHED_PUMPKIN);
 	}
-
+	
 	@Override
 	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity) {
