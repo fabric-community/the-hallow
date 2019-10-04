@@ -1,7 +1,7 @@
 {
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "spookytime:block/tainted_sandstone_top",
-        "side": "spookytime:block/cut_tainted_sandstone"
-    }
+	"parent": "block/cube_column",
+	"textures": {
+		"end": "spookytime:block/tainted_sandstone_top",
+		"side": "spookytime:block/cut_tainted_sandstone"
+	}
 }

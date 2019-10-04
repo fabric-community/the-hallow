@@ -1,6 +1,6 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "spookytime:block/spookium_block"
-    }
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "spookytime:block/spookium_block"
+	}
 }

@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "spookytime:item/witch_water_bucket"
-    }
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "spookytime:item/witch_water_bucket"
+	}
 }
