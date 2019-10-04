@@ -55,5 +55,11 @@
 	"text.spookytime.trick": "Trick!",
 	"text.spookytime.treat": "Treat!",
 	"text.spookytime.no_one_nearby": "No one heard you!",
-	"text.spookytime.not_wearing_costume": "You're not wearing a costume!"
+	"text.spookytime.not_wearing_costume": "You're not wearing a costume!",
+	"text.spookytime.loading.spookiness": "Summoning spookiness...",
+	"text.spookytime.loading.pumpkins": "Preparing pumpkins...",
+	"text.spookytime.loading.candies": "Wrapping candies...",
+	"text.spookytime.loading.costumes": "Creating costumes...",
+	"text.spookytime.loading.witch_water": "Mixing witch water...",
+	"text.spookytime.loading.pumpcowns": "Petting pumpcowns..."
 }
