@@ -4,6 +4,7 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.fabriccommunity.spookytime.registry.SpookyEntities;
 import com.fabriccommunity.spookytime.registry.SpookyFeatures;
 import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;

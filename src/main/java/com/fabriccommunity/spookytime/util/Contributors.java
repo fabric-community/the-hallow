@@ -29,8 +29,8 @@ public class Contributors {
 	
 	private static void initContributors() {
 		ModMetadata metadata = FabricLoader.getInstance().getModContainer(SpookyTime.MOD_ID)
-				.orElseThrow(() -> new IllegalStateException("Cannot find spooky time mod, report to fabric loader!"))
-				.getMetadata();
+			.orElseThrow(() -> new IllegalStateException("Cannot find spooky time mod, report to fabric loader!"))
+			.getMetadata();
 		
 		for (Person author : metadata.getAuthors()) {
 			USER_INFO.add(makeDesc(author, Formatting.DARK_RED));
@@ -45,17 +45,17 @@ public class Contributors {
 		ContactInformation contact = person.getContact();
 		Text ret = new LiteralText(person.getName()).formatted(formatting);
 		contact.get("github").ifPresent(gh ->
-				ret.append(Texts.bracketed(new TranslatableText("social.spookytime.github")
-						.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, gh))))
-						.formatted(Formatting.BLACK)
-				)
+			ret.append(Texts.bracketed(new TranslatableText("social.spookytime.github")
+				.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, gh))))
+				.formatted(Formatting.BLACK)
+			)
 		);
 		
 		contact.get("minecraft").ifPresent(mc ->
-				ret.append(Texts.bracketed(new TranslatableText("social.spookytime.minecraft")
-						.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://mcuuid.net/?q=" + mc))))
-						.formatted(Formatting.GREEN)
-				)
+			ret.append(Texts.bracketed(new TranslatableText("social.spookytime.minecraft")
+				.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://mcuuid.net/?q=" + mc))))
+				.formatted(Formatting.GREEN)
+			)
 		);
 		
 		return ret;
