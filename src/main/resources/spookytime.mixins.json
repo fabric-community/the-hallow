@@ -10,10 +10,13 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
-		"ZombieEntityMixin"
+		"ZombieEntityMixin",
+		"LivingEntityMixin"
 	],
 	"client": [
 		"ItemDynamicRendererMixin"
+		"client.ClientPlayNetworkHandlerMixin",
+		"client.MinecraftClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

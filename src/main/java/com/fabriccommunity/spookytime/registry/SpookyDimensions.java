@@ -14,17 +14,22 @@ import net.minecraft.world.gen.chunk.OverworldChunkGeneratorConfig;
 
 public class SpookyDimensions {
 	public static final FabricDimensionType SPOOKY = FabricDimensionType.builder()
-			.skyLight(true)
-			.factory((world, type) -> new DimensionBuilder()
-					.renderFog(true)
-					.fogColor((long_1, float_1) -> new Vec3d(75F / 255F, 0F / 255F, 125F / 255F))
-					.visibleSky(true)
-					.skyAngle(new SpookySkyAngleCalculator())
-					.setChunkGenerator(ChunkGeneratorType.SURFACE.create(world, new SpookyBiomeSource(world.getSeed()), new OverworldChunkGeneratorConfig()))
-					.setLightLevelsToBrightness(getLightLevels())
-					.build(world, type))
-			.defaultPlacer(new EntityPlacerBuilder().build())
-			.buildAndRegister(SpookyTime.id("spooky"));
+		.skyLight(true)
+		.factory((world, type) -> new DimensionBuilder()
+			.renderFog(true)
+			.fogColor((long_1, float_1) -> new Vec3d(75F / 255F, 0F / 255F, 125F / 255F))
+			.visibleSky(true)
+			.skyAngle(new SpookySkyAngleCalculator())
+			.setChunkGenerator(ChunkGeneratorType.SURFACE.create(world, new SpookyBiomeSource(world.getSeed()), new OverworldChunkGeneratorConfig() {
+				OverworldChunkGeneratorConfig init() {
+					defaultFluid = SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState();
+					return this;
+				}
+			}.init()))
+			.setLightLevelsToBrightness(getLightLevels())
+			.build(world, type))
+		.defaultPlacer(new EntityPlacerBuilder().build())
+		.buildAndRegister(SpookyTime.id("spooky"));
 	
 	private SpookyDimensions() {
 		// NO-OP

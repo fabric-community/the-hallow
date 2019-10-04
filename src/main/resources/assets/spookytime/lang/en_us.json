@@ -23,6 +23,7 @@
     "item.spookytime.caramel_apple": "Caramel Apple",
     "item.spookytime.baked_pumpkin_seeds": "Baked Pumpkin Seeds",
     "item.spookytime.pumpkin_stew": "Pumpkin Stew",
+	"item.spookytime.witch_water_bucket": "Witch Water Bucket",
     
     "block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
     "block.spookytime.deceased_grass_block": "Deceased Grass Block",
@@ -31,17 +32,48 @@
     "block.spookytime.tainted_sand": "Tainted Sand",
     "block.spookytime.tainted_glass": "Tainted Glass",
     "block.spookytime.tainted_glass_pane": "Tainted Glass Pane",
+	"block.spookytime.tainted_sandstone": "Tainted Sandstone",
+	"block.spookytime.smooth_tainted_sandstone": "Smooth Tainted Sandstone",
+	"block.spookytime.cut_tainted_sandstone": "Cut Tainted Sandstone",
+	"block.spookytime.chiseled_tainted_sandstone": "Chiseled Tainted Sandstone",
+	"block.spookytime.tainted_sandstone_stairs": "Tainted Sandstone Stairs",
+	"block.spookytime.smooth_tainted_sandstone_stairs": "Smooth Tainted Sandstone Stairs",
+	"block.spookytime.tainted_sandstone_slab": "Tainted Sandstone",
+	"block.spookytime.smooth_tainted_sandstone_slab": "Smooth Tainted Sandstone Slab",
+	"block.spookytime.cut_tainted_sandstone_slab": "Cut Tainted Sandstone Slab",
+	"block.spookytime.tainted_sandstone_wall": "Tainted Sandstone Wall",
     "block.spookytime.soul_glass": "Soul Glass",
     "block.spookytime.soul_glass_pane": "Soul Glass Pane",
     "block.spookytime.spookium_ore": "Spookium Ore",
     "block.spookytime.spookium_block": "Spookium Block",
 	"block.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
-    
+
     "entity.spookytime.pumpcown": "Pumpcown",
 	"entity.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
-    
-    "biome.spookytime.spooky_forest": "Spooky Forest",
-    "biome.spookytime.spooky_lowlands": "Spooky Lowlands",
+
+	"biome.spookytime.spooky_forest": "Spooky Forest",
+	"biome.spookytime.spooky_lowlands": "Spooky Lowlands",
+	"biome.spookytime.pumpkin_patch": "Spooky Pumpkin Patch",
+	"biome.spookytime.spooky_lowlands_barrows": "Spooky Lowlands Barrows",
+	"biome.spookytime.spooky_river": "Spooky River",
+	"biome.spookytime.spooky_sea": "Spooky Sea",
+	"biome.spookytime.spooky_shore": "Spooky Shore",
+
+	"enchantment.spookytime.beheading": "Beheading",
+	"enchantment.spookytime.lifesteal": "Lifesteal",
+
     "social.spookytime.github": "GitHub",
-    "social.spookytime.minecraft": "Minecraft"
+    "social.spookytime.minecraft": "Minecraft",
+
+	"text.spookytime.trick": "Trick!",
+	"text.spookytime.treat": "Treat!",
+	"text.spookytime.no_one_nearby": "No one heard you!",
+	"text.spookytime.not_wearing_costume": "You're not wearing a costume!",
+	"text.spookytime.loading.spookiness": "Summoning spookiness...",
+	"text.spookytime.loading.pumpkins": "Preparing pumpkins...",
+	"text.spookytime.loading.candies": "Wrapping candies...",
+	"text.spookytime.loading.costumes": "Creating costumes...",
+	"text.spookytime.loading.witch_water": "Mixing witch water...",
+	"text.spookytime.loading.pumpcowns": "Petting pumpcowns..."
+
 }
