@@ -87,13 +87,13 @@ public class SpookyLoadingScreen extends Screen {
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder builder = tessellator.getBufferBuilder();
 		minecraft.getTextureManager().bindTexture(backgroundTexture);
-		int brigtness = 130;
+		int brightness = 130;
 		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		builder.begin(7, VertexFormats.POSITION_UV_COLOR);
-		builder.vertex(0, height, 0).texture(0, height / 32.0F + i).color(brigtness, brigtness, brigtness, 255).next();
-		builder.vertex(width, height, 0).texture(width / 32.0F, height / 32.0F + i).color(brigtness, brigtness, brigtness, 255).next();
-		builder.vertex(width, 0, 0).texture(width / 32.0F, i).color(brigtness, brigtness, brigtness, 255).next();
-		builder.vertex(0, 0, 0).texture(0, i).color(brigtness, brigtness, brigtness, 255).next();
+		builder.vertex(0, height, 0).texture(0, height / 32.0F + i).color(brightness, brightness, brightness, 255).next();
+		builder.vertex(width, height, 0).texture(width / 32.0F, height / 32.0F + i).color(brightness, brightness, brightness, 255).next();
+		builder.vertex(width, 0, 0).texture(width / 32.0F, i).color(brightness, brightness, brightness, 255).next();
+		builder.vertex(0, 0, 0).texture(0, i).color(brightness, brightness, brightness, 255).next();
 		tessellator.draw();
 	}
 }
