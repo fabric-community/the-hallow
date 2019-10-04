@@ -13,7 +13,6 @@
 		"ZombieEntityMixin"
 	],
 	"client": [
-
 	],
 	"injectors": {
 		"defaultRequire": 1

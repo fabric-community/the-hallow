@@ -1,10 +1,8 @@
 package com.fabriccommunity.spookytime.mixin;
 
 import com.fabriccommunity.spookytime.SpookyConfig;
-import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.component.CandyComponent;
 import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyItems;
 import com.fabriccommunity.spookytime.registry.SpookyTags;
 import dev.emi.trinkets.api.TrinketsApi;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,9 +17,7 @@ import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -38,10 +34,8 @@ import net.minecraft.world.loot.context.LootContext;
 import net.minecraft.world.loot.context.LootContextParameters;
 import net.minecraft.world.loot.context.LootContextTypes;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Handles trick or treat functionality when saying "trick or treat" to a villager.
@@ -56,12 +50,12 @@ public abstract class ServerPlayNetworkHandlerMixin {
 	@Inject(at = @At("TAIL"), method = "onChatMessage")
 	public void onChatMessage(ChatMessageC2SPacket packet, CallbackInfo info) {
 		if (packet.getChatMessage().toLowerCase().contains("trick or treat")) {
-			if(isPlayerWearingCostume(player)) {
+			if (isPlayerWearingCostume(player)) {
 				World world = player.getEntityWorld();
 				Box box = new Box(player.x - 3, player.y - 3, player.z - 3, player.x + 3, player.y + 3, player.z + 3);
 				List<VillagerEntity> villagers = world.getEntities(VillagerEntity.class, box);
 				Iterator<VillagerEntity> iterator = villagers.iterator();
-				if(iterator.hasNext()) {
+				if (iterator.hasNext()) {
 					boolean trick = SpookyConfig.TrickOrTreating.enableTricks && world.random.nextInt(SpookyConfig.TrickOrTreating.trickChance) == 0;
 					if (trick) {
 						player.playSound(SoundEvents.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
@@ -75,8 +69,7 @@ public abstract class ServerPlayNetworkHandlerMixin {
 						if (!entity.isBaby()) {
 							if (trick) {
 								WitchEntity witch = new WitchEntity(EntityType.WITCH, world);
-								witch.setPosition(entity.x, entity.y, entity.z);
-								witch.setYaw(entity.getYaw(1.0F));
+								witch.copyPositionAndRotation(entity);
 								witch.setAttacker(player);
 								entity.remove();
 								world.spawnEntity(witch);
@@ -86,9 +79,9 @@ public abstract class ServerPlayNetworkHandlerMixin {
 									comp.setLastCandyTime(player, world.getTime());
 									LootSupplier supplier = world.getServer().getLootManager().getSupplier(new Identifier("spookytime", "gameplay/trick_or_treat_candy"));
 									LootContext context = (new LootContext.Builder((ServerWorld) world))
-											.put(LootContextParameters.POSITION, new BlockPos(entity))
-											.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRand())
-											.build(LootContextTypes.GIFT);
+										.put(LootContextParameters.POSITION, new BlockPos(entity))
+										.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRand())
+										.build(LootContextTypes.GIFT);
 									List<ItemStack> stacks = supplier.getDrops(context);
 									for (ItemStack stack : stacks) {
 										LookTargetUtil.give(entity, stack, player);
