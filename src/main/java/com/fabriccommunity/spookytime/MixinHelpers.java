@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime;
 
+import com.google.common.hash.HashCode;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
