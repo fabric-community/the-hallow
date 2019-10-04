@@ -24,7 +24,7 @@ public abstract class LivingEntityMixin {
 	@Inject(method = "drop", at = @At("HEAD"))
 	public void drop(DamageSource damageSource, CallbackInfo info) {
 		LivingEntity livingEntity = (LivingEntity) (Object) this;
-		if (livingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && BeheadingEnchantment.hasBeheading(livingEntity)) {
+		if (livingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && BeheadingEnchantment.hasBeheading((LivingEntity) damageSource.getAttacker())) {
 			if (BeheadingEnchantment.getHead(damageSource)) {
 				if (livingEntity.getType() == EntityType.WITHER_SKELETON) {
 					livingEntity.dropStack(new ItemStack(Items.WITHER_SKELETON_SKULL));
