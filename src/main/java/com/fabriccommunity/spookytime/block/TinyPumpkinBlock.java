@@ -28,6 +28,9 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 	
 	public TinyPumpkinBlock(Settings blockSettings) {
 		super(blockSettings);
+		if (SpookyConfig.TinyPumpkin.waterloggable) {
+			setDefaultState(getDefaultState().with(Properties.WATERLOGGED, false));
+		}
 	}
 	
 	@Override

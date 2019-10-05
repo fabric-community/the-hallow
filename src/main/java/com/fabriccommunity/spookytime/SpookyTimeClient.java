@@ -1,6 +1,7 @@
 package com.fabriccommunity.spookytime;
 
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
+import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
 import com.fabriccommunity.spookytime.client.SpookyColors;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
@@ -21,6 +22,7 @@ public class SpookyTimeClient implements ClientModInitializer {
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
 		
 		SpookyColors.init();
+		SpookyClientNetworking.init();
 		
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new FluidResourceLoader());
 	}

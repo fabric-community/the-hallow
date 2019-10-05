@@ -5,6 +5,7 @@ import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
 import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
 import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
 
+import com.fabriccommunity.spookytime.world.feature.WitchWellFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -22,6 +23,8 @@ public class SpookyFeatures {
 	
 	public static final Feature<DefaultFeatureConfig> SMALL_SKELETON_TREE = register("skeleton_tree_small", new SmallSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
 	public static final Feature<DefaultFeatureConfig> LARGE_SKELETON_TREE = register("skeleton_tree_large", new LargeSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
+	
+	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 	
 	public static void init() {
 	
