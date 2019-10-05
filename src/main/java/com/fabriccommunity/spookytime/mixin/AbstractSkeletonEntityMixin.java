@@ -6,6 +6,7 @@ import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.LocalDifficulty;
 
+import com.fabriccommunity.spookytime.SpookyConfig;
 import com.fabriccommunity.spookytime.registry.SpookyItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,7 +35,7 @@ public class AbstractSkeletonEntityMixin {
 	@Inject(method = "initEquipment", at = @At(value = "TAIL"))
 	protected void initEquipment(LocalDifficulty ld, CallbackInfo cb) {
 		Random random = new Random();
-		if (random.nextInt(3) == 0) {
+		if (SpookyConfig.TrumpetSkeleton.enabled && random.nextInt(SpookyConfig.TrumpetSkeleton.chance) == 0) {
 			//noinspection ConstantConditions
 			((AbstractSkeletonEntity) (Object) this).setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SpookyItems.SPOOKY_TRUMPET));
 		}
