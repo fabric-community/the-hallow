@@ -2,6 +2,7 @@ package com.fabriccommunity.spookytime.world.feature;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -48,5 +49,9 @@ public class SpookyBiomeFeatures {
 	public static void addLakes(Biome biome) {
 		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, Biome.configureFeature(net.minecraft.world.gen.feature.Feature.LAKE, new LakeFeatureConfig(SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(4)));
 		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, Biome.configureFeature(net.minecraft.world.gen.feature.Feature.LAKE, new LakeFeatureConfig(SpookyBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(40)));
+	}
+	
+	public static void addWells(Biome biome) {
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(SpookyFeatures.WITCH_WELL, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(300)));
 	}
 }
