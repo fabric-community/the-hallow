@@ -19,8 +19,12 @@ public class SpookyDimensions {
 					.fogColor((long_1, float_1) -> new Vec3d(75F / 255F, 0F / 255F, 125F / 255F))
 					.visibleSky(true)
 					.skyAngle(new SpookySkyAngleCalculator())
-					//.setChunkGenerator(ChunkGeneratorType.SURFACE.create(world, new SpookyBiomeSource(world.getSeed()), new OverworldChunkGeneratorConfig()))
-					.setChunkGenerator(SpookyChunkGeneratorType.INSTANCE.create(world, new SpookyBiomeSource(world.getSeed()), new SpookyChunkGeneratorConfig()))
+					.setChunkGenerator(SpookyChunkGeneratorType.INSTANCE.create(world, new SpookyBiomeSource(world.getSeed()), new SpookyChunkGeneratorConfig() {
+						SpookyChunkGeneratorConfig init() {
+							defaultFluid = SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState();
+							return this;
+						}
+					}.init()))
 					.setLightLevelsToBrightness(getLightLevels())
 					.build(world, type))
 			.defaultPlacer(new EntityPlacerBuilder().build())

@@ -18,11 +18,11 @@ import net.minecraft.world.gen.chunk.SurfaceChunkGenerator;
 
 public class SpookyChunkGenerator extends SurfaceChunkGenerator<SpookyChunkGeneratorConfig> {
 
-	private static final float[] BIOME_WEIGHT_TABLE = (float[])SystemUtil.consume(new float[25], (floats_1) -> {
-		for(int int_1 = -2; int_1 <= 2; ++int_1) {
-			for(int int_2 = -2; int_2 <= 2; ++int_2) {
-				float float_1 = 10.0F / MathHelper.sqrt((float)(int_1 * int_1 + int_2 * int_2) + 0.2F);
-				floats_1[int_1 + 2 + (int_2 + 2) * 5] = float_1;
+	private static final float[] BIOME_WEIGHT_TABLE = (float[])SystemUtil.consume(new float[25], (array) -> {
+		for(int xOffset = -2; xOffset <= 2; ++xOffset) {
+			for(int zOffset = -2; zOffset <= 2; ++zOffset) {
+				float value = 10.0F / MathHelper.sqrt((float)(xOffset * xOffset + zOffset * zOffset) + 0.2F);
+				array[xOffset + 2 + (zOffset + 2) * 5] = value;
 			}
 		}
 
@@ -36,32 +36,26 @@ public class SpookyChunkGenerator extends SurfaceChunkGenerator<SpookyChunkGener
 		this.noiseSampler = new OctavePerlinNoiseSampler(this.random, 16);
 	}
 
-	public void populateEntities(ChunkRegion chunkRegion_1) {
-		int int_1 = chunkRegion_1.getCenterChunkX();
-		int int_2 = chunkRegion_1.getCenterChunkZ();
-		Biome biome_1 = chunkRegion_1.getChunk(int_1, int_2).getBiomeArray()[0];
-		ChunkRandom chunkRandom_1 = new ChunkRandom();
-		chunkRandom_1.setSeed(chunkRegion_1.getSeed(), int_1 << 4, int_2 << 4);
-		SpawnHelper.populateEntities(chunkRegion_1, biome_1, int_1, int_2, chunkRandom_1);
+	public void populateEntities(ChunkRegion region) {
+		int centreX = region.getCenterChunkX();
+		int centreZ = region.getCenterChunkZ();
+		Biome biome = region.getChunk(centreX, centreZ).getBiomeArray()[0];
+		ChunkRandom rand = new ChunkRandom();
+		rand.setSeed(region.getSeed(), centreX << 4, centreZ << 4);
+		SpawnHelper.populateEntities(region, biome, centreX, centreZ, rand);
 	}
 
-	protected void sampleNoiseColumn(double[] doubles_1, int int_1, int int_2) {
-		double double_1 = 684.4119873046875D;
-		double double_2 = 684.4119873046875D;
-		double double_3 = 8.555149841308594D;
-		double double_4 = 4.277574920654297D;
-		int int_3 = 3;
-		int int_4 = -10;
-		this.sampleNoiseColumn(doubles_1, int_1, int_2, double_1, double_2, double_3, double_4, int_3, int_4);
+	protected void sampleNoiseColumn(double[] array, int x, int z) {
+		this.sampleNoiseColumn(array, x, z, 684.4119873046875D, 684.4119873046875D, 8.555149841308594D, 4.277574920654297D, 3, -10);
 	}
 
 	protected double computeNoiseFalloff(double depth, double scale, int y) {
-		double double_4 = ((double)y - (8.5D + depth * 8.5D / 8.0D * 4.0D)) * 12.0D * 128.0D / 256.0D / scale;
-		if (double_4 < 0.0D) {
-			double_4 *= 4.0D;
+		double result = ((double)y - (8.5D + depth * 8.5D / 8.0D * 4.0D)) * 12.0D * 128.0D / 256.0D / scale;
+		if (result < 0.0D) {
+			result *= 4.0D;
 		}
 
-		return double_4;
+		return result;
 	}
 
 	protected double[] computeNoiseRange(int x, int z) {
@@ -97,33 +91,33 @@ public class SpookyChunkGenerator extends SurfaceChunkGenerator<SpookyChunkGener
 		return values;
 	}
 
-	private double sampleNoise(int int_1, int int_2) {
-		double double_1 = this.noiseSampler.sample((double)(int_1 * 200), 10.0D, (double)(int_2 * 200), 1.0D, 0.0D, true) / 8000.0D;
-		if (double_1 < 0.0D) {
-			double_1 = -double_1 * 0.3D;
+	private double sampleNoise(int x, int z) {
+		double result = this.noiseSampler.sample((double)(x * 200), 10.0D, (double)(z * 200), 1.0D, 0.0D, true) / 8000.0D;
+		if (result < 0.0D) {
+			result = -result * 0.3D;
 		}
 
-		double_1 = double_1 * 3.0D - 2.0D;
-		if (double_1 < 0.0D) {
-			double_1 /= 28.0D;
+		result = result * 3.0D - 2.0D;
+		if (result < 0.0D) {
+			result /= 28.0D;
 		} else {
-			if (double_1 > 1.0D) {
-				double_1 = 1.0D;
+			if (result > 1.0D) {
+				result = 1.0D;
 			}
 
-			double_1 /= 40.0D;
+			result /= 40.0D;
 		}
 
-		return double_1;
+		return result;
 	}
 
-	public List<Biome.SpawnEntry> getEntitySpawnList(EntityCategory entityCategory_1, BlockPos blockPos_1) {
+	public List<Biome.SpawnEntry> getEntitySpawnList(EntityCategory category, BlockPos pos) {
 		// Custom feature spawn stuff goes here
 
-		return super.getEntitySpawnList(entityCategory_1, blockPos_1);
+		return super.getEntitySpawnList(category, pos);
 	}
 
-	public void spawnEntities(ServerWorld serverWorld_1, boolean boolean_1, boolean boolean_2) {
+	public void spawnEntities(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals) {
 		
 	}
 
