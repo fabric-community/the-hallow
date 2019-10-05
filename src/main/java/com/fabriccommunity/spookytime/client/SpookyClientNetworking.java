@@ -1,12 +1,14 @@
 package com.fabriccommunity.spookytime.client;
 
-import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 
 @Environment(EnvType.CLIENT)
 public class SpookyClientNetworking {

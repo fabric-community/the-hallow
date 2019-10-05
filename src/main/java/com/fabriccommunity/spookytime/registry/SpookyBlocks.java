@@ -30,7 +30,6 @@ import com.fabriccommunity.spookytime.block.WitchWaterBlock;
 import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 
 public class SpookyBlocks {
