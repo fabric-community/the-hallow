@@ -6,20 +6,21 @@ import com.fabriccommunity.spookytime.world.layer.AddSpookyShoreLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
 import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
 	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)
-			.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
-			.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1)
-			.addBiome(SpookyBiomes.SPOOKY_SWAMP, 1);
+		.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
+		.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1)
+		.addBiome(SpookyBiomes.SPOOKY_SWAMP, 1);
 	
 	public static SpookyBiomeGroup SEA_ISLANDS = new SpookyBiomeGroup(1)
-			.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
+		.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
 	
 	public static SpookyBiomeGroup UPLANDS = new SpookyBiomeGroup(2)
-			.addBiome(SpookyBiomes.HAUNTED_UPLANDS, 1)
-			.addBiome(SpookyBiomes.HAUNTED_MOOR, 1);
+		.addBiome(SpookyBiomes.HAUNTED_UPLANDS, 1)
+		.addBiome(SpookyBiomes.HAUNTED_MOOR, 1);
 	
 	private SpookyWorldGen() {
 		// NO-OP

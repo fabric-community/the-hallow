@@ -12,11 +12,11 @@ import java.util.Map;
 import java.util.UUID;
 
 public interface CandyComponent extends Component {
-	public boolean canGiveCandy(Entity entity);
+	boolean canGiveCandy(Entity entity);
 	
-	public void setLastCandyTime(Entity entity, long time);
+	void setLastCandyTime(Entity entity, long time);
 	
-	public class VillagerCandyComponent implements CandyComponent {
+	class VillagerCandyComponent implements CandyComponent {
 		public Map<UUID, Long> lastGivenCandy = new HashMap<UUID, Long>();
 		
 		public boolean canGiveCandy(Entity entity) {

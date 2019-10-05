@@ -1,13 +1,13 @@
 {
-	"spookytime.about.name": "Spooky-Time",
+	"spookytime.about.name": "Spooky Time",
 	"spookytime.about.description": "A Fabric Community mod for Hacktoberfest!",
 	"spookytime.about.github": "Our github link can be found here: ",
 	"spookytime.github": "https://github.com/fabric-community/spooky-time",
 	"spookytime.contrib.title": "=====Contributors=====",
 	"spookytime.contrib.entry": "%d, ",
 	"itemGroup.spookytime.group": "Spooky Time",
-	"spookytime.cmd.spooktober": "It is Spooktober!",
-	"spookytime.cmd.tillspooktober": "It is %d days till Spooktober",
+	"spookytime.cmd.spooktober": "It is Spooktober 31st!",
+	"spookytime.cmd.tillspooktober": "It is %d days till Spooktober 31st",
 	"item.spookytime.pumpcown_spawn_egg": "Pumpcown Spawn Egg",
 	"item.spookytime.blaze_skirt": "Blaze Skirt",
 	"item.spookytime.spookium_ingot": "Spookium Ingot",
@@ -21,6 +21,7 @@
 	"item.spookytime.baked_pumpkin_seeds": "Baked Pumpkin Seeds",
 	"item.spookytime.pumpkin_stew": "Pumpkin Stew",
 	"item.spookytime.witch_water_bucket": "Witch Water Bucket",
+	"item.spookytime.peppermint": "Peppermint",
 	"item.spookytime.blood_bucket": "Blood Bucket",
 	"item.spookytime.pumpkin_ring": "Pumpkin Ring",
 	"block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
@@ -53,6 +54,9 @@
 	"biome.spookytime.spooky_river": "Spooky River",
 	"biome.spookytime.spooky_sea": "Spooky Sea",
 	"biome.spookytime.spooky_shore": "Spooky Shore",
+	"biome.spookytime.spooky_swamp": "Spooky Swamp",
+	"biome.spookytime.haunted_uplands": "Haunted Uplands",
+	"biome.spookytime.haunted_moor": "Haunted Moor",
 	"enchantment.spookytime.beheading": "Beheading",
 	"enchantment.spookytime.lifesteal": "Lifesteal",
 	"social.spookytime.github": "GitHub",
@@ -67,6 +71,5 @@
 	"text.spookytime.loading.costumes": "Creating costumes...",
 	"text.spookytime.loading.witch_water": "Mixing witch water...",
 	"text.spookytime.loading.pumpcowns": "Petting pumpcowns...",
-
 	"tooltip.spookytime.pumpkin_ring": "That Pumpkin Pie looks awfully delicious..."
 }

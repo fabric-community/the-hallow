@@ -16,7 +16,7 @@ public enum AddSpookyShoreLayer implements CrossSamplingLayer {
 	private final Biome defaultEdge;
 	private final Map<Biome, Biome> EDGE_BIOME_MAP = new HashMap<>();
 	
-	private AddSpookyShoreLayer(Biome defaultEdge) {
+	AddSpookyShoreLayer(Biome defaultEdge) {
 		this.defaultEdge = defaultEdge;
 	}
 	
