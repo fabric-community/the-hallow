@@ -34,8 +34,8 @@ public class WitchWellFeature extends Feature<DefaultFeatureConfig> {
 		this.lantern = Blocks.LANTERN.getDefaultState().with(LanternBlock.HANGING, true);
 	}
 	
-	protected BlockState getPumpkin(Direction facing) {
-		return SpookyBlocks.WITCHED_PUMPKIN.getDefaultState().with(TinyPumpkinBlock.FACING, facing);
+	private BlockState getPumpkin(Direction facing) {
+		return SpookyBlocks.TINY_PUMPKIN.getDefaultState().with(TinyPumpkinBlock.FACING, facing);
 	}
 	
 	@Override
