@@ -2,6 +2,8 @@ package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 
+import net.fabricmc.fabric.api.tag.TagRegistry;
+
 import net.minecraft.item.Item;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
@@ -18,6 +20,6 @@ public class SpookyTags {
 	}
 	
 	public static Tag<Item> register(String name) {
-		return new ItemTags.CachingTag(SpookyTime.id(name));
+		return TagRegistry.item(SpookyTime.id(name));
 	}
 }

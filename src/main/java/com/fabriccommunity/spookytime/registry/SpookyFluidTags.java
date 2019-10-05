@@ -2,6 +2,8 @@ package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 
+import net.fabricmc.fabric.api.tag.TagRegistry;
+
 import net.minecraft.fluid.Fluid;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.tag.Tag;
@@ -19,6 +21,6 @@ public class SpookyFluidTags {
 	}
 	
 	private static Tag<Fluid> register(String name) {
-		return new FluidTags.CachingTag(SpookyTime.id(name));
+		return TagRegistry.fluid(SpookyTime.id(name));
 	}
 }
