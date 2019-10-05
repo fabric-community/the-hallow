@@ -21,7 +21,9 @@ import net.minecraft.util.registry.Registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.block.BloodBlock;
+import com.fabriccommunity.spookytime.block.DeaderBushBlock;
 import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
+import com.fabriccommunity.spookytime.block.SpookyCactusBlock;
 import com.fabriccommunity.spookytime.block.SpookyStairsBlock;
 import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
@@ -58,6 +60,9 @@ public class SpookyBlocks {
 	public static Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(SpookyFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
 	public static Block BLOOD_BLOCK = register("blood", new BloodBlock(SpookyFluids.BLOOD, FabricBlockSettings.copy(Blocks.LAVA).lightLevel(0).build()), (BlockItem) null);
 	
+	public static Block SPOOKY_CACTUS = register("spooky_cactus", new SpookyCactusBlock(FabricBlockSettings.copy(Blocks.CACTUS).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static Block DEADER_BUSH = register("deader_bush", new DeaderBushBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(SpookyTime.GROUP));
+
 	private SpookyBlocks() {
 		// NO-OP
 	}
