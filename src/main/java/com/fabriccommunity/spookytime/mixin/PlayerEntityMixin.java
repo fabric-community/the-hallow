@@ -16,9 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
-
-	@Shadow public abstract ItemStack eatFood(World world_1, ItemStack itemStack_1);
-
 	@Shadow protected HungerManager hungerManager;
 
 	@Inject(at = @At(
@@ -28,7 +25,6 @@ public abstract class PlayerEntityMixin {
 	), method = "eatFood")
 	private void addPumpkinRingBonus(World world, ItemStack itemStack, CallbackInfoReturnable<ItemStack> info) {
 		PlayerEntity playerEntity = (PlayerEntity) (Object) this;
-
 		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(playerEntity);
 
 		ItemStack mainHandStack = trinketPlayer.getStack("hand:ring");

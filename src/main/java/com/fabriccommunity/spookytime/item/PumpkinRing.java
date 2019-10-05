@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class PumpkinRing extends Item implements ITrinket {
-
 	public PumpkinRing(Settings settings) {
 		super(settings);
 	}
