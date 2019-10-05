@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LanternBlock;
@@ -14,6 +11,10 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import com.mojang.datafixers.Dynamic;
+
+import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 import java.util.Random;
 import java.util.function.Function;

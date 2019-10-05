@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime.item;
 
-import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 
 public class WitchedPumpkinItem extends BlockItem {
 	public WitchedPumpkinItem(Block block, Settings settings) {

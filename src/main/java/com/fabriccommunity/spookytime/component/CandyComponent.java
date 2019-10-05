@@ -1,10 +1,10 @@
 package com.fabriccommunity.spookytime.component;
 
-import nerdhub.cardinal.components.api.component.Component;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+
+import nerdhub.cardinal.components.api.component.Component;
 
 import java.util.HashMap;
 import java.util.Iterator;

@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.item;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import dev.emi.trinkets.api.ITrinket;
-
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -16,6 +13,9 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import dev.emi.trinkets.api.ITrinket;
 
 public class SkirtCostume extends Item implements ITrinket {
 	public SkirtCostume(Settings settings) {

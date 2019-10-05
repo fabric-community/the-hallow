@@ -1,11 +1,11 @@
 package com.fabriccommunity.spookytime.world;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.chunk.ChunkGeneratorType;
+
+import com.fabriccommunity.spookytime.SpookyTime;
 
 import java.util.function.Supplier;
 

@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.SpookyConfig;
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderLayer;
@@ -27,6 +24,9 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.spookytime.SpookyConfig;
+import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 
 public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEntityProvider, Waterloggable {
 	protected static final VoxelShape Y_SHAPE = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D);

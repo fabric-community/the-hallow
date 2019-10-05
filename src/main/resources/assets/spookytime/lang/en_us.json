@@ -24,6 +24,7 @@
 	"item.spookytime.peppermint": "Peppermint",
 	"item.spookytime.blood_bucket": "Blood Bucket",
 	"item.spookytime.pumpkin_ring": "Pumpkin Ring",
+	"item.spookytime.spooky_trumpet": "Spooky Trumpet",
 	"block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
 	"block.spookytime.witched_pumpkin": "§5W§di§5t§dc§5h§de§5d §5P§du§5m§dp§5k§di§5n",
 	"block.spookytime.deceased_grass_block": "Deceased Grass Block",
@@ -71,5 +72,6 @@
 	"text.spookytime.loading.costumes": "Creating costumes...",
 	"text.spookytime.loading.witch_water": "Mixing witch water...",
 	"text.spookytime.loading.pumpcowns": "Petting pumpcowns...",
-	"tooltip.spookytime.pumpkin_ring": "That Pumpkin Pie looks awfully delicious..."
+	"tooltip.spookytime.pumpkin_ring": "That Pumpkin Pie looks awfully delicious...",
+	"subtitle.spookytime.doot": "Trumpet Doots Spookily"
 }

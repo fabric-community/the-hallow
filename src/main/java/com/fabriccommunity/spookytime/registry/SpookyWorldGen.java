@@ -1,13 +1,13 @@
 package com.fabriccommunity.spookytime.registry;
 
+import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
+import net.minecraft.world.biome.Biome;
+
 import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
 import com.fabriccommunity.spookytime.world.layer.AddSpookyEdgeLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSpookyShoreLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
-
-import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-
-import net.minecraft.world.biome.Biome;
 
 public class SpookyWorldGen {
 	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)

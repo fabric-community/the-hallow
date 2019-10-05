@@ -1,12 +1,12 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.fluid.BloodFluid;
-import com.fabriccommunity.spookytime.fluid.WitchWaterFluid;
-
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.fluid.BloodFluid;
+import com.fabriccommunity.spookytime.fluid.WitchWaterFluid;
 
 public class SpookyFluids {
 	public static final BaseFluid WITCH_WATER = register("witch_water", new WitchWaterFluid.Still());
