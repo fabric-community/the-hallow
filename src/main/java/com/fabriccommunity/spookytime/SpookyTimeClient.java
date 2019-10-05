@@ -1,9 +1,9 @@
 package com.fabriccommunity.spookytime;
 
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
+import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
 import com.fabriccommunity.spookytime.client.SpookyColors;
-import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;

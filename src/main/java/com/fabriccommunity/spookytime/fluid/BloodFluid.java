@@ -4,8 +4,10 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.fabriccommunity.spookytime.registry.SpookyFluidTags;
 import com.fabriccommunity.spookytime.registry.SpookyFluids;
 import com.fabriccommunity.spookytime.registry.SpookyItems;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
@@ -99,7 +101,7 @@ public class BloodFluid extends BaseFluid {
 	@Override
 	public BlockState toBlockState(FluidState fluidState) {
 		return SpookyBlocks.BLOOD_BLOCK.getDefaultState().with(FluidBlock.LEVEL, method_15741(fluidState));
-}
+	}
 	
 	@Override
 	public boolean isStill(FluidState fluidState) {
