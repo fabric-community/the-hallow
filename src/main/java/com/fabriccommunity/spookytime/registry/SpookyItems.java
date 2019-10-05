@@ -51,6 +51,8 @@ public class SpookyItems {
 		PumpkinFoods.registerPumpkinFood(SpookyItems.BAKED_PUMPKIN_SEEDS);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_STEW);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_CANDY);
+		PumpkinFoods.registerPumpkinFood(SpookyBlocks.TINY_PUMPKIN.asItem());
+		PumpkinFoods.registerPumpkinFood(SpookyBlocks.WITCHED_PUMPKIN.asItem());
 	}
 	
 	protected static <T extends Item> T register(String name, T item) {
