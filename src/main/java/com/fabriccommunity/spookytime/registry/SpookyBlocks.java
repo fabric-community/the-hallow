@@ -1,14 +1,23 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.*;
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
+import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
+import com.fabriccommunity.spookytime.block.SpookyStairsBlock;
+import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
+import com.fabriccommunity.spookytime.block.WitchWaterBlock;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
+import net.minecraft.block.Material;
+import net.minecraft.block.MaterialColor;
+import net.minecraft.block.OreBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.WallBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -18,12 +27,9 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-import java.util.function.Supplier;
-
 public class SpookyBlocks {
 	public static Block TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()));
 	public static Block WITCHED_PUMPKIN = register("witched_pumpkin", new TinyPumpkinBlock(Block.Settings.copy(TINY_PUMPKIN)), new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200), 1).hunger(1).saturationModifier(0.1f).alwaysEdible().build()));
-	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN_BLOCK_ENTITY = register("tiny_pumpkin", TinyPumpkinBlockEntity::new, TINY_PUMPKIN, WITCHED_PUMPKIN);
 	public static Block DECEASED_DIRT = register("deceased_dirt", new Block(FabricBlockSettings.copy(Blocks.DIRT).materialColor(MaterialColor.PURPLE).build()));
 	public static Block DECEASED_GRASS_BLOCK = register("deceased_grass_block", new DeceasedGrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).materialColor(MaterialColor.PURPLE).build()));
 	public static Block TAINTED_SAND = register("tainted_sand", new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).materialColor(MaterialColor.PURPLE).build()));
@@ -69,9 +75,5 @@ public class SpookyBlocks {
 			bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
 		}
 		return b;
-	}
-	
-	private static <B extends BlockEntity> BlockEntityType<B> register(String name, Supplier<B> supplier, Block... supportedBlocks) {
-		return Registry.register(Registry.BLOCK_ENTITY, SpookyTime.id(name), BlockEntityType.Builder.create(supplier, supportedBlocks).build(null));
 	}
 }

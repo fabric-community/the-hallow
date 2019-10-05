@@ -5,7 +5,6 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -16,7 +15,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CaveSpiderEntity;
 import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -32,10 +30,6 @@ import java.util.HashMap;
 
 public class WitchWaterBlock extends FluidBlock {
 	public static HashMap<Item, ItemConvertible> recipes = new HashMap<>();
-	
-	public WitchWaterBlock(BaseFluid fluid, Settings settings) {
-		super(fluid, settings);
-	}
 	
 	static {
 		recipes.put(Items.DIRT, SpookyBlocks.DECEASED_DIRT);
@@ -67,11 +61,15 @@ public class WitchWaterBlock extends FluidBlock {
 		recipes.put(SpookyBlocks.TINY_PUMPKIN.asItem(), SpookyBlocks.WITCHED_PUMPKIN);
 	}
 	
+	public WitchWaterBlock(BaseFluid fluid, Settings settings) {
+		super(fluid, settings);
+	}
+	
 	@Override
 	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity) {
 			LivingEntity livingEntity = (LivingEntity) entity;
-			if(!livingEntity.isUndead() && !(livingEntity instanceof PumpcownEntity)) {
+			if (!livingEntity.isUndead() && !(livingEntity instanceof PumpcownEntity)) {
 				livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.POISON, 20));
 				livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20));
 				livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20));
@@ -91,7 +89,7 @@ public class WitchWaterBlock extends FluidBlock {
 				entity.remove();
 				
 				world.spawnEntity(caveSpiderEntity);
-			}  else if (entity.getType() == EntityType.COW) {
+			} else if (entity.getType() == EntityType.COW) {
 				PumpcownEntity pumpcownEntity = new PumpcownEntity(SpookyEntities.PUMPCOWN, world);
 				pumpcownEntity.copyPositionAndRotation(entity);
 				entity.remove();
@@ -106,9 +104,9 @@ public class WitchWaterBlock extends FluidBlock {
 			} else if (entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty()) {
 				ItemEntity itemEntity = (ItemEntity) entity;
 				ItemStack stack = itemEntity.getStack();
-				if(stack.getItem() == Items.PUMPKIN) {
+				if (stack.getItem() == Items.PUMPKIN) {
 					// Spawn stack.getCount() pumpklings
-				} else if(recipes.containsKey(stack.getItem())) {
+				} else if (recipes.containsKey(stack.getItem())) {
 					ItemStack newStack = new ItemStack(recipes.get(stack.getItem()), stack.getCount());
 					itemEntity.setStack(newStack);
 					world.playSound(null, pos, SoundEvents.ENTITY_ILLUSIONER_CAST_SPELL, SoundCategory.BLOCKS, world.random.nextFloat() * 0.5f + 0.5f, 0.75f + world.random.nextFloat() * 0.5f);
