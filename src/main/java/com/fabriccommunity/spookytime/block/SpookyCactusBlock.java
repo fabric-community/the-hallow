@@ -50,17 +50,18 @@ public class SpookyCactusBlock extends Block {
 		} else {
 			BlockPos pos2 = pos.up();
 			if (world.isAir(pos2)) {
-				int height;
-				for(height = 1; world.getBlockState(pos.down(height)).getBlock() == this; height++) {
+				int height = 1;
+				while(world.getBlockState(pos.down(height)).getBlock() == this){
+					height++;
 				}
 
 				if (height < 3) {
-					int age = (Integer)state.get(AGE);
+					int age = state.get(AGE);
 					if (age == 15) {
 						world.setBlockState(pos2, this.getDefaultState());
-						BlockState blockState_2 = state.with(AGE, 0);
-						world.setBlockState(pos, blockState_2, 4);
-						blockState_2.neighborUpdate(world, pos2, this, pos, false);
+						BlockState state2 = state.with(AGE, 0);
+						world.setBlockState(pos, state2, 4);
+						state2.neighborUpdate(world, pos2, this, pos, false);
 					} else {
 						world.setBlockState(pos, state.with(AGE, age + 1), 4);
 					}
@@ -88,7 +89,7 @@ public class SpookyCactusBlock extends Block {
 	}
 
 	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
-	return OUTLINE_SHAPE;
+		return OUTLINE_SHAPE;
 	}
 
 	public boolean isOpaque(BlockState state) {
@@ -110,13 +111,13 @@ public class SpookyCactusBlock extends Block {
 		Material material;
 		do {
 			if (!iterator.hasNext()) {
-			Block block_1 = world.getBlockState(pos.down()).getBlock();
-			return (block_1 == SpookyBlocks.SPOOKY_CACTUS || block_1 == SpookyBlocks.TAINTED_SAND) && !world.getBlockState(pos.up()).getMaterial().isLiquid();
+				Block block = world.getBlockState(pos.down()).getBlock();
+				return (block == SpookyBlocks.SPOOKY_CACTUS || block == SpookyBlocks.TAINTED_SAND) && !world.getBlockState(pos.up()).getMaterial().isLiquid();
 			}
 
 			direction = (Direction) iterator.next();
-			BlockState blockState_2 = world.getBlockState(pos.offset(direction));
-			material = blockState_2.getMaterial();
+			BlockState state2 = world.getBlockState(pos.offset(direction));
+			material = state2.getMaterial();
 		} while(!material.isSolid() && !world.getFluidState(pos.offset(direction)).matches(FluidTags.LAVA));
 
 		return false;
