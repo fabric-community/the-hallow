@@ -5,8 +5,6 @@ import com.fabriccommunity.spookytime.registry.SpookyFeatures;
 import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
 import com.google.common.collect.Lists;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;

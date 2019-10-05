@@ -46,7 +46,7 @@ public class SpookyItems {
 	public static void init() {
 		TrinketSlots.addSubSlot("legs", "belt", new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
 		TrinketSlots.addSubSlot("hand", "ring", new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
-
+		
 		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.BAKED_PUMPKIN_SEEDS);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_STEW);

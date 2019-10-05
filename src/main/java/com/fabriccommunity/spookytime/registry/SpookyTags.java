@@ -7,7 +7,7 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 
 public class SpookyTags {
-	public static Tag<Item> COSTUMES = new ItemTags.CachingTag(SpookyTime.id("costumes"));
+	public static Tag<Item> COSTUMES = register("costumes");
 	
 	private SpookyTags() {
 		// NO-OP
@@ -15,5 +15,9 @@ public class SpookyTags {
 	
 	public static void init() {
 	
+	}
+	
+	public static Tag<Item> register(String name) {
+		return new ItemTags.CachingTag(SpookyTime.id(name));
 	}
 }
