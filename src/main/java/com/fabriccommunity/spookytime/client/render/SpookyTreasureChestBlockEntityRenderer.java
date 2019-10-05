@@ -53,7 +53,7 @@ public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<
 
 		// render chest
 		bindTexture(TEXTURE);
-		chestModel.method_2799();
+		chestModel.render();
 
 		GlStateManager.popMatrix();
 	}

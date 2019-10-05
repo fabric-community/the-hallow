@@ -44,7 +44,7 @@ public class SpookyTreasureChestEntityRenderer extends EntityRenderer<SpookyTrea
 		// render chest
 		bindTexture(TEXTURE);
 		updateHingeProgress(chest, chestModel);
-		chestModel.method_2799();
+		chestModel.render();
 
 
 		// finish
