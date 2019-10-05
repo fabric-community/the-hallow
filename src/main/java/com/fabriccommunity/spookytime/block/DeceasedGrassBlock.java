@@ -99,7 +99,6 @@ public class DeceasedGrassBlock extends GrassBlock {
 						}
 					}
 				}
-				
 			}
 		}
 	}

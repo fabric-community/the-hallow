@@ -1,11 +1,10 @@
 package com.fabriccommunity.spookytime.item.tool;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -20,12 +19,14 @@ public class ScytheItem extends SwordItem {
 	
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity user) {
-		if(!target.isAlive()) {
-			if(target instanceof PlayerEntity) {
+		if (!target.isAlive()) {
+			if (target instanceof PlayerEntity) {
 				// give player soul
+			} else if (target instanceof WitherEntity) {
+				// give withered soul
 			} else {
 				EntityCategory category = target.getType().getCategory();
-				switch(category) {
+				switch (category) {
 					case MONSTER:
 						// give monster soul
 						break;
@@ -44,7 +45,7 @@ public class ScytheItem extends SwordItem {
 	
 	@Override
 	public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity user) {
-		if(state.getBlock() == Blocks.SOUL_SAND) {
+		if (state.getBlock() == Blocks.SOUL_SAND) {
 			// give random soul
 		}
 		return super.postMine(stack, world, state, pos, user);
