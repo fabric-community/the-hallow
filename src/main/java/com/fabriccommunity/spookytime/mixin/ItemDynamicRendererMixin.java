@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemDynamicRenderer.class)
 public class ItemDynamicRendererMixin {
-
 	private final SpookyTreasureChestBlockEntity chestEntity = new SpookyTreasureChestBlockEntity();
 
 	@Inject(at = @At("HEAD"), method = "render", cancellable = true)

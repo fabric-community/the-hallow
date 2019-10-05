@@ -8,7 +8,6 @@ import net.minecraft.client.MinecraftClient;
 
 @Environment(EnvType.CLIENT)
 public class ClientPacketHandlers {
-
 	public static void registerPacketHandlers() {
 		ClientSidePacketRegistry.INSTANCE.register(SpookyTreasureChestEntity.ENTITY_ID, (packetContext, packetByteBuf) -> {
 			double x = packetByteBuf.readDouble();

@@ -7,7 +7,6 @@ import net.minecraft.client.model.Model;
 
 @Environment(EnvType.CLIENT)
 public class TreasureChestModel extends Model {
-
 	private Cuboid lid = (new Cuboid(this, 0, 0)).setTextureSize(64, 64);
 	private Cuboid base;
 	private Cuboid hatch;

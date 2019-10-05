@@ -9,7 +9,6 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class SpookyTreasureChestEntityRenderer extends EntityRenderer<SpookyTreasureChestEntity> {
-
 	private static final Identifier TEXTURE = new Identifier(SpookyTime.MOD_ID, "textures/entity/treasure_chest/default_chest.png");
 	private final TreasureChestModel chestModel = new TreasureChestModel();
 

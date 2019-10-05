@@ -17,7 +17,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class SpookyTreasureChestBlock extends HorizontalFacingBlock implements BlockEntityProvider {
-	
 	private static final VoxelShape SHAPE = Block.createCuboidShape(4, 0, 4, 12, 8, 12);
 
 	public SpookyTreasureChestBlock(Settings settings) {

@@ -30,7 +30,6 @@ import net.minecraft.world.loot.context.LootContextTypes;
 import java.util.List;
 
 public class SpookyTreasureChestEntity extends Entity {
-
 	public static final Identifier ENTITY_ID = new Identifier(SpookyTime.MOD_ID, "spooky_treasure_chest");
 	private static final int TICKS_PER_SECOND = 20;
 
