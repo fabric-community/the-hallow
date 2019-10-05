@@ -11,7 +11,8 @@
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
 		"ZombieEntityMixin",
-		"LivingEntityMixin"
+		"LivingEntityMixin",
+		"PlayerEntityMixin"
 	],
 	"client": [
 		"client.ClientPlayNetworkHandlerMixin",
