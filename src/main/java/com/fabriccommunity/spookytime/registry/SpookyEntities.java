@@ -4,6 +4,8 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.component.CandyComponent;
 import com.fabriccommunity.spookytime.component.CandyComponent.VillagerCandyComponent;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
+import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
+
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.event.EntityComponentCallback;
@@ -23,6 +25,7 @@ public class SpookyEntities {
 	public static ComponentType<CandyComponent> CANDY = ComponentRegistry.INSTANCE.registerIfAbsent(SpookyTime.id("candy"), CandyComponent.class);
 	
 	public static EntityType<PumpcownEntity> PUMPCOWN;
+	public static EntityType<SpookyCactusEntity> SPOOKY_CACTUS;
 	
 	private SpookyEntities() {
 		// NO-OP
@@ -31,6 +34,7 @@ public class SpookyEntities {
 	public static void init() {
 		EntityComponentCallback.event(VillagerEntity.class).register((player, components) -> components.put(CANDY, new VillagerCandyComponent()));
 		PUMPCOWN = register("pumpcown", FabricEntityTypeBuilder.create(EntityCategory.CREATURE, PumpcownEntity::new).size(EntityDimensions.fixed(0.9F, 1.4F)).build());
+		SPOOKY_CACTUS = register("spooky_cactus", FabricEntityTypeBuilder.create(EntityCategory.MISC, SpookyCactusEntity::new).size(EntityDimensions.changing(0.9F, 1.0F)).build());
 	}
 	
 	private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> blockEntity) {
