@@ -16,6 +16,7 @@ import net.minecraft.util.registry.Registry;
 
 public class SpookyItems {
 	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(SpookyFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
+	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(SpookyFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
 	public static Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
 	public static Item CARAMEL_APPLE = register("caramel_apple", new CandyItem(new Item.Settings().group(SpookyTime.GROUP), 5, 0.3F));
 	public static Item PUMPKIN_CANDY = register("pumpkin_candy", new CandyItem(new Item.Settings().group(SpookyTime.GROUP), 2, 0.3F));
