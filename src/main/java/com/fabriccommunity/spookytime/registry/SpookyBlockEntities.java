@@ -11,8 +11,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.function.Supplier;
 
 public class SpookyBlockEntities {
-	
-	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN_BLOCK_ENTITY = register("tiny_pumpkin", TinyPumpkinBlockEntity::new, SpookyBlocks.TINY_PUMPKIN, SpookyBlocks.WITCHED_PUMPKIN);
+	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN = register("tiny_pumpkin", TinyPumpkinBlockEntity::new, SpookyBlocks.TINY_PUMPKIN, SpookyBlocks.WITCHED_PUMPKIN);
 	
 	private SpookyBlockEntities() {
 		// NO-OP
