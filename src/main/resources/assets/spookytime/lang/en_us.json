@@ -21,6 +21,7 @@
 	"item.spookytime.baked_pumpkin_seeds": "Baked Pumpkin Seeds",
 	"item.spookytime.pumpkin_stew": "Pumpkin Stew",
 	"item.spookytime.witch_water_bucket": "Witch Water Bucket",
+	"item.spookytime.pumpkin_ring": "Pumpkin Ring",
 	"block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
 	"block.spookytime.deceased_grass_block": "Deceased Grass Block",
 	"block.spookytime.deceased_dirt": "Deceased Dirt",
@@ -63,5 +64,7 @@
 	"text.spookytime.loading.candies": "Wrapping candies...",
 	"text.spookytime.loading.costumes": "Creating costumes...",
 	"text.spookytime.loading.witch_water": "Mixing witch water...",
-	"text.spookytime.loading.pumpcowns": "Petting pumpcowns..."
+	"text.spookytime.loading.pumpcowns": "Petting pumpcowns...",
+
+	"tooltip.spookytime.pumpkin_ring": "That Pumpkin Pie looks awfully delicious..."
 }
