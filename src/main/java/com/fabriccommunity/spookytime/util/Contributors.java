@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.util;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ContactInformation;
 import net.fabricmc.loader.api.metadata.ModMetadata;
@@ -14,6 +12,8 @@ import net.minecraft.text.Text;
 import net.minecraft.text.Texts;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+
+import com.fabriccommunity.spookytime.SpookyTime;
 
 import java.util.ArrayList;
 import java.util.List;

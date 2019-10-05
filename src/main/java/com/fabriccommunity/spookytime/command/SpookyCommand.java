@@ -1,13 +1,12 @@
 package com.fabriccommunity.spookytime.command;
 
-import com.mojang.brigadier.context.CommandContext;
-
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.ClickEvent.Action;
 import net.minecraft.text.Texts;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+import com.mojang.brigadier.context.CommandContext;
 
 import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 

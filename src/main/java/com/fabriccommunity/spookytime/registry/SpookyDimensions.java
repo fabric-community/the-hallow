@@ -1,5 +1,9 @@
 package com.fabriccommunity.spookytime.registry;
 
+import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
+
+import net.minecraft.util.math.Vec3d;
+
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.SpookyBiomeSource;
 import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorConfig;
@@ -7,10 +11,6 @@ import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorType;
 import com.fabriccommunity.spookytime.world.dimension.SpookySkyAngleCalculator;
 import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
 import com.github.draylar.worldtraveler.api.dimension.EntityPlacerBuilder;
-
-import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
-
-import net.minecraft.util.math.Vec3d;
 
 public class SpookyDimensions {
 	public static final FabricDimensionType SPOOKY = FabricDimensionType.builder()

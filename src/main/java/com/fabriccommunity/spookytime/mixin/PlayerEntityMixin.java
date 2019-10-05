@@ -1,9 +1,5 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import com.fabriccommunity.spookytime.registry.SpookyItems;
-import com.fabriccommunity.spookytime.util.PumpkinFoods;
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketsApi;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +12,11 @@ import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.spookytime.registry.SpookyItems;
+import com.fabriccommunity.spookytime.util.PumpkinFoods;
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {

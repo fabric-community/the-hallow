@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.fluid;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookyFluidTags;
-import com.fabriccommunity.spookytime.registry.SpookyFluids;
-import com.fabriccommunity.spookytime.registry.SpookyItems;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -25,6 +20,11 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyFluidTags;
+import com.fabriccommunity.spookytime.registry.SpookyFluids;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
 
 public class BloodFluid extends BaseFluid {
 	@Override

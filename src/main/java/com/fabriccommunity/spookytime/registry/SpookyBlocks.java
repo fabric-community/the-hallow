@@ -1,14 +1,5 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.BloodBlock;
-import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
-import com.fabriccommunity.spookytime.block.SpookyStairsBlock;
-import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
-import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
-import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
-import com.fabriccommunity.spookytime.block.WitchWaterBlock;
-
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
@@ -27,6 +18,15 @@ import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.BloodBlock;
+import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
+import com.fabriccommunity.spookytime.block.SpookyStairsBlock;
+import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
+import com.fabriccommunity.spookytime.block.WitchWaterBlock;
 
 public class SpookyBlocks {
 	public static Block TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()));

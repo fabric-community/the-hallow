@@ -1,9 +1,5 @@
 package com.fabriccommunity.spookytime.entity;
 
-import com.fabriccommunity.spookytime.registry.SpookyDimensions;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyItems;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.StemBlock;
@@ -28,6 +24,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
+
+import com.fabriccommunity.spookytime.registry.SpookyDimensions;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
 
 public class PumpcownEntity extends CowEntity {
 	public static final BlockState STEM_FEATURE = Blocks.PUMPKIN_STEM.getDefaultState().with(StemBlock.AGE, 7);

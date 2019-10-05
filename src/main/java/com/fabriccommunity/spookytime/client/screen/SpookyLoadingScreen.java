@@ -1,9 +1,5 @@
 package com.fabriccommunity.spookytime.client.screen;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.BufferBuilder;
@@ -14,6 +10,10 @@ import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.NarratorManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 import java.util.concurrent.ThreadLocalRandom;
 

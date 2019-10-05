@@ -1,9 +1,9 @@
 {
-  "doot": {
-    "category": "players",
-    "sounds": [
-      "spookytime:doot"
-    ],
-    "subtitle": "subtitle.spookytime.doot"
-  }
+	"doot": {
+		"category": "players",
+		"sounds": [
+			"spookytime:doot"
+		],
+		"subtitle": "subtitle.spookytime.doot"
+	}
 }

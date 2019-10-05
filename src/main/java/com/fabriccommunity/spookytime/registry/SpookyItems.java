@@ -1,15 +1,5 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.item.CandyItem;
-import com.fabriccommunity.spookytime.item.PumpkinRing;
-import com.fabriccommunity.spookytime.item.SkirtCostume;
-import com.fabriccommunity.spookytime.item.SpookyTrumpetItem;
-import com.fabriccommunity.spookytime.item.tool.ScytheItem;
-import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
-import com.fabriccommunity.spookytime.util.PumpkinFoods;
-import dev.emi.trinkets.api.TrinketSlots;
-
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -20,6 +10,16 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.item.CandyItem;
+import com.fabriccommunity.spookytime.item.PumpkinRing;
+import com.fabriccommunity.spookytime.item.SkirtCostume;
+import com.fabriccommunity.spookytime.item.SpookyTrumpetItem;
+import com.fabriccommunity.spookytime.item.tool.ScytheItem;
+import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
+import com.fabriccommunity.spookytime.util.PumpkinFoods;
+import dev.emi.trinkets.api.TrinketSlots;
 
 public class SpookyItems {
 	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(SpookyFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
@@ -39,7 +39,7 @@ public class SpookyItems {
 	public static Item SOUL_BOTTLE = register("soul_bottle", new Item(new Item.Settings().group(SpookyTime.GROUP)));
 	public static Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 8273166, 14912029, new Item.Settings().group(SpookyTime.GROUP)));
 	public static Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(new Item.Settings().group(SpookyTime.GROUP)));
-  public static Item SPOOKY_TRUMPET = register("spooky_trumpet", new SpookyTrumpetItem(new Item.Settings().group(SpookyTime.GROUP)));
+	public static Item SPOOKY_TRUMPET = register("spooky_trumpet", new SpookyTrumpetItem(new Item.Settings().group(SpookyTime.GROUP)));
 	
 	private SpookyItems() {
 		// NO-OP

@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
-import com.google.common.collect.Lists;
-
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;
@@ -15,6 +10,12 @@ import net.minecraft.world.gen.feature.DiskFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.LakeFeatureConfig;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
+
+import com.google.common.collect.Lists;
 
 public class SpookyBiomeFeatures {
 	

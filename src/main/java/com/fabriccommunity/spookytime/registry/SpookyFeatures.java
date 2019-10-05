@@ -1,16 +1,16 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
-import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
-import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
+import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
+import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
 
 /**
  * @author Indigo Amann

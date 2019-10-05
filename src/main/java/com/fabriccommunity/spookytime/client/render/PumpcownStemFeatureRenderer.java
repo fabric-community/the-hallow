@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.client.render;
 
-import com.fabriccommunity.spookytime.entity.PumpcownEntity;
-import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -13,6 +10,9 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.CowEntityModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 
 @Environment(EnvType.CLIENT)
 public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends FeatureRenderer<T, CowEntityModel<T>> {

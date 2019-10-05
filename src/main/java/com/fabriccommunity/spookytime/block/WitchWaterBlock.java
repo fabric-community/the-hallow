@@ -1,9 +1,5 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.entity.PumpcownEntity;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -21,6 +17,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.spookytime.entity.PumpcownEntity;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
 public class WitchWaterBlock extends CraftingFluidBlock {
 	public WitchWaterBlock(BaseFluid fluid, Settings settings) {
