@@ -6,6 +6,7 @@ import com.fabriccommunity.spookytime.item.PumpkinRing;
 import com.fabriccommunity.spookytime.item.SkirtCostume;
 import com.fabriccommunity.spookytime.item.tool.ScytheItem;
 import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
+import com.fabriccommunity.spookytime.util.PumpkinFoods;
 import dev.emi.trinkets.api.TrinketSlots;
 
 import net.minecraft.item.*;
@@ -37,6 +38,11 @@ public class SpookyItems {
 	public static void init() {
 		TrinketSlots.addSubSlot("legs", "belt", new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
 		TrinketSlots.addSubSlot("hand", "ring", new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
+
+		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
+		PumpkinFoods.registerPumpkinFood(SpookyItems.BAKED_PUMPKIN_SEEDS);
+		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_STEW);
+		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_CANDY);
 	}
 	
 	protected static <T extends Item> T register(String name, T item) {
