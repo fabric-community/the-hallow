@@ -12,7 +12,8 @@ public class SpookyWorldGen {
 	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)
 			.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
 			.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1)
-			.addBiome(SpookyBiomes.SPOOKY_SWAMP, 1);
+			.addBiome(SpookyBiomes.SPOOKY_SWAMP, 1)
+			.addBiome(SpookyBiomes.GHASTLY_DESERT, 1);
 	
 	public static SpookyBiomeGroup SEA_ISLANDS = new SpookyBiomeGroup(1)
 			.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
@@ -34,6 +35,7 @@ public class SpookyWorldGen {
 		// Islands
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_LOWLANDS, 0.22f);
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_FOREST, 0.22f);
+		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.GHASTLY_DESERT, 0.22f);
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.22f);
 		
 		// Uplands Edge
