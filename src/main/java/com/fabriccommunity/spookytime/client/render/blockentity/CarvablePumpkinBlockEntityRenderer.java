@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
  * @author Indigo Amann
  * @author cplir-c
  */
-public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlockEntity> {
+public class CarvablePumpkinBlockEntityRenderer extends BlockEntityRenderer<CarvablePumpkinBlockEntity> {
     protected void renderTopAndBottomTwice(){
     	Sprite top = MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/pumpkin_top");
     	drawFace(top, Direction.UP, 0, 0, 16, 16);

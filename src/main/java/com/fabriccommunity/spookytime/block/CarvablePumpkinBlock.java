@@ -21,17 +21,18 @@ public class CarvablePumpkinBlock extends BlockWithEntity {
     }
 
     @Override
-    public BlockEntity createBlockEntity(BlockView var1) {
+    public BlockEntity createBlockEntity(BlockView var) {
         return new CarvablePumpkinBlockEntity();
     }
-    public boolean isOpaque(BlockState blockState_1) {
+    @Override
+    public boolean isOpaque(BlockState blockState) {
         return false;
     }
-
-    public boolean activate(BlockState blockState_1, World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1, Hand hand_1, BlockHitResult blockHitResult_1) {
-        BlockEntity blockEntity_1 = world_1.getBlockEntity(blockPos_1);
-        if (blockEntity_1 instanceof CarvablePumpkinBlockEntity) {
-            return ((CarvablePumpkinBlockEntity) blockEntity_1).activate(blockState_1, world_1, blockPos_1, playerEntity_1, hand_1, blockHitResult_1);
+    @Override
+    public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
+        BlockEntity blockEntity = world.getBlockEntity(blockPos);
+        if (blockEntity instanceof CarvablePumpkinBlockEntity) {
+            return ((CarvablePumpkinBlockEntity) blockEntity).activate(blockState, world, blockPos, playerEntity, hand, blockHitResult);
         }
         return false;
     }
