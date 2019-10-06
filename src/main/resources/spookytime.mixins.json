@@ -11,7 +11,7 @@
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
 		"SkeletonEntityMixin",
-		"ZombieEntityMixin"
+		"ZombieEntityMixin",
 		"LivingEntityMixin",
 		"PlayerEntityMixin"
 	],
