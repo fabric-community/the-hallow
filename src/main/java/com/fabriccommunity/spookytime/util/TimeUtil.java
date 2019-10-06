@@ -1,7 +1,6 @@
 package com.fabriccommunity.spookytime.util;
 
 import com.google.common.collect.ImmutableList;
-
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Calendar;

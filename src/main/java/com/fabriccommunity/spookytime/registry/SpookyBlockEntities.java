@@ -1,12 +1,12 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 
 import java.util.function.Supplier;
 

@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.block.entity;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
-
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 
 import net.minecraft.block.HorizontalFacingBlock;
@@ -14,6 +12,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Direction;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
 
 import javax.annotation.Nonnull;
 

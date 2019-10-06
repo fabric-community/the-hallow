@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.client.render;
 
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
-import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -11,6 +8,9 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 
 @Environment(EnvType.CLIENT)
 public class TinyPumpkinRenderer extends BlockEntityRenderer<TinyPumpkinBlockEntity> {

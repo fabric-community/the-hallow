@@ -1,9 +1,5 @@
 package com.fabriccommunity.spookytime.world;
 
-import com.fabriccommunity.spookytime.registry.SpookyBiomes;
-import com.fabriccommunity.spookytime.world.layer.SpookyBiomeLayers;
-import com.google.common.collect.Sets;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -11,6 +7,10 @@ import net.minecraft.world.biome.layer.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import com.fabriccommunity.spookytime.registry.SpookyBiomes;
+import com.fabriccommunity.spookytime.world.layer.SpookyBiomeLayers;
+
+import com.google.common.collect.Sets;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;

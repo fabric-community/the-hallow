@@ -1,11 +1,11 @@
 package com.fabriccommunity.spookytime.world.layer;
 
-import com.fabriccommunity.spookytime.registry.SpookyBiomes;
-
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.layer.CrossSamplingLayer;
 import net.minecraft.world.biome.layer.LayerRandomnessSource;
+
+import com.fabriccommunity.spookytime.registry.SpookyBiomes;
 
 import java.util.HashMap;
 import java.util.Map;

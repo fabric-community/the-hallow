@@ -1,0 +1,9 @@
+{
+	"doot": {
+		"category": "players",
+		"sounds": [
+			"spookytime:doot"
+		],
+		"subtitle": "subtitle.spookytime.doot"
+	}
+}

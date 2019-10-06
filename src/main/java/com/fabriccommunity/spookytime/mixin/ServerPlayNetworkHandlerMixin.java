@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import com.fabriccommunity.spookytime.SpookyConfig;
-import com.fabriccommunity.spookytime.component.CandyComponent;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyTags;
-import dev.emi.trinkets.api.TrinketsApi;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,6 +28,12 @@ import net.minecraft.world.loot.LootSupplier;
 import net.minecraft.world.loot.context.LootContext;
 import net.minecraft.world.loot.context.LootContextParameters;
 import net.minecraft.world.loot.context.LootContextTypes;
+
+import com.fabriccommunity.spookytime.SpookyConfig;
+import com.fabriccommunity.spookytime.component.CandyComponent;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyTags;
+import dev.emi.trinkets.api.TrinketsApi;
 
 import java.util.Iterator;
 import java.util.List;

@@ -1,12 +1,12 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.biome.*;
-
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.world.biome.*;
 
 public class SpookyBiomes {
 	// Spooky Forest

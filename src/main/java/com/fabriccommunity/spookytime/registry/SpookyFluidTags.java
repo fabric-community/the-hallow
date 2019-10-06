@@ -1,11 +1,11 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-
 import net.fabricmc.fabric.api.tag.TagRegistry;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraft.tag.Tag;
+
+import com.fabriccommunity.spookytime.SpookyTime;
 
 public class SpookyFluidTags {
 	public static final Tag<Fluid> WITCH_WATER = register("witch_water");
