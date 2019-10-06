@@ -74,10 +74,10 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
         switch (direction) {
             case DOWN:
                 y = 0;
-                bufferBuilder.vertex(mx, y, z) .texture(u, v) .next();  
-                bufferBuilder.vertex(mx, y, mz).texture(mu, v)  .next(); 
-                bufferBuilder.vertex(x, y, mz) .texture(mu, mv).next();
-                bufferBuilder.vertex(x, y, z)  .texture(u, mv) .next();
+                bufferBuilder.vertex(mx, y, z) .texture(mu, mv) .next();  
+                bufferBuilder.vertex(mx, y, mz).texture(u, mv)  .next(); 
+                bufferBuilder.vertex(x, y, mz) .texture(u, v).next();
+                bufferBuilder.vertex(x, y, z)  .texture(mu, v) .next();
                 break;
             case UP:
                 y = 16;
