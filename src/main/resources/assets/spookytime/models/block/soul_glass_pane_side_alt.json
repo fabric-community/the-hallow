@@ -1,0 +1,7 @@
+{
+	"parent": "block/template_glass_pane_side_alt",
+	"textures": {
+		"edge": "spookytime:block/soul_glass_pane_top",
+		"pane": "spookytime:block/soul_glass"
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"# #",
+		" # "
+	],
+	"key": {
+		"#": {
+			"item": "spookytime:soul_glass"
+		}
+	},
+	"result": {
+		"item": "spookytime:soul_bottle",
+		"count": 3
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "spookytime:spookium_block"
+		}
+	],
+	"result": {
+		"item": "spookytime:spookium_ingot",
+		"count": 9
+	}
+}

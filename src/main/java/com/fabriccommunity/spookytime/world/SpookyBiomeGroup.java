@@ -1,16 +1,15 @@
 package com.fabriccommunity.spookytime.world;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.layer.LayerRandomnessSource;
+
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SpookyBiomeGroup {
-	
 	private static List<SpookyBiomeGroup> spookyBiomeGroups = new ArrayList<>();
 	private static Int2ObjectMap<SpookyBiomeGroup> reverseMap = new Int2ObjectArrayMap<>();
 	private final int id;

@@ -1,9 +1,5 @@
 package com.fabriccommunity.spookytime.world;
 
-import com.fabriccommunity.spookytime.common.SpookyBiomes;
-import com.fabriccommunity.spookytime.world.layer.SpookyBiomeLayers;
-import com.google.common.collect.Sets;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -11,20 +7,33 @@ import net.minecraft.world.biome.layer.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import com.fabriccommunity.spookytime.registry.SpookyBiomes;
+import com.fabriccommunity.spookytime.world.layer.SpookyBiomeLayers;
+
+import com.google.common.collect.Sets;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 public class SpookyBiomeSource extends BiomeSource {
-	
 	public final Biome[] allowedBiomes;
 	
 	public final BiomeLayerSampler biomeLayer, noiseLayer;
 	
 	public SpookyBiomeSource(long seed) {
 		allowedBiomes = new Biome[]{
-				SpookyBiomes.SPOOKY_FOREST
+			SpookyBiomes.SPOOKY_FOREST,
+			SpookyBiomes.SPOOKY_LOWLANDS,
+			SpookyBiomes.SPOOKY_LOWLANDS_BARROWS,
+			SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS,
+			SpookyBiomes.GHASTLY_DESERT,
+			SpookyBiomes.SPOOKY_RIVER,
+			SpookyBiomes.SPOOKY_SEA,
+			SpookyBiomes.SPOOKY_SHORE,
+			SpookyBiomes.SPOOKY_SWAMP,
+			SpookyBiomes.HAUNTED_UPLANDS,
+			SpookyBiomes.HAUNTED_MOOR
 		};
 		
 		BiomeLayerSampler[] samplers = SpookyBiomeLayers.build(seed);
@@ -106,5 +115,4 @@ public class SpookyBiomeSource extends BiomeSource {
 		
 		return this.topMaterials;
 	}
-	
 }

@@ -1,10 +1,10 @@
 {
-    "variants": {
-        "": [
-            { "model": "spookytime:block/tainted_gravel" },
-            { "model": "spookytime:block/tainted_gravel", "y": 90 },
-            { "model": "spookytime:block/tainted_gravel", "y": 180 },
-            { "model": "spookytime:block/tainted_gravel", "y": 270 }
-        ]
-    }
+	"variants": {
+		"": [
+			{"model": "spookytime:block/tainted_gravel"},
+			{"model": "spookytime:block/tainted_gravel", "y": 90},
+			{"model": "spookytime:block/tainted_gravel", "y": 180},
+			{"model": "spookytime:block/tainted_gravel", "y": 270}
+		]
+	}
 }

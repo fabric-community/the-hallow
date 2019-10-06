@@ -1,37 +1,81 @@
-
 {
-  "schemaVersion": 1,
-  "id": "spookytime",
-  "version": "${version}",
-
-  "name": "Spooky Time",
-  "description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
-  "authors": [
-    "The Fabric Community"
-  ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/fabric-community/spooky-time"
-  },
-
-  "license": "MIT",
-  "icon": "assets/spookytime/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.fabriccommunity.spookytime.SpookyTime"
-    ],
-	  "client": [
-	    "com.fabriccommunity.spookytime.SpookyTimeClient"
-	  ]
-  },
-  "mixins": [
-    "spookytime.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.4.0",
-    "fabric": "*"
-  }
+	"schemaVersion": 1,
+	"id": "spookytime",
+	"version": "${version}",
+	"name": "Spooky Time",
+	"description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
+	"authors": [
+		{
+			"name": "The Fabric Community",
+			"contact": {
+				"github": "https://github.com/fabric-community"
+			}
+		},
+		{
+			"name": "Shnupbups",
+			"contact": {
+				"github": "https://github.com/Shnupbups",
+				"minecraft": "b14df521-191f-4652-b9fb-ef5a437cde08"
+			}
+		},
+		{
+			"name": "Draylar",
+			"contact": {
+				"github": "https://github.com/Draylar",
+				"minecraft": "4397d1df-1138-424a-8454-ac0c958f72b3"
+			}
+		},
+		{
+			"name": "vini2003",
+			"contact": {
+				"github": "https://github.com/vini2003",
+				"minecraft": "15331286-6cb2-4f9e-bae9-4da8b246a00f"
+			}
+		},
+		{
+			"name": "Juuz",
+			"contact": {
+				"github": "https://github.com/Juuxel",
+				"minecraft": "517a5403-1ce3-4aaa-98e2-b682d69b201d"
+			}
+		},
+		{
+			"name": "Virtuoel",
+			"contact": {
+				"github": "https://github.com/Virtuoel",
+				"minecraft": "7c45a0ca-f821-3da7-8901-484be45197c6"
+			}
+		},
+		{
+			"name": "Yanis48",
+			"contact": {
+				"github": "https://github.com/Yanis48",
+				"minecraft": "8d186b20-ae67-4bd4-a55f-b3ec48cb537a"
+			}
+		}
+	],
+	"contributors": [
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/fabric-community/spooky-time"
+	},
+	"license": "MIT",
+	"icon": "assets/spookytime/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.fabriccommunity.spookytime.SpookyTime"
+		],
+		"client": [
+			"com.fabriccommunity.spookytime.SpookyTimeClient"
+		]
+	},
+	"mixins": [
+		"spookytime.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	}
 }

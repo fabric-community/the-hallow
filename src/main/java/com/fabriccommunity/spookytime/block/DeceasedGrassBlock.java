@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
@@ -17,6 +15,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.FlowerFeature;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+
 import java.util.List;
 import java.util.Random;
 
@@ -28,8 +28,8 @@ public class DeceasedGrassBlock extends GrassBlock {
 	private static boolean canSurvive(BlockState blockState, ViewableWorld viewableWorld, BlockPos blockPos) {
 		BlockPos upPos = blockPos.up();
 		BlockState upBlockState = viewableWorld.getBlockState(upPos);
-		int int_1 = ChunkLightProvider.method_20049(viewableWorld, blockState, blockPos, upBlockState, upPos, Direction.UP, upBlockState.getLightSubtracted(viewableWorld, upPos));
-		return int_1 < viewableWorld.getMaxLightLevel();
+		int lightLevel = ChunkLightProvider.method_20049(viewableWorld, blockState, blockPos, upBlockState, upPos, Direction.UP, upBlockState.getLightSubtracted(viewableWorld, upPos));
+		return lightLevel < viewableWorld.getMaxLightLevel();
 	}
 	
 	private static boolean canSpread(BlockState blockState, ViewableWorld viewableWorld, BlockPos blockPos) {
@@ -51,7 +51,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 		for (int i = 0; i < 128; ++i) {
 			BlockPos randomPos = upPos;
 			
-			for (int int_2 = 0; int_2 < i / 16; ++int_2) {
+			for (int j = 0; j < i / 16; ++j) {
 				randomPos = randomPos.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
 				if (world.getBlockState(randomPos.down()).getBlock() != this || world.getBlockState(randomPos).method_21743(world, randomPos)) {
 					continue label48;
@@ -92,14 +92,13 @@ public class DeceasedGrassBlock extends GrassBlock {
 				if (world.getLightLevel(blockPos.up()) >= 9) {
 					BlockState defaultState = this.getDefaultState();
 					
-					for (int int_1 = 0; int_1 < 4; ++int_1) {
+					for (int i = 0; i < 4; ++i) {
 						BlockPos randomPos = blockPos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 						if (world.getBlockState(randomPos).getBlock() == SpookyBlocks.DECEASED_DIRT && canSpread(defaultState, world, randomPos)) {
 							world.setBlockState(randomPos, defaultState);
 						}
 					}
 				}
-				
 			}
 		}
 	}

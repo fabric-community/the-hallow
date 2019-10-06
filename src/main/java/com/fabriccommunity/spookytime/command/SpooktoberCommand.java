@@ -1,11 +1,13 @@
 package com.fabriccommunity.spookytime.command;
 
-import com.fabriccommunity.spookytime.util.TimeUtil;
-import com.mojang.brigadier.context.CommandContext;
-
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+import com.mojang.brigadier.context.CommandContext;
+
+import com.fabriccommunity.spookytime.util.TimeUtil;
+
+import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 
 public class SpooktoberCommand {
 	public static int run(CommandContext<ServerCommandSource> ctx) {
@@ -18,6 +20,6 @@ public class SpooktoberCommand {
 		}
 		
 		ctx.getSource().sendFeedback(new TranslatableText("spookytime.cmd.spooktober").formatted(Formatting.GOLD, Formatting.BOLD), false);
-		return 1;
+		return SINGLE_SUCCESS;
 	}
 }

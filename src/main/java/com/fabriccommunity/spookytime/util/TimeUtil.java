@@ -1,7 +1,6 @@
 package com.fabriccommunity.spookytime.util;
 
 import com.google.common.collect.ImmutableList;
-
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Calendar;
@@ -11,7 +10,6 @@ import java.util.TimeZone;
  * Provides utilities to obtain the amount of time between current date and Spooktober
  */
 public class TimeUtil {
-	
 	private static final ImmutableList<Integer> NEXT_YEAR_MONTHS = ImmutableList.of(11, 12);
 	
 	private TimeUtil() {

@@ -1,20 +1,25 @@
 {
-	"required": true,
-	"package": "com.fabriccommunity.spookytime.mixin",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [
-		"AnvilBlockMixin",
-		"EndermanPumpkinMixin",
-		"MixinPlantBlock",
-		"ServerPlayNetworkHandlerMixin",
-		"ServerWorldLightningMixin",
-		"SkeletonPumpkinMixin",
-		"ZombiePumpkinMixin"
-	],
-	"client": [
-
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+    "required": true,
+    "package": "com.fabriccommunity.spookytime.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "AbstractSkeletonEntityMixin",
+        "AbstractTreeFeatureMixin",
+        "AnvilBlockMixin",
+        "LivingEntityMixin",
+        "MobEntityMixin",
+        "PlantBlockMixin",
+        "PlayerEntityMixin",
+        "ServerPlayNetworkHandlerMixin",
+        "ServerWorldMixin",
+        "SkeletonEntityMixin",
+        "ZombieEntityMixin"
+    ],
+    "client": [
+        "client.ClientPlayNetworkHandlerMixin",
+        "client.MinecraftClientMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
 }
