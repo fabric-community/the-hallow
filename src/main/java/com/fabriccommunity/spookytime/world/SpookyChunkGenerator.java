@@ -28,6 +28,8 @@ public class SpookyChunkGenerator extends SurfaceChunkGenerator<SpookyChunkGener
 		
 	});
 	
+	private static final double noiseFrequency = 200;
+	
 	private final OctavePerlinNoiseSampler noiseSampler;
 	
 	public SpookyChunkGenerator(IWorld world, BiomeSource biomeSource, SpookyChunkGeneratorConfig chunkGeneratorConfig) {
@@ -92,7 +94,7 @@ public class SpookyChunkGenerator extends SurfaceChunkGenerator<SpookyChunkGener
 	}
 	
 	private double sampleNoise(int x, int z) {
-		double result = this.noiseSampler.sample(x * 200, 10.0D, z * 200, 1.0D, 0.0D, true) / 8000.0D;
+		double result = this.noiseSampler.sample(x * noiseFrequency, 10.0D, z * noiseFrequency, 1.0D, 0.0D, true) / 8000.0D;
 		if (result < 0.0D) {
 			result = -result * 0.3D;
 		}

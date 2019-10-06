@@ -10,7 +10,8 @@ import com.fabriccommunity.spookytime.world.biome.*;
 
 public class SpookyBiomes {
 	// Spooky Forest
-	public static final SpookyBaseBiome SPOOKY_FOREST = register("spooky_forest", new SpookyForestBiome());
+	public static final SpookyBaseBiome SPOOKY_FOREST = register("spooky_forest", new SpookyForestBiome(0.15f, 0.18f));
+	public static final SpookyBaseBiome SPOOKY_FOREST_HILLS = register("spooky_forest_hills", new SpookyForestBiome(0.25f, 0.2f));
 	
 	// Spooky Lowlands
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS = register("spooky_lowlands", new SpookyLowlandsBiome());

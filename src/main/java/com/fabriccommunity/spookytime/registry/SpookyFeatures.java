@@ -1,6 +1,7 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.world.feature.BarrowFeature;
 import com.fabriccommunity.spookytime.world.feature.DeaderBushFeature;
 import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
 import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
@@ -31,6 +32,8 @@ public class SpookyFeatures {
     public static final Feature<DefaultFeatureConfig> LARGE_SKELETON_TREE = register("skeleton_tree_large", new LargeSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
 
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
+	
+	public static final Feature<DefaultFeatureConfig> BARROW = register("barrow", new BarrowFeature());
 
     public static void init() {
 
