@@ -10,7 +10,6 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
-		"ZombieEntityMixin",
 		"WitchEntityMixin",
 		"ThrownPotionEntityMixin"
 		"SkeletonEntityMixin",
