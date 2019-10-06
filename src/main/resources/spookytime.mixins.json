@@ -10,7 +10,9 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
-		"ZombieEntityMixin"
+		"ZombieEntityMixin",
+		"WitchEntityMixin",
+		"ThrownPotionEntityMixin"
 	],
 	"client": [
 
