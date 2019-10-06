@@ -48,8 +48,8 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
 	            for (int x = 0; x < 16; x++) {
 	                for (int y = 0; y < 16; y++) {
 	                	if(!blockEntity.carved[f].get(16 * x + y)) {
-	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x + 1, y + 1, x, y);
-	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x + 1, y, x, y + 1);
+	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x, y + 1, x + 1, y);
+	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x, y, x + 1, y + 1);
 	                    }
 	                }
 	            }

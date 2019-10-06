@@ -1,7 +1,6 @@
-package com.fabriccommunity.spookytime.common;
+package com.fabriccommunity.spookytime.item;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.item.SkirtCostume;
 import com.fabriccommunity.spookytime.registry.SpookyEntities;
 
 import dev.emi.trinkets.api.TrinketSlots;

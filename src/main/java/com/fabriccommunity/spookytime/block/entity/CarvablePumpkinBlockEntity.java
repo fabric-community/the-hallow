@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.block.entity;
 
-import com.fabriccommunity.spookytime.common.SpookyBlocks;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +17,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import java.util.BitSet;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 /**
  * @author Indigo Amann
  */
