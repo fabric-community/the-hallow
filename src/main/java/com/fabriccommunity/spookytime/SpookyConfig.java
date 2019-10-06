@@ -11,7 +11,7 @@ public class SpookyConfig {
 	public static void sync(boolean overwrite) {
 		modConfig.configure(overwrite, config -> {
 			config.accessChild("weather", weather -> {
-				SpookyWeather.thunderModifier = weather.getInt("thunder_modifier", SpookyWeather.thunderModifier, "Amount the thunder time is devided by. Set to 1 to disable");
+				SpookyWeather.thunderModifier = weather.getInt("thunder_modifier", SpookyWeather.thunderModifier, "Amount the thunder time is divided by. Set to 1 to disable");
 				SpookyWeather.lessClearSkies = weather.getBool("less_clear_skies", SpookyWeather.lessClearSkies, "Make it so there are less clear skies, more rain and thunder");
 			});
 			config.accessChild("pumpkins_on_mobs", pumpkinMobs -> {
@@ -20,6 +20,14 @@ public class SpookyConfig {
 			});
 			config.accessChild("tiny_pumpkin", tinyPumpkin -> {
 				TinyPumpkin.waterloggable = tinyPumpkin.getBool("waterloggable", TinyPumpkin.waterloggable, "Lets the Tiny Pumpkin be waterlogged");
+			});
+			config.accessChild("trick_or_treating", trickOrTreating -> {
+				TrickOrTreating.enableTricks = trickOrTreating.getBool("enable_tricks", TrickOrTreating.enableTricks, "Enables a chance for trick or treating to result in the villagers becoming witches");
+				TrickOrTreating.trickChance = trickOrTreating.getInt("trick_chance", TrickOrTreating.trickChance, "Tricks, if enabled, will have a one in (this number) chance of happening");
+			});
+			config.accessChild("trumpet_skeleton", trumpetSkeleton -> {
+				TrumpetSkeleton.enabled = trumpetSkeleton.getBool("enabled", TrumpetSkeleton.enabled, "If enabled, Skeletons can sometimes spawn with Trumpets");
+				TrumpetSkeleton.chance = trumpetSkeleton.getInt("chance", TrumpetSkeleton.chance, "Skeletons will have a one in (this number) chance of spawning with a trumpet");
 			});
 		});
 	}
@@ -36,5 +44,15 @@ public class SpookyConfig {
 	
 	public static class TinyPumpkin {
 		public static boolean waterloggable = true;
+	}
+	
+	public static class TrickOrTreating {
+		public static boolean enableTricks = true;
+		public static int trickChance = 100;
+	}
+	
+	public static class TrumpetSkeleton {
+		public static boolean enabled = true;
+		public static int chance = 50;
 	}
 }

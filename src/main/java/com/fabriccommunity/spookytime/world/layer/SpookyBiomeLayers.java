@@ -1,9 +1,8 @@
 package com.fabriccommunity.spookytime.world.layer;
 
-import com.google.common.collect.ImmutableList;
-
 import net.minecraft.world.biome.layer.*;
 
+import com.google.common.collect.ImmutableList;
 import java.util.function.LongFunction;
 
 public class SpookyBiomeLayers {
@@ -22,6 +21,7 @@ public class SpookyBiomeLayers {
 		biomes = AddSubBiomesLayer.LARGE.create(contextProvider.apply(50L), biomes);
 		biomes = ScaleLayer.NORMAL.create(contextProvider.apply(1001L), biomes);
 		
+		biomes = AddSpookyEdgeLayer.INSTANCE.create(contextProvider.apply(54L), biomes);
 		biomes = AddSubBiomesLayer.HILLS.create(contextProvider.apply(51L), biomes);
 		biomes = AddSubBiomesLayer.SMALL.create(contextProvider.apply(53L), biomes);
 		
@@ -70,4 +70,3 @@ public class SpookyBiomeLayers {
 	}
 }
 
-	

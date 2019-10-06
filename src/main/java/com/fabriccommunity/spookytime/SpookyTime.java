@@ -1,15 +1,15 @@
 package com.fabriccommunity.spookytime;
 
-import com.fabriccommunity.spookytime.registry.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+
+import com.fabriccommunity.spookytime.registry.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SpookyTime implements ModInitializer {
 	public static final String MOD_ID = "spookytime";
@@ -26,11 +26,21 @@ public class SpookyTime implements ModInitializer {
 		SpookyEntities.init();
 		SpookyBlocks.init();
 		SpookyItems.init();
+		SpookyBlockEntities.init();
+		SpookyEnchantments.init();
 		SpookyCommands.init();
 		SpookyFeatures.init();
 		SpookyBiomes.init();
 		SpookyWorldGen.init();
 		SpookyDimensions.init();
+<<<<<<< HEAD
 		SpookyEvents.init();
+=======
+		SpookySounds.init();
+		SpookyFluids.init();
+		SpookyFluidTags.init();
+		SpookyTags.init();
+		SpookyNetworking.init();
+>>>>>>> ef871c5ca7ba3f186dbce9c2a2f6aad8577b68e1
 	}
 }

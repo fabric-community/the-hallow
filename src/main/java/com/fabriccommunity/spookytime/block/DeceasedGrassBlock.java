@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
@@ -16,6 +14,8 @@ import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.FlowerFeature;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 import java.util.List;
 import java.util.Random;
@@ -46,7 +46,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 	public void grow(World world, Random random, BlockPos blockPos, BlockState blockState) {
 		BlockPos upPos = blockPos.up();
 		BlockState grassBlock = SpookyBlocks.DECEASED_GRASS_BLOCK.getDefaultState();
-
+		
 		label48:
 		for (int i = 0; i < 128; ++i) {
 			BlockPos randomPos = upPos;

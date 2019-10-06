@@ -2,8 +2,6 @@ package com.fabriccommunity.spookytime.world.dimension;
 
 import com.github.draylar.worldtraveler.api.dimension.utils.SkyAngleCalculator;
 
-import net.minecraft.util.math.MathHelper;
-
 public class SpookySkyAngleCalculator implements SkyAngleCalculator {
 	// Day fraction function created using https://www.desmos.com/calculator/h5zvtx8jj6
 	// and also https://minecraft.gamepedia.com/Day
@@ -23,11 +21,11 @@ public class SpookySkyAngleCalculator implements SkyAngleCalculator {
 	
 	protected float waveDayFunction(long ticks) {
 		return (
-				(float) Math.sin(
-						((double) (
-								(2 * ticks - cycleStart - cycleEnd) / (2 * cycleLength)
-						)) * Math.PI
-				)
+			(float) Math.sin(
+				((double) (
+					(2 * ticks - cycleStart - cycleEnd) / (2 * cycleLength)
+				)) * Math.PI
+			)
 		) / ((2f * 24000f) / cycleLength) + (cycleStart + cycleEnd) / (2f * 24000f);
 	}
 	

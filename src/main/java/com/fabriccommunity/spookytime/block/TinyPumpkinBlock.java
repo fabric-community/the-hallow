@@ -1,8 +1,11 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.SpookyConfig;
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderLayer;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,11 +25,17 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+import com.fabriccommunity.spookytime.SpookyConfig;
+import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
+
 public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEntityProvider, Waterloggable {
 	protected static final VoxelShape Y_SHAPE = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D);
 	
 	public TinyPumpkinBlock(Settings blockSettings) {
 		super(blockSettings);
+		if (SpookyConfig.TinyPumpkin.waterloggable) {
+			setDefaultState(getDefaultState().with(Properties.WATERLOGGED, false));
+		}
 	}
 	
 	@Override
@@ -68,7 +77,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
 		builder.add(HorizontalFacingBlock.FACING);
 		
-		if(SpookyConfig.TinyPumpkin.waterloggable) {
+		if (SpookyConfig.TinyPumpkin.waterloggable) {
 			builder.add(Properties.WATERLOGGED);
 		}
 	}
@@ -80,7 +89,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 	
 	@Override
 	public Fluid tryDrainFluid(IWorld world, BlockPos pos, BlockState state) {
-		if(state.contains(Properties.WATERLOGGED)) {
+		if (state.contains(Properties.WATERLOGGED)) {
 			return Waterloggable.super.tryDrainFluid(world, pos, state);
 		} else {
 			return Fluids.EMPTY;
@@ -89,18 +98,18 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 	
 	@Override
 	public boolean tryFillWithFluid(IWorld world, BlockPos pos, BlockState blockState, FluidState fluidState) {
-		if(blockState.contains(Properties.WATERLOGGED)) {
+		if (blockState.contains(Properties.WATERLOGGED)) {
 			return Waterloggable.super.tryFillWithFluid(world, pos, blockState, fluidState);
 		} else {
 			return false;
 		}
 	}
-
+	
 	@Override
 	public BlockEntity createBlockEntity(BlockView world) {
 		return new TinyPumpkinBlockEntity();
 	}
-
+	
 	@Override
 	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		BlockEntity be = world.getBlockEntity(pos);
@@ -109,7 +118,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void onBlockRemoved(BlockState state1, World world, BlockPos pos, BlockState state2, boolean flag) {
 		if (state1.getBlock() != state2.getBlock()) {
@@ -118,7 +127,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 				ItemScatterer.spawn(world, pos, ((TinyPumpkinBlockEntity) be).getAllItems());
 				world.updateHorizontalAdjacent(pos, this);
 			}
-
+			
 			super.onBlockRemoved(state1, world, pos, state2, flag);
 		}
 	}

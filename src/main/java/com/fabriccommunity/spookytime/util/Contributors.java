@@ -1,15 +1,19 @@
 package com.fabriccommunity.spookytime.util;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ContactInformation;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.fabricmc.loader.api.metadata.Person;
 
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.*;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.Texts;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+
+import com.fabriccommunity.spookytime.SpookyTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +33,8 @@ public class Contributors {
 	
 	private static void initContributors() {
 		ModMetadata metadata = FabricLoader.getInstance().getModContainer(SpookyTime.MOD_ID)
-				.orElseThrow(() -> new IllegalStateException("Cannot find spooky time mod, report to fabric loader!"))
-				.getMetadata();
+			.orElseThrow(() -> new IllegalStateException("Cannot find spooky time mod, report to fabric loader!"))
+			.getMetadata();
 		
 		for (Person author : metadata.getAuthors()) {
 			USER_INFO.add(makeDesc(author, Formatting.DARK_RED));
@@ -45,17 +49,17 @@ public class Contributors {
 		ContactInformation contact = person.getContact();
 		Text ret = new LiteralText(person.getName()).formatted(formatting);
 		contact.get("github").ifPresent(gh ->
-				ret.append(Texts.bracketed(new TranslatableText("social.spookytime.github")
-						.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, gh))))
-						.formatted(Formatting.BLACK)
-				)
+			ret.append(Texts.bracketed(new TranslatableText("social.spookytime.github")
+				.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, gh))))
+				.formatted(Formatting.BLACK)
+			)
 		);
 		
 		contact.get("minecraft").ifPresent(mc ->
-				ret.append(Texts.bracketed(new TranslatableText("social.spookytime.minecraft")
-						.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://mcuuid.net/?q=" + mc))))
-						.formatted(Formatting.GREEN)
-				)
+			ret.append(Texts.bracketed(new TranslatableText("social.spookytime.minecraft")
+				.styled(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://mcuuid.net/?q=" + mc))))
+				.formatted(Formatting.GREEN)
+			)
 		);
 		
 		return ret;

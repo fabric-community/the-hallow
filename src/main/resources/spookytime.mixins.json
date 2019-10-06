@@ -10,12 +10,20 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
+<<<<<<< HEAD
 		"ZombieEntityMixin",
 		"WitchEntityMixin",
 		"ThrownPotionEntityMixin"
+=======
+		"SkeletonEntityMixin",
+		"ZombieEntityMixin",
+		"LivingEntityMixin",
+		"PlayerEntityMixin"
+>>>>>>> ef871c5ca7ba3f186dbce9c2a2f6aad8577b68e1
 	],
 	"client": [
-
+		"client.ClientPlayNetworkHandlerMixin",
+		"client.MinecraftClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

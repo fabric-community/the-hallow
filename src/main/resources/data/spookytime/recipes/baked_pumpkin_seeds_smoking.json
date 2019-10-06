@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {
+		"item": "minecraft:pumpkin_seeds"
+	},
+	"result": "spookytime:baked_pumpkin_seeds",
+	"experience": 0.05,
+	"cookingtime": 25
+}

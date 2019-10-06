@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -21,6 +22,8 @@ public class ScytheItem extends SwordItem {
 		if (!target.isAlive()) {
 			if (target instanceof PlayerEntity) {
 				// give player soul
+			} else if (target instanceof WitherEntity) {
+				// give withered soul
 			} else {
 				EntityCategory category = target.getType().getCategory();
 				switch (category) {
