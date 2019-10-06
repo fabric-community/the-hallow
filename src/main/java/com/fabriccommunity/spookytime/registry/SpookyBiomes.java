@@ -16,6 +16,9 @@ public class SpookyBiomes {
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS = register("spooky_lowlands", new SpookyLowlandsBiome());
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS_PUMPKINS = register("pumpkin_patch", new PumpkinPatchBiome());
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS_BARROWS = register("spooky_lowlands_barrows", new LowlandBarrowsBiome());
+
+	//Ghastly Desert
+	public static final SpookyBaseBiome GHASTLY_DESERT = register("ghastly_desert", new GhastlyDesert());
 	
 	// Spooky River
 	public static final SpookyBaseBiome SPOOKY_RIVER = register("spooky_river", new SpookyRiverBiome());
