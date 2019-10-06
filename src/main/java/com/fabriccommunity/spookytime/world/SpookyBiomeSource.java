@@ -24,6 +24,7 @@ public class SpookyBiomeSource extends BiomeSource {
 	public SpookyBiomeSource(long seed) {
 		allowedBiomes = new Biome[]{
 			SpookyBiomes.SPOOKY_FOREST,
+			SpookyBiomes.SPOOKY_FOREST_HILLS,
 			SpookyBiomes.SPOOKY_LOWLANDS,
 			SpookyBiomes.SPOOKY_LOWLANDS_BARROWS,
 			SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS,
