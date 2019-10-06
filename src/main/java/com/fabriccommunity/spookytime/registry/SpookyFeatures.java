@@ -5,6 +5,7 @@ import com.fabriccommunity.spookytime.world.feature.DeaderBushFeature;
 import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
 import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
 import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
+import com.fabriccommunity.spookytime.world.feature.SpiderLairFeature;
 import com.fabriccommunity.spookytime.world.feature.SpookyCactusFeature;
 import com.fabriccommunity.spookytime.world.feature.WitchWellFeature;
 
@@ -29,7 +30,8 @@ public class SpookyFeatures {
 
     public static final Feature<DefaultFeatureConfig> SMALL_SKELETON_TREE = register("skeleton_tree_small", new SmallSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
     public static final Feature<DefaultFeatureConfig> LARGE_SKELETON_TREE = register("skeleton_tree_large", new LargeSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
-
+    
+	public static final Feature<DefaultFeatureConfig> SPIDER_LAIR = register("spider_lair", new SpiderLairFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 
     public static void init() {
