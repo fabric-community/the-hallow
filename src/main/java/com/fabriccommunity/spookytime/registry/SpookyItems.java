@@ -37,9 +37,10 @@ public class SpookyItems {
 	public static ToolMaterial SPOOKIUM = new SpookiumMaterial();
 	public static Item REAPERS_SCYTHE = register("reapers_scythe", new ScytheItem(SPOOKIUM, 3, -2.0F, new Item.Settings().group(SpookyTime.GROUP).maxCount(1).rarity(Rarity.EPIC)));
 	public static Item SOUL_BOTTLE = register("soul_bottle", new Item(new Item.Settings().group(SpookyTime.GROUP)));
-	public static Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 8273166, 14912029, new Item.Settings().group(SpookyTime.GROUP)));
 	public static Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(new Item.Settings().group(SpookyTime.GROUP)));
 	public static Item SPOOKY_TRUMPET = register("spooky_trumpet", new SpookyTrumpetItem(new Item.Settings().group(SpookyTime.GROUP)));
+	public static Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, new Item.Settings().group(SpookyTime.GROUP)));
+	public static Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(SpookyEntities.CROW, 0x161616, 0x454545, new Item.Settings().group(SpookyTime.GROUP)));
 	
 	private SpookyItems() {
 		// NO-OP
