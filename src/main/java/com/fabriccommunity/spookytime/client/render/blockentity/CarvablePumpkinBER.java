@@ -19,14 +19,10 @@ import org.lwjgl.opengl.GL11;
  * @author cplir-c
  */
 public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlockEntity> {
-    protected void renderTopAndBottom() {
-    	Sprite top = MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/pumpkin_top");
-        drawFace(top, Direction.UP, 0, 0, 16, 16);
-        drawFace(top, Direction.DOWN, 0, 0, 16, 16);
-    }
     protected void renderTopAndBottomTwice(){
-    	renderTopAndBottom();
     	Sprite top = MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/pumpkin_top");
+    	drawFace(top, Direction.UP, 0, 0, 16, 16);
+        drawFace(top, Direction.DOWN, 0, 0, 16, 16);
     	drawFace(top, Direction.UP, 0, 16, 16, 0);
         drawFace(top, Direction.DOWN, 0, 16, 16, 0);
     }
@@ -41,37 +37,24 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
         GlStateManager.enableTexture();
         Sprite pumpkinSideSprite = MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/pumpkin_side");
         
+    	// render all sides twice
+		
+        renderTopAndBottomTwice();
         for (int f = 0; f < 4; f++) {
-        	if (blockEntity.carved[f] != null) {
-        		// render all sides twice
-        		
-                renderTopAndBottomTwice();
-                for (f = 0; f < 4; f++) {
-                	if(blockEntity.carved[f] == null) {
-                		drawFace(pumpkinSideSprite, Direction.byId(f + 2), 0, 0, 16, 16);
-                		drawFace(pumpkinSideSprite, Direction.byId(f + 2), 0, 16, 16, 0);
-                	} else {
-        	            for (int x = 0; x < 16; x++) {
-        	                for (int y = 0; y < 16; y++) {
-        	                	if(!blockEntity.carved[f].get(16 * x + y)) {
-        	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x, y, x + 1, y + 1);
-        	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x, y + 1, x + 1, y);
-        	                    }
-        	                }
-        	            }
-                	}
-                }
-                break;
-        	}
-        	if(f == 3) {
-        		// Render all sides once
-        		renderTopAndBottom();
-        		for (f = 0; f < 4 ; f++) {
-        			drawFace(pumpkinSideSprite, Direction.byId(f + 2), 0, 0, 16, 16);
-        		}
+        	if(blockEntity.carved[f] == null) {
+        		drawFace(pumpkinSideSprite, Direction.byId(f + 2), 0, 0, 16, 16);
+        		drawFace(pumpkinSideSprite, Direction.byId(f + 2), 0, 16, 16, 0);
+        	} else {
+	            for (int x = 0; x < 16; x++) {
+	                for (int y = 0; y < 16; y++) {
+	                	if(!blockEntity.carved[f].get(16 * x + y)) {
+	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x, y, x + 1, y + 1);
+	                        drawFace(pumpkinSideSprite, Direction.byId(f + 2), x, y + 1, x + 1, y);
+	                    }
+	                }
+	            }
         	}
         }
-        
         
         
         GlStateManager.popMatrix();
@@ -103,31 +86,31 @@ public class CarvablePumpkinBER extends BlockEntityRenderer<CarvablePumpkinBlock
                 break;
             case NORTH:
                 y = 0;
-                bufferBuilder.vertex(z, x, y)  .texture(u, mv)  .next();
-                bufferBuilder.vertex(z, mx, y) .texture(u, v) .next();
-                bufferBuilder.vertex(mz, mx, y).texture(mu, v).next();
-                bufferBuilder.vertex(mz, x, y) .texture(mu, mv) .next();
+                bufferBuilder.vertex(z, x, y)  .texture(mu, mv)  .next();
+                bufferBuilder.vertex(z, mx, y) .texture(mu, v) .next();
+                bufferBuilder.vertex(mz, mx, y).texture(u, v).next();
+                bufferBuilder.vertex(mz, x, y) .texture(u, mv) .next();
                 break;
             case SOUTH:
                 y = 16;
-                bufferBuilder.vertex(mz, x, y) .texture(u, mv)  .next();
-                bufferBuilder.vertex(mz, mx, y).texture(u, v) .next();
-                bufferBuilder.vertex(z, mx, y) .texture(mu, v).next();
-                bufferBuilder.vertex(z, x, y)  .texture(mu, mv) .next();
+                bufferBuilder.vertex(mz, x, y) .texture(mu, mv)  .next();
+                bufferBuilder.vertex(mz, mx, y).texture(mu, v) .next();
+                bufferBuilder.vertex(z, mx, y) .texture(u, v).next();
+                bufferBuilder.vertex(z, x, y)  .texture(u, mv) .next();
                 break;
             case WEST:
                 y = 16;
-                bufferBuilder.vertex(y, x, z)  .texture(u, mv)  .next();
-                bufferBuilder.vertex(y, mx, z) .texture(u, v) .next();
-                bufferBuilder.vertex(y, mx, mz).texture(mu, v).next();
-                bufferBuilder.vertex(y, x, mz) .texture(mu, mv) .next();
+                bufferBuilder.vertex(y, x, z)  .texture(mu, mv)  .next();
+                bufferBuilder.vertex(y, mx, z) .texture(mu, v) .next();
+                bufferBuilder.vertex(y, mx, mz).texture(u, v).next();
+                bufferBuilder.vertex(y, x, mz) .texture(u, mv) .next();
                 break;
             case EAST:
                 y = 0;
-                bufferBuilder.vertex(y, x, z)  .texture(u, mv)  .next();
-                bufferBuilder.vertex(y, mx, z) .texture(u, v) .next();
-                bufferBuilder.vertex(y, mx, mz).texture(mu, v).next();
-                bufferBuilder.vertex(y, x, mz) .texture(mu, mv) .next();
+                bufferBuilder.vertex(y, x, z)  .texture(mu, mv)  .next();
+                bufferBuilder.vertex(y, mx, z) .texture(mu, v) .next();
+                bufferBuilder.vertex(y, mx, mz).texture(u, v).next();
+                bufferBuilder.vertex(y, x, mz) .texture(u, mv) .next();
                 break;
         }
         Tessellator.getInstance().draw();
