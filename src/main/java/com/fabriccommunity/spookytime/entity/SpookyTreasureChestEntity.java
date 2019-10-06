@@ -171,12 +171,36 @@ public class SpookyTreasureChestEntity extends Entity {
 
 	@Override
 	protected void readCustomDataFromTag(CompoundTag compoundTag) {
+		this.shouldReplace = compoundTag.getBoolean("shouldReplace");
+		this.hasReplaced = compoundTag.getBoolean("hasReplaced");
 
+		this.spinProgress = compoundTag.getInt("spinProgress");
+		this.endProgress = compoundTag.getInt("endProgress");
+		this.hingeProgress = compoundTag.getInt("hingeProgress");
+
+		this.isSpinningUp = compoundTag.getBoolean("isSpinningUp");
+		this.isEnding = compoundTag.getBoolean("isEnding");
+		this.isOpeningHinge = compoundTag.getBoolean("isOpeningHinge");
+
+		this.rotation = compoundTag.getFloat("rotation");
+		this.previousRotation = compoundTag.getFloat("previousRotation");
 	}
 
 	@Override
 	protected void writeCustomDataToTag(CompoundTag compoundTag) {
+		compoundTag.putBoolean("shouldReplace", shouldReplace);
+		compoundTag.putBoolean("hasReplaced", hasReplaced);
 
+		compoundTag.putInt("spinProgress", spinProgress);
+		compoundTag.putInt("endProgress", endProgress);
+		compoundTag.putInt("hingeProgress", hingeProgress);
+
+		compoundTag.putBoolean("isSpinningUp", isSpinningUp);
+		compoundTag.putBoolean("isEnding", isEnding);
+		compoundTag.putBoolean("isOpeningHinge", isOpeningHinge);
+
+		compoundTag.putFloat("rotation", rotation);
+		compoundTag.putFloat("previousRotation", previousRotation);
 	}
 
 	@Override
