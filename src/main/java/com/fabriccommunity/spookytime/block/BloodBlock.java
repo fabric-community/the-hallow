@@ -1,36 +1,60 @@
 package com.fabriccommunity.spookytime.block;
 
+import com.fabriccommunity.spookytime.recipe.BloodRecipe;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.fluid.BaseFluid;
-import net.minecraft.item.Items;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.inventory.BasicInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 
-public class BloodBlock extends CraftingFluidBlock {
+import java.util.List;
+import java.util.Optional;
+
+public class BloodBlock extends FluidBlock {
 	public BloodBlock(BaseFluid fluid, Settings settings) {
-		super(fluid, settings, SoundEvents.ENTITY_PLAYER_SPLASH);
-		addRecipe(Items.RED_BANNER, Items.WHITE_BANNER);
-		addRecipe(Items.RED_BED, Items.WHITE_BED);
-		addRecipe(Items.RED_CARPET, Items.WHITE_CARPET);
-		addRecipe(Items.RED_CONCRETE, Items.WHITE_CONCRETE);
-		addRecipe(Items.RED_CONCRETE_POWDER, Items.WHITE_CONCRETE_POWDER);
-		addRecipe(Items.RED_SHULKER_BOX, Items.SHULKER_BOX);
-		addRecipe(Items.RED_STAINED_GLASS, Items.GLASS);
-		addRecipe(Items.RED_STAINED_GLASS_PANE, Items.GLASS_PANE);
-		addRecipe(Items.RED_WOOL, Items.WHITE_WOOL);
-		addRecipe(Items.RED_SAND, Items.SAND);
-		addRecipe(Items.RED_SANDSTONE, Items.SANDSTONE);
-		addRecipe(Items.SMOOTH_RED_SANDSTONE, Items.SMOOTH_SANDSTONE);
-		addRecipe(Items.CUT_RED_SANDSTONE, Items.CUT_SANDSTONE);
-		addRecipe(Items.CHISELED_RED_SANDSTONE, Items.CHISELED_SANDSTONE);
-		addRecipe(Items.RED_SANDSTONE_STAIRS, Items.SANDSTONE_STAIRS);
-		addRecipe(Items.SMOOTH_RED_SANDSTONE_STAIRS, Items.SMOOTH_SANDSTONE_STAIRS);
-		addRecipe(Items.RED_SANDSTONE_SLAB, Items.SANDSTONE_SLAB);
-		addRecipe(Items.SMOOTH_RED_SANDSTONE_SLAB, Items.SMOOTH_SANDSTONE_SLAB);
-		addRecipe(Items.CUT_RED_SANDSTONE_SLAB, Items.CUT_SANDSTONE_SLAB);
-		addRecipe(Items.RED_SANDSTONE_WALL, Items.SANDSTONE_WALL);
-		addRecipe(Items.RED_TULIP, Items.WHITE_TULIP);
-		addRecipe(Items.RED_NETHER_BRICKS, Items.NETHER_BRICKS);
-		addRecipe(Items.RED_NETHER_BRICK_SLAB, Items.NETHER_BRICK_SLAB);
-		addRecipe(Items.RED_NETHER_BRICK_STAIRS, Items.NETHER_BRICK_STAIRS);
-		addRecipe(Items.RED_NETHER_BRICK_WALL, Items.NETHER_BRICK_WALL);
+		super(fluid, settings);
+	}
+
+	@Override
+	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
+		if(!world.isClient) {
+			List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos));
+			BasicInventory inventory = new BasicInventory(entities.size());
+
+			entities.forEach(itemEntity -> {
+				ItemStack stack = itemEntity.getStack();
+				inventory.add(stack);
+			});
+
+			Optional<BloodRecipe> match = world.getRecipeManager()
+				.getFirstMatch(BloodRecipe.Type.INSTANCE, inventory, world);
+
+			if(match.isPresent()) {
+				spawnCraftingResult(world, pos, match.get().getOutput());
+
+				for(Ingredient ingredient : match.get().getIngredients()) {
+					for(ItemEntity testEntity : entities) {
+						if(ingredient.method_8093(testEntity.getStack())) {
+							testEntity.getStack().decrement(1);
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		super.onEntityCollision(blockState, world, pos, entity);
+	}
+
+	private void spawnCraftingResult(World world, BlockPos pos, ItemStack result) {
+		ItemEntity itemEntity = new ItemEntity(world, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, result);
+		world.spawnEntity(itemEntity);
+		// todo: add particles and/or an animation when dropping the recipe result
 	}
 }
