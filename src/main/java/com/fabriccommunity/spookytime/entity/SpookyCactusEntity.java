@@ -25,14 +25,10 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("unchecked")
 public class SpookyCactusEntity extends MobEntityWithAi {
-	public static final TrackedData<Integer> CACTUS_HEIGHT;
+	public static final TrackedData<Integer> CACTUS_HEIGHT = DataTracker.registerData(SpookyCactusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	public BlockPos landPos;
 	public int age;
 	public int hop;
-
-	static {
-		CACTUS_HEIGHT = DataTracker.registerData(SpookyCactusEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	}
 
 	public SpookyCactusEntity(EntityType<?> type, World world) {
 		super((EntityType<? extends MobEntityWithAi>) type, world);
@@ -40,16 +36,19 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 		calculateDimensions();
 	}
 
+	@Override
 	protected void initGoals() {
 		this.goalSelector.add(0, new WanderAroundFarGoal(this, 1.0F));
 	}
 	
+	@Override
 	protected void initAttributes() {
 		super.initAttributes();
 		this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(10.0D);
 		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.20000000298023224D);
-	 }
+	}
 
+	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
 		this.dataTracker.startTracking(CACTUS_HEIGHT, 1);
@@ -63,11 +62,13 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 			for (Entity entity : collidingEntities) {
 				entity.damage(DamageSource.CACTUS, 1);
 			}
+
 			if (hop > 0) {
 				double moveX = (x - landPos.getX() - 0.5F) / hop;
 				double moveZ = (z - landPos.getZ() - 0.5F) / hop;
 				float moveAngle = ((yaw - 90) % 360.0F) / hop;
 				setPositionAndAngles(x - moveX, y, z - moveZ, yaw - moveAngle, this.pitch);
+
 				if (hop == 1) {
 					int i;
 					for (i = 0; i < getCactusHeight(); i++) {
@@ -81,12 +82,14 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 				if(world.getBlockState(getBlockPos().south()).getMaterial().isSolid()) return;
 				if(world.getBlockState(getBlockPos().east()).getMaterial().isSolid()) return;
 				if(world.getBlockState(getBlockPos().west()).getMaterial().isSolid()) return;
+
 				for(int i = 0; i < getCactusHeight(); i++){
 					if(world.getBlockState(getBlockPos().up(i).north()).getMaterial().isSolid()) return;
 					if(world.getBlockState(getBlockPos().up(i).south()).getMaterial().isSolid()) return;
 					if(world.getBlockState(getBlockPos().up(i).east()).getMaterial().isSolid()) return;
 					if(world.getBlockState(getBlockPos().up(i).west()).getMaterial().isSolid()) return;
 				}
+
 				setVelocity(0.0F, 0.5F, 0.0F);
 				landPos = getBlockPos();
 				hop = 20;
@@ -102,6 +105,7 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 		if(source == DamageSource.CACTUS) return false;
 		return super.damage(source, damage);
 	}
+
 	@Override
 	public void writeCustomDataToTag(CompoundTag tag) {
 		super.writeCustomDataToTag(tag);
@@ -115,6 +119,7 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 		this.setCactusHeight(tag.getInt("CactusHeight"));
 		age = tag.getInt("CactusAge");
 	}
+
 	public int getCactusHeight(){
 		return this.dataTracker.get(CACTUS_HEIGHT);
 	}
@@ -129,8 +134,8 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 		return EntityDimensions.changing(0.9F, 1.0F * getCactusHeight());
 	}
 
+	@Override
 	public float getPathfindingFavor(BlockPos pos, ViewableWorld world) {
 		return world.getBlockState(pos.down()).getBlock() == SpookyBlocks.TAINTED_SAND ? 10.0F : 1.0F;
 	}
-
 }

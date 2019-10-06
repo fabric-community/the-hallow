@@ -29,21 +29,16 @@ import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
 public class SpookyCactusBlock extends Block {
-	public static final IntProperty AGE;
-	protected static final VoxelShape COLLISION_SHAPE;
-	protected static final VoxelShape OUTLINE_SHAPE;
-
-	static {
-		AGE = Properties.AGE_15;
-		COLLISION_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
-		OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
-	}
+	public static final IntProperty AGE = Properties.AGE_15;
+	protected static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
+	protected static final VoxelShape OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 	
 	public SpookyCactusBlock(Block.Settings settings) {
 		super(settings);
 		this.setDefaultState(this.stateFactory.getDefaultState().with(AGE, 0));
 	}
 
+	@Override
 	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random random) {
 		if (!state.canPlaceAt(world, pos)) {
 			world.breakBlock(pos, true);
@@ -75,6 +70,7 @@ public class SpookyCactusBlock extends Block {
 					age = world.getBlockState(pos.up(height)).get(AGE);
 					world.setBlockState(pos.up(height), Blocks.AIR.getDefaultState());
 				}
+				
 				SpookyCactusEntity entity = new SpookyCactusEntity(SpookyEntities.SPOOKY_CACTUS, world);
 				entity.setPosition(pos.getX() + 0.5f, pos.getY(), pos.getZ() + 0.5f);
 				entity.setCactusHeight(height);
@@ -84,18 +80,22 @@ public class SpookyCactusBlock extends Block {
 		}
 	}
 
+	@Override
 	public VoxelShape getCollisionShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return COLLISION_SHAPE;
 	}
 
+	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return OUTLINE_SHAPE;
 	}
 
+	@Override
 	public boolean isOpaque(BlockState state) {
 		return true;
 	}
 
+	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState state2, IWorld world, BlockPos pos, BlockPos pos2) {
 		if (!state.canPlaceAt(world, pos)) {
 			world.getBlockTickScheduler().schedule(pos, this, 1);
@@ -104,6 +104,7 @@ public class SpookyCactusBlock extends Block {
 		return super.getStateForNeighborUpdate(state, direction, state2, world, pos, pos2);
 	}
 
+	@Override
 	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
 		Iterator<Direction> iterator = Direction.Type.HORIZONTAL.iterator();
 		
@@ -123,18 +124,22 @@ public class SpookyCactusBlock extends Block {
 		return false;
 	}
 
+	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		entity.damage(DamageSource.CACTUS, 1.0F);
 	}
 
+	@Override
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 
+	@Override
 	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
 		builder.add(AGE);
 	}
 
+	@Override
 	public boolean canPlaceAtSide(BlockState state, BlockView view, BlockPos pos, BlockPlacementEnvironment environment) {
 		return false;
 	}

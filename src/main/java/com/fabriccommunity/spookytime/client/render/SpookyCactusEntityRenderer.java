@@ -23,19 +23,22 @@ public class SpookyCactusEntityRenderer extends MobEntityRenderer<SpookyCactusEn
 	
 	@Override
 	public void render(SpookyCactusEntity entity, double x, double y, double z, float float_1, float float_2) {
-		GlStateManager.pushMatrix();
 		BlockRenderManager manager = MinecraftClient.getInstance().getBlockRenderManager();
 		BlockState state = SpookyBlocks.SPOOKY_CACTUS.getDefaultState();
 		this.bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
+		
+		GlStateManager.pushMatrix();
 		GlStateManager.translated(x, y, z);
 		GlStateManager.rotatef(entity.yaw, 0.0F, -1.0F, 0.0F);
 		GlStateManager.translated(-0.5F, 0.0F, 0.5F);
+
 		for(int i = 0; i < entity.getCactusHeight(); i++){
 			GlStateManager.pushMatrix();
 			manager.renderDynamic(state, 1.0F);
 			GlStateManager.popMatrix();
 			GlStateManager.translated(0.0F, 1.0F, 0.0F);
 		}
+
 		GlStateManager.popMatrix();
 	}
 	
