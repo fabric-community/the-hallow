@@ -11,7 +11,7 @@
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
 		"WitchEntityMixin",
-		"ThrownPotionEntityMixin"
+		"ThrownPotionEntityMixin",
 		"SkeletonEntityMixin",
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
