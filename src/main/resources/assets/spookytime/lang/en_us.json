@@ -9,6 +9,7 @@
 	"spookytime.cmd.tillspooktober": "It is %d days till Spooktober 31st",
 	"itemGroup.spookytime.group": "Spooky Time",
 	"item.spookytime.pumpcown_spawn_egg": "Pumpcown Spawn Egg",
+	"item.spookytime.crow_spawn_egg": "Crow Spawn Egg",
 	"item.spookytime.blaze_skirt": "Blaze Skirt",
 	"item.spookytime.spookium_ingot": "Spookium Ingot",
 	"item.spookytime.spookium_nugget": "Spookium Nugget",
@@ -54,6 +55,8 @@
 	"block.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
   	"entity.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
 	"entity.spookytime.pumpcown": "Pumpcown",
+	"entity.spookytime.spooky_cactus": "Spooky Cactus",
+	"entity.spookytime.crow": "Crow",
 	"biome.spookytime.spooky_forest": "Spooky Forest",
 	"biome.spookytime.spooky_lowlands": "Spooky Lowlands",
 	"biome.spookytime.pumpkin_patch": "Spooky Pumpkin Patch",
@@ -79,5 +82,6 @@
 	"text.spookytime.loading.witch_water": "Mixing witch water...",
 	"text.spookytime.loading.pumpcowns": "Petting pumpcowns...",
 	"tooltip.spookytime.pumpkin_ring": "That Pumpkin Pie looks awfully delicious...",
-	"subtitle.spookytime.doot": "Trumpet Doots Spookily"
+	"subtitle.spookytime.doot": "Trumpet doots spookily",
+	"subtitle.crow.ambient": "Crow caws"
 }
