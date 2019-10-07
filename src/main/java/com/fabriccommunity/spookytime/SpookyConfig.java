@@ -25,6 +25,10 @@ public class SpookyConfig {
 				TrickOrTreating.enableTricks = trickOrTreating.getBool("enable_tricks", TrickOrTreating.enableTricks, "Enables a chance for trick or treating to result in the villagers becoming witches");
 				TrickOrTreating.trickChance = trickOrTreating.getInt("trick_chance", TrickOrTreating.trickChance, "Tricks, if enabled, will have a one in (this number) chance of happening");
 			});
+			config.accessChild("trumpet_skeleton", trumpetSkeleton -> {
+				TrumpetSkeleton.enabled = trumpetSkeleton.getBool("enabled", TrumpetSkeleton.enabled, "If enabled, Skeletons can sometimes spawn with Trumpets");
+				TrumpetSkeleton.chance = trumpetSkeleton.getInt("chance", TrumpetSkeleton.chance, "Skeletons will have a one in (this number) chance of spawning with a trumpet");
+			});
 		});
 	}
 	
@@ -45,5 +49,10 @@ public class SpookyConfig {
 	public static class TrickOrTreating {
 		public static boolean enableTricks = true;
 		public static int trickChance = 100;
+	}
+	
+	public static class TrumpetSkeleton {
+		public static boolean enabled = true;
+		public static int chance = 50;
 	}
 }

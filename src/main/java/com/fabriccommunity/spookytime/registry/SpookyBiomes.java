@@ -1,30 +1,25 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.biome.HauntedMoorBiome;
-import com.fabriccommunity.spookytime.world.biome.HauntedUplandsBiome;
-import com.fabriccommunity.spookytime.world.biome.LowlandBarrowsBiome;
-import com.fabriccommunity.spookytime.world.biome.PumpkinPatchBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyBaseBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyLowlandsBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyRiverBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookySeaBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookyShoreBiome;
-import com.fabriccommunity.spookytime.world.biome.SpookySwampBiome;
-
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.world.biome.*;
+
 public class SpookyBiomes {
 	// Spooky Forest
-	public static final SpookyBaseBiome SPOOKY_FOREST = register("spooky_forest", new SpookyForestBiome());
+	public static final SpookyBaseBiome SPOOKY_FOREST = register("spooky_forest", new SpookyForestBiome(0.15f, 0.18f));
+	public static final SpookyBaseBiome SPOOKY_FOREST_HILLS = register("spooky_forest_hills", new SpookyForestBiome(0.25f, 0.2f));
 	
 	// Spooky Lowlands
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS = register("spooky_lowlands", new SpookyLowlandsBiome());
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS_PUMPKINS = register("pumpkin_patch", new PumpkinPatchBiome());
 	public static final SpookyBaseBiome SPOOKY_LOWLANDS_BARROWS = register("spooky_lowlands_barrows", new LowlandBarrowsBiome());
+
+	//Ghastly Desert
+	public static final SpookyBaseBiome GHASTLY_DESERT = register("ghastly_desert", new GhastlyDesert());
 	
 	// Spooky River
 	public static final SpookyBaseBiome SPOOKY_RIVER = register("spooky_river", new SpookyRiverBiome());

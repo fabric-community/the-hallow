@@ -1,10 +1,10 @@
 package com.fabriccommunity.spookytime.component;
 
-import nerdhub.cardinal.components.api.component.Component;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+
+import nerdhub.cardinal.components.api.component.Component;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,11 +12,11 @@ import java.util.Map;
 import java.util.UUID;
 
 public interface CandyComponent extends Component {
-	public boolean canGiveCandy(Entity entity);
+	boolean canGiveCandy(Entity entity);
 	
-	public void setLastCandyTime(Entity entity, long time);
+	void setLastCandyTime(Entity entity, long time);
 	
-	public class VillagerCandyComponent implements CandyComponent {
+	class VillagerCandyComponent implements CandyComponent {
 		public Map<UUID, Long> lastGivenCandy = new HashMap<UUID, Long>();
 		
 		public boolean canGiveCandy(Entity entity) {

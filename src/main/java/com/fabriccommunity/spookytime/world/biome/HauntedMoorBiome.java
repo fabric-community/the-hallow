@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
-
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
@@ -20,6 +15,11 @@ import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+
 // TODO
 public class HauntedMoorBiome extends SpookyBaseBiome {
 	
@@ -32,7 +32,7 @@ public class HauntedMoorBiome extends SpookyBaseBiome {
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
 		
 		DefaultBiomeFeatures.addDefaultGrass(this);
-		DefaultBiomeFeatures.addDefaultLakes(this);
+		SpookyBiomeFeatures.addLakes(this);
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 		SpookyBiomeFeatures.addDefaultUplandsGeneration(this);

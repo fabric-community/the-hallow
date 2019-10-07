@@ -2,12 +2,15 @@ package com.fabriccommunity.spookytime;
 
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.fabriccommunity.spookytime.client.SpookyColors;
+import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestEntityRenderer;
+import com.fabriccommunity.spookytime.client.render.SpookyCactusEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
+import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
 
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
@@ -24,13 +27,15 @@ public class SpookyTimeClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		EntityRendererRegistry.INSTANCE.register(PumpcownEntity.class, (dispatcher, context) -> new PumpcownEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(SpookyTreasureChestEntity.class, ((dispatcher, context) -> new SpookyTreasureChestEntityRenderer(dispatcher)));
-
+		EntityRendererRegistry.INSTANCE.register(SpookyCactusEntity.class, (dispatcher, context) -> new SpookyCactusEntityRenderer(dispatcher));
+    
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(SpookyTreasureChestBlockEntity.class, new SpookyTreasureChestBlockEntityRenderer());
 
 		SpookyColors.init();
 		ClientPacketHandlers.registerPacketHandlers();
-
+		SpookyClientNetworking.init();
+    
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new FluidResourceLoader());
 	}
 }

@@ -1,25 +1,27 @@
 package com.fabriccommunity.spookytime.registry;
 
+import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+
+import net.minecraft.world.biome.Biome;
+
 import com.fabriccommunity.spookytime.world.SpookyBiomeGroup;
 import com.fabriccommunity.spookytime.world.layer.AddSpookyEdgeLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSpookyShoreLayer;
 import com.fabriccommunity.spookytime.world.layer.AddSubBiomesLayer;
 
-import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-import net.minecraft.world.biome.Biome;
-
 public class SpookyWorldGen {
 	public static SpookyBiomeGroup SPOOKY = new SpookyBiomeGroup(0)
-			.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
-			.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1)
-			.addBiome(SpookyBiomes.SPOOKY_SWAMP, 1);
+		.addBiome(SpookyBiomes.SPOOKY_FOREST, 1)
+		.addBiome(SpookyBiomes.SPOOKY_LOWLANDS, 1)
+		.addBiome(SpookyBiomes.SPOOKY_SWAMP, 1)
+		.addBiome(SpookyBiomes.GHASTLY_DESERT, 1);
 	
 	public static SpookyBiomeGroup SEA_ISLANDS = new SpookyBiomeGroup(1)
-			.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
+		.addBiome(SpookyBiomes.SPOOKY_SEA, 1);
 	
 	public static SpookyBiomeGroup UPLANDS = new SpookyBiomeGroup(2)
-			.addBiome(SpookyBiomes.HAUNTED_UPLANDS, 1)
-			.addBiome(SpookyBiomes.HAUNTED_MOOR, 1);
+		.addBiome(SpookyBiomes.HAUNTED_UPLANDS, 1)
+		.addBiome(SpookyBiomes.HAUNTED_MOOR, 1);
 	
 	private SpookyWorldGen() {
 		// NO-OP
@@ -31,9 +33,12 @@ public class SpookyWorldGen {
 		addLargeSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.33f);
 		addHillsSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_BARROWS);
 		
+		addHillsSubBiome(SpookyBiomes.SPOOKY_FOREST, SpookyBiomes.SPOOKY_FOREST_HILLS);
+		
 		// Islands
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_LOWLANDS, 0.22f);
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_FOREST, 0.22f);
+		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.GHASTLY_DESERT, 0.22f);
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.22f);
 		
 		// Uplands Edge
