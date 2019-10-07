@@ -8,6 +8,7 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.world.feature.BarrowFeature;
 import com.fabriccommunity.spookytime.world.feature.DeaderBushFeature;
 import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
 import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
@@ -32,11 +33,13 @@ public class SpookyFeatures {
 	
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 	
-	public static void init() {
-	
-	}
-	
-	public static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
-		return Registry.register(Registry.FEATURE, SpookyTime.id(name), feature);
-	}
+	public static final Feature<DefaultFeatureConfig> BARROW = register("barrow", new BarrowFeature());
+
+    public static void init() {
+
+    }
+    
+    public static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
+        return Registry.register(Registry.FEATURE, SpookyTime.id(name), feature);
+    }
 }

@@ -33,6 +33,8 @@ public class SpookyWorldGen {
 		addLargeSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.33f);
 		addHillsSubBiome(SpookyBiomes.SPOOKY_LOWLANDS, SpookyBiomes.SPOOKY_LOWLANDS_BARROWS);
 		
+		addHillsSubBiome(SpookyBiomes.SPOOKY_FOREST, SpookyBiomes.SPOOKY_FOREST_HILLS);
+		
 		// Islands
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_LOWLANDS, 0.22f);
 		addSmallSubBiome(SpookyBiomes.SPOOKY_SEA, SpookyBiomes.SPOOKY_FOREST, 0.22f);
