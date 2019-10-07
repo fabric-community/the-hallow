@@ -14,16 +14,16 @@ public class TemptBirdGoal extends Goal {
 	private static final TargetPredicate TEMPTING_ENTITY_PREDICATE = (new TargetPredicate()).setBaseMaxDistance(10.0D).includeInvulnerable().includeTeammates().ignoreEntityTargetRules().includeHidden();
 	protected final MobEntityWithAi mob;
 	private final double speed;
+	private final Ingredient food;
+	private final boolean canBeScared;
+	protected PlayerEntity closestPlayer;
 	private double lastPlayerX;
 	private double lastPlayerY;
 	private double lastPlayerZ;
 	private double lastPlayerPitch;
 	private double lastPlayerYaw;
-	protected PlayerEntity closestPlayer;
 	private int cooldown;
 	private boolean active;
-	private final Ingredient food;
-	private final boolean canBeScared;
 	
 	public TemptBirdGoal(MobEntityWithAi mobEntityWithAi, double speed, boolean canBeScared, Ingredient food) {
 		this.mob = mobEntityWithAi;
@@ -36,6 +36,7 @@ public class TemptBirdGoal extends Goal {
 		}
 	}
 	
+	@Override
 	public boolean canStart() {
 		if (this.cooldown > 0) {
 			--this.cooldown;
@@ -54,14 +55,15 @@ public class TemptBirdGoal extends Goal {
 		return this.food.method_8093(stack);
 	}
 	
+	@Override
 	public boolean shouldContinue() {
 		if (this.canBeScared()) {
-			if (this.mob.squaredDistanceTo(this.closestPlayer) < 36.0D) {
+			if (this.mob.squaredDistanceTo(this.closestPlayer) < 80.0D) {
 				if (this.closestPlayer.squaredDistanceTo(this.lastPlayerX, this.lastPlayerY, this.lastPlayerZ) > 0.010000000000000002D) {
 					return false;
 				}
 				
-				if (Math.abs((double)this.closestPlayer.pitch - this.lastPlayerPitch) > 5.0D || Math.abs((double)this.closestPlayer.yaw - this.lastPlayerYaw) > 5.0D) {
+				if (Math.abs((double) this.closestPlayer.pitch - this.lastPlayerPitch) > 5.0D || Math.abs((double) this.closestPlayer.yaw - this.lastPlayerYaw) > 5.0D) {
 					return false;
 				}
 			} else {
@@ -70,8 +72,8 @@ public class TemptBirdGoal extends Goal {
 				this.lastPlayerZ = this.closestPlayer.z;
 			}
 			
-			this.lastPlayerPitch = (double)this.closestPlayer.pitch;
-			this.lastPlayerYaw = (double)this.closestPlayer.yaw;
+			this.lastPlayerPitch = this.closestPlayer.pitch;
+			this.lastPlayerYaw = this.closestPlayer.yaw;
 		}
 		
 		return this.canStart();
@@ -81,6 +83,7 @@ public class TemptBirdGoal extends Goal {
 		return this.canBeScared;
 	}
 	
+	@Override
 	public void start() {
 		this.lastPlayerX = this.closestPlayer.x;
 		this.lastPlayerY = this.closestPlayer.y;
@@ -88,6 +91,7 @@ public class TemptBirdGoal extends Goal {
 		this.active = true;
 	}
 	
+	@Override
 	public void stop() {
 		this.closestPlayer = null;
 		this.mob.getNavigation().stop();
@@ -95,8 +99,9 @@ public class TemptBirdGoal extends Goal {
 		this.active = false;
 	}
 	
+	@Override
 	public void tick() {
-		this.mob.getLookControl().lookAt(this.closestPlayer, (float)(this.mob.method_5986() + 20), (float)this.mob.getLookPitchSpeed());
+		this.mob.getLookControl().lookAt(this.closestPlayer, (float) (this.mob.method_5986() + 20), (float) this.mob.getLookPitchSpeed());
 		if (this.mob.squaredDistanceTo(this.closestPlayer) < 6.25D) {
 			this.mob.getNavigation().stop();
 		} else {

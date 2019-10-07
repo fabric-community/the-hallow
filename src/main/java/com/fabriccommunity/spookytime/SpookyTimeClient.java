@@ -1,9 +1,16 @@
 package com.fabriccommunity.spookytime;
 
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.render.EntityRendererRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+
+import net.minecraft.resource.ResourceType;
+
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
-import com.fabriccommunity.spookytime.client.SpookyColors;
-import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
+import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
+import com.fabriccommunity.spookytime.client.SpookyColors;
 import com.fabriccommunity.spookytime.client.render.CrowEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyCactusEntityRenderer;
@@ -11,13 +18,6 @@ import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
 import com.fabriccommunity.spookytime.entity.CrowEntity;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
-
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
-import net.fabricmc.fabric.api.client.render.EntityRendererRegistry;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-
-import net.minecraft.resource.ResourceType;
 
 public class SpookyTimeClient implements ClientModInitializer {
 	@Override

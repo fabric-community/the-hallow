@@ -2,11 +2,9 @@ package com.fabriccommunity.spookytime.entity.goal;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.ai.goal.MoveToTargetPosGoal;
-import net.minecraft.entity.ai.goal.StepAndDestroyBlockGoal;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.MobEntityWithAi;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
@@ -22,7 +20,6 @@ import net.minecraft.world.chunk.ChunkStatus;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
@@ -36,6 +33,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 		this.stepAndDestroyMob = mobEntityWithAi;
 	}
 	
+	@Override
 	public boolean canStart() {
 		if (!this.stepAndDestroyMob.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) {
 			return false;
@@ -55,11 +53,12 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 		return this.targetPos != null && this.isTargetPos(this.mob.world, this.targetPos) || this.findTargetPos();
 	}
 	
+	@Override
 	public void stop() {
 		super.stop();
-		this.stepAndDestroyMob.fallDistance = 1.0F;
 	}
 	
+	@Override
 	public void start() {
 		super.start();
 		this.counter = 0;
@@ -71,6 +70,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 	public void onDestroyBlock(World world, BlockPos blockPos) {
 	}
 	
+	@Override
 	public void tick() {
 		super.tick();
 		World world = this.stepAndDestroyMob.world;
@@ -85,7 +85,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 				this.stepAndDestroyMob.setVelocity(vec3d2.x, 0.3D, vec3d2.z);
 				if (!world.isClient) {
 					double2 = 0.08D;
-					((ServerWorld)world).spawnParticles(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(SpookyBlocks.BREAD_CRUMBS)), (double)blockPos2.getX() + 0.5D, (double)blockPos2.getY() + 0.7D, (double)blockPos2.getZ() + 0.5D, 3, ((double)random.nextFloat() - 0.5D) * 0.08D, ((double)random.nextFloat() - 0.5D) * 0.08D, ((double)random.nextFloat() - 0.5D) * 0.08D, 0.15000000596046448D);
+					((ServerWorld) world).spawnParticles(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(SpookyBlocks.BREAD_CRUMBS)), (double) blockPos2.getX() + 0.5D, (double) blockPos2.getY() + 0.7D, (double) blockPos2.getZ() + 0.5D, 3, ((double) random.nextFloat() - 0.5D) * 0.08D, ((double) random.nextFloat() - 0.5D) * 0.08D, ((double) random.nextFloat() - 0.5D) * 0.08D, 0.15000000596046448D);
 				}
 			}
 			
@@ -100,11 +100,11 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 			if (this.counter > 60) {
 				world.clearBlockState(blockPos2, false);
 				if (!world.isClient) {
-					for(int i = 0; i < 20; ++i) {
+					for (int i = 0; i < 20; ++i) {
 						double2 = random.nextGaussian() * 0.02D;
 						double double3 = random.nextGaussian() * 0.02D;
 						double double4 = random.nextGaussian() * 0.02D;
-						((ServerWorld)world).spawnParticles(ParticleTypes.POOF, (double)blockPos2.getX() + 0.5D, (double)blockPos2.getY(), (double)blockPos2.getZ() + 0.5D, 1, double2, double3, double4, 0.15000000596046448D);
+						((ServerWorld) world).spawnParticles(ParticleTypes.POOF, (double) blockPos2.getX() + 0.5D, (double) blockPos2.getY(), (double) blockPos2.getZ() + 0.5D, 1, double2, double3, double4, 0.15000000596046448D);
 					}
 					
 					this.onDestroyBlock(world, blockPos2);
@@ -116,7 +116,6 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 		
 	}
 	
-	@Nullable
 	private BlockPos tweakToProperPos(BlockPos pos, BlockView blockView) {
 		if (blockView.getBlockState(pos).getBlock() == this.targetBlock) {
 			return pos;
@@ -125,7 +124,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 			BlockPos[] var4 = blockPoss;
 			int var5 = blockPoss.length;
 			
-			for(int var6 = 0; var6 < var5; ++var6) {
+			for (int var6 = 0; var6 < var5; ++var6) {
 				BlockPos blockPos2 = var4[var6];
 				if (blockView.getBlockState(blockPos2).getBlock() == this.targetBlock) {
 					return blockPos2;
@@ -136,6 +135,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 		}
 	}
 	
+	@Override
 	protected boolean isTargetPos(ViewableWorld world, BlockPos pos) {
 		Chunk chunk1 = world.getChunk(pos.getX() >> 4, pos.getZ() >> 4, ChunkStatus.FULL, false);
 		if (chunk1 == null) {

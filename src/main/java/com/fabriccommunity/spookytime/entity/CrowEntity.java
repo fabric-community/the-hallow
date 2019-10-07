@@ -1,34 +1,30 @@
 package com.fabriccommunity.spookytime.entity;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.LogBlock;
 import net.minecraft.entity.Bird;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.control.ParrotMoveControl;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.FlyAroundGoal;
+import net.minecraft.entity.ai.goal.FollowMobGoal;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.pathing.BirdNavigation;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.ParrotEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import com.fabriccommunity.spookytime.entity.goal.EatBreadcrumbsGoal;
@@ -37,14 +33,13 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.fabriccommunity.spookytime.registry.SpookySounds;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class CrowEntity extends AnimalEntity implements Bird {
-	public float field_6818;
-	public float field_6819;
-	public float field_6827;
-	public float field_6829;
-	public float field_6824 = 1.0F;
+	public float f1;
+	public float f2;
+	public float f3;
+	public float f4;
+	public float f5 = 1.0F;
 	
 	public CrowEntity(EntityType<? extends CrowEntity> entityType, World world) {
 		super(entityType, world);
@@ -57,9 +52,9 @@ public class CrowEntity extends AnimalEntity implements Bird {
 		this.goalSelector.add(0, new SwimGoal(this));
 		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
 		this.goalSelector.add(2, new EatBreadcrumbsGoal(SpookyBlocks.BREAD_CRUMBS, this, 1.25D, 40, 80));
+		this.goalSelector.add(2, new TemptBirdGoal(this, 1.25D, false, Ingredient.ofItems(SpookyBlocks.BREAD_CRUMBS)));
 		this.goalSelector.add(2, new FlyAroundGoal(this, 1.0D));
 		this.goalSelector.add(3, new FollowMobGoal(this, 1.0D, 3.0F, 7.0F));
-		this.goalSelector.add(3, new TemptBirdGoal(this, 1.25D, false, Ingredient.ofItems(SpookyBlocks.BREAD_CRUMBS)));
 	}
 	
 	@Override
@@ -72,40 +67,40 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	}
 	
 	@Override
-	protected EntityNavigation createNavigation(World world_1) {
-		BirdNavigation birdNavigation_1 = new BirdNavigation(this, world_1);
-		birdNavigation_1.setCanPathThroughDoors(false);
-		birdNavigation_1.setCanSwim(true);
-		birdNavigation_1.setCanEnterOpenDoors(true);
-		return birdNavigation_1;
+	protected EntityNavigation createNavigation(World world) {
+		BirdNavigation birdNavigation = new BirdNavigation(this, world);
+		birdNavigation.setCanPathThroughDoors(false);
+		birdNavigation.setCanSwim(true);
+		birdNavigation.setCanEnterOpenDoors(true);
+		return birdNavigation;
 	}
 	
 	@Override
-	protected float getActiveEyeHeight(EntityPose entityPose_1, EntityDimensions entityDimensions_1) {
-		return entityDimensions_1.height * 0.6F;
+	protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
+		return dimensions.height * 0.6F;
 	}
 	
 	@Override
-	public boolean isBreedingItem(ItemStack itemStack_1) {
+	public boolean isBreedingItem(ItemStack stack) {
 		return false;
 	}
 	
 	@Override
-	public void handleFallDamage(float float_1, float float_2) {
+	public void handleFallDamage(float fallDistance, float damageModifier) {
 	}
 	
 	@Override
-	protected void fall(double double_1, boolean boolean_1, BlockState blockState_1, BlockPos blockPos_1) {
+	protected void fall(double yVec, boolean onGround, BlockState state, BlockPos pos) {
 	}
 	
 	@Override
-	public boolean canBreedWith(AnimalEntity animalEntity_1) {
+	public boolean canBreedWith(AnimalEntity animal) {
 		return false;
 	}
 	
 	@Nullable
 	@Override
-	public PassiveEntity createChild(PassiveEntity passiveEntity_1) {
+	public PassiveEntity createChild(PassiveEntity entity) {
 		return null;
 	}
 	
@@ -116,27 +111,27 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	}
 	
 	private void flapWingsIThink() {
-		this.field_6829 = this.field_6818;
-		this.field_6827 = this.field_6819;
-		this.field_6819 = (float)((double)this.field_6819 + (double)(!this.onGround && !this.hasVehicle() ? 4 : -1) * 0.3D);
-		this.field_6819 = MathHelper.clamp(this.field_6819, 0.0F, 1.0F);
-		if (!this.onGround && this.field_6824 < 1.0F) {
-			this.field_6824 = 1.0F;
+		this.f4 = this.f1;
+		this.f3 = this.f2;
+		this.f2 = (float) ((double) this.f2 + (double) (!this.onGround && !this.hasVehicle() ? 4 : -1) * 0.3D);
+		this.f2 = MathHelper.clamp(this.f2, 0.0F, 1.0F);
+		if (!this.onGround && this.f5 < 1.0F) {
+			this.f5 = 1.0F;
 		}
 		
-		this.field_6824 = (float)((double)this.field_6824 * 0.9D);
+		this.f5 = (float) ((double) this.f5 * 0.9D);
 		Vec3d vec3d_1 = this.getVelocity();
 		if (!this.onGround && vec3d_1.y < 0.0D) {
 			this.setVelocity(vec3d_1.multiply(1.0D, 0.6D, 1.0D));
 		}
 		
-		this.field_6818 += this.field_6824 * 2.0F;
+		this.f1 += this.f5 * 2.0F;
 	}
 	
 	@Override
-	protected float calculateAerialStepDelta(float float_1) {
+	protected float calculateAerialStepDelta(float distanceWalked) {
 		this.playSound(SoundEvents.ENTITY_PARROT_FLY, 0.15F, 1.0F);
-		return float_1 + this.field_6819 / 2.0F;
+		return distanceWalked + this.f2 / 2.0F;
 	}
 	
 	@Override
