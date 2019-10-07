@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class InfusionAltarBlockEntity extends BlockEntity implements Tickable  {
+public class InfusionAltarBlockEntity extends BlockEntity {
 	public Map<BlockPos, InfusionPillarBlockEntity> linkedPillars = new HashMap<BlockPos, InfusionPillarBlockEntity>();
 
 	public List<ItemStack> stacksToDraw = new ArrayList<>();
@@ -36,12 +36,5 @@ public class InfusionAltarBlockEntity extends BlockEntity implements Tickable  {
 	public static ItemStack craftRecipe(List<ItemStack> ingredients) {
 		ItemStack outputStack = SpookyInfusion.fromInput(ingredients).getOutput();
 		return outputStack == null ? ItemStack.EMPTY : outputStack.copy();
-	}
-
-	@Override
-	public void tick() {
-		InfusionAltarBlock altarBlock = (InfusionAltarBlock)this.getWorld().getBlockState(this.getPos()).getBlock();
-		if (altarBlock.)
-
 	}
 }

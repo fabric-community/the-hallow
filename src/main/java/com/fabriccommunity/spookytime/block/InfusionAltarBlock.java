@@ -12,6 +12,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeInputProvider;
 import net.minecraft.sound.SoundCategory;
@@ -37,8 +38,6 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 
 	private static final VoxelShape SHAPE = VoxelShapes.union(shapeA, shapeB);
 
-	private int delay = 200;
-
 	public InfusionAltarBlock(Block.Settings settings) {
 		super(settings);
 	}
@@ -60,17 +59,14 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 				}
 			});
 			if (InfusionAltarBlockEntity.craftRecipe(pillarStacks) != ItemStack.EMPTY) {
-				if (this.delay > 0) {
-					altarEntity.stacksToDraw = new ArrayList<>(pillarStacks);
-					Block.dropStack(world, blockPos, InfusionAltarBlockEntity.craftRecipe(pillarStacks).copy());
-					altarEntity.linkedPillars.forEach((pos, entity) -> {
-						entity.storedStack = null;
-					});
-					if (world.isClient) {
-						world.playSound(MinecraftClient.getInstance().player, blockPos, SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
-					}
-				} else {
-					return true;
+				altarEntity.stacksToDraw = new ArrayList<>(pillarStacks);
+				Block.dropStack(world, blockPos, InfusionAltarBlockEntity.craftRecipe(pillarStacks).copy());
+				altarEntity.linkedPillars.forEach((pos, entity) -> {
+					entity.storedStack = null;
+					world.addParticle(ParticleTypes.EXPLOSION, entity.getPos().getX(), entity.getPos().getY(), entity.getPos().getZ(), 0.0D, 0.0D, 0.0D);
+				});
+				if (world.isClient) {
+					world.playSound(MinecraftClient.getInstance().player, blockPos, SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 				}
 			}
 		}

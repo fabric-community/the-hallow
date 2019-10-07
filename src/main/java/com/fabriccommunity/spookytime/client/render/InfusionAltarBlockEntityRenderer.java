@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime.client.render;
 
+import com.fabriccommunity.spookytime.block.InfusionAltarBlock;
 import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
@@ -23,16 +24,10 @@ public class InfusionAltarBlockEntityRenderer extends BlockEntityRenderer<Infusi
 
 	private long nanosA = 0;
 	private long nanosB = 0;
-
-	private boolean hasFinishedAnimation = true;
-
+	
 	@Override
 	public void render(InfusionAltarBlockEntity pillar, double x, double y, double z, float delta, int breakingStage) {
 		ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
-
-		if (!pillar.linkedPillars.isEmpty() && !pillar.stacksToDraw.isEmpty() && !hasFinishedAnimation) {
-
-		}
 
 		if (pillar.storedStack != null) {
 			GlStateManager.pushMatrix();
