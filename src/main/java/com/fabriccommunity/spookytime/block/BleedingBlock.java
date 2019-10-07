@@ -23,34 +23,34 @@ public class BleedingBlock extends Block {
 		super(settings);
 	}
 
-	public void onScheduledTick(BlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
-		WitchWaterBubbleColumnBlock.update(world_1, blockPos_1.up(), true);
+	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random rand) {
+		WitchWaterBubbleColumnBlock.update(world, pos.up(), true);
 	}
 
-	public BlockState getStateForNeighborUpdate(BlockState blockState_1, Direction direction_1, BlockState blockState_2, IWorld iWorld_1, BlockPos blockPos_1, BlockPos blockPos_2) {
-		if (direction_1 == Direction.UP && blockState_2.getBlock() == SpookyBlocks.WITCH_WATER_BLOCK) {
-			iWorld_1.getBlockTickScheduler().schedule(blockPos_1, this, this.getTickRate(iWorld_1));
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction dir, BlockState state2, IWorld iworld, BlockPos pos1, BlockPos pos2) {
+		if (dir == Direction.UP && state2.getBlock() == SpookyBlocks.WITCH_WATER_BLOCK) {
+			iworld.getBlockTickScheduler().schedule(pos1, this, this.getTickRate(iworld));
 		}
 
-		return super.getStateForNeighborUpdate(blockState_1, direction_1, blockState_2, iWorld_1, blockPos_1, blockPos_2);
+		return super.getStateForNeighborUpdate(state, dir, state2, iworld, pos1, pos2);
 	}
 
-	public void onRandomTick(BlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
-		BlockPos blockPos_2 = blockPos_1.up();
-		if (world_1.getFluidState(blockPos_1).matches(SpookyFluidTags.WITCH_WATER)) {
-			world_1.playSound((PlayerEntity)null, blockPos_1, SoundEvents.ENTITY_DROWNED_HURT_WATER, SoundCategory.BLOCKS, 0.5F, 2.6F + (world_1.random.nextFloat() - world_1.random.nextFloat()) * 0.8F);
-			if (world_1 instanceof ServerWorld) {
-				((ServerWorld)world_1).spawnParticles(ParticleTypes.CURRENT_DOWN, (double)blockPos_2.getX() + 0.5D, (double)blockPos_2.getY() + 0.25D, (double)blockPos_2.getZ() + 0.5D, 8, 0.5D, 0.25D, 0.5D, 0.0D);
+	public void onRandomTick(BlockState state, World world, BlockPos pos1, Random rand) {
+		BlockPos pos2 = pos1.up();
+		if (world.getFluidState(pos1).matches(SpookyFluidTags.WITCH_WATER)) {
+			world.playSound(null, pos1, SoundEvents.ENTITY_DROWNED_HURT_WATER, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.random.nextFloat() - world.random.nextFloat()) * 0.8F);
+			if (world instanceof ServerWorld) {
+				((ServerWorld)world).spawnParticles(ParticleTypes.CURRENT_DOWN, (double)pos2.getX() + 0.5D, (double)pos2.getY() + 0.25D, (double)pos2.getZ() + 0.5D, 8, 0.5D, 0.25D, 0.5D, 0.0D);
 			}
 		}
 
 	}
 
-	public int getTickRate(ViewableWorld viewableWorld_1) {
+	public int getTickRate(ViewableWorld viewableworld) {
 		return 20;
 	}
 
-	public void onBlockAdded(BlockState blockState_1, World world_1, BlockPos blockPos_1, BlockState blockState_2, boolean boolean_1) {
-		world_1.getBlockTickScheduler().schedule(blockPos_1, this, this.getTickRate(world_1));
+	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState state2, boolean bool) {
+		world.getBlockTickScheduler().schedule(pos, this, this.getTickRate(world));
 	}
 }

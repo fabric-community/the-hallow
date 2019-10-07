@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class WitchWaterBubbleColumnBlock extends BubbleColumnBlock {
+public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable {
 	public static final BooleanProperty DRAG;
 
 	public WitchWaterBubbleColumnBlock(Settings block$Settings_1) {
@@ -68,7 +68,7 @@ public class WitchWaterBubbleColumnBlock extends BubbleColumnBlock {
 
 	public static void update(IWorld iWorld_1, BlockPos blockPos_1, boolean boolean_1) {
 		if (isStillWater(iWorld_1, blockPos_1)) {
-			iWorld_1.setBlockState(blockPos_1, (BlockState)SpookyBlocks.WITCH_WATER_BUBBLE_COLUMN.getDefaultState().with(DRAG, boolean_1), 2);
+			iWorld_1.setBlockState(blockPos_1, SpookyBlocks.WITCH_WATER_BUBBLE_COLUMN.getDefaultState().with(DRAG, boolean_1), 2);
 		}
 
 	}
@@ -117,8 +117,8 @@ public class WitchWaterBubbleColumnBlock extends BubbleColumnBlock {
 			return SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState();
 		} else {
 			if (direction_1 == Direction.DOWN) {
-				iWorld_1.setBlockState(blockPos_1, (BlockState)Blocks.BUBBLE_COLUMN.getDefaultState().with(DRAG, calculateDrag(iWorld_1, blockPos_2)), 2);
-			} else if (direction_1 == Direction.UP && blockState_2.getBlock() != Blocks.BUBBLE_COLUMN && isStillWater(iWorld_1, blockPos_2)) {
+				iWorld_1.setBlockState(blockPos_1, SpookyBlocks.WITCH_WATER_BUBBLE_COLUMN.getDefaultState().with(DRAG, calculateDrag(iWorld_1, blockPos_2)), 2);
+			} else if (direction_1 == Direction.UP && blockState_2.getBlock() != SpookyBlocks.WITCH_WATER_BUBBLE_COLUMN && isStillWater(iWorld_1, blockPos_2)) {
 				iWorld_1.getBlockTickScheduler().schedule(blockPos_1, this, this.getTickRate(iWorld_1));
 			}
 
