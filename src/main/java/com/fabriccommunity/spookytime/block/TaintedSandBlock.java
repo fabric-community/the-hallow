@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class TaintedSandBlock extends FallingBlock {
-
 	public TaintedSandBlock(Block.Settings settings) {
 		super(settings);
 	}
@@ -32,7 +31,7 @@ public class TaintedSandBlock extends FallingBlock {
 		return 2;
 	}
 
-	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState blockState_2, boolean bool) {
+	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState state2, boolean bool) {
 		world.getBlockTickScheduler().schedule(pos, this, this.getTickRate(world));
 	}
 }

@@ -7,7 +7,6 @@ import net.minecraft.util.ActionResult;
 
 public class SpookyEvents {
 	public static void init() {
-
 		WitchTickCallback.EVENT.register((witch) -> {
 			if (witch.getEntityWorld().hasRain(witch.getBlockPos().up())) {
 				witch.damage(DamageSource.DROWN, 1.0F);
@@ -18,6 +17,5 @@ public class SpookyEvents {
 			}
 			return ActionResult.PASS;
 		});
-
 	}
 }

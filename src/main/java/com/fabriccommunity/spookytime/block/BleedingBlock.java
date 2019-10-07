@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BleedingBlock extends Block {
-
 	public BleedingBlock(Settings settings) {
 		super(settings);
 	}
@@ -43,7 +42,6 @@ public class BleedingBlock extends Block {
 				((ServerWorld)world).spawnParticles(ParticleTypes.CURRENT_DOWN, (double)pos2.getX() + 0.5D, (double)pos2.getY() + 0.25D, (double)pos2.getZ() + 0.5D, 8, 0.5D, 0.25D, 0.5D, 0.0D);
 			}
 		}
-
 	}
 
 	public int getTickRate(ViewableWorld viewableworld) {
