@@ -23,43 +23,15 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Rewrites the water damage functionality of thrown potions to allow witches to be damaged by splash potions of water
+ * Allow witches to be damaged by splash potions of water
  *
  * @author Will Toll
  */
 
 @Mixin(ThrownPotionEntity.class)
-public abstract class ThrownPotionEntityMixin
-	extends ThrownEntity
-	implements FlyingItemEntity {
-
-	private List<Class<? extends LivingEntity>> hurtByWater = new ArrayList<Class<? extends LivingEntity>>();
-
-	public ThrownPotionEntityMixin(EntityType<? extends ThrownPotionEntity> type, World world) {
-		super(type, world);
-		registerHurtByWater(EndermanEntity.class);
-		registerHurtByWater(BlazeEntity.class);
-		registerHurtByWater(WitchEntity.class);
-	}
-
-	private void damageEntitiesHurtByWater() {
-		this.world.getEntities(LivingEntity.class, this.getBoundingBox().expand(4.0D, 2.0D, 4.0D)).forEach((entity) -> {
-			if (this.squaredDistanceTo(entity) < 16.0D && isHurtByWater(entity)) {
-				entity.damage(DamageSource.magic(entity, this.getOwner()), 1.0F);
-			}
-		});
-	}
-
-	public void registerHurtByWater(Class<? extends LivingEntity> entityclass) {
-		this.hurtByWater.add(entityclass);
-	}
-
-	private boolean isHurtByWater(LivingEntity entity) {
-		for (Class<? extends LivingEntity> entityclass : this.hurtByWater) {
-			if (entity.getClass().isInstance(entityclass)) {
-				return true;
-			}
-		}
-		return true;
+public class ThrownPotionEntityMixin {
+	@Inject(method = "doesWaterHurt", at = @At("RETURN"), cancellable = true)
+	private static void doesWaterHurt(LivingEntity livingEntity_1, CallbackInfoReturnable<Boolean> info) {
+		info.setReturnValue(info.getReturnValue() || livingEntity_1 instanceof WitchEntity);
 	}
 }
