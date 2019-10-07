@@ -1,8 +1,10 @@
 package com.fabriccommunity.spookytime;
 
+import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.fabriccommunity.spookytime.client.SpookyColors;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
+import com.fabriccommunity.spookytime.client.render.InfusionPillarBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
@@ -19,6 +21,7 @@ public class SpookyTimeClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		EntityRendererRegistry.INSTANCE.register(PumpcownEntity.class, (dispatcher, context) -> new PumpcownEntityRenderer(dispatcher));
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
+		BlockEntityRendererRegistry.INSTANCE.register(InfusionPillarBlockEntity.class, new InfusionPillarBlockEntityRenderer());
 		
 		SpookyColors.init();
 		
