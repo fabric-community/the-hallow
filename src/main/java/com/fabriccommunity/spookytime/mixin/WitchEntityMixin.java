@@ -27,7 +27,7 @@ import javax.swing.*;
 
 @Mixin(WitchEntity.class)
 public abstract class WitchEntityMixin {
-	@Inject(method = "tickMovement", at = @At("HEAD"), cancellable = false)
+	@Inject(method = "tickMovement", at = @At("HEAD"), cancellable = true)
 	public void tick(CallbackInfo info) {
 		ActionResult result = WitchTickCallback.EVENT.invoker().tick( (WitchEntity) (Object) this );
 		if(result == ActionResult.FAIL) {

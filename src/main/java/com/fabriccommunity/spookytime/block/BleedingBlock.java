@@ -22,10 +22,12 @@ public class BleedingBlock extends Block {
 		super(settings);
 	}
 
+	@Override
 	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random rand) {
 		WitchWaterBubbleColumnBlock.update(world, pos.up(), true);
 	}
 
+	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction dir, BlockState state2, IWorld iworld, BlockPos pos1, BlockPos pos2) {
 		if (dir == Direction.UP && state2.getBlock() == SpookyBlocks.WITCH_WATER_BLOCK) {
 			iworld.getBlockTickScheduler().schedule(pos1, this, this.getTickRate(iworld));
@@ -34,6 +36,7 @@ public class BleedingBlock extends Block {
 		return super.getStateForNeighborUpdate(state, dir, state2, iworld, pos1, pos2);
 	}
 
+	@Override
 	public void onRandomTick(BlockState state, World world, BlockPos pos1, Random rand) {
 		BlockPos pos2 = pos1.up();
 		if (world.getFluidState(pos1).matches(SpookyFluidTags.WITCH_WATER)) {
@@ -44,10 +47,12 @@ public class BleedingBlock extends Block {
 		}
 	}
 
+	@Override
 	public int getTickRate(ViewableWorld viewableworld) {
 		return 20;
 	}
 
+	@Override
 	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState state2, boolean bool) {
 		world.getBlockTickScheduler().schedule(pos, this, this.getTickRate(world));
 	}
