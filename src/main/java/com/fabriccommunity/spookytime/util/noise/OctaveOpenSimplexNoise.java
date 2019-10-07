@@ -33,5 +33,5 @@ public final class OctaveOpenSimplexNoise {
 		result = result * clamp;
 		return result > 0 ? result * amplitudeHigh : result * amplitudeLow;
 	}
-
+	
 }

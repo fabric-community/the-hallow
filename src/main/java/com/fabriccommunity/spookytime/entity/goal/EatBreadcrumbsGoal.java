@@ -104,7 +104,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 						double2 = random.nextGaussian() * 0.02D;
 						double double3 = random.nextGaussian() * 0.02D;
 						double double4 = random.nextGaussian() * 0.02D;
-						((ServerWorld) world).spawnParticles(ParticleTypes.POOF, (double) blockPos2.getX() + 0.5D, (double) blockPos2.getY(), (double) blockPos2.getZ() + 0.5D, 1, double2, double3, double4, 0.15000000596046448D);
+						((ServerWorld) world).spawnParticles(ParticleTypes.POOF, (double) blockPos2.getX() + 0.5D, blockPos2.getY(), (double) blockPos2.getZ() + 0.5D, 1, double2, double3, double4, 0.15000000596046448D);
 					}
 					
 					this.onDestroyBlock(world, blockPos2);

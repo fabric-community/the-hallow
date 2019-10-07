@@ -116,7 +116,7 @@ public class SpookyCactusBlock extends Block {
 				return (block == SpookyBlocks.SPOOKY_CACTUS || block == SpookyBlocks.TAINTED_SAND) && !world.getBlockState(pos.up()).getMaterial().isLiquid();
 			}
 			
-			direction = (Direction) iterator.next();
+			direction = iterator.next();
 			BlockState state2 = world.getBlockState(pos.offset(direction));
 			material = state2.getMaterial();
 		} while (!material.isSolid() && !world.getFluidState(pos.offset(direction)).matches(FluidTags.LAVA));

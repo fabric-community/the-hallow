@@ -1,28 +1,29 @@
 package com.fabriccommunity.spookytime.client.render;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.block.SpookyTreasureChestBlock;
-import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
-import com.fabriccommunity.spookytime.client.models.TreasureChestModel;
-import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.util.Identifier;
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.SpookyTreasureChestBlock;
+import com.fabriccommunity.spookytime.client.models.TreasureChestModel;
+import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
 
 public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<SpookyTreasureChestBlockEntity> {
 	private static final Identifier TEXTURE = new Identifier(SpookyTime.MOD_ID, "textures/entity/treasure_chest/default_chest.png");
 	private final TreasureChestModel chestModel = new TreasureChestModel();
-
+	
 	@Override
 	public void render(SpookyTreasureChestBlockEntity treasureChest, double x, double y, double z, float partialTicks, int breakStage) {
 		GlStateManager.pushMatrix();
 		BlockState state = getWorld().getBlockState(treasureChest.getPos());
-
+		
 		// initial translation to center chest
 		GlStateManager.translatef((float) x + .215f, (float) y + .57f, (float) z + .785f);
-
+		
 		// rotate based on facing direction
-		if(state.contains(SpookyTreasureChestBlock.FACING)) {
+		if (state.contains(SpookyTreasureChestBlock.FACING)) {
 			switch (state.get(SpookyTreasureChestBlock.FACING)) {
 				case NORTH:
 					GlStateManager.translatef(.57f, 0, -.57f);
@@ -43,15 +44,15 @@ public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<
 					break;
 			}
 		}
-
+		
 		// flip & scale to size
 		GlStateManager.rotatef(180, 1, 0, 0);
 		GlStateManager.scalef(.57f, .57f, .57f);
-
+		
 		// render chest
 		bindTexture(TEXTURE);
 		chestModel.render();
-
+		
 		GlStateManager.popMatrix();
 	}
 }

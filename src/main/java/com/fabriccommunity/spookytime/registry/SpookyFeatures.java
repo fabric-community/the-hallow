@@ -34,12 +34,12 @@ public class SpookyFeatures {
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 	
 	public static final Feature<DefaultFeatureConfig> BARROW = register("barrow", new BarrowFeature());
-
-    public static void init() {
-
-    }
-    
-    public static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
-        return Registry.register(Registry.FEATURE, SpookyTime.id(name), feature);
-    }
+	
+	public static void init() {
+	
+	}
+	
+	public static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
+		return Registry.register(Registry.FEATURE, SpookyTime.id(name), feature);
+	}
 }

@@ -79,7 +79,7 @@ public class CrowEntityModel extends EntityModel<CrowEntity> {
 	@Override
 	public void setAngles(CrowEntity crow, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.setAngles(crow, f, f1, f2, f3, f4, f5);
-		if(crow.isInAir()) {
+		if (crow.isInAir()) {
 			leftLeg.pitch = 0.55F;
 			rightLeg.pitch = 0.55F;
 			
