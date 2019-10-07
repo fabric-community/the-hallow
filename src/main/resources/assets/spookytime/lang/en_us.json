@@ -5,9 +5,11 @@
 	"spookytime.github": "https://github.com/fabric-community/spooky-time",
 	"spookytime.contrib.title": "=====Contributors=====",
 	"spookytime.contrib.entry": "%d, ",
-	"itemGroup.spookytime.group": "Spooky Time",
 	"spookytime.cmd.spooktober": "It is Spooktober 31st!",
 	"spookytime.cmd.tillspooktober": "It is %d days till Spooktober 31st",
+
+	"itemGroup.spookytime.group": "Spooky Time",
+
 	"item.spookytime.pumpcown_spawn_egg": "Pumpcown Spawn Egg",
 	"item.spookytime.blaze_skirt": "Blaze Skirt",
 	"item.spookytime.spookium_ingot": "Spookium Ingot",
@@ -25,6 +27,7 @@
 	"item.spookytime.blood_bucket": "Blood Bucket",
 	"item.spookytime.pumpkin_ring": "Pumpkin Ring",
 	"item.spookytime.spooky_trumpet": "Spooky Trumpet",
+
 	"block.spookytime.tiny_pumpkin": "§4T§6i§en§ay §4P§6u§em§ap§9k§di§6n",
 	"block.spookytime.witched_pumpkin": "§5W§di§5t§dc§5h§de§5d §5P§du§5m§dp§5k§di§5n",
 	"block.spookytime.deceased_grass_block": "Deceased Grass Block",
@@ -47,11 +50,13 @@
 	"block.spookytime.soul_glass_pane": "Soul Glass Pane",
 	"block.spookytime.spookium_ore": "Spookium Ore",
 	"block.spookytime.spookium_block": "Spookium Block",
-  "block.spookytime.spooky_cactus": "Spooky Cactus",
-  "block.spookytime.deader_bush": "Deader Bush",
-  "block.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
-  "entity.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
+  	"block.spookytime.spooky_cactus": "Spooky Cactus",
+	"block.spookytime.deader_bush": "Deader Bush",
+	"block.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
+
+  	"entity.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
 	"entity.spookytime.pumpcown": "Pumpcown",
+
 	"biome.spookytime.spooky_forest": "Spooky Forest",
 	"biome.spookytime.spooky_lowlands": "Spooky Lowlands",
 	"biome.spookytime.pumpkin_patch": "Spooky Pumpkin Patch",
@@ -62,10 +67,13 @@
 	"biome.spookytime.spooky_swamp": "Spooky Swamp",
 	"biome.spookytime.haunted_uplands": "Haunted Uplands",
 	"biome.spookytime.haunted_moor": "Haunted Moor",
+
 	"enchantment.spookytime.beheading": "Beheading",
 	"enchantment.spookytime.lifesteal": "Lifesteal",
-  "social.spookytime.github": "GitHub",
-  "social.spookytime.minecraft": "Minecraft",
+
+  	"social.spookytime.github": "GitHub",
+  	"social.spookytime.minecraft": "Minecraft",
+
 	"text.spookytime.trick": "Trick!",
 	"text.spookytime.treat": "Treat!",
 	"text.spookytime.no_one_nearby": "No one heard you!",
@@ -76,6 +84,8 @@
 	"text.spookytime.loading.costumes": "Creating costumes...",
 	"text.spookytime.loading.witch_water": "Mixing witch water...",
 	"text.spookytime.loading.pumpcowns": "Petting pumpcowns...",
+
 	"tooltip.spookytime.pumpkin_ring": "That Pumpkin Pie looks awfully delicious...",
+
 	"subtitle.spookytime.doot": "Trumpet Doots Spookily"
 }
