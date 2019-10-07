@@ -7,6 +7,7 @@ import com.fabriccommunity.spookytime.SpookyTime;
 
 public class SpookySounds {
 	public static final SoundEvent DOOT = register("doot");
+	public static final SoundEvent CROW_AMBIENT = register("entity.crow.ambient");
 	
 	public static void init() {
 		// NO-OP
