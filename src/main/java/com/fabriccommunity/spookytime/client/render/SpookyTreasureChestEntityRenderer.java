@@ -2,7 +2,7 @@ package com.fabriccommunity.spookytime.client.render;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
-import com.fabriccommunity.spookytime.models.TreasureChestModel;
+import com.fabriccommunity.spookytime.client.models.TreasureChestModel;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;

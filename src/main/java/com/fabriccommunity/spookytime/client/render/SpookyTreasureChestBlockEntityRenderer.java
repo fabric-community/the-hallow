@@ -3,13 +3,11 @@ package com.fabriccommunity.spookytime.client.render;
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.block.SpookyTreasureChestBlock;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
-import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
-import com.fabriccommunity.spookytime.models.TreasureChestModel;
+import com.fabriccommunity.spookytime.client.models.TreasureChestModel;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 
 public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<SpookyTreasureChestBlockEntity> {
 	private static final Identifier TEXTURE = new Identifier(SpookyTime.MOD_ID, "textures/entity/treasure_chest/default_chest.png");
