@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.mixin;
+package com.fabriccommunity.spookytime.mixin.client;
 
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;

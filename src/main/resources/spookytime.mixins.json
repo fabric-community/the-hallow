@@ -16,7 +16,7 @@
 		"PlayerEntityMixin"
 	],
 	"client": [
-		"ItemDynamicRendererMixin",
+		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin"
 	],
