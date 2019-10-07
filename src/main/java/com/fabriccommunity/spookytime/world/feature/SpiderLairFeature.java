@@ -13,14 +13,12 @@ import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.structure.StructurePiece;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.loot.LootTables;
 
 public class SpiderLairFeature extends Feature<DefaultFeatureConfig> {
 
@@ -36,16 +34,16 @@ public class SpiderLairFeature extends Feature<DefaultFeatureConfig> {
 				((MobSpawnerBlockEntity) be).getLogic().setEntityId(EntityType.SPIDER);
 			}
 			
-			BlockPos chestPos = pos.add(random.nextInt(4), 0, random.nextInt(4));
-			iWorld.setBlockState(chestPos, StructurePiece.method_14916(iWorld, chestPos, Blocks.CHEST.getDefaultState()), 2);
-			LootableContainerBlockEntity.setLootTable(iWorld, random, chestPos, SpookyTime.id("chests/spider_lair"));
-			
 			for(int i = 0; i < 64; ++i) {
 				BlockPos pos_2 = pos.add(random.nextInt(6) - random.nextInt(6), random.nextInt(3) - random.nextInt(3), random.nextInt(6) - random.nextInt(6));
-				if (iWorld.isAir(pos_2)) {
+				if (iWorld.isAir(pos_2) || iWorld.getBlockState(pos_2).getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK) {
 					iWorld.setBlockState(pos_2, Blocks.COBWEB.getDefaultState(), 2);
 				}
 			}
+			
+			BlockPos chestPos = pos.add(random.nextInt(4) - random.nextInt(4), 0, random.nextInt(4) - random.nextInt(4));
+			iWorld.setBlockState(chestPos, StructurePiece.method_14916(iWorld, chestPos, Blocks.CHEST.getDefaultState()), 2);
+			LootableContainerBlockEntity.setLootTable(iWorld, random, chestPos, SpookyTime.id("chests/spider_lair"));
 			
 			return true;
 		} else {
