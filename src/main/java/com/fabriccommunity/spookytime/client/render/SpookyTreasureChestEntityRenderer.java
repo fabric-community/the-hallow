@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 import com.mojang.blaze3d.platform.GlStateManager;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.client.models.TreasureChestModel;
+import com.fabriccommunity.spookytime.client.model.TreasureChestModel;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
 
 public class SpookyTreasureChestEntityRenderer extends EntityRenderer<SpookyTreasureChestEntity> {
