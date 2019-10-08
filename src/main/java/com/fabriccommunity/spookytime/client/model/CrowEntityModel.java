@@ -76,11 +76,6 @@ public class CrowEntityModel extends EntityModel<CrowEntity> {
 	}
 
 	@Override
-	public void animateModel(CrowEntity entity_1, float float_1, float float_2, float float_3) {
-		super.animateModel(entity_1, float_1, float_2, float_3);
-	}
-
-	@Override
 	public void setAngles(CrowEntity crow, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.setAngles(crow, f, f1, f2, f3, f4, f5);
 
