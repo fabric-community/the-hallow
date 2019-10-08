@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.client.models;
+package com.fabriccommunity.spookytime.client.model;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
