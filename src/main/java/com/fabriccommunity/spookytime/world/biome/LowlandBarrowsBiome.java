@@ -37,6 +37,7 @@ public class LowlandBarrowsBiome extends SpookyBaseBiome {
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
 		SpookyBiomeFeatures.addWells(this);
+		SpookyBiomeFeatures.addLairs(this);
 		SpookyBiomeFeatures.addBarrows(this);
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.PUMPCOWN, 8, 4, 8));
 		this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
