@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.client;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.registry.SpookyFluids;
-
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.resource.ResourceReloadListenerKeys;
@@ -15,6 +12,9 @@ import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ExtendedBlockView;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.registry.SpookyFluids;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,13 +43,13 @@ public class FluidResourceLoader implements SimpleSynchronousResourceReloadListe
 				return 0x5900A3;
 			}
 		};
-
+		
 		FluidRenderHandler bloodRenderHandler = new FluidRenderHandler() {
 			@Override
 			public Sprite[] getFluidSprites(ExtendedBlockView extendedBlockView, BlockPos blockPos, FluidState fluidState) {
 				return new Sprite[]{MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_still"), MinecraftClient.getInstance().getSpriteAtlas().getSprite("block/water_flow")};
 			}
-
+			
 			@Override
 			public int getFluidColor(ExtendedBlockView view, BlockPos pos, FluidState state) {
 				return 0xBB0A1E;
@@ -58,7 +58,7 @@ public class FluidResourceLoader implements SimpleSynchronousResourceReloadListe
 		
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.WITCH_WATER, witchWaterRenderHandler);
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.FLOWING_WITCH_WATER, witchWaterRenderHandler);
-
+		
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.BLOOD, bloodRenderHandler);
 		FluidRenderHandlerRegistry.INSTANCE.register(SpookyFluids.FLOWING_BLOOD, bloodRenderHandler);
 	}

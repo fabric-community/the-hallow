@@ -1,0 +1,17 @@
+{
+	"doot": {
+		"category": "players",
+		"sounds": [
+			"spookytime:doot"
+		],
+		"subtitle": "subtitle.spookytime.doot"
+	},
+	"entity.crow.ambient": {
+		"category": "neutral",
+		"sounds": [
+			"spookytime:crow/crow1",
+			"spookytime:crow/crow2"
+		],
+		"subtitle": "subtitle.crow.ambient"
+	}
+}

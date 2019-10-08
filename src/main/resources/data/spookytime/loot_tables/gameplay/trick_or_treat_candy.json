@@ -7,7 +7,7 @@
 				{
 					"type": "minecraft:item",
 					"name": "spookytime:caramel_apple",
-					"weight": 50
+					"weight": 30
 				},
 				{
 					"type": "minecraft:item",
@@ -17,12 +17,17 @@
 				{
 					"type": "minecraft:item",
 					"name": "spookytime:rare_candy",
-					"weight": 5
+					"weight": 8
 				},
 				{
 					"type": "minecraft:item",
 					"name": "spookytime:winged_strawberry_candy",
-					"weight": 30
+					"weight": 40
+				},
+				{
+					"type": "minecraft:item",
+					"name": "spookytime:peppermint",
+					"weight": 25
 				},
 				{
 					"type": "minecraft:item",

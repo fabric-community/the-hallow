@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.block.entity;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 
 import net.minecraft.block.HorizontalFacingBlock;
@@ -15,6 +13,8 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Direction;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
+
 import javax.annotation.Nonnull;
 
 public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
@@ -24,7 +24,7 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 	private ItemStack rightItem = ItemStack.EMPTY;
 	
 	public TinyPumpkinBlockEntity() {
-		super(SpookyBlocks.TINY_PUMPKIN_BLOCK_ENTITY);
+		super(SpookyBlockEntities.TINY_PUMPKIN);
 	}
 	
 	public boolean use(PlayerEntity player, Hand hand, BlockHitResult hit) {

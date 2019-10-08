@@ -10,11 +10,13 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
+		"SkeletonEntityMixin",
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
 		"PlayerEntityMixin"
 	],
 	"client": [
+		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin"
 	],

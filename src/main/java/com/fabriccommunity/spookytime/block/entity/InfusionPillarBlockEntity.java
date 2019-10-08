@@ -1,21 +1,14 @@
 package com.fabriccommunity.spookytime.block.entity;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
+import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Tickable;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class InfusionPillarBlockEntity extends BlockEntity {
 	public ItemStack storedStack = null;
 
 	public InfusionPillarBlockEntity() {
-		super(SpookyBlocks.INFUSION_PILLAR_BLOCK_ENTITY);
+		super(SpookyBlockEntities.INFUSION_PILLAR_BLOCK_ENTITY);
 	}
 
 	public ItemStack putStack(ItemStack itemStack) {

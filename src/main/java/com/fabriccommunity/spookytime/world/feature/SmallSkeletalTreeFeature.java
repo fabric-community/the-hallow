@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.mojang.datafixers.Dynamic;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,6 +11,9 @@ import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import com.mojang.datafixers.Dynamic;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 import java.util.Random;
 import java.util.Set;
