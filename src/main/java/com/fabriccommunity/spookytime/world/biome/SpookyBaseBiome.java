@@ -1,14 +1,15 @@
 package com.fabriccommunity.spookytime.world.biome;
 
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+import com.google.common.collect.Lists;
+import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
-
-import com.google.common.collect.Lists;
 import java.util.List;
 
 public abstract class SpookyBaseBiome extends Biome {
@@ -23,6 +24,8 @@ public abstract class SpookyBaseBiome extends Biome {
 		DefaultBiomeFeatures.addLandCarvers(this);
 		SpookyBiomeFeatures.addDisks(this);
 		DefaultBiomeFeatures.addDefaultOres(this);
+
+		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.CROW, 40, 1, 2));
 		
 		BIOMES.add(this);
 	}
