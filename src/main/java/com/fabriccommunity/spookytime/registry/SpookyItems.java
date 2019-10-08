@@ -7,6 +7,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.MushroomStewItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -16,6 +17,7 @@ import com.fabriccommunity.spookytime.item.CandyItem;
 import com.fabriccommunity.spookytime.item.PumpkinRing;
 import com.fabriccommunity.spookytime.item.SkirtCostume;
 import com.fabriccommunity.spookytime.item.SpookyTrumpetItem;
+import com.fabriccommunity.spookytime.item.tool.ClubItem;
 import com.fabriccommunity.spookytime.item.tool.ScytheItem;
 import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
 import com.fabriccommunity.spookytime.util.PumpkinFoods;
@@ -41,6 +43,11 @@ public class SpookyItems {
 	public static final Item SPOOKY_TRUMPET = register("spooky_trumpet", new SpookyTrumpetItem(new Item.Settings().group(SpookyTime.GROUP)));
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, new Item.Settings().group(SpookyTime.GROUP)));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(SpookyEntities.CROW, 0x161616, 0x454545, new Item.Settings().group(SpookyTime.GROUP)));
+	public static final Item WOODEN_CLUB = register("wooden_club", new ClubItem(ToolMaterials.WOOD, 9, -3.6F, new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
+	public static final Item STONE_SPIKED_CLUB = register("stone_spiked_club", new ClubItem(ToolMaterials.STONE, 9, -3.6F, new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
+	public static final Item IRON_CLUB = register("iron_club", new ClubItem(ToolMaterials.IRON, 9, -3.6F, new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
+	public static final Item GOLD_CLUB = register("gold_club", new ClubItem(ToolMaterials.GOLD, 9, -3.6F, new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
+	public static final Item DIAMOND_CLUB = register("diamond_club", new ClubItem(ToolMaterials.DIAMOND, 9, -3.6F, new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
 	
 	private SpookyItems() {
 		// NO-OP
