@@ -22,11 +22,6 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class InfusionPillarBlock extends Block implements BlockEntityProvider {
-	/**
-	 * [[4, 11, 4, 12, 12, 12],
-	 *  [3, 0, 3, 13, 1, 13],
-	 *  [5, 1, 5, 11, 11, 11]]
-	 */
 	private static final VoxelShape shapeA = Block.createCuboidShape(5, 1, 5, 11, 11, 11);
 	private static final VoxelShape shapeB = Block.createCuboidShape(4, 11, 4, 12, 12, 12);
 	private static final VoxelShape shapeC = Block.createCuboidShape(3, 0, 3, 13, 1, 13);
@@ -35,6 +30,19 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 
 	public InfusionPillarBlock(Block.Settings settings) {
 		super(settings);
+	}
+
+	public InfusionAltarBlockEntity getAltar(World world, BlockPos blockPos) {
+		for (Direction direction : HorizontalFacingBlock.FACING.getValues()) {
+			BlockPos offsetPos = blockPos.offset(direction, 3);
+			if (world.getBlockState(offsetPos).getBlock() == SpookyBlocks.INFUSION_ALTAR_BLOCK) {
+				InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity)world.getBlockEntity(offsetPos);
+				if (altarEntity != null) {
+					return altarEntity;
+				}
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -57,7 +65,7 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public void onBroken(IWorld world, BlockPos blockPos, BlockState blockState) {
-		InfusionAltarBlockEntity altarEntity = hasAltar(world.getWorld(), blockPos);
+		InfusionAltarBlockEntity altarEntity = getAltar(world.getWorld(), blockPos);
 		if (altarEntity != null) {
 			altarEntity.removePillar(blockPos, (InfusionPillarBlockEntity) world.getBlockEntity(blockPos));
 		}
@@ -67,23 +75,10 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 	@Override
 	public void onPlaced(World world, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity livingEntity, ItemStack itemStack) {
 		super.onPlaced(world, blockPos, blockState, livingEntity, itemStack);
-		InfusionAltarBlockEntity altarEntity = hasAltar(world, blockPos);
+		InfusionAltarBlockEntity altarEntity = getAltar(world, blockPos);
 		if (altarEntity != null) {
 			altarEntity.addPillar(blockPos, (InfusionPillarBlockEntity) world.getBlockEntity(blockPos));
 		}
-	}
-
-	public InfusionAltarBlockEntity hasAltar(World world, BlockPos blockPos) {
-		for (Direction direction : HorizontalFacingBlock.FACING.getValues()) {
-			BlockPos offsetPos = blockPos.offset(direction, 3);
-			if (world.getBlockState(offsetPos).getBlock() == SpookyBlocks.INFUSION_ALTAR_BLOCK) {
-				InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity)world.getBlockEntity(offsetPos);
-				if (altarEntity != null) {
-					return altarEntity;
-				}
-			}
-		}
-		return null;
 	}
 
 	@Override
