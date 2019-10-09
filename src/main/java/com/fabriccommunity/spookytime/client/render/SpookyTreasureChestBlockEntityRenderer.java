@@ -7,7 +7,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.block.SpookyTreasureChestBlock;
-import com.fabriccommunity.spookytime.client.models.TreasureChestModel;
+import com.fabriccommunity.spookytime.client.model.TreasureChestModel;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
 
 public class SpookyTreasureChestBlockEntityRenderer extends BlockEntityRenderer<SpookyTreasureChestBlockEntity> {

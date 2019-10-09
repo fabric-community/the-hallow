@@ -2,6 +2,8 @@
 	"replace": false,
 	"values": [
 		"spookytime:witch_water",
-		"spookytime:witch_water_flowing"
+		"spookytime:witch_water_flowing",
+		"spookytime:blood",
+		"spookytime:blood_flowing"
 	]
 }
