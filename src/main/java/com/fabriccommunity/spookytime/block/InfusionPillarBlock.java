@@ -8,6 +8,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -22,11 +23,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class InfusionPillarBlock extends Block implements BlockEntityProvider {
-	private static final VoxelShape shapeA = Block.createCuboidShape(5, 1, 5, 11, 11, 11);
-	private static final VoxelShape shapeB = Block.createCuboidShape(4, 11, 4, 12, 12, 12);
-	private static final VoxelShape shapeC = Block.createCuboidShape(3, 0, 3, 13, 1, 13);
-
-	private static final VoxelShape SHAPE = VoxelShapes.union(shapeA, shapeB, shapeC);
+	private static final VoxelShape SHAPE = Block.createCuboidShape(4, 0, 4, 12, 12, 12);
 
 	public InfusionPillarBlock(Block.Settings settings) {
 		super(settings);

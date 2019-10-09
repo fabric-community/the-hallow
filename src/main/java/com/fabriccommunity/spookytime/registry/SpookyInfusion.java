@@ -1,13 +1,15 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-
-import java.util.*;
+import com.fabriccommunity.spookytime.recipe.InfusionRecipeSerializer;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class SpookyInfusion {
-	public static List<InfusionRecipe> INFUSION_RECIPES = new ArrayList<>();
+	public static final RecipeSerializer INFUSION_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, InfusionRecipeSerializer.ID, InfusionRecipeSerializer.INSTANCE);
+	public static final RecipeType INFUSION_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier("infusion", InfusionRecipe.Type.ID), InfusionRecipe.Type.INSTANCE);
 
 	private SpookyInfusion() {
 		// NO-OP
@@ -15,10 +17,5 @@ public class SpookyInfusion {
 
 	public static void init() {
 		// NO-OP
-	}
-
-	private static InfusionRecipe register(ItemStack outputStack, Ingredient ingredient) {
-		INFUSION_RECIPES.add(new InfusionRecipe(ingredient, outputStack));
-		return INFUSION_RECIPES.get(INFUSION_RECIPES.size() - 1);
 	}
 }

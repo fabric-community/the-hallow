@@ -26,15 +26,15 @@ public class InfusionAltarBlockEntityRenderer extends BlockEntityRenderer<Infusi
 	private long nanosB = 0;
 	
 	@Override
-	public void render(InfusionAltarBlockEntity pillar, double x, double y, double z, float delta, int breakingStage) {
+	public void render(InfusionAltarBlockEntity altar, double x, double y, double z, float delta, int breakingStage) {
 		ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
-		if (pillar.storedStack != null) {
+		if (altar.storedStack != null) {
 			GlStateManager.pushMatrix();
-			GlStateManager.translated(x + 0.5d, y + 0.125 + Math.sin(rotation) / 32, z + 0.5d);
+			GlStateManager.translated(x + 0.5d, y + 1.250 + Math.sin(rotation / 2) / 32, z + 0.5d);
 			GlStateManager.rotated(rotation * 2, 0, 1, 0);
 			GlStateManager.scaled(0.5, 0.5, 0.5);
-			itemRenderer.renderItem(pillar.storedStack, ModelTransformation.Type.FIXED);
+			itemRenderer.renderItem(altar.storedStack, ModelTransformation.Type.FIXED);
 			GlStateManager.popMatrix();
 		}
 

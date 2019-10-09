@@ -34,6 +34,5 @@ public class InfusionPillarBlockEntity extends BlockEntity {
 		} else {
 			return ItemStack.EMPTY;
 		}
-
 	}
 }

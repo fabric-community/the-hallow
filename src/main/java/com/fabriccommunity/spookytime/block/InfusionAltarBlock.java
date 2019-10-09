@@ -2,17 +2,17 @@ package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
+import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.google.common.collect.Iterables;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -20,21 +20,16 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class InfusionAltarBlock extends Block implements BlockEntityProvider {
-	private static final VoxelShape shapeA = Block.createCuboidShape(2, 0, 2, 14, 1, 14);
-	private static final VoxelShape shapeB = Block.createCuboidShape(3, 1, 3, 13, 2, 13);
+	private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
 
-	private static final VoxelShape SHAPE = VoxelShapes.union(shapeA, shapeB);
+	private BasicInventory combinedInventory;
 
 	public InfusionAltarBlock(Block.Settings settings) {
 		super(settings);
@@ -50,7 +45,12 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		return pillarStacks;
 	}
 
-	public void clearStacks(InfusionAltarBlockEntity altarEntity) {
+	public void clearAllStacks(InfusionAltarBlockEntity altarEntity) {
+		altarEntity.storedStack = null;
+		clearPillarStacks(altarEntity);
+	}
+
+	public void clearPillarStacks(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
 			entity.storedStack = null;
 		});
@@ -70,12 +70,16 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		altarEntity.linkedPillars = pillars;
 	}
 
-	public Ingredient getInput(InfusionAltarBlockEntity altarEntity) {
-		return Ingredient.ofStacks(Iterables.toArray(getPillarStacks(altarEntity), ItemStack.class));
-	}
-
-	public ItemStack getOutput(InfusionAltarBlockEntity altarEntity) {
-		return InfusionAltarBlockEntity.craftRecipe(getInput(altarEntity));
+	public void getCombinedInventory(InfusionAltarBlockEntity altarEntity) {
+		combinedInventory = new BasicInventory(altarEntity.linkedPillars.size() + 1);
+		altarEntity.linkedPillars.forEach((pos, entity) -> {
+			if (entity.storedStack != null) {
+				combinedInventory.add(entity.storedStack.copy());
+			}
+		});
+		if (altarEntity.storedStack != null) {
+			combinedInventory.add(altarEntity.storedStack);
+		}
 	}
 
 	public void createParticles(InfusionAltarBlockEntity altarEntity) {
@@ -100,17 +104,36 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	@Override
 	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity) world.getBlockEntity(blockPos);
-		if (altarEntity != null) {
-			getLinkedPillars(altarEntity);
-			if (!getOutput(altarEntity).isEmpty()) {
-				if (world.isClient()) {
-					createParticles(altarEntity);
-					createSound(altarEntity);
+		if (playerEntity.isSneaking()) {
+			if (altarEntity != null) {
+				getLinkedPillars(altarEntity);
+				getCombinedInventory(altarEntity);
+				Optional<InfusionRecipe> recipe = world.getRecipeManager().getFirstMatch(InfusionRecipe.Type.INSTANCE, combinedInventory, world);
+				if (recipe.isPresent()) {
+					if (world.isClient()) {
+						createParticles(altarEntity);
+						createSound(altarEntity);
+					}
+					if (altarEntity.storedStack != null) {
+						createDrop(altarEntity, recipe.get().getOutput());
+						clearAllStacks(altarEntity);
+					} else {
+						altarEntity.storedStack = recipe.get().getOutput().copy();
+						clearPillarStacks(altarEntity);
+					}
+
 				}
-				createDrop(altarEntity, getOutput(altarEntity));
-				clearStacks(altarEntity);
+			}
+		} else {
+			if (altarEntity != null) {
+				if (playerEntity.getStackInHand(hand).isEmpty()) {
+					playerEntity.inventory.insertStack(altarEntity.takeStack());
+				} else {
+					playerEntity.setStackInHand(hand, altarEntity.putStack(playerEntity.getStackInHand(hand)));
+				}
 			}
 		}
+
 		return true;
 	}
 
