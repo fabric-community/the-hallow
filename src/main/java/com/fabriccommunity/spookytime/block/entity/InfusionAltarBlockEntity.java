@@ -3,6 +3,7 @@ package com.fabriccommunity.spookytime.block.entity;
 import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
 import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.math.BlockPos;
@@ -28,16 +29,9 @@ public class  InfusionAltarBlockEntity extends BlockEntity {
 	}
 
 	public ItemStack putStack(ItemStack itemStack) {
-		if (storedStack == null) {
-			storedStack = itemStack.copy();
-			itemStack = itemStack.EMPTY;
-		} else if (storedStack.getItem() == itemStack.getItem()
-			&& storedStack.getTag()  == itemStack.getTag()) {
-			int fits = storedStack.getMaxCount() - itemStack.getCount();
-			if (fits > 0) {
-				storedStack.setCount(storedStack.getCount() + fits);
-				itemStack.setCount(itemStack.getCount() - fits);
-			}
+		if (storedStack == null && itemStack.getCount() >= 1) {
+			storedStack = new ItemStack(itemStack.getItem(), 1);
+			itemStack.decrement(1);
 		}
 		return itemStack;
 	}

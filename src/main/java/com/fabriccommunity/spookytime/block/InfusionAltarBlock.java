@@ -2,8 +2,10 @@ package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
+import com.fabriccommunity.spookytime.inventory.InfusionInventory;
 import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.google.common.collect.Iterables;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
@@ -29,7 +31,7 @@ import java.util.*;
 public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
 
-	private BasicInventory combinedInventory;
+	private InfusionInventory combinedInventory;
 
 	public InfusionAltarBlock(Block.Settings settings) {
 		super(settings);
@@ -71,15 +73,13 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	public void getCombinedInventory(InfusionAltarBlockEntity altarEntity) {
-		combinedInventory = new BasicInventory(altarEntity.linkedPillars.size() + 1);
+		List<ItemStack> input = new ArrayList<>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
 			if (entity.storedStack != null) {
-				combinedInventory.add(entity.storedStack.copy());
+				input.add(entity.storedStack.copy());
 			}
 		});
-		if (altarEntity.storedStack != null) {
-			combinedInventory.add(altarEntity.storedStack);
-		}
+		combinedInventory = new InfusionInventory(altarEntity.storedStack, Iterables.toArray(input, ItemStack.class));
 	}
 
 	public void createParticles(InfusionAltarBlockEntity altarEntity) {
@@ -127,7 +127,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		} else {
 			if (altarEntity != null) {
 				if (playerEntity.getStackInHand(hand).isEmpty()) {
-					playerEntity.inventory.insertStack(altarEntity.takeStack());
+					playerEntity.inventory.offerOrDrop(world, altarEntity.takeStack());
 				} else {
 					playerEntity.setStackInHand(hand, altarEntity.putStack(playerEntity.getStackInHand(hand)));
 				}

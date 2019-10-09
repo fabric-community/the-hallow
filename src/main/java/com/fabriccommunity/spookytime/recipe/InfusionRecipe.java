@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime.recipe;
 
+import com.fabriccommunity.spookytime.inventory.InfusionInventory;
 import com.google.gson.JsonArray;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -43,32 +44,35 @@ public class InfusionRecipe implements Recipe<Inventory> {
 		this.output = output != null ? output.getStackArray()[0] : null;
 	}
 
-	public boolean isEmpty(Inventory inputInventory) {
-		// if (inputInventory.getInvStack(0).getItem() != target.getStackArray()[0].getItem()
-		// &&  inputInventory.getInvStack(0).getCount() != target.getStackArray()[0].getCount()
-		// &&  inputInventory.getInvStack(0).getTag() != target.getStackArray()[0].getTag()) {
-		// return true;
-		// }
-		for (int i = 0; i < inputInventory.getInvSize(); ++i) {
-			if (!inputInventory.getInvStack(i).isEmpty()) {
-				return false;
+	public boolean isMatch(InfusionInventory infusionInventory) {
+		if (infusionInventory.target == null) {
+			return false;
+		}
+		if (infusionInventory.target.getItem() != target.getStackArray()[0].getItem()
+		||  infusionInventory.target.getCount() != target.getStackArray()[0].getCount()
+		||  infusionInventory.target.getTag() != target.getStackArray()[0].getTag()) {
+			return false;
+		}
+		for (int i = 0; i < infusionInventory.input.length; ++i) {
+			if (!infusionInventory.input[i].isEmpty()) {
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean matches(Inventory inputInventory, World inputWorld) {
-		if (!isEmpty(inputInventory)) {
+		InfusionInventory infusionInventory = (InfusionInventory) inputInventory;
+		if (isMatch(infusionInventory)) {
 			List<ItemStack> treeA = new ArrayList<>();
 			List<ItemStack> treeB = new ArrayList<>();
 
 			treeA.addAll(Arrays.asList(input.getStackArray()));
-			treeA.add(target.getStackArray()[0]);
 
-			for (int i = 0; i < inputInventory.getInvSize() - 1; ++i) {
-				if (!inputInventory.getInvStack(i).isEmpty()) {
-					treeB.add(inputInventory.getInvStack(i));
+			for (int i = 0; i < infusionInventory.input.length; ++i) {
+				if (!infusionInventory.input[i].isEmpty()) {
+					treeB.add(infusionInventory.input[i]);
 				}
 			}
 
