@@ -20,9 +20,9 @@ import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
- * Implement Beheading and Lifesteal.
+ * Implement Beheading and Lifesteal, along with letting golden candy corn take durability when eaten instead of having it stack shrunken.
  *
- * @author vini2003
+ * @author vini2003, B0undarybreaker
  */
 
 @Mixin(LivingEntity.class)

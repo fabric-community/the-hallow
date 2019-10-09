@@ -22,7 +22,7 @@ public class GoldenCandyCornItem extends CandyItem {
 	@Override
 	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
 		if (user instanceof PlayerEntity) {
-			PlayerEntity player = (PlayerEntity)user;
+			PlayerEntity player = (PlayerEntity) user;
 			stack.getOrCreateTag().putBoolean("Eating", true);
 			player.getItemCooldownManager().set(this, 40);
 		}
