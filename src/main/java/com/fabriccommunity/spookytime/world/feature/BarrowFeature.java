@@ -1,5 +1,7 @@
 package com.fabriccommunity.spookytime.world.feature;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.util.noise.OctaveOpenSimplexNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -14,15 +16,13 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
 
-import com.fabriccommunity.spookytime.util.noise.OctaveOpenSimplexNoise;
-
 import java.util.Random;
 
 public class BarrowFeature extends Feature<DefaultFeatureConfig> {
 	
 	private static final OctaveOpenSimplexNoise offsetNoise = new OctaveOpenSimplexNoise(new Random(0), 2, 30D, 4D, 2D);
 	
-	private static final BlockState STONE = Blocks.STONE.getDefaultState();
+	private static final BlockState STONE = SpookyBlocks.TAINTED_STONE.getDefaultState();
 	private static final BlockState AIR = Blocks.AIR.getDefaultState();
 	
 	public BarrowFeature() {
