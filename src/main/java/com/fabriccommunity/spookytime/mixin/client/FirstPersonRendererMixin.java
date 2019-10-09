@@ -22,7 +22,7 @@ public class FirstPersonRendererMixin {
 	@At(value = "INVOKE", target = "Lnet/minecraft/client/render/FirstPersonRenderer;rotate(FF)V"))
 	private boolean dontRenderOffHandItem(boolean prevBool) {
 		AbstractClientPlayerEntity player = this.client.player;
-		if(player.getMainHandStack().getItem() instanceof ClubItem) {
+		if (player.getMainHandStack().getItem() instanceof ClubItem) {
 			return false;
 		}
 		return prevBool;

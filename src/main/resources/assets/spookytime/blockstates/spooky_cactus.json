@@ -1,5 +1,5 @@
 {
-    "variants": {
-        "": { "model": "spookytime:block/spooky_cactus" }
-    }
+	"variants": {
+		"": {"model": "spookytime:block/spooky_cactus"}
+	}
 }
