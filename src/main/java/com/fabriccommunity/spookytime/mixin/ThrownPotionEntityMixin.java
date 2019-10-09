@@ -31,7 +31,7 @@ import java.util.List;
 @Mixin(ThrownPotionEntity.class)
 public class ThrownPotionEntityMixin {
 	@Inject(method = "doesWaterHurt", at = @At("RETURN"), cancellable = true)
-	private static void doesWaterHurt(LivingEntity livingEntity_1, CallbackInfoReturnable<Boolean> info) {
-		info.setReturnValue(info.getReturnValue() || livingEntity_1 instanceof WitchEntity);
+	private static void doesWaterHurt(LivingEntity entity, CallbackInfoReturnable<Boolean> info) {
+		info.setReturnValue(info.getReturnValue() || entity instanceof WitchEntity);
 	}
 }
