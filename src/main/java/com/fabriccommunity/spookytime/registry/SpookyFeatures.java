@@ -49,7 +49,7 @@ public class SpookyFeatures {
 		return Registry.register(Registry.FEATURE, SpookyTime.id(name), feature);
 	}
 
-	private static <C extends SurfaceConfig, F extends SurfaceBuilder<C>> F register(String string_1, F surfaceBuilder_1) {
-		return Registry.register(Registry.SURFACE_BUILDER, string_1, surfaceBuilder_1);
+	private static <C extends SurfaceConfig, F extends SurfaceBuilder<C>> F register(String name, F surfaceBuilder) {
+		return Registry.register(Registry.SURFACE_BUILDER, SpookyTime.id(name), surfaceBuilder);
 	}
 }
