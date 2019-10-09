@@ -6,6 +6,8 @@
 		"AbstractTreeFeatureMixin",
 		"AbstractSkeletonEntityMixin",
 		"AnvilBlockMixin",
+		"CarvedPumpkinBlockMixin",
+		"SnowGolemEntityMixin",
 		"MobEntityMixin",
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
@@ -13,12 +15,14 @@
 		"SkeletonEntityMixin",
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"CarvedPumpkinBlockAccessor"
 	],
 	"client": [
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
-		"client.MinecraftClientMixin"
+		"client.MinecraftClientMixin",
+		"client.SnowmanPumpkinFeatureRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

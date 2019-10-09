@@ -1,0 +1,7 @@
+{
+    "parent": "block/pumpkin",
+    "textures": {
+        "end": "spookytime:block/red_pumpkin_top",
+        "side": "spookytime:block/red_pumpkin_side"
+    }
+}

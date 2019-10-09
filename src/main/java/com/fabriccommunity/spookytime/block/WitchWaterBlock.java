@@ -41,7 +41,7 @@ public class WitchWaterBlock extends CraftingFluidBlock {
 		addRecipe(SpookyBlocks.SMOOTH_TAINTED_SANDSTONE_SLAB, Items.SMOOTH_SANDSTONE_SLAB, Items.SMOOTH_RED_SANDSTONE_SLAB);
 		addRecipe(SpookyBlocks.CUT_TAINTED_SANDSTONE_SLAB, Items.CUT_SANDSTONE_SLAB, Items.CUT_RED_SANDSTONE_SLAB);
 		addRecipe(SpookyBlocks.TAINTED_SANDSTONE_WALL, Items.SANDSTONE_WALL, Items.RED_SANDSTONE_WALL);
-		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.TINY_PUMPKIN);
+		addRecipe(SpookyBlocks.TINY_WITCHED_PUMPKIN, SpookyBlocks.TINY_PUMPKIN);
 	}
 	
 	@Override

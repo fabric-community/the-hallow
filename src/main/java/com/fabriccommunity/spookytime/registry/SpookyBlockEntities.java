@@ -16,7 +16,7 @@ public class SpookyBlockEntities {
 		"tiny_pumpkin",
 		TinyPumpkinBlockEntity::new,
 		SpookyBlocks.TINY_PUMPKIN,
-		SpookyBlocks.WITCHED_PUMPKIN
+		SpookyBlocks.TINY_WITCHED_PUMPKIN
 	);
 	
 	public static final BlockEntityType<SpookyTreasureChestBlockEntity> SPOOKY_TREASURE_CHEST_BE = register(
