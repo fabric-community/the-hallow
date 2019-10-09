@@ -1,6 +1,6 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "spookytime:item/stone_spiked_club"
+		"layer0": "spookytime:item/stone_club"
 	}
 }
