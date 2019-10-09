@@ -8,14 +8,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -33,7 +31,7 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 		for (Direction direction : HorizontalFacingBlock.FACING.getValues()) {
 			BlockPos offsetPos = blockPos.offset(direction, 3);
 			if (world.getBlockState(offsetPos).getBlock() == SpookyBlocks.INFUSION_ALTAR_BLOCK) {
-				InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity)world.getBlockEntity(offsetPos);
+				InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity) world.getBlockEntity(offsetPos);
 				if (altarEntity != null) {
 					return altarEntity;
 				}
@@ -49,7 +47,7 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
-		InfusionPillarBlockEntity pillarEntity = (InfusionPillarBlockEntity)world.getBlockEntity(blockPos);
+		InfusionPillarBlockEntity pillarEntity = (InfusionPillarBlockEntity) world.getBlockEntity(blockPos);
 		if (pillarEntity != null) {
 			if (playerEntity.getStackInHand(hand).isEmpty()) {
 				playerEntity.inventory.insertStack(pillarEntity.takeStack());

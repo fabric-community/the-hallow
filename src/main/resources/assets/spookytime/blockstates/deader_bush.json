@@ -1,7 +1,9 @@
 {
-    "variants": {
-        "": [
-            { "model": "spookytime:block/deader_bush" }
-        ]
-    }
+	"variants": {
+		"": [
+			{
+				"model": "spookytime:block/deader_bush"
+			}
+		]
+	}
 }

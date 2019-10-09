@@ -1,17 +1,10 @@
 package com.fabriccommunity.spookytime.registry;
 
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.block.*;
 import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
-import net.minecraft.block.OreBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -58,23 +51,23 @@ public class SpookyBlocks {
 	private SpookyBlocks() {
 		// NO-OP
 	}
-	
+
 	public static void init() {
 		// NO-OP
 	}
-	
+
 	static <T extends Block> T register(String name, T block, Item.Settings settings) {
 		return register(name, block, new BlockItem(block, settings));
 	}
-	
+
 	static <T extends Block> T register(String name, T block) {
 		return register(name, block, new Item.Settings().group(SpookyTime.GROUP));
 	}
-	
+
 	static <T extends Block> T register(String name, T block, Function<T, BlockItem> itemFactory) {
 		return register(name, block, itemFactory.apply(block));
 	}
-	
+
 	static <T extends Block> T register(String name, T block, BlockItem item) {
 		T b = Registry.register(Registry.BLOCK, SpookyTime.id(name), block);
 		if (item != null) {

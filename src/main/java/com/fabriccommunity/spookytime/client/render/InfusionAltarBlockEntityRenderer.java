@@ -1,20 +1,13 @@
 package com.fabriccommunity.spookytime.client.render;
 
-import com.fabriccommunity.spookytime.block.InfusionAltarBlock;
 import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
-import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
-import net.minecraft.entity.ItemEntity;
 
 @Environment(EnvType.CLIENT)
 public class InfusionAltarBlockEntityRenderer extends BlockEntityRenderer<InfusionAltarBlockEntity> {
@@ -24,7 +17,7 @@ public class InfusionAltarBlockEntityRenderer extends BlockEntityRenderer<Infusi
 
 	private long nanosA = 0;
 	private long nanosB = 0;
-	
+
 	@Override
 	public void render(InfusionAltarBlockEntity altar, double x, double y, double z, float delta, int breakingStage) {
 		ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();

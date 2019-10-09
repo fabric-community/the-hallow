@@ -1,8 +1,19 @@
 {
 	"variants": {
-		"facing=north": { "model": "spookytime:block/spooky_treasure_chest" },
-		"facing=south": { "model": "spookytime:block/spooky_treasure_chest", "y": 180 },
-		"facing=west":  { "model": "spookytime:block/spooky_treasure_chest", "y": 270 },
-		"facing=east":  { "model": "spookytime:block/spooky_treasure_chest", "y": 90 }
+		"facing=north": {
+			"model": "spookytime:block/spooky_treasure_chest"
+		},
+		"facing=south": {
+			"model": "spookytime:block/spooky_treasure_chest",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "spookytime:block/spooky_treasure_chest",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "spookytime:block/spooky_treasure_chest",
+			"y": 90
+		}
 	}
 }

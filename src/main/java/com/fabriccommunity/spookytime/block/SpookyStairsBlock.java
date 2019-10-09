@@ -8,7 +8,7 @@ public class SpookyStairsBlock extends StairsBlock {
 	public SpookyStairsBlock(BlockState base, Settings settings) {
 		super(base, settings);
 	}
-	
+
 	public SpookyStairsBlock(Block base, Settings settings) {
 		this(base.getDefaultState(), settings);
 	}

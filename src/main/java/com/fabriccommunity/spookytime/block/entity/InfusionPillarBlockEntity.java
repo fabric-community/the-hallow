@@ -11,19 +11,19 @@ public class InfusionPillarBlockEntity extends BlockEntity {
 		super(SpookyBlockEntities.INFUSION_PILLAR_BLOCK_ENTITY);
 	}
 
-	public ItemStack putStack(ItemStack itemStack) {
-		if (storedStack == null && itemStack.getCount() >= 1) {
-			storedStack = new ItemStack(itemStack.getItem(), 1);
-			itemStack.decrement(1);
+	public ItemStack putStack(ItemStack insertStack) {
+		if (storedStack == null && insertStack.getCount() >= 1) {
+			storedStack = new ItemStack(insertStack.getItem(), 1);
+			insertStack.decrement(1);
 		}
-		return itemStack;
+		return insertStack;
 	}
 
 	public ItemStack takeStack() {
 		if (storedStack != null) {
-			ItemStack returnStack = storedStack.copy();
+			ItemStack takeStack = storedStack.copy();
 			storedStack = null;
-			return returnStack;
+			return takeStack;
 		} else {
 			return ItemStack.EMPTY;
 		}

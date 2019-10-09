@@ -12,7 +12,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
@@ -38,7 +37,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	public List<ItemStack> getPillarStacks(InfusionAltarBlockEntity altarEntity) {
-		List<ItemStack> pillarStacks = new ArrayList<>();
+		List<ItemStack> pillarStacks = new ArrayList<ItemStack>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
 			if (entity.storedStack != null) {
 				pillarStacks.add(entity.storedStack.copy());
@@ -59,11 +58,11 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	public void getLinkedPillars(InfusionAltarBlockEntity altarEntity) {
-		Map<BlockPos, InfusionPillarBlockEntity> pillars = new HashMap<>();
+		Map<BlockPos, InfusionPillarBlockEntity> pillars = new HashMap<BlockPos, InfusionPillarBlockEntity>();
 		for (Direction direction : HorizontalFacingBlock.FACING.getValues()) {
 			BlockPos offsetPos = altarEntity.getPos().offset(direction, 3);
 			if (altarEntity.getWorld().getBlockState(offsetPos).getBlock() == SpookyBlocks.INFUSION_PILLAR_BLOCK) {
-				InfusionPillarBlockEntity pillarEntity = (InfusionPillarBlockEntity)altarEntity.getWorld().getBlockEntity(offsetPos);
+				InfusionPillarBlockEntity pillarEntity = (InfusionPillarBlockEntity) altarEntity.getWorld().getBlockEntity(offsetPos);
 				if (pillarEntity != null) {
 					pillars.put(offsetPos, pillarEntity);
 				}
@@ -73,7 +72,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	public void getCombinedInventory(InfusionAltarBlockEntity altarEntity) {
-		List<ItemStack> input = new ArrayList<>();
+		List<ItemStack> input = new ArrayList<ItemStack>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
 			if (entity.storedStack != null) {
 				input.add(entity.storedStack.copy());

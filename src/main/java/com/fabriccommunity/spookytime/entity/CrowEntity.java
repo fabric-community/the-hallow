@@ -1,16 +1,16 @@
 package com.fabriccommunity.spookytime.entity;
 
+import com.fabriccommunity.spookytime.entity.goal.EatBreadcrumbsGoal;
+import com.fabriccommunity.spookytime.entity.goal.TemptBirdGoal;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookySounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Bird;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.control.ParrotMoveControl;
-import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.FlyAroundGoal;
-import net.minecraft.entity.ai.goal.FollowMobGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.BirdNavigation;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -27,11 +27,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import com.fabriccommunity.spookytime.entity.goal.EatBreadcrumbsGoal;
-import com.fabriccommunity.spookytime.entity.goal.TemptBirdGoal;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookySounds;
-
 import javax.annotation.Nullable;
 
 public class CrowEntity extends AnimalEntity implements Bird {
@@ -40,12 +35,12 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	public float f3;
 	public float f4;
 	public float f5 = 1.0F;
-	
+
 	public CrowEntity(EntityType<? extends CrowEntity> entityType, World world) {
 		super(entityType, world);
 		this.moveControl = new ParrotMoveControl(this);
 	}
-	
+
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.25D));
@@ -56,7 +51,7 @@ public class CrowEntity extends AnimalEntity implements Bird {
 		this.goalSelector.add(2, new FlyAroundGoal(this, 1.0D));
 		this.goalSelector.add(3, new FollowMobGoal(this, 1.0D, 3.0F, 7.0F));
 	}
-	
+
 	@Override
 	protected void initAttributes() {
 		super.initAttributes();
@@ -65,7 +60,7 @@ public class CrowEntity extends AnimalEntity implements Bird {
 		this.getAttributeInstance(EntityAttributes.FLYING_SPEED).setBaseValue(0.4000000059604645D);
 		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.20000000298023224D);
 	}
-	
+
 	@Override
 	protected EntityNavigation createNavigation(World world) {
 		BirdNavigation birdNavigation = new BirdNavigation(this, world);
@@ -74,42 +69,42 @@ public class CrowEntity extends AnimalEntity implements Bird {
 		birdNavigation.setCanEnterOpenDoors(true);
 		return birdNavigation;
 	}
-	
+
 	@Override
 	protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
 		return dimensions.height * 0.6F;
 	}
-	
+
 	@Override
 	public boolean isBreedingItem(ItemStack stack) {
 		return false;
 	}
-	
+
 	@Override
 	public void handleFallDamage(float fallDistance, float damageModifier) {
 	}
-	
+
 	@Override
 	protected void fall(double yVec, boolean onGround, BlockState state, BlockPos pos) {
 	}
-	
+
 	@Override
 	public boolean canBreedWith(AnimalEntity animal) {
 		return false;
 	}
-	
+
 	@Nullable
 	@Override
 	public PassiveEntity createChild(PassiveEntity entity) {
 		return null;
 	}
-	
+
 	@Override
 	public void tickMovement() {
 		super.tickMovement();
 		this.flapWingsIThink();
 	}
-	
+
 	private void flapWingsIThink() {
 		this.f4 = this.f1;
 		this.f3 = this.f2;
@@ -118,37 +113,37 @@ public class CrowEntity extends AnimalEntity implements Bird {
 		if (!this.onGround && this.f5 < 1.0F) {
 			this.f5 = 1.0F;
 		}
-		
+
 		this.f5 = (float) ((double) this.f5 * 0.9D);
 		Vec3d vec3d_1 = this.getVelocity();
 		if (!this.onGround && vec3d_1.y < 0.0D) {
 			this.setVelocity(vec3d_1.multiply(1.0D, 0.6D, 1.0D));
 		}
-		
+
 		this.f1 += this.f5 * 2.0F;
 	}
-	
+
 	@Override
 	protected float calculateAerialStepDelta(float distanceWalked) {
 		this.playSound(SoundEvents.ENTITY_PARROT_FLY, 0.15F, 1.0F);
 		return distanceWalked + this.f2 / 2.0F;
 	}
-	
+
 	@Override
 	public SoundEvent getAmbientSound() {
 		return SpookySounds.CROW_AMBIENT;
 	}
-	
+
 	@Override
 	public SoundCategory getSoundCategory() {
 		return SoundCategory.NEUTRAL;
 	}
-	
+
 	@Override
 	protected boolean method_5776() {
 		return true;
 	}
-	
+
 	public boolean isInAir() {
 		return !this.onGround;
 	}

@@ -11,31 +11,16 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class InfusionRecipe implements Recipe<Inventory> {
-	public static class Type implements RecipeType<InfusionRecipe> {
-		private Type() {
-			// NO-OP
-		}
-		public static final Type INSTANCE = new Type();
-
-		public static final String ID = "infusion";
-	}
-
-	class InfusionRecipeFormat {
-		JsonArray target;
-		JsonArray input;
-		JsonArray output;
-	}
-
-	public static final InfusionRecipe EMPTY = new InfusionRecipe(null, null, null, null);
-
 	Identifier id;
 	Ingredient target;
 	Ingredient input;
 	ItemStack output;
-
 
 	public InfusionRecipe(Identifier id, Ingredient target, Ingredient input, Ingredient output) {
 		this.id = id;
@@ -49,8 +34,8 @@ public class InfusionRecipe implements Recipe<Inventory> {
 			return false;
 		}
 		if (infusionInventory.target.getItem() != target.getStackArray()[0].getItem()
-		||  infusionInventory.target.getCount() != target.getStackArray()[0].getCount()
-		||  infusionInventory.target.getTag() != target.getStackArray()[0].getTag()) {
+			|| infusionInventory.target.getCount() != target.getStackArray()[0].getCount()
+			|| infusionInventory.target.getTag() != target.getStackArray()[0].getTag()) {
 			return false;
 		}
 		for (int i = 0; i < infusionInventory.input.length; ++i) {
@@ -65,8 +50,8 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	public boolean matches(Inventory inputInventory, World inputWorld) {
 		InfusionInventory infusionInventory = (InfusionInventory) inputInventory;
 		if (isMatch(infusionInventory)) {
-			List<ItemStack> treeA = new ArrayList<>();
-			List<ItemStack> treeB = new ArrayList<>();
+			List<ItemStack> treeA = new ArrayList<ItemStack>();
+			List<ItemStack> treeB = new ArrayList<ItemStack>();
 
 			treeA.addAll(Arrays.asList(input.getStackArray()));
 
@@ -147,5 +132,20 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	@Override
 	public RecipeType<?> getType() {
 		return Type.INSTANCE;
+	}
+
+	public static class Type implements RecipeType<InfusionRecipe> {
+		public static final Type INSTANCE = new Type();
+		public static final String ID = "infusion";
+
+		private Type() {
+			// NO-OP
+		}
+	}
+
+	class InfusionRecipeFormat {
+		JsonArray target;
+		JsonArray input;
+		JsonArray output;
 	}
 }

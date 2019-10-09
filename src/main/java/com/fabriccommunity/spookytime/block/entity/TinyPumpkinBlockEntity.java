@@ -1,7 +1,7 @@
 package com.fabriccommunity.spookytime.block.entity;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
-
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,8 +13,6 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Direction;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
-
 import javax.annotation.Nonnull;
 
 public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
@@ -22,18 +20,18 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 	private ItemStack leftItem = ItemStack.EMPTY;
 	@Nonnull
 	private ItemStack rightItem = ItemStack.EMPTY;
-	
+
 	public TinyPumpkinBlockEntity() {
 		super(SpookyBlockEntities.TINY_PUMPKIN);
 	}
-	
+
 	public boolean use(PlayerEntity player, Hand hand, BlockHitResult hit) {
 		Direction facing = getCachedState().get(HorizontalFacingBlock.FACING);
 		Direction hitSide = hit.getSide();
 		if (hitSide != facing.rotateYClockwise() && hitSide != facing.rotateYCounterclockwise()) {
 			return false;
 		}
-		
+
 		if (!world.isClient) {
 			ItemStack handStack = player.getStackInHand(hand);
 			boolean isLeft = hitSide == facing.rotateYCounterclockwise();
@@ -60,31 +58,31 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 				markDirty();
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	@Nonnull
 	public ItemStack getLeftItem() {
 		return leftItem;
 	}
-	
+
 	@Nonnull
 	public ItemStack getRightItem() {
 		return rightItem;
 	}
-	
+
 	public DefaultedList<ItemStack> getAllItems() {
 		return DefaultedList.copyOf(ItemStack.EMPTY, leftItem, rightItem);
 	}
-	
+
 	@Override
 	public void fromTag(CompoundTag tag) {
 		super.fromTag(tag);
 		leftItem = ItemStack.fromTag(tag.getCompound("Left"));
 		rightItem = ItemStack.fromTag(tag.getCompound("Right"));
 	}
-	
+
 	@Override
 	public CompoundTag toTag(CompoundTag t) {
 		CompoundTag tag = super.toTag(t);
@@ -92,13 +90,13 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 		tag.put("Right", rightItem.toTag(new CompoundTag()));
 		return tag;
 	}
-	
+
 	@Override
 	public void fromClientTag(CompoundTag tag) {
 		leftItem = ItemStack.fromTag(tag.getCompound("Left"));
 		rightItem = ItemStack.fromTag(tag.getCompound("Right"));
 	}
-	
+
 	@Override
 	public CompoundTag toClientTag(CompoundTag tag) {
 		tag.put("Left", leftItem.toTag(new CompoundTag()));

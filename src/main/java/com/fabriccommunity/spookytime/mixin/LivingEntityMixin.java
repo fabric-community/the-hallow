@@ -1,19 +1,17 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
+import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
+import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.GameRules;
-
-import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
-import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  * Implement Beheading and Lifesteal.
@@ -42,7 +40,7 @@ public abstract class LivingEntityMixin {
 			}
 		}
 	}
-	
+
 	@Inject(method = "applyDamage", at = @At("RETURN"))
 	public void applyDamage(DamageSource damageSource, float damage, CallbackInfo info) {
 		LivingEntity attacked = (LivingEntity) (Object) this;

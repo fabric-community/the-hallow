@@ -1,18 +1,13 @@
 package com.fabriccommunity.spookytime.client.render;
 
 import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
-import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
-import net.minecraft.entity.ItemEntity;
 
 @Environment(EnvType.CLIENT)
 public class InfusionPillarBlockEntityRenderer extends BlockEntityRenderer<InfusionPillarBlockEntity> {

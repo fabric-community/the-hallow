@@ -1,7 +1,10 @@
 package com.fabriccommunity.spookytime.recipe;
 
 import com.google.common.collect.Iterables;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
@@ -14,13 +17,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InfusionRecipeSerializer implements RecipeSerializer<InfusionRecipe> {
+	public static final InfusionRecipeSerializer INSTANCE = new InfusionRecipeSerializer();
+	public static final Identifier ID = new Identifier("spookytime:infusion");
+
 	private InfusionRecipeSerializer() {
 		// NO-OP
 	}
 
-	public static final InfusionRecipeSerializer INSTANCE = new InfusionRecipeSerializer();
-
-	public static final Identifier ID = new Identifier("spookytime:infusion");
+	public static Ingredient fromJson(@Nullable JsonElement jsonElement) {
+		List<ItemStack> arrayStacks = new ArrayList<ItemStack>();
+		JsonArray jsonArray = jsonElement.getAsJsonArray();
+		jsonArray.forEach((element) -> {
+			JsonObject inputObject = element.getAsJsonObject();
+			if (inputObject.size() == 1) {
+				arrayStacks.add(new ItemStack(Registry.ITEM.getOrEmpty(new Identifier(inputObject.get("item").getAsString())).get()));
+			} else {
+				arrayStacks.add(new ItemStack(Registry.ITEM.getOrEmpty(new Identifier(inputObject.get("item").getAsString())).get(), inputObject.get("count").getAsInt()));
+			}
+		});
+		return Ingredient.ofStacks(Iterables.toArray(arrayStacks, ItemStack.class));
+	}
 
 	@Override
 	public InfusionRecipe read(Identifier ID, JsonObject json) {
@@ -38,19 +54,5 @@ public class InfusionRecipeSerializer implements RecipeSerializer<InfusionRecipe
 	@Override
 	public InfusionRecipe read(Identifier ID, PacketByteBuf buffer) {
 		return new InfusionRecipe(ID, Ingredient.fromPacket(buffer), Ingredient.fromPacket(buffer), Ingredient.fromPacket(buffer));
-	}
-
-	public static Ingredient fromJson(@Nullable JsonElement jsonElement) {
-		List<ItemStack> arrayStacks = new ArrayList<ItemStack>();
-		JsonArray jsonArray = jsonElement.getAsJsonArray();
-		jsonArray.forEach((element) -> {
-			JsonObject inputObject = element.getAsJsonObject();
-			if (inputObject.size() == 1) {
-				arrayStacks.add(new ItemStack(Registry.ITEM.getOrEmpty(new Identifier(inputObject.get("item").getAsString())).get()));
-			} else {
-				arrayStacks.add(new ItemStack(Registry.ITEM.getOrEmpty(new Identifier(inputObject.get("item").getAsString())).get(), inputObject.get("count").getAsInt()));
-			}
-		});
-		return Ingredient.ofStacks(Iterables.toArray(arrayStacks, ItemStack.class));
 	}
 }
