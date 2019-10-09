@@ -38,5 +38,6 @@ public class SpookyTime implements ModInitializer {
 		SpookyFluidTags.init();
 		SpookyTags.init();
 		SpookyNetworking.init();
+		SpookyEvents.init();
 	}
 }
