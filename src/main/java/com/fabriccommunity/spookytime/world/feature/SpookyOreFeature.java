@@ -29,8 +29,8 @@ public class SpookyOreFeature extends Feature<SpookyOreFeatureConfig> {
         double negativeX = (blockPos.getX() - MathHelper.sin(randomNumberFromZeroToPi) * dividedSize);
         double positiveZ = (blockPos.getZ() + MathHelper.cos(randomNumberFromZeroToPi) * dividedSize);
         double negativeZ = (blockPos.getZ() - MathHelper.cos(randomNumberFromZeroToPi) * dividedSize);
-        double double_5 = (blockPos.getY() + random.nextInt(3) - 2);
-        double double_6 = (blockPos.getY() + random.nextInt(3) - 2);
+        double positiveY = (blockPos.getY() + random.nextInt(3) - 2);
+        double negativeY = (blockPos.getY() + random.nextInt(3) - 2);
         int startX = blockPos.getX() - MathHelper.ceil(dividedSize) - ceilSize;
         int y = blockPos.getY() - 2 - ceilSize;
         int startZ = blockPos.getZ() - MathHelper.ceil(dividedSize) - ceilSize;
@@ -40,7 +40,7 @@ public class SpookyOreFeature extends Feature<SpookyOreFeatureConfig> {
         for(int x = startX; x <= startX + xSize; ++x) {
             for(int z = startZ; z <= startZ + xSize; ++z) {
                 if (y <= world.getTop(Type.OCEAN_FLOOR_WG, x, z)) {
-                    return this.generateVeinPart(world, random, oreFeatureConfig, positiveX, negativeX, positiveZ, negativeZ, double_5, double_6, startX, y, startZ, xSize, int_7);
+                    return this.generateVeinPart(world, random, oreFeatureConfig, positiveX, negativeX, positiveZ, negativeZ, positiveY, negativeY, startX, y, startZ, xSize, int_7);
                 }
             }
         }
@@ -55,20 +55,20 @@ public class SpookyOreFeature extends Feature<SpookyOreFeatureConfig> {
         double[] doubles_1 = new double[oreFeatureConfig.size * 4];
 
         int counter;
-        double double_12;
-        double double_13;
-        double double_14;
+        double currentX;
+        double currentY;
+        double currentZ;
         double double_15;
         for(counter = 0; counter < oreFeatureConfig.size; ++counter) {
-            float float_1 = (float)counter / (float)oreFeatureConfig.size;
-            double_12 = MathHelper.lerp((double)float_1, positiveX, negativeX);
-            double_13 = MathHelper.lerp((double)float_1, double_5, double_6);
-            double_14 = MathHelper.lerp((double)float_1, positiveZ, negativeZ);
+            float progress = (float)counter / (float)oreFeatureConfig.size;
+            currentX = MathHelper.lerp((double)progress, positiveX, negativeX);
+            currentY = MathHelper.lerp((double)progress, double_5, double_6);
+            currentZ = MathHelper.lerp((double)progress, positiveZ, negativeZ);
             double_15 = random.nextDouble() * (double)oreFeatureConfig.size / 16.0D;
-            double double_11 = ((double)(MathHelper.sin(3.1415927F * float_1) + 1.0F) * double_15 + 1.0D) / 2.0D;
-            doubles_1[counter * 4 + 0] = double_12;
-            doubles_1[counter * 4 + 1] = double_13;
-            doubles_1[counter * 4 + 2] = double_14;
+            double double_11 = ((double)(MathHelper.sin(3.1415927F * progress) + 1.0F) * double_15 + 1.0D) / 2.0D;
+            doubles_1[counter * 4 + 0] = currentX;
+            doubles_1[counter * 4 + 1] = currentY;
+            doubles_1[counter * 4 + 2] = currentZ;
             doubles_1[counter * 4 + 3] = double_11;
         }
 
@@ -76,11 +76,11 @@ public class SpookyOreFeature extends Feature<SpookyOreFeatureConfig> {
             if (doubles_1[counter * 4 + 3] > 0.0D) {
                 for(int int_9 = counter + 1; int_9 < oreFeatureConfig.size; ++int_9) {
                     if (doubles_1[int_9 * 4 + 3] > 0.0D) {
-                        double_12 = doubles_1[counter * 4 + 0] - doubles_1[int_9 * 4 + 0];
-                        double_13 = doubles_1[counter * 4 + 1] - doubles_1[int_9 * 4 + 1];
-                        double_14 = doubles_1[counter * 4 + 2] - doubles_1[int_9 * 4 + 2];
+                        currentX = doubles_1[counter * 4 + 0] - doubles_1[int_9 * 4 + 0];
+                        currentY = doubles_1[counter * 4 + 1] - doubles_1[int_9 * 4 + 1];
+                        currentZ = doubles_1[counter * 4 + 2] - doubles_1[int_9 * 4 + 2];
                         double_15 = doubles_1[counter * 4 + 3] - doubles_1[int_9 * 4 + 3];
-                        if (double_15 * double_15 > double_12 * double_12 + double_13 * double_13 + double_14 * double_14) {
+                        if (double_15 * double_15 > currentX * currentX + currentY * currentY + currentZ * currentZ) {
                             if (double_15 > 0.0D) {
                                 doubles_1[int_9 * 4 + 3] = -1.0D;
                             } else {
