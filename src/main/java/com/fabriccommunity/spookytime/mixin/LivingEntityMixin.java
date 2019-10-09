@@ -1,6 +1,9 @@
 package com.fabriccommunity.spookytime.mixin;
 
+import net.minecraft.util.Hand;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -14,6 +17,7 @@ import net.minecraft.world.GameRules;
 
 import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
 import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * Implement Beheading and Lifesteal.
@@ -23,6 +27,12 @@ import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+	@Shadow
+	public abstract void sendToolBreakStatus(Hand hand_1);
+
+	@Shadow
+	public abstract Hand getActiveHand();
+
 	@Inject(method = "drop", at = @At("HEAD"))
 	public void drop(DamageSource damageSource, CallbackInfo info) {
 		LivingEntity livingEntity = (LivingEntity) (Object) this;
@@ -54,6 +64,14 @@ public abstract class LivingEntityMixin {
 					attacker.setHealth(health);
 				}
 			}
+		}
+	}
+
+	@Inject(method = "eatFood", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;decrement(I)V"), cancellable = true)
+	public void eatFood(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> info) {
+		if (stack.isDamageable()) {
+			stack.damage(1, (LivingEntity) (Object) this, (entity) -> entity.sendToolBreakStatus(getActiveHand()));
+			info.setReturnValue(stack);
 		}
 	}
 }
