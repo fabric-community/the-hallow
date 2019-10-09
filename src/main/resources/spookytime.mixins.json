@@ -23,6 +23,7 @@
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
 		"client.SnowmanPumpkinFeatureRendererMixin"
+		"client.FirstPersonRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

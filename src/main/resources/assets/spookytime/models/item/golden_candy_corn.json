@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "spookytime:block/deader_bush"
+		"layer0": "spookytime:item/golden_candy_corn"
 	}
 }
