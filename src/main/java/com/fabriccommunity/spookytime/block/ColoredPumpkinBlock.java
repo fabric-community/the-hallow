@@ -1,11 +1,8 @@
 package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.google.common.collect.ImmutableMap;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.block.PumpkinBlock;
 import net.minecraft.entity.ItemEntity;

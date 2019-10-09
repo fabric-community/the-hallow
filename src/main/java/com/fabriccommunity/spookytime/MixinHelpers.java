@@ -50,8 +50,8 @@ public class MixinHelpers {
 		return blockState != null && 
 				(blockState.getBlock() == Blocks.CARVED_PUMPKIN || 
 				blockState.getBlock() == Blocks.JACK_O_LANTERN || 
-				blockState.getBlock() == SpookyBlocks.GREEN_STRIPED_CARVED_PUMPKIN || 
-				blockState.getBlock() == SpookyBlocks.GREEN_STRIPED_JACK_O_LANTERN || 
+				//blockState.getBlock() == SpookyBlocks.GREEN_STRIPED_CARVED_PUMPKIN || 
+				//blockState.getBlock() == SpookyBlocks.GREEN_STRIPED_JACK_O_LANTERN || 
 				blockState.getBlock() == SpookyBlocks.RED_JACK_O_LANTERN || 
 				blockState.getBlock() == SpookyBlocks.RED_CARVED_PUMPKIN || 
 				blockState.getBlock() == SpookyBlocks.TINY_PUMPKIN);

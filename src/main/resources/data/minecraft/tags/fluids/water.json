@@ -4,6 +4,8 @@
 		"spookytime:witch_water",
 		"spookytime:witch_water_flowing",
 		"spookytime:blood",
-		"spookytime:blood_flowing"
+		"spookytime:blood_flowing",
+		"minecraft:water",
+		"minecraft:flowing_water"
 	]
 }

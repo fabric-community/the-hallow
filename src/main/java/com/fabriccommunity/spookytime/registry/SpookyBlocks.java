@@ -41,6 +41,10 @@ import net.minecraft.util.registry.Registry;
 
 public class SpookyBlocks {
 	
+	// Fluids
+	public static final Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(SpookyFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
+	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(SpookyFluids.BLOOD, FabricBlockSettings.copy(Blocks.LAVA).lightLevel(0).build()), (BlockItem) null);
+	
 	// Tiny Pumpkins
 	public static final Block TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
 	public static final Block TINY_WITCHED_PUMPKIN = register("tiny_witched_pumpkin", new TinyPumpkinBlock(Block.Settings.copy(TINY_PUMPKIN)), block -> new WitchedPumpkinItem(block, new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200), 1).hunger(1).saturationModifier(0.1f).alwaysEdible().build())));
@@ -85,15 +89,11 @@ public class SpookyBlocks {
 	// Spookium
 	public static final Block SPOOKIUM_ORE = register("spookium_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));
 	public static final Block SPOOKIUM_BLOCK = register("spookium_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(SpookyTime.GROUP).rarity(Rarity.EPIC));		
-	
-	// Fluids
-	public static final Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(SpookyFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
-	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(SpookyFluids.BLOOD, FabricBlockSettings.copy(Blocks.LAVA).lightLevel(0).build()), (BlockItem) null);
-	
+		
 	// Pumpkins -- Credit to Zundrei for Textures
-	public static final Block GREEN_STRIPED_PUMPKIN = register("green_striped_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.GREEN_STRIPED), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block GREEN_STRIPED_CARVED_PUMPKIN = register("green_striped_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block GREEN_STRIPED_JACK_O_LANTERN = register("green_striped_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	//public static final Block GREEN_STRIPED_PUMPKIN = register("green_striped_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.GREEN_STRIPED), new Item.Settings().group(SpookyTime.GROUP));
+	//public static final Block GREEN_STRIPED_CARVED_PUMPKIN = register("green_striped_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	//public static final Block GREEN_STRIPED_JACK_O_LANTERN = register("green_striped_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
 	
 	public static final Block RED_PUMPKIN = register("red_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.RED), new Item.Settings().group(SpookyTime.GROUP));
 	public static final Block RED_JACK_O_LANTERN = register("red_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
@@ -131,7 +131,7 @@ public class SpookyBlocks {
 			.put(PumpkinColor.TAN, SpookyBlocks.TAN_CARVED_PUMPKIN)
 			.put(PumpkinColor.WHITE, SpookyBlocks.WHITE_CARVED_PUMPKIN)
 			.put(PumpkinColor.WITCHED, SpookyBlocks.WITCHED_CARVED_PUMPKIN)
-			.put(PumpkinColor.GREEN_STRIPED, SpookyBlocks.GREEN_STRIPED_CARVED_PUMPKIN)
+			//.put(PumpkinColor.GREEN_STRIPED, SpookyBlocks.GREEN_STRIPED_CARVED_PUMPKIN)
 			.build();
 		
 	private SpookyBlocks() {
