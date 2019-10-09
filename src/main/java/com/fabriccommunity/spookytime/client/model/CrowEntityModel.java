@@ -1,9 +1,10 @@
 package com.fabriccommunity.spookytime.client.model;
 
-import com.fabriccommunity.spookytime.entity.CrowEntity;
 import net.minecraft.client.model.Cuboid;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.util.math.MathHelper;
+
+import com.fabriccommunity.spookytime.entity.CrowEntity;
 
 public class CrowEntityModel extends EntityModel<CrowEntity> {
 	private final Cuboid body;
@@ -74,18 +75,18 @@ public class CrowEntityModel extends EntityModel<CrowEntity> {
 		cuboid.yaw = y;
 		cuboid.roll = z;
 	}
-
+	
 	@Override
 	public void setAngles(CrowEntity crow, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.setAngles(crow, f, f1, f2, f3, f4, f5);
-
+		
 		head.pitch = f4 * 0.017453292F;
 		head.yaw = f3 * 0.017453292F;
-
+		
 		if (crow.isInAir()) {
 			leftLeg.pitch = 0.55F;
 			rightLeg.pitch = 0.55F;
-
+			
 			this.leftWing.roll = 0.0873F + f2;
 			this.rightWing.roll = -0.0873F - f2;
 		} else {

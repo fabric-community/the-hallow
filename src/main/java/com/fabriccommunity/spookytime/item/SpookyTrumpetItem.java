@@ -18,9 +18,9 @@ public class SpookyTrumpetItem extends Item {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);
-
+		
 		float soundPitch = (((player.pitch - 90) * 1) / -90);
-
+		
 		if (player.isSneaking()) {
 			player.playSound(SpookySounds.MEGALADOOT, 0.8f, 1.0f);
 		} else {
