@@ -7,20 +7,30 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.Hand;
 import net.minecraft.world.GameRules;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
- * Implement Beheading and Lifesteal.
+ * Implement Beheading and Lifesteal, along with letting golden candy corn take durability when eaten instead of having it stack shrunken.
  *
- * @author vini2003
+ * @author vini2003, B0undarybreaker
  */
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+	@Shadow
+	public abstract void sendToolBreakStatus(Hand hand_1);
+
+	@Shadow
+	public abstract Hand getActiveHand();
+
 	@Inject(method = "drop", at = @At("HEAD"))
 	public void drop(DamageSource damageSource, CallbackInfo info) {
 		LivingEntity livingEntity = (LivingEntity) (Object) this;
@@ -52,6 +62,14 @@ public abstract class LivingEntityMixin {
 					attacker.setHealth(health);
 				}
 			}
+		}
+	}
+
+	@Inject(method = "eatFood", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;decrement(I)V"), cancellable = true)
+	public void eatFood(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> info) {
+		if (stack.isDamageable()) {
+			stack.damage(1, (LivingEntity) (Object) this, (entity) -> entity.sendToolBreakStatus(getActiveHand()));
+			info.setReturnValue(stack);
 		}
 	}
 }

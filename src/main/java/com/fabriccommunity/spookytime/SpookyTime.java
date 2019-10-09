@@ -7,6 +7,7 @@ import com.fabriccommunity.spookytime.registry.SpookyCommands;
 import com.fabriccommunity.spookytime.registry.SpookyDimensions;
 import com.fabriccommunity.spookytime.registry.SpookyEnchantments;
 import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyEvents;
 import com.fabriccommunity.spookytime.registry.SpookyFeatures;
 import com.fabriccommunity.spookytime.registry.SpookyFluidTags;
 import com.fabriccommunity.spookytime.registry.SpookyFluids;
@@ -52,5 +53,6 @@ public class SpookyTime implements ModInitializer {
 		SpookyFluidTags.init();
 		SpookyTags.init();
 		SpookyNetworking.init();
+		SpookyEvents.init();
 	}
 }

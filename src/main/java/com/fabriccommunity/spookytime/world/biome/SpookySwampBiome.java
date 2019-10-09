@@ -21,7 +21,6 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 // TODO
 public class SpookySwampBiome extends SpookyBaseBiome {
-
 	protected static final int GRASS_COLOR = 0x20003B;
 	protected static final int FOLIAGE_COLOR = 0x20003B;
 
@@ -35,6 +34,7 @@ public class SpookySwampBiome extends SpookyBaseBiome {
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(Feature.ORE, new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 		SpookyBiomeFeatures.addSpookySwampTrees(this);
+		SpookyBiomeFeatures.addLairs(this);
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.PUMPCOWN, 8, 4, 8));
 		this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));

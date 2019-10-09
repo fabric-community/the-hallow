@@ -34,7 +34,7 @@ public class SpookyDimensions {
 	}
 
 	public static void init() {
-
+		// NO-OP
 	}
 
 	public static float[] getLightLevels() {
