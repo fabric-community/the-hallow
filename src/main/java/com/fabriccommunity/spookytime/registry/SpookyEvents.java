@@ -1,22 +1,15 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.event.WitchTickCallback;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.attribute.EntityAttributeInstance;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.potion.Potions;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.ActionResult;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.loot.condition.RandomChanceLootCondition;
+import net.minecraft.world.loot.entry.ItemEntry;
+
+import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 
 public class SpookyEvents {
 	public static void init() {
@@ -30,5 +23,11 @@ public class SpookyEvents {
 			}
 			return ActionResult.PASS;
 		});
+
+		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, id, supplier, setter) -> {
+			if (id.equals(EntityType.WITCH.getLootTableId())) {
+				supplier.withPool(FabricLootPoolBuilder.builder().withCondition(RandomChanceLootCondition.builder(0.01f)).withEntry(ItemEntry.builder(SpookyItems.GOLDEN_CANDY_CORN)));
+			}
+		}));
 	}
 }

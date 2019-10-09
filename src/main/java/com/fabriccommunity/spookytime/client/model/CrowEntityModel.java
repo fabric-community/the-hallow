@@ -79,11 +79,16 @@ public class CrowEntityModel extends EntityModel<CrowEntity> {
 	@Override
 	public void setAngles(CrowEntity crow, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.setAngles(crow, f, f1, f2, f3, f4, f5);
+		
+		head.pitch = f4 * 0.017453292F;
+		head.yaw = f3 * 0.017453292F;
+		
 		if (crow.isInAir()) {
 			leftLeg.pitch = 0.55F;
 			rightLeg.pitch = 0.55F;
 			
-			//make wings flap here when you figure out how
+			this.leftWing.roll = 0.0873F + f2;
+			this.rightWing.roll = -0.0873F - f2;
 		} else {
 			leftLeg.pitch = -0.6109F + MathHelper.cos(f * 0.6662F) * 1.4F * f1;
 			rightLeg.pitch = -0.6109F + MathHelper.cos(f * 0.6662F + 3.1415927F) * 1.4F * f1;

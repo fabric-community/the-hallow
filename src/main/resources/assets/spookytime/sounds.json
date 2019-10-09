@@ -6,6 +6,13 @@
 		],
 		"subtitle": "subtitle.spookytime.doot"
 	},
+	"megaladoot": {
+		"category": "players",
+		"sounds": [
+			"spookytime:megaladoot"
+		],
+		"subtitle": "subtitle.spookytime.megaladoot"
+	},
 	"entity.crow.ambient": {
 		"category": "neutral",
 		"sounds": [

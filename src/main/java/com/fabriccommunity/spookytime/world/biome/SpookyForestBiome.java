@@ -22,7 +22,6 @@ import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 
 // TODO
 public class SpookyForestBiome extends SpookyBaseBiome {
-	
 	protected static final int GRASS_COLOR = 0x20003B;
 	protected static final int FOLIAGE_COLOR = 0x20003B;
 	
@@ -38,6 +37,7 @@ public class SpookyForestBiome extends SpookyBaseBiome {
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
 		SpookyBiomeFeatures.addSpookyForestTrees(this);
 		SpookyBiomeFeatures.addWells(this);
+		SpookyBiomeFeatures.addLairs(this);
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.PUMPCOWN, 8, 4, 8));
 		this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
