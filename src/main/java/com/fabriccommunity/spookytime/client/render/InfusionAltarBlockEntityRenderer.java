@@ -22,7 +22,7 @@ public class InfusionAltarBlockEntityRenderer extends BlockEntityRenderer<Infusi
 	public void render(InfusionAltarBlockEntity altar, double x, double y, double z, float delta, int breakingStage) {
 		ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
-		if (altar.storedStack != null) {
+		if (!altar.storedStack.isEmpty()) {
 			GlStateManager.pushMatrix();
 			GlStateManager.translated(x + 0.5d, y + 1.250 + Math.sin(rotation / 2) / 32, z + 0.5d);
 			GlStateManager.rotated(rotation * 2, 0, 1, 0);

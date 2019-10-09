@@ -1,0 +1,25 @@
+{
+	"type": "spookytime:infusion",
+	"target": [
+		{
+			"item": "minecraft:bowl"
+		}
+	],
+	"input": [
+		{
+			"item": "minecraft:pumpkin"
+		},
+		{
+			"item": "minecraft:carrot"
+		},
+		{
+			"item": "minecraft:baked_potato"
+		}
+	],
+	"output": [
+		{
+			"item": "spookytime:pumpkin_stew",
+			"count": 1
+		}
+	]
+}

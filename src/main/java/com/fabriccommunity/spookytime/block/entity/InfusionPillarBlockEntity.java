@@ -9,14 +9,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class InfusionPillarBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
-	public ItemStack storedStack = null;
+	public ItemStack storedStack = ItemStack.EMPTY;
 
 	public InfusionPillarBlockEntity() {
 		super(SpookyBlockEntities.INFUSION_PILLAR_BLOCK_ENTITY);
 	}
 
 	public ItemStack putStack(ItemStack insertStack) {
-		if (storedStack == null && insertStack.getCount() >= 1) {
+		if (storedStack.isEmpty() && insertStack.getCount() >= 1) {
 			storedStack = new ItemStack(insertStack.getItem(), 1);
 			insertStack.decrement(1);
 		}
@@ -24,9 +24,9 @@ public class InfusionPillarBlockEntity extends BlockEntity implements BlockEntit
 	}
 
 	public ItemStack takeStack() {
-		if (storedStack != null) {
+		if (!storedStack.isEmpty()) {
 			ItemStack takeStack = storedStack.copy();
-			storedStack = null;
+			storedStack = ItemStack.EMPTY;
 			return takeStack;
 		} else {
 			return ItemStack.EMPTY;
@@ -35,8 +35,9 @@ public class InfusionPillarBlockEntity extends BlockEntity implements BlockEntit
 
 	@Override
 	public CompoundTag toTag(CompoundTag entityTag) {
-		if (this.storedStack != null) {
-			entityTag.putString("stored_item", this.storedStack.getItem().toString());
+		super.toTag(entityTag);
+		if (!storedStack.isEmpty()) {
+			entityTag.putString("stored_item", Registry.ITEM.getId(storedStack.getItem()).toString());
 		}
 		return entityTag;
 	}
@@ -48,6 +49,7 @@ public class InfusionPillarBlockEntity extends BlockEntity implements BlockEntit
 
 	@Override
 	public void fromTag(CompoundTag entityTag) {
+		super.fromTag(entityTag);
 		if (entityTag.containsKey("stored_item")) {
 			this.storedStack = new ItemStack(Registry.ITEM.getOrEmpty(new Identifier(entityTag.getString("stored_item"))).get());
 		}

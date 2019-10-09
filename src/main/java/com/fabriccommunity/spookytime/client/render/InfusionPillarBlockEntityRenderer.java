@@ -22,7 +22,7 @@ public class InfusionPillarBlockEntityRenderer extends BlockEntityRenderer<Infus
 	public void render(InfusionPillarBlockEntity pillar, double x, double y, double z, float delta, int breakingStage) {
 		ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
-		if (pillar.storedStack != null) {
+		if (!pillar.storedStack.isEmpty()) {
 			GlStateManager.pushMatrix();
 			GlStateManager.translated(x + 0.5d, y + 1.1 + Math.sin(rotation) / 32, z + 0.5d);
 			GlStateManager.rotated(rotation * 2, 0, 1, 0);

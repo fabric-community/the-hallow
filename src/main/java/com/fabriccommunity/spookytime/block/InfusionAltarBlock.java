@@ -48,7 +48,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	public List<ItemStack> getPillarStacks(InfusionAltarBlockEntity altarEntity) {
 		List<ItemStack> pillarStacks = new ArrayList<ItemStack>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
-			if (entity.storedStack != null) {
+			if (!entity.storedStack.isEmpty()) {
 				pillarStacks.add(entity.storedStack.copy());
 			}
 		});
@@ -56,13 +56,13 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	public void clearAllStacks(InfusionAltarBlockEntity altarEntity) {
-		altarEntity.storedStack = null;
+		altarEntity.storedStack = ItemStack.EMPTY;
 		clearPillarStacks(altarEntity);
 	}
 
 	public void clearPillarStacks(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
-			entity.storedStack = null;
+			entity.storedStack = ItemStack.EMPTY;
 		});
 	}
 
@@ -83,7 +83,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	public void getCombinedInventory(InfusionAltarBlockEntity altarEntity) {
 		List<ItemStack> input = new ArrayList<ItemStack>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
-			if (entity.storedStack != null) {
+			if (!entity.storedStack.isEmpty()) {
 				input.add(entity.storedStack.copy());
 			}
 		});
@@ -122,14 +122,13 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 						createParticles(altarEntity);
 						createSound(altarEntity);
 					}
-					if (altarEntity.storedStack != null) {
+					if (!altarEntity.storedStack.isEmpty()) {
 						createDrop(altarEntity, recipe.get().getOutput());
 						clearAllStacks(altarEntity);
 					} else {
 						altarEntity.storedStack = recipe.get().getOutput().copy();
 						clearPillarStacks(altarEntity);
 					}
-
 				}
 			}
 		} else {
