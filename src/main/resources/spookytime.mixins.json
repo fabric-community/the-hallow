@@ -22,7 +22,7 @@
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
-		"client.SnowmanPumpkinFeatureRendererMixin"
+		"client.SnowmanPumpkinFeatureRendererMixin",
 		"client.FirstPersonRendererMixin"
 	],
 	"injectors": {

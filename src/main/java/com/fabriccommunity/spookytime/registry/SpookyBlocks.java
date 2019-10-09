@@ -7,8 +7,8 @@ import com.fabriccommunity.spookytime.block.BloodBlock;
 import com.fabriccommunity.spookytime.block.BreadCrumbsBlock;
 import com.fabriccommunity.spookytime.block.DeaderBushBlock;
 import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
-import com.fabriccommunity.spookytime.block.MulticolorCarvedPumpkinBlock;
-import com.fabriccommunity.spookytime.block.MulticolorPumpkinBlock;
+import com.fabriccommunity.spookytime.block.ColoredCarvedPumpkinBlock;
+import com.fabriccommunity.spookytime.block.ColoredPumpkinBlock;
 import com.fabriccommunity.spookytime.block.SpookyCactusBlock;
 import com.fabriccommunity.spookytime.block.SpookyStairsBlock;
 import com.fabriccommunity.spookytime.block.SpookyTreasureChestBlock;
@@ -16,7 +16,7 @@ import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
 import com.fabriccommunity.spookytime.block.WitchWaterBlock;
-import com.fabriccommunity.spookytime.block.MulticolorPumpkinBlock.PumpkinColor;
+import com.fabriccommunity.spookytime.block.ColoredPumpkinBlock.PumpkinColor;
 import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
 import com.google.common.collect.ImmutableMap;
 
@@ -91,33 +91,33 @@ public class SpookyBlocks {
 	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(SpookyFluids.BLOOD, FabricBlockSettings.copy(Blocks.LAVA).lightLevel(0).build()), (BlockItem) null);
 	
 	// Pumpkins -- Credit to Zundrei for Textures
-	public static final Block GREEN_STRIPED_PUMPKIN = register("green_striped_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.GREEN_STRIPED), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block GREEN_STRIPED_CARVED_PUMPKIN = register("green_striped_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block GREEN_STRIPED_JACK_O_LANTERN = register("green_striped_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block GREEN_STRIPED_PUMPKIN = register("green_striped_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.GREEN_STRIPED), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block GREEN_STRIPED_CARVED_PUMPKIN = register("green_striped_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block GREEN_STRIPED_JACK_O_LANTERN = register("green_striped_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
 	
-	public static final Block RED_PUMPKIN = register("red_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.RED), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block RED_JACK_O_LANTERN = register("red_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block RED_CARVED_PUMPKIN = register("red_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block RED_PUMPKIN = register("red_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.RED), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block RED_JACK_O_LANTERN = register("red_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block RED_CARVED_PUMPKIN = register("red_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
 	
-	public static final Block YELLOW_PUMPKIN = register("yellow_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.YELLOW), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block YELLOW_JACK_O_LANTERN = register("yellow_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block YELLOW_CARVED_PUMPKIN = register("yellow_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block YELLOW_PUMPKIN = register("yellow_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.YELLOW), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block YELLOW_JACK_O_LANTERN = register("yellow_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block YELLOW_CARVED_PUMPKIN = register("yellow_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
 
-	public static final Block BLUE_PUMPKIN = register("blue_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.BLUE), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block BLUE_JACK_O_LANTERN = register("blue_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block BLUE_CARVED_PUMPKIN = register("blue_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block BLUE_PUMPKIN = register("blue_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.BLUE), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block BLUE_JACK_O_LANTERN = register("blue_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block BLUE_CARVED_PUMPKIN = register("blue_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
 
-	public static final Block TAN_PUMPKIN = register("tan_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.TAN), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block TAN_JACK_O_LANTERN = register("tan_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block TAN_CARVED_PUMPKIN = register("tan_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block TAN_PUMPKIN = register("tan_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.TAN), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block TAN_JACK_O_LANTERN = register("tan_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block TAN_CARVED_PUMPKIN = register("tan_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
 	
-	public static final Block WHITE_PUMPKIN = register("white_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.WHITE), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block WHITE_JACK_O_LANTERN = register("white_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block WHITE_CARVED_PUMPKIN = register("white_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block WHITE_PUMPKIN = register("white_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.WHITE), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block WHITE_JACK_O_LANTERN = register("white_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block WHITE_CARVED_PUMPKIN = register("white_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
 	
-	public static final Block WITCHED_PUMPKIN = register("witched_pumpkin", new MulticolorPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.WITCHED), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block WITCHED_JACK_O_LANTERN = register("witched_jack_o_lantern", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
-	public static final Block WITCHED_CARVED_PUMPKIN = register("witched_carved_pumpkin", new MulticolorCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block WITCHED_PUMPKIN = register("witched_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.WITCHED), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block WITCHED_JACK_O_LANTERN = register("witched_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block WITCHED_CARVED_PUMPKIN = register("witched_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build()), new Item.Settings().group(SpookyTime.GROUP));
 
 	
 	// Misc

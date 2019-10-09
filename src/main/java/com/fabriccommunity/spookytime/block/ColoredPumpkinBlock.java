@@ -21,11 +21,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class MulticolorPumpkinBlock extends PumpkinBlock {
+public class ColoredPumpkinBlock extends PumpkinBlock {
 	
 	private PumpkinColor color;
 	
-	public MulticolorPumpkinBlock(Settings blockSettings, PumpkinColor color) {
+	public ColoredPumpkinBlock(Settings blockSettings, PumpkinColor color) {
 		super(blockSettings);
 		this.color = color;
 	}
