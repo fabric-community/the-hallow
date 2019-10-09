@@ -2,7 +2,12 @@ package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderLayer;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;

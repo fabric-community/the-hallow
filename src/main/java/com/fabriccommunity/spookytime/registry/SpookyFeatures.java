@@ -1,7 +1,13 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.feature.*;
+import com.fabriccommunity.spookytime.world.feature.BarrowFeature;
+import com.fabriccommunity.spookytime.world.feature.DeaderBushFeature;
+import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
+import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
+import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
+import com.fabriccommunity.spookytime.world.feature.SpookyCactusFeature;
+import com.fabriccommunity.spookytime.world.feature.WitchWellFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;

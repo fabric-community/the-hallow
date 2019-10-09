@@ -3,7 +3,11 @@ package com.fabriccommunity.spookytime.block;
 import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderLayer;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.LivingEntity;
@@ -59,21 +63,9 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 	}
 
 	@Override
-	public void onBroken(IWorld world, BlockPos blockPos, BlockState blockState) {
-		InfusionAltarBlockEntity altarEntity = getAltar(world.getWorld(), blockPos);
-		if (altarEntity != null) {
-			altarEntity.removePillar(blockPos, (InfusionPillarBlockEntity) world.getBlockEntity(blockPos));
-		}
-		super.onBroken(world, blockPos, blockState);
-	}
-
-	@Override
-	public void onPlaced(World world, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity livingEntity, ItemStack itemStack) {
-		super.onPlaced(world, blockPos, blockState, livingEntity, itemStack);
-		InfusionAltarBlockEntity altarEntity = getAltar(world, blockPos);
-		if (altarEntity != null) {
-			altarEntity.addPillar(blockPos, (InfusionPillarBlockEntity) world.getBlockEntity(blockPos));
-		}
+	public void afterBreak(World world, PlayerEntity playerEntity, BlockPos blockPos, BlockState blockState, @Nullable BlockEntity blockEntity, ItemStack itemStack) {
+		Block.dropStack(world, blockPos, ((InfusionPillarBlockEntity) blockEntity).storedStack);
+		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
 
 	@Override

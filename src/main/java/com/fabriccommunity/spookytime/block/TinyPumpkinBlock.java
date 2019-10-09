@@ -2,7 +2,12 @@ package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.SpookyConfig;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderLayer;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;

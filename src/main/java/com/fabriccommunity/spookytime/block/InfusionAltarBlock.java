@@ -6,7 +6,11 @@ import com.fabriccommunity.spookytime.inventory.InfusionInventory;
 import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.google.common.collect.Iterables;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderLayer;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityContext;
@@ -22,10 +26,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
@@ -137,10 +146,9 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	@Override
-	public void onPlaced(World world, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity livingEntity, ItemStack itemStack) {
-		super.onPlaced(world, blockPos, blockState, livingEntity, itemStack);
-		InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity) world.getBlockEntity(blockPos);
-		getLinkedPillars(altarEntity);
+	public void afterBreak(World world, PlayerEntity playerEntity, BlockPos blockPos, BlockState blockState, @Nullable BlockEntity blockEntity, ItemStack itemStack) {
+		Block.dropStack(world, blockPos, ((InfusionAltarBlockEntity) blockEntity).storedStack);
+		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
 
 	@Override
