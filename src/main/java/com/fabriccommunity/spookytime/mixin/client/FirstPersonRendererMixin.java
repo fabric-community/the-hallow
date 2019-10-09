@@ -20,11 +20,11 @@ public class FirstPersonRendererMixin {
 	
 	@ModifyVariable(method = "renderFirstPersonItem(F)V", ordinal = 1, at =
 	@At(value = "INVOKE", target = "Lnet/minecraft/client/render/FirstPersonRenderer;rotate(FF)V"))
-	private boolean dontRenderOffHandItem(boolean bool) {
+	private boolean dontRenderOffHandItem(boolean prevBool) {
 		AbstractClientPlayerEntity player = this.client.player;
 		if(player.getMainHandStack().getItem() instanceof ClubItem) {
 			return false;
 		}
-		return bool;
+		return prevBool;
 	}
 }
