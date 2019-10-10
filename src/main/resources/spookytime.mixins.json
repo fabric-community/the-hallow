@@ -12,6 +12,8 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
+		"WitchEntityMixin",
+		"ThrownPotionEntityMixin",
 		"SkeletonEntityMixin",
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
@@ -22,8 +24,13 @@
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
+<<<<<<< HEAD
 		"client.SnowmanPumpkinFeatureRendererMixin",
 		"client.FirstPersonRendererMixin"
+=======
+		"client.FirstPersonRendererMixin",
+		"client.BackgroundRendererMixin"
+>>>>>>> 55f1f5d566d2cbc202ef5d2aaca4b843b156a181
 	],
 	"injectors": {
 		"defaultRequire": 1

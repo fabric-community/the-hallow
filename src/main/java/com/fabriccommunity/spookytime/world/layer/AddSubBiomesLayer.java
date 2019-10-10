@@ -16,7 +16,7 @@ public enum AddSubBiomesLayer implements SouthEastSamplingLayer {
 	HILLS,
 	SMALL;
 	
-	private final Map<Biome, List<ChanceBiomeEntry>> biomes = new HashMap<>();
+	private final Map<Biome, List<ChanceBiomeEntry>> biomes = new HashMap<Biome, List<ChanceBiomeEntry>>();
 	
 	private static double nextDouble(LayerRandomnessSource rand) {
 		return (double) rand.nextInt(Integer.MAX_VALUE) / (double) Integer.MAX_VALUE;
@@ -45,7 +45,7 @@ public enum AddSubBiomesLayer implements SouthEastSamplingLayer {
 	}
 	
 	public void addSubBiome(Biome parent, Biome subBiome, double chance) {
-		this.biomes.computeIfAbsent(parent, b -> new ArrayList<>()).add(new ChanceBiomeEntry(subBiome, chance));
+		this.biomes.computeIfAbsent(parent, biome -> new ArrayList<ChanceBiomeEntry>()).add(new ChanceBiomeEntry(subBiome, chance));
 	}
 	
 	static class ChanceBiomeEntry {

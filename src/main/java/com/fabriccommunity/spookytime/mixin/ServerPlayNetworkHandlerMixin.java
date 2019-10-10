@@ -102,7 +102,8 @@ public abstract class ServerPlayNetworkHandlerMixin {
 	
 	private boolean isPlayerWearingCostume(PlayerEntity player) {
 		for (int i = 0; i < 4; i++) {
-			if (SpookyTags.COSTUMES.contains(player.inventory.getArmorStack(i).getItem())) return true;
+			if (SpookyTags.COSTUMES.contains(player.inventory.getArmorStack(i).getItem()))
+				return true;
 		}
 		Inventory inv = TrinketsApi.getTrinketsInventory(player);
 		for (int i = 0; i < inv.getInvSize(); i++) {

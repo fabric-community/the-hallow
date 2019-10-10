@@ -84,10 +84,14 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 				if (world.getBlockState(getBlockPos().west()).getMaterial().isSolid()) return;
 				
 				for (int i = 0; i < getCactusHeight(); i++) {
-					if (world.getBlockState(getBlockPos().up(i).north()).getMaterial().isSolid()) return;
-					if (world.getBlockState(getBlockPos().up(i).south()).getMaterial().isSolid()) return;
-					if (world.getBlockState(getBlockPos().up(i).east()).getMaterial().isSolid()) return;
-					if (world.getBlockState(getBlockPos().up(i).west()).getMaterial().isSolid()) return;
+					if (world.getBlockState(getBlockPos().up(i).north()).getMaterial().isSolid())
+						return;
+					if (world.getBlockState(getBlockPos().up(i).south()).getMaterial().isSolid())
+						return;
+					if (world.getBlockState(getBlockPos().up(i).east()).getMaterial().isSolid())
+						return;
+					if (world.getBlockState(getBlockPos().up(i).west()).getMaterial().isSolid())
+						return;
 				}
 				
 				setVelocity(0.0F, 0.5F, 0.0F);
