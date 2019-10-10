@@ -13,7 +13,7 @@ public class ClubItem extends SwordItem {
 	public ClubItem(ToolMaterial material, int damage, float speed, Settings settings) {
 		super(material, damage, speed, settings);
 	}
-	
+
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);

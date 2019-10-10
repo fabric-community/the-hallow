@@ -18,13 +18,13 @@ import java.util.Map;
 
 public abstract class CraftingFluidBlock extends FluidBlock {
 	public final SoundEvent craftingSound;
-	public HashMap<Ingredient, ItemStack> recipes = new HashMap<>();
-	
+	public HashMap<Ingredient, ItemStack> recipes = new HashMap<Ingredient, ItemStack>();
+
 	public CraftingFluidBlock(BaseFluid fluid, Settings settings, SoundEvent craftingSound) {
 		super(fluid, settings);
 		this.craftingSound = craftingSound;
 	}
-	
+
 	@Override
 	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		super.onEntityCollision(blockState, world, pos, entity);
@@ -42,27 +42,27 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 			}
 		}
 	}
-	
+
 	public void addRecipe(ItemStack output, Ingredient input) {
 		recipes.put(input, output);
 	}
-	
+
 	public void addRecipe(ItemConvertible output, Ingredient input) {
 		recipes.put(input, new ItemStack(output));
 	}
-	
+
 	public void addRecipe(ItemStack output, ItemConvertible... inputs) {
 		addRecipe(output, Ingredient.ofItems(inputs));
 	}
-	
+
 	public void addRecipe(ItemStack output, ItemStack... inputs) {
 		addRecipe(output, Ingredient.ofStacks(inputs));
 	}
-	
+
 	public void addRecipe(ItemConvertible output, ItemConvertible... inputs) {
 		addRecipe(output, Ingredient.ofItems(inputs));
 	}
-	
+
 	public void addRecipe(ItemConvertible output, ItemStack... inputs) {
 		addRecipe(output, Ingredient.ofStacks(inputs));
 	}

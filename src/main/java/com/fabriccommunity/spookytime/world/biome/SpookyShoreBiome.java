@@ -17,18 +17,18 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 public class SpookyShoreBiome extends SpookyBaseBiome {
 	protected static final int GRASS_COLOR = 0x20003B;
 	protected static final int FOLIAGE_COLOR = 0x20003B;
-	
+
 	private static final TernarySurfaceConfig TAINTED_GRAVEL_CONFIG = new TernarySurfaceConfig(
 		SpookyBlocks.TAINTED_GRAVEL.getDefaultState(),
 		SpookyBlocks.TAINTED_GRAVEL.getDefaultState(),
 		SpookyBlocks.TAINTED_GRAVEL.getDefaultState()
 	);
-	
+
 	public SpookyShoreBiome() {
 		super(new Settings().surfaceBuilder(new ConfiguredSurfaceBuilder<TernarySurfaceConfig>(SurfaceBuilder.DEFAULT, TAINTED_GRAVEL_CONFIG)).precipitation(Precipitation.NONE).category(Category.OCEAN).depth(0.02f).scale(0.025f).temperature(0.5f).downfall(0.8f).waterColor(0x5900A3).waterFogColor(0x5900A3));
-		
+
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
-		
+
 		DefaultBiomeFeatures.addDefaultGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
@@ -42,12 +42,12 @@ public class SpookyShoreBiome extends SpookyBaseBiome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
 	}
-	
+
 	@Override
 	public int getGrassColorAt(BlockPos blockPos) {
 		return GRASS_COLOR;
 	}
-	
+
 	@Override
 	public int getFoliageColorAt(BlockPos blockPos) {
 		return FOLIAGE_COLOR;

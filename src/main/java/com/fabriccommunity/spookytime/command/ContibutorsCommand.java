@@ -1,9 +1,8 @@
 package com.fabriccommunity.spookytime.command;
 
-import net.minecraft.server.command.ServerCommandSource;
-import com.mojang.brigadier.context.CommandContext;
-
 import com.fabriccommunity.spookytime.util.Contributors;
+import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.server.command.ServerCommandSource;
 
 import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 

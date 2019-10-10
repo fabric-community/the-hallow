@@ -1,11 +1,10 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
+import com.fabriccommunity.spookytime.SpookyConfig;
+import com.fabriccommunity.spookytime.component.CandyComponent;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyTags;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.brain.task.LookTargetUtil;
 import net.minecraft.entity.mob.WitchEntity;
@@ -28,12 +27,11 @@ import net.minecraft.world.loot.LootSupplier;
 import net.minecraft.world.loot.context.LootContext;
 import net.minecraft.world.loot.context.LootContextParameters;
 import net.minecraft.world.loot.context.LootContextTypes;
-
-import com.fabriccommunity.spookytime.SpookyConfig;
-import com.fabriccommunity.spookytime.component.CandyComponent;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyTags;
-import dev.emi.trinkets.api.TrinketsApi;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Iterator;
 import java.util.List;
@@ -47,7 +45,7 @@ import java.util.List;
 public abstract class ServerPlayNetworkHandlerMixin {
 	@Shadow
 	public ServerPlayerEntity player;
-	
+
 	@Inject(at = @At("TAIL"), method = "onChatMessage")
 	public void onChatMessage(ChatMessageC2SPacket packet, CallbackInfo info) {
 		if (packet.getChatMessage().toLowerCase().contains("trick or treat")) {
@@ -99,10 +97,11 @@ public abstract class ServerPlayNetworkHandlerMixin {
 			}
 		}
 	}
-	
+
 	private boolean isPlayerWearingCostume(PlayerEntity player) {
 		for (int i = 0; i < 4; i++) {
-			if (SpookyTags.COSTUMES.contains(player.inventory.getArmorStack(i).getItem())) return true;
+			if (SpookyTags.COSTUMES.contains(player.inventory.getArmorStack(i).getItem()))
+				return true;
 		}
 		Inventory inv = TrinketsApi.getTrinketsInventory(player);
 		for (int i = 0; i < inv.getInvSize(); i++) {
