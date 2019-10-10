@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"111",
-		" 1",
+		" 1 ",
 		"323"
 	],
 	"key": {
@@ -13,7 +13,7 @@
 			"item": "spookytime:spookium_block"
 		},
 		"3": {
-			"item": "minecraft:block_concrete"
+			"item": "minecraft:black_concrete"
 		}
 	},
 	"result": {

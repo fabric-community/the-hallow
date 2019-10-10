@@ -3,6 +3,10 @@
 	"values": [
 		"spookytime:tainted_sandstone_slab",
 		"spookytime:smooth_tainted_sandstone_slab",
-		"spookytime:cut_tainted_sandstone_slab"
+		"spookytime:cut_tainted_sandstone_slab",
+		"spookytime:tainted_stone_slab",
+		"spookytime:tainted_cobblestone_slab",
+		"spookytime:smooth_tainted_stone_slab",
+		"spookytime:tainted_stone_brick_slab"
 	]
 }

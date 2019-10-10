@@ -52,3 +52,6 @@ bin/
 # fabric
 
 run/
+*.ini
+*.ini
+src/main/resources/assets/spookytime/textures/block/desktop.ini
