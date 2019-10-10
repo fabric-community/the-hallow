@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.recipe;
 
-import com.fabriccommunity.spookytime.inventory.InfusionInventory;
-import com.google.gson.JsonArray;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -11,6 +9,9 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import com.fabriccommunity.spookytime.inventory.InfusionInventory;
+
+import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -21,14 +22,14 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	Ingredient target;
 	Ingredient input;
 	ItemStack output;
-
+	
 	public InfusionRecipe(Identifier id, Ingredient target, Ingredient input, Ingredient output) {
 		this.id = id;
 		this.target = target;
 		this.input = input;
 		this.output = output != null ? output.getStackArray()[0] : null;
 	}
-
+	
 	public boolean isMatch(InfusionInventory infusionInventory) {
 		if (infusionInventory.target == null) {
 			return false;
@@ -45,32 +46,32 @@ public class InfusionRecipe implements Recipe<Inventory> {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public boolean matches(Inventory inputInventory, World inputWorld) {
 		InfusionInventory infusionInventory = (InfusionInventory) inputInventory;
 		if (isMatch(infusionInventory)) {
 			List<ItemStack> treeA = new ArrayList<ItemStack>();
 			List<ItemStack> treeB = new ArrayList<ItemStack>();
-
+			
 			treeA.addAll(Arrays.asList(input.getStackArray()));
-
+			
 			for (int i = 0; i < infusionInventory.input.length; ++i) {
 				if (!infusionInventory.input[i].isEmpty()) {
 					treeB.add(infusionInventory.input[i]);
 				}
 			}
-
+			
 			treeA.sort((stackA, stackB) -> stackA.getItem().getTranslationKey().compareTo(stackB.getTranslationKey()));
 			treeB.sort((stackA, stackB) -> stackA.getItem().getTranslationKey().compareTo(stackB.getTranslationKey()));
-
+			
 			Iterator<ItemStack> iteratorA = treeA.iterator();
 			Iterator<ItemStack> iteratorB = treeB.iterator();
-
+			
 			while (iteratorA.hasNext() && iteratorB.hasNext()) {
 				ItemStack stackA = iteratorA.next();
 				ItemStack stackB = iteratorB.next();
-
+				
 				if (stackA.getItem() != (stackB).getItem()) {
 					return false;
 				}
@@ -86,7 +87,7 @@ public class InfusionRecipe implements Recipe<Inventory> {
 			return false;
 		}
 	}
-
+	
 	@Override
 	public ItemStack craft(Inventory inputInventory) {
 		if (matches(inputInventory, null)) {
@@ -96,53 +97,53 @@ public class InfusionRecipe implements Recipe<Inventory> {
 			return ItemStack.EMPTY;
 		}
 	}
-
+	
 	@Override
 	public boolean fits(int var1, int var2) {
 		return true;
 	}
-
+	
 	@Override
 	public Identifier getId() {
 		return id;
 	}
-
+	
 	public Ingredient getTarget() {
 		return target;
 	}
-
+	
 	public Ingredient getInput() {
 		return input;
 	}
-
+	
 	public Ingredient getResult() {
 		return Ingredient.ofStacks(this.getOutput());
 	}
-
+	
 	@Override
 	public ItemStack getOutput() {
 		return output.copy();
 	}
-
+	
 	@Override
 	public RecipeSerializer<?> getSerializer() {
 		return InfusionRecipeSerializer.INSTANCE;
 	}
-
+	
 	@Override
 	public RecipeType<?> getType() {
 		return Type.INSTANCE;
 	}
-
+	
 	public static class Type implements RecipeType<InfusionRecipe> {
 		public static final Type INSTANCE = new Type();
 		public static final String ID = "infusion";
-
+		
 		private Type() {
 			// NO-OP
 		}
 	}
-
+	
 	class InfusionRecipeFormat {
 		JsonArray target;
 		JsonArray input;

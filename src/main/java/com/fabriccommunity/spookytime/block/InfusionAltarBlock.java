@@ -1,11 +1,5 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
-import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
-import com.fabriccommunity.spookytime.inventory.InfusionInventory;
-import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.google.common.collect.Iterables;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderLayer;
@@ -27,6 +21,13 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
+import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
+import com.fabriccommunity.spookytime.inventory.InfusionInventory;
+import com.fabriccommunity.spookytime.recipe.InfusionRecipe;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+
+import com.google.common.collect.Iterables;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,13 +37,13 @@ import java.util.Optional;
 
 public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
-
+	
 	private InfusionInventory combinedInventory;
-
+	
 	public InfusionAltarBlock(Block.Settings settings) {
 		super(settings);
 	}
-
+	
 	public List<ItemStack> getPillarStacks(InfusionAltarBlockEntity altarEntity) {
 		List<ItemStack> pillarStacks = new ArrayList<ItemStack>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
@@ -52,18 +53,18 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		});
 		return pillarStacks;
 	}
-
+	
 	public void clearAllStacks(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.storedStack = ItemStack.EMPTY;
 		clearPillarStacks(altarEntity);
 	}
-
+	
 	public void clearPillarStacks(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
 			entity.storedStack = ItemStack.EMPTY;
 		});
 	}
-
+	
 	public void getLinkedPillars(InfusionAltarBlockEntity altarEntity) {
 		Map<BlockPos, InfusionPillarBlockEntity> pillars = new HashMap<BlockPos, InfusionPillarBlockEntity>();
 		for (Direction direction : HorizontalFacingBlock.FACING.getValues()) {
@@ -77,7 +78,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		}
 		altarEntity.linkedPillars = pillars;
 	}
-
+	
 	public void getCombinedInventory(InfusionAltarBlockEntity altarEntity) {
 		List<ItemStack> input = new ArrayList<ItemStack>();
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
@@ -87,26 +88,26 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		});
 		combinedInventory = new InfusionInventory(altarEntity.storedStack, Iterables.toArray(input, ItemStack.class));
 	}
-
+	
 	public void createParticles(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.linkedPillars.forEach((pos, entity) -> {
 			altarEntity.getWorld().addParticle(ParticleTypes.EXPLOSION, entity.getPos().getX(), entity.getPos().getY(), entity.getPos().getZ(), 0.0D, 0.0D, 0.0D);
 		});
 	}
-
+	
 	public void createSound(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.getWorld().playSound(MinecraftClient.getInstance().player, altarEntity.getPos(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 	}
-
+	
 	public void createDrop(InfusionAltarBlockEntity alterEntity, ItemStack outputStack) {
 		Block.dropStack(alterEntity.getWorld(), alterEntity.getPos(), outputStack.copy());
 	}
-
+	
 	@Override
 	public BlockEntity createBlockEntity(BlockView world) {
 		return new InfusionAltarBlockEntity();
 	}
-
+	
 	@Override
 	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity) world.getBlockEntity(blockPos);
@@ -138,21 +139,21 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 				}
 			}
 		}
-
+		
 		return true;
 	}
-
+	
 	@Override
 	public void afterBreak(World world, PlayerEntity playerEntity, BlockPos blockPos, BlockState blockState, @Nullable BlockEntity blockEntity, ItemStack itemStack) {
 		Block.dropStack(world, blockPos, ((InfusionAltarBlockEntity) blockEntity).storedStack);
 		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
-
+	
 	@Override
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
-
+	
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPosition, EntityContext entityContext) {
 		return SHAPE;

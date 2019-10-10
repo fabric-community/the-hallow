@@ -1,8 +1,5 @@
 package com.fabriccommunity.spookytime.entity;
 
-import com.fabriccommunity.spookytime.registry.SpookyDimensions;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.StemBlock;
@@ -28,13 +25,17 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
+import com.fabriccommunity.spookytime.registry.SpookyDimensions;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
+
 public class PumpcownEntity extends CowEntity {
 	public static final BlockState STEM_FEATURE = Blocks.PUMPKIN_STEM.getDefaultState().with(StemBlock.AGE, 7);
-
+	
 	public PumpcownEntity(EntityType<? extends CowEntity> entity, World world) {
 		super(entity, world);
 	}
-
+	
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(0, new SwimGoal(this));
@@ -46,12 +47,12 @@ public class PumpcownEntity extends CowEntity {
 		this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.add(7, new LookAroundGoal(this));
 	}
-
+	
 	@Override
 	public boolean isBreedingItem(ItemStack stack) {
 		return stack.getItem() == Items.PUMPKIN_PIE;
 	}
-
+	
 	@Override
 	public boolean interactMob(PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);
@@ -59,7 +60,7 @@ public class PumpcownEntity extends CowEntity {
 			this.world.addParticle(ParticleTypes.EXPLOSION, this.x, this.y + (double) (this.getHeight() / 2.0F), this.z, 0.0D, 0.0D, 0.0D);
 			if (!this.world.isClient) {
 				this.remove();
-
+				
 				if (this.world.getDimension().getType() == SpookyDimensions.SPOOKY) {
 					this.world.createExplosion(this, this.x, this.y, this.z, 3.0F, Explosion.DestructionType.BREAK);
 				} else {
@@ -72,11 +73,11 @@ public class PumpcownEntity extends CowEntity {
 					}
 					this.world.spawnEntity(cow);
 				}
-
+				
 				for (int i = 0; i < 5; ++i) {
 					this.world.spawnEntity(new ItemEntity(this.world, this.x, this.y + (double) this.getHeight(), this.z, new ItemStack(STEM_FEATURE.getBlock())));
 				}
-
+				
 				stack.damage(1, player, ((player_1) -> {
 					player_1.sendToolBreakStatus(hand);
 				}));
@@ -86,21 +87,21 @@ public class PumpcownEntity extends CowEntity {
 		} else if (stack.getItem() == Items.BOWL && this.getBreedingAge() >= 0 && !player.abilities.creativeMode) {
 			stack.decrement(1);
 			ItemStack stew = new ItemStack(SpookyItems.PUMPKIN_STEW);
-
+			
 			if (stack.isEmpty()) {
 				player.setStackInHand(hand, stew);
 			} else if (!player.inventory.insertStack(stew)) {
 				player.dropItem(stew, false);
 			}
-
+			
 			this.playSound(SoundEvents.ENTITY_MOOSHROOM_MILK, 1.0F, 1.0F);
-
+			
 			return true;
 		} else {
 			return super.interactMob(player, hand);
 		}
 	}
-
+	
 	@Override
 	public PumpcownEntity createChild(PassiveEntity entity) {
 		return SpookyEntities.PUMPCOWN.create(this.world);

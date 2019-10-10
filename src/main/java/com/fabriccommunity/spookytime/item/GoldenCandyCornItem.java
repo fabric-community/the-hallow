@@ -18,7 +18,7 @@ public class GoldenCandyCornItem extends CandyItem {
 	public GoldenCandyCornItem(Settings settings, int hunger, float saturation) {
 		super(settings, hunger, saturation);
 	}
-
+	
 	@Override
 	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
 		if (user instanceof PlayerEntity) {
@@ -28,7 +28,7 @@ public class GoldenCandyCornItem extends CandyItem {
 		}
 		return super.finishUsing(stack, world, user);
 	}
-
+	
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if (entity instanceof PlayerEntity) {
@@ -44,12 +44,12 @@ public class GoldenCandyCornItem extends CandyItem {
 			}
 		}
 	}
-
+	
 	@Override
 	public int getMaxUseTime(ItemStack stack) {
 		return 5;
 	}
-
+	
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext ctx) {
 		tooltip.add(new TranslatableText("text.spookytime.candycorn.0").formatted(Formatting.GOLD));

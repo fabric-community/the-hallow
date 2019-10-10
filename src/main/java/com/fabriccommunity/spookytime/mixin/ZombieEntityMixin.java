@@ -1,12 +1,14 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import com.fabriccommunity.spookytime.MixinHelpers;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.item.ItemStack;
+
+import com.fabriccommunity.spookytime.MixinHelpers;
 
 /**
  * Handles zombies sometimes spawning wearing pumpkins on their heads.

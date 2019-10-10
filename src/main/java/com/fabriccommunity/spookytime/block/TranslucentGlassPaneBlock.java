@@ -7,7 +7,7 @@ public class TranslucentGlassPaneBlock extends PaneBlock {
 	public TranslucentGlassPaneBlock(Settings settings) {
 		super(settings);
 	}
-
+	
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}

@@ -16,7 +16,7 @@ public class ScytheItem extends SwordItem {
 	public ScytheItem(ToolMaterial material, int damage, float speed, Settings settings) {
 		super(material, damage, speed, settings);
 	}
-
+	
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity user) {
 		if (!target.isAlive()) {
@@ -42,7 +42,7 @@ public class ScytheItem extends SwordItem {
 		}
 		return super.postHit(stack, target, user);
 	}
-
+	
 	@Override
 	public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity user) {
 		if (state.getBlock() == Blocks.SOUL_SAND) {
