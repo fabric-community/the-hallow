@@ -52,7 +52,6 @@ bin/
 # fabric
 
 run/
-
-# OS Vendor Files
-
-.DS_Store
+*.ini
+*.ini
+src/main/resources/assets/spookytime/textures/block/desktop.ini

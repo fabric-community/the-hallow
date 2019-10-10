@@ -120,7 +120,7 @@ public class SpookyChunkGenerator extends SurfaceChunkGenerator<SpookyChunkGener
 	}
 	
 	public void spawnEntities(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals) {
-		
+	
 	}
 	
 	public int getSpawnHeight() {

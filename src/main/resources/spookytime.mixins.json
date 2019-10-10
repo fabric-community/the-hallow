@@ -21,7 +21,8 @@
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
-		"client.FirstPersonRendererMixin"
+		"client.FirstPersonRendererMixin",
+		"client.BackgroundRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

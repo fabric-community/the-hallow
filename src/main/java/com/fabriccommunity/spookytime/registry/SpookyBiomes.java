@@ -6,7 +6,18 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.biome.*;
+import com.fabriccommunity.spookytime.world.biome.GhastlyDesert;
+import com.fabriccommunity.spookytime.world.biome.HauntedMoorBiome;
+import com.fabriccommunity.spookytime.world.biome.HauntedUplandsBiome;
+import com.fabriccommunity.spookytime.world.biome.LowlandBarrowsBiome;
+import com.fabriccommunity.spookytime.world.biome.PumpkinPatchBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyBaseBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyForestBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyLowlandsBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyRiverBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookySeaBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookyShoreBiome;
+import com.fabriccommunity.spookytime.world.biome.SpookySwampBiome;
 
 public class SpookyBiomes {
 	// Spooky Forest

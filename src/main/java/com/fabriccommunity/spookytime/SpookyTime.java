@@ -7,7 +7,23 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
-import com.fabriccommunity.spookytime.registry.*;
+import com.fabriccommunity.spookytime.registry.SpookyBiomes;
+import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyCommands;
+import com.fabriccommunity.spookytime.registry.SpookyDimensions;
+import com.fabriccommunity.spookytime.registry.SpookyEnchantments;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyEvents;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.registry.SpookyFluidTags;
+import com.fabriccommunity.spookytime.registry.SpookyFluids;
+import com.fabriccommunity.spookytime.registry.SpookyInfusion;
+import com.fabriccommunity.spookytime.registry.SpookyItems;
+import com.fabriccommunity.spookytime.registry.SpookyNetworking;
+import com.fabriccommunity.spookytime.registry.SpookySounds;
+import com.fabriccommunity.spookytime.registry.SpookyTags;
+import com.fabriccommunity.spookytime.registry.SpookyWorldGen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,6 +42,7 @@ public class SpookyTime implements ModInitializer {
 		SpookyEntities.init();
 		SpookyBlocks.init();
 		SpookyItems.init();
+		SpookyInfusion.init();
 		SpookyBlockEntities.init();
 		SpookyEnchantments.init();
 		SpookyCommands.init();

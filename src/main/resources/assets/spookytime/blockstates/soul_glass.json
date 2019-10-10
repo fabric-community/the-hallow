@@ -1,7 +1,9 @@
 {
 	"variants": {
 		"": [
-			{"model": "spookytime:block/soul_glass"}
+			{
+				"model": "spookytime:block/soul_glass"
+			}
 		]
 	}
 }

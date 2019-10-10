@@ -26,6 +26,7 @@ public class SpookyTrumpetItem extends Item {
 		} else {
 			player.playSound(SpookySounds.DOOT, 0.8f, soundPitch);
 		}
+		
 		return new TypedActionResult<>(ActionResult.SUCCESS, stack);
 	}
 }

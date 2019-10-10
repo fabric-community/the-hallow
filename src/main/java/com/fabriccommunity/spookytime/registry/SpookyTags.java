@@ -15,7 +15,7 @@ public class SpookyTags {
 	}
 	
 	public static void init() {
-	
+		// NO-OP
 	}
 	
 	public static Tag<Item> register(String name) {

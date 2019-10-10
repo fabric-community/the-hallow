@@ -161,7 +161,7 @@ public class SpookyTreasureChestEntity extends Entity {
 	
 	@Override
 	protected void initDataTracker() {
-		
+	
 	}
 	
 	@Override

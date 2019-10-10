@@ -29,6 +29,9 @@ public class SpookyConfig {
 				TrumpetSkeleton.enabled = trumpetSkeleton.getBool("enabled", TrumpetSkeleton.enabled, "If enabled, Skeletons can sometimes spawn with Trumpets");
 				TrumpetSkeleton.chance = trumpetSkeleton.getInt("chance", TrumpetSkeleton.chance, "Skeletons will have a one in (this number) chance of spawning with a trumpet");
 			});
+			config.accessChild("fog", fog -> {
+				SpookyFog.fogSmoothingRadius = fog.getInt("fogSmoothingRadius", SpookyFog.fogSmoothingRadius, "Determines the radius in which biomes are checked to smooth out biome fog colors. Lower values = less intensive.");
+			});
 		});
 	}
 	
@@ -54,5 +57,9 @@ public class SpookyConfig {
 	public static class TrumpetSkeleton {
 		public static boolean enabled = true;
 		public static int chance = 50;
+	}
+	
+	public static class SpookyFog {
+		public static int fogSmoothingRadius = 8;
 	}
 }

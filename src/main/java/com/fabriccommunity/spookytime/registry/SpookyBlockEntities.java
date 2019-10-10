@@ -6,10 +6,15 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.entity.InfusionAltarBlockEntity;
+import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
 
 import java.util.function.Supplier;
+
+import static com.fabriccommunity.spookytime.registry.SpookyBlocks.INFUSION_ALTAR_BLOCK;
+import static com.fabriccommunity.spookytime.registry.SpookyBlocks.INFUSION_PILLAR_BLOCK;
 
 public class SpookyBlockEntities {
 	public static final BlockEntityType<TinyPumpkinBlockEntity> TINY_PUMPKIN = register(
@@ -23,6 +28,18 @@ public class SpookyBlockEntities {
 		"spooky_treasure_chest",
 		SpookyTreasureChestBlockEntity::new,
 		SpookyBlocks.SPOOKY_TREASURE_CHEST
+	);
+	
+	public static final BlockEntityType<InfusionPillarBlockEntity> INFUSION_PILLAR_BLOCK_ENTITY = register(
+		"infusion_pillar",
+		InfusionPillarBlockEntity::new,
+		INFUSION_PILLAR_BLOCK
+	);
+	
+	public static final BlockEntityType<InfusionAltarBlockEntity> INFUSION_ALTAR_BLOCK_ENTITY = register(
+		"infusion_altar",
+		InfusionAltarBlockEntity::new,
+		INFUSION_ALTAR_BLOCK
 	);
 	
 	private SpookyBlockEntities() {

@@ -1,0 +1,7 @@
+{
+	"parent": "block/cube_column",
+	"textures": {
+		"end": "spookytime:block/smooth_tainted_stone",
+		"side": "spookytime:block/smooth_tainted_stone_slab_side"
+	}
+}

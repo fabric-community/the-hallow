@@ -86,7 +86,6 @@ public class CrowEntityModel extends EntityModel<CrowEntity> {
 		if (crow.isInAir()) {
 			leftLeg.pitch = 0.55F;
 			rightLeg.pitch = 0.55F;
-			
 			this.leftWing.roll = 0.0873F + f2;
 			this.rightWing.roll = -0.0873F - f2;
 		} else {

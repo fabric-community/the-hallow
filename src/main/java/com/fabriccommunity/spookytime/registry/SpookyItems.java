@@ -27,6 +27,9 @@ import dev.emi.trinkets.api.TrinketSlots;
 public class SpookyItems {
 	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(SpookyFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
 	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(SpookyFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
+	
+	public static final ToolMaterial SPOOKIUM = new SpookiumMaterial();
+	
 	public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(newSettings().maxCount(1)));
 	public static final Item CARAMEL_APPLE = register("caramel_apple", new CandyItem(newSettings(), 5, 0.3F));
 	public static final Item PUMPKIN_CANDY = register("pumpkin_candy", new CandyItem(newSettings(), 2, 0.3F));
@@ -37,7 +40,6 @@ public class SpookyItems {
 	public static final Item PUMPKIN_STEW = register("pumpkin_stew", new MushroomStewItem(newSettings().food(new FoodComponent.Builder().hunger(7).saturationModifier(1.4f).build()).recipeRemainder(Items.BOWL)));
 	public static final Item SPOOKIUM_INGOT = register("spookium_ingot", new Item(newSettings().rarity(Rarity.EPIC)));
 	public static final Item SPOOKIUM_NUGGET = register("spookium_nugget", new Item(newSettings().rarity(Rarity.EPIC)));
-	public static final ToolMaterial SPOOKIUM = new SpookiumMaterial();
 	public static final Item REAPERS_SCYTHE = register("reapers_scythe", new ScytheItem(SPOOKIUM, 3, -2.0F, newSettings().maxCount(1).rarity(Rarity.EPIC)));
 	public static final Item SOUL_BOTTLE = register("soul_bottle", new Item(newSettings()));
 	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(newSettings()));
