@@ -1,5 +1,9 @@
 package com.fabriccommunity.spookytime.world.biome;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
@@ -15,21 +19,16 @@ import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
-
 // TODO
 public class SpookySwampBiome extends SpookyBaseBiome {
 	protected static final int GRASS_COLOR = 0x20003B;
 	protected static final int FOLIAGE_COLOR = 0x20003B;
-	
+
 	public SpookySwampBiome() {
 		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.SWAMP).depth(-0.2f).scale(0.18f).temperature(0.7f).downfall(0.8f).waterColor(0xBB0A1E).waterFogColor(0xBB0A1E));
-		
+
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
-		
+
 		DefaultBiomeFeatures.addDefaultGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
@@ -47,12 +46,12 @@ public class SpookySwampBiome extends SpookyBaseBiome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
 	}
-	
+
 	@Override
 	public int getGrassColorAt(BlockPos blockPos) {
 		return GRASS_COLOR;
 	}
-	
+
 	@Override
 	public int getFoliageColorAt(BlockPos blockPos) {
 		return FOLIAGE_COLOR;

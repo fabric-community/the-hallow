@@ -1,5 +1,7 @@
 {
 	"variants": {
-		"": {"model": "spookytime:block/blood"}
+		"": {
+			"model": "spookytime:block/blood"
+		}
 	}
 }

@@ -7,7 +7,7 @@ public class TranslucentGlassBlock extends AbstractGlassBlock {
 	public TranslucentGlassBlock(Settings settings) {
 		super(settings);
 	}
-	
+
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}

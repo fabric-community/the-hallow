@@ -1,7 +1,9 @@
 {
 	"variants": {
 		"": [
-			{"model": "spookytime:block/tainted_glass"}
+			{
+				"model": "spookytime:block/tainted_glass"
+			}
 		]
 	}
 }

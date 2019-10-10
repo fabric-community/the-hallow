@@ -1,8 +1,9 @@
 package com.fabriccommunity.spookytime.client.render;
 
+import com.fabriccommunity.spookytime.entity.PumpcownEntity;
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.block.BlockRenderManager;
@@ -10,17 +11,14 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.CowEntityModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
-import com.mojang.blaze3d.platform.GlStateManager;
-
-import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 
 @Environment(EnvType.CLIENT)
 public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends FeatureRenderer<T, CowEntityModel<T>> {
-	
+
 	public PumpcownStemFeatureRenderer(FeatureRendererContext<T, CowEntityModel<T>> rendererContext) {
 		super(rendererContext);
 	}
-	
+
 	@Override
 	public void render(PumpcownEntity pumpcown, float float_1, float float_2, float float_3, float float_4, float float_5, float float_6, float float_7) {
 		if (!pumpcown.isBaby() && !pumpcown.isInvisible()) {
@@ -56,7 +54,7 @@ public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends Featu
 			GlStateManager.disableCull();
 		}
 	}
-	
+
 	@Override
 	public boolean hasHurtOverlay() {
 		return true;
