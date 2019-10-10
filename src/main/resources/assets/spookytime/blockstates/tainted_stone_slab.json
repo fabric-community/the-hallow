@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "spookytime:block/tainted_stone_slab" },
+        "type=top": { "model": "spookytime:block/tainted_stone_slab_top" },
+        "type=double": { "model": "spookytime:block/tainted_stone" }
+    }
+}

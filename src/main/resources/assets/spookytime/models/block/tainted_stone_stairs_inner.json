@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "spookytime:block/tainted_stone",
+        "top": "spookytime:block/tainted_stone",
+        "side": "spookytime:block/tainted_stone"
+    }
+}

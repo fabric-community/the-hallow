@@ -13,10 +13,10 @@
 			"item": "spookytime:spookium_block"
 		},
 		"3": {
-			"item": "minecraft:block_concrete"
+			"item": "minecraft:black_concrete"
 		}
 	},
 	"result": {
-		"item": "spookytime:infusion_pillar"
+		"item": "spookytime:infusion_altar"
 	}
 }
