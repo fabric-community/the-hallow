@@ -1,5 +1,5 @@
 {
-    "variants": {
-        "": { "model": "spookytime:block/smooth_tainted_stone" }
-    }
+	"variants": {
+		"": {"model": "spookytime:block/smooth_tainted_stone"}
+	}
 }

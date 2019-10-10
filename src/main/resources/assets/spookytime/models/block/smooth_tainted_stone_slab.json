@@ -1,8 +1,8 @@
 {
-    "parent": "block/slab",
-    "textures": {
-        "bottom": "spookytime:block/smooth_tainted_stone",
-        "top": "spookytime:block/smooth_tainted_stone",
-        "side": "spookytime:block/smooth_tainted_stone_slab_side"
-    }
+	"parent": "block/slab",
+	"textures": {
+		"bottom": "spookytime:block/smooth_tainted_stone",
+		"top": "spookytime:block/smooth_tainted_stone",
+		"side": "spookytime:block/smooth_tainted_stone_slab_side"
+	}
 }

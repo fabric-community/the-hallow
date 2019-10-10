@@ -1,6 +1,6 @@
 {
-    "parent": "block/wall_inventory",
-    "textures": {
-        "wall": "spookytime:block/tainted_cobblestone"
-    }
+	"parent": "block/wall_inventory",
+	"textures": {
+		"wall": "spookytime:block/tainted_cobblestone"
+	}
 }

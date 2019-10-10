@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "spookytime:tainted_stone_bricks"
-  },
-  "result": "spookytime:chiseled_tainted_stone_bricks",
-  "count": 1
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "spookytime:tainted_stone_bricks"
+	},
+	"result": "spookytime:chiseled_tainted_stone_bricks",
+	"count": 1
 }

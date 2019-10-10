@@ -1,6 +1,6 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "spookytime:block/chiseled_tainted_stone_bricks"
-    }
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "spookytime:block/chiseled_tainted_stone_bricks"
+	}
 }

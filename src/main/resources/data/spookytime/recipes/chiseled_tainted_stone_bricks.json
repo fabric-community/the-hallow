@@ -1,15 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#"
-  ],
-  "key": {
-    "#": {
-      "item": "spookytime:tainted_stone_brick_slab"
-    }
-  },
-  "result": {
-    "item": "spookytime:chiseled_tainted_stone_bricks"
-  }
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#",
+		"#"
+	],
+	"key": {
+		"#": {
+			"item": "spookytime:tainted_stone_brick_slab"
+		}
+	},
+	"result": {
+		"item": "spookytime:chiseled_tainted_stone_bricks"
+	}
 }
