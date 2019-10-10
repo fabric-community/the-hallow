@@ -1,16 +1,18 @@
 package com.fabriccommunity.spookytime.mixin.client;
 
-import com.fabriccommunity.spookytime.SpookyConfig;
-import com.fabriccommunity.spookytime.api.SpookyBiomeInfo;
-import com.fabriccommunity.spookytime.registry.SpookyDimensions;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.BackgroundRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+
+import com.fabriccommunity.spookytime.SpookyConfig;
+import com.fabriccommunity.spookytime.api.SpookyBiomeInfo;
+import com.fabriccommunity.spookytime.registry.SpookyDimensions;
 
 /**
  * Allows changing fog distance per biome for our custom biomes.
@@ -27,12 +29,12 @@ public class BackgroundRendererMixin {
 		float totalIntensity = 0;
 		int count = 0;
 		int radius = SpookyConfig.SpookyFog.fogSmoothingRadius;
-
+		
 		if (world.getDimension().getType() == SpookyDimensions.SPOOKY) {
 			for (int x = 0; x < radius; x++) {
 				for (int z = 0; z < radius; z++) {
 					BlockPos pos = player.getBlockPos().add(x - (radius / 2), 0, z - (radius / 2));
-
+					
 					if (world.getBiome(pos) instanceof SpookyBiomeInfo) {
 						SpookyBiomeInfo biomeInfo = (SpookyBiomeInfo) world.getBiome(pos);
 						totalIntensity += biomeInfo.getFogIntensity();
@@ -42,7 +44,7 @@ public class BackgroundRendererMixin {
 			}
 			return Math.min(totalIntensity / count, oldIntensity);
 		}
-
+		
 		return oldIntensity;
 	}
 }

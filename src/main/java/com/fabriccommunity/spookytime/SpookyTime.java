@@ -1,5 +1,12 @@
 package com.fabriccommunity.spookytime;
 
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
+
 import com.fabriccommunity.spookytime.registry.SpookyBiomes;
 import com.fabriccommunity.spookytime.registry.SpookyBlockEntities;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
@@ -17,11 +24,6 @@ import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 import com.fabriccommunity.spookytime.registry.SpookySounds;
 import com.fabriccommunity.spookytime.registry.SpookyTags;
 import com.fabriccommunity.spookytime.registry.SpookyWorldGen;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,11 +31,11 @@ public class SpookyTime implements ModInitializer {
 	public static final String MOD_ID = "spookytime";
 	public static final Logger LOGGER = LogManager.getLogger("Spooky Time");
 	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "group"), () -> new ItemStack(SpookyItems.REAPERS_SCYTHE));
-
+	
 	public static Identifier id(String name) {
 		return new Identifier(MOD_ID, name);
 	}
-
+	
 	@Override
 	public void onInitialize() {
 		SpookyConfig.sync(false);

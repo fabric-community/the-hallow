@@ -7,7 +7,7 @@ import io.github.indicode.fabric.tinyconfig.ModConfig;
  */
 public class SpookyConfig {
 	private static ModConfig modConfig = new ModConfig(SpookyTime.MOD_ID);
-
+	
 	public static void sync(boolean overwrite) {
 		modConfig.configure(overwrite, config -> {
 			config.accessChild("weather", weather -> {
@@ -34,31 +34,31 @@ public class SpookyConfig {
 			});
 		});
 	}
-
+	
 	public static class SpookyWeather {
 		public static int thunderModifier = 80;
 		public static boolean lessClearSkies = true;
 	}
-
+	
 	public static class PumpkinMobs {
 		public static boolean headArmor = true;
 		public static boolean endermen = true;
 	}
-
+	
 	public static class TinyPumpkin {
 		public static boolean waterloggable = true;
 	}
-
+	
 	public static class TrickOrTreating {
 		public static boolean enableTricks = true;
 		public static int trickChance = 100;
 	}
-
+	
 	public static class TrumpetSkeleton {
 		public static boolean enabled = true;
 		public static int chance = 50;
 	}
-
+	
 	public static class SpookyFog {
 		public static int fogSmoothingRadius = 8;
 	}
