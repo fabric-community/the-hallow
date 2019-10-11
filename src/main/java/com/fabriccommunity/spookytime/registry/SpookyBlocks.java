@@ -21,6 +21,7 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.BleedingBlock;
 import com.fabriccommunity.spookytime.block.BloodBlock;
 import com.fabriccommunity.spookytime.block.BreadCrumbsBlock;
 import com.fabriccommunity.spookytime.block.DeaderBushBlock;
@@ -34,6 +35,7 @@ import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
 import com.fabriccommunity.spookytime.block.WitchWaterBlock;
+import com.fabriccommunity.spookytime.block.WitchWaterBubbleColumnBlock;
 import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
 
 import java.util.function.Function;
