@@ -3,9 +3,9 @@
 	"textures": {
 		"particle": "spookytime:block/deceased_dirt",
 		"bottom": "spookytime:block/deceased_dirt",
-		"top": "block/grass_block_top",
+		"top": "spookytime:block/deceased_grass_block_top",
 		"side": "spookytime:block/deceased_grass_block_side",
-		"overlay": "block/grass_block_side_overlay"
+		"overlay": "spookytime:block/deceased_grass_block_side_overlay"
 	},
 	"elements": [
 		{
