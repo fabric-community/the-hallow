@@ -33,9 +33,8 @@ public abstract class CarvedPumpkinBlockMixin extends HorizontalFacingBlock {
 	private static Predicate<BlockState> IS_PUMPKIN_PREDICATE;
 	
 	/**
+	 * @author i509vcb -- shutup mixin errors
 	 * @reason @see if block below. Also this is for future handling of Bone Golem Logic
-	 * @param world_1
-	 * @param blockPos_1
 	 */
 	@Overwrite
 	private void trySpawnEntity(World world_1, BlockPos blockPos_1) {

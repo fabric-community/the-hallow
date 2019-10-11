@@ -28,7 +28,7 @@ public class LowlandBarrowsBiome extends SpookyBaseBiome {
 		
 		DefaultBiomeFeatures.addDefaultGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
-		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.NEW_PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
 		SpookyBiomeFeatures.addWells(this);
 		SpookyBiomeFeatures.addLairs(this);

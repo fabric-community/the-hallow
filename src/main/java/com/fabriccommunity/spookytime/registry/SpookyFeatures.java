@@ -1,5 +1,11 @@
 package com.fabriccommunity.spookytime.registry;
 
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.block.ColoredPumpkinBlock;
+import com.fabriccommunity.spookytime.world.feature.*;
+import com.google.common.collect.ImmutableList;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -9,26 +15,18 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.world.feature.BarrowFeature;
-import com.fabriccommunity.spookytime.world.feature.DeaderBushFeature;
-import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
-import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
-import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
-import com.fabriccommunity.spookytime.world.feature.SpiderLairFeature;
-import com.fabriccommunity.spookytime.world.feature.SpookyCactusFeature;
-import com.fabriccommunity.spookytime.world.feature.SpookyOreFeature;
-import com.fabriccommunity.spookytime.world.feature.SpookyOreFeatureConfig;
-import com.fabriccommunity.spookytime.world.feature.WitchWellFeature;
-
 /**
  * @author Indigo Amann
  */
 public class SpookyFeatures {
+
+	private ImmutableList<Block> SELECTABLE_PUMPKIN_COLORS = SpookyBlocks.CARVED_PUMPKIN_COLORS.values().asList();
+
 	public static final TernarySurfaceConfig SPOOKY_FOREST = new TernarySurfaceConfig(SpookyBlocks.DECEASED_GRASS_BLOCK.getDefaultState(), SpookyBlocks.DECEASED_DIRT.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final TernarySurfaceConfig GHASTLY_DESERT = new TernarySurfaceConfig(SpookyBlocks.TAINTED_SAND.getDefaultState(), SpookyBlocks.TAINTED_SAND.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final Feature<SpookyOreFeatureConfig> ORE = register("ore", new SpookyOreFeature(SpookyOreFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> PUMPKIN = register("pumpkin", new DeceasedWildCropFeature(DefaultFeatureConfig::deserialize, Blocks.PUMPKIN.getDefaultState()));
+	public static final Feature<DefaultFeatureConfig> NEW_PUMPKIN = register("new_pumpkin", new RandomizedWildCropFeature(DefaultFeatureConfig::deserialize, ColoredPumpkinFeature.COLORED_PUMPKINS));
 	public static final Feature<DefaultFeatureConfig> SPOOKY_CACTUS = register("spooky_cactus", new SpookyCactusFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> DEADER_BUSH = register("deader_bush", new DeaderBushFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> SMALL_SKELETON_TREE = register("skeleton_tree_small", new SmallSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
