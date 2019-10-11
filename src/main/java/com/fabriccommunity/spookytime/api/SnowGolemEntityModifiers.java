@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.entity;
+package com.fabriccommunity.spookytime.api;
 
 import java.util.Optional;
 

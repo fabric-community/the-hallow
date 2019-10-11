@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.function.Predicate;
 
-import com.fabriccommunity.spookytime.entity.SnowGolemEntityModifiers;
+import com.fabriccommunity.spookytime.api.SnowGolemEntityModifiers;
 import com.fabriccommunity.spookytime.mixin.CarvedPumpkinBlockAccessor;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 

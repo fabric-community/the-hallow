@@ -1,7 +1,12 @@
 package com.fabriccommunity.spookytime.mixin;
 
-import java.util.Optional;
-
+import com.fabriccommunity.spookytime.api.SnowGolemEntityModifiers;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.passive.SnowGolemEntity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.At.Shift;
@@ -9,14 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.fabriccommunity.spookytime.entity.SnowGolemEntityModifiers;
-
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.passive.SnowGolemEntity;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import java.util.Optional;
 
 @Mixin(SnowGolemEntity.class)
 public class SnowGolemEntityMixin implements SnowGolemEntityModifiers {
