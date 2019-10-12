@@ -1,13 +1,10 @@
 package com.fabriccommunity.spookytime;
 
-import java.util.Iterator;
-import java.util.Random;
-import java.util.function.Predicate;
-
 import com.fabriccommunity.spookytime.api.SnowGolemEntityModifiers;
+import com.fabriccommunity.spookytime.block.ColoredCarvedPumpkinBlock;
+import com.fabriccommunity.spookytime.block.ColoredPumpkinBlock;
 import com.fabriccommunity.spookytime.mixin.CarvedPumpkinBlockAccessor;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-
 import net.minecraft.advancement.criterion.Criterions;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,14 +14,22 @@ import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.CachedBlockPosition;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.Random;
+import java.util.function.Predicate;
 
 /**
  * @author Indigo Amann
@@ -91,6 +96,17 @@ public class MixinHelpers {
 
 			SnowGolemEntityModifiers modifier = (SnowGolemEntityModifiers) snowGolemEntity;
 			modifier.setHeadState(pumpkinState);
+
+			if(pumpkinState.getBlock() instanceof ColoredCarvedPumpkinBlock) {
+				ColoredCarvedPumpkinBlock cblock = (ColoredCarvedPumpkinBlock) pumpkinState.getBlock();
+				if (cblock.getColor() == ColoredPumpkinBlock.PumpkinColor.WITCHED) {
+					if(!world.isClient) {
+						LightningEntity lightningEntity = new LightningEntity(world, floor.getX(), floor.getY(), floor.getZ(), true);
+						world.playSound(floor.getX(), floor.getY(), floor.getZ(), SoundEvents.ENTITY_WITCH_AMBIENT, SoundCategory.HOSTILE, 1.0F, 1.0F, true);
+						((ServerWorld) world).addLightning(lightningEntity);
+					}
+				}
+			}
 
 			world.spawnEntity(snowGolemEntity);
 			Iterator<ServerPlayerEntity> iterator = world.getEntities(ServerPlayerEntity.class, snowGolemEntity.getBoundingBox().expand(5.0D)).iterator();
