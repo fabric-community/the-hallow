@@ -3,7 +3,6 @@
 
 # gradle
 
-gradle-wrapper.properties
 .gradle/
 build/
 out/
@@ -52,6 +51,10 @@ bin/
 # fabric
 
 run/
+
+# other
+!**/gradle-wrapper.jar
 *.ini
-*.ini
-src/main/resources/assets/spookytime/textures/block/desktop.ini
+.DS_STORE
+.directory
+*.kate-swp
