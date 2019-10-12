@@ -89,18 +89,18 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 				
 				int curZ;
 				BlockPos genPos;
-				int i;
-				int j;
+				int localY;
+				int leafSize;
 				for (genY = pos.getY() - 3 + height; genY <= pos.getY() + height; ++genY) {
-					i = genY - (pos.getY() + height);
-					j = 2 - i / 2;
+					localY = genY - (pos.getY() + height);
+					leafSize = 2 - localY / 2;
 					
-					for (genX = pos.getX() - j; genX <= pos.getX() + j; ++genX) {
+					for (genX = pos.getX() - leafSize; genX <= pos.getX() + leafSize; ++genX) {
 						genZ = genX - pos.getX();
 						
-						for (curZ = pos.getZ() - j; curZ <= pos.getZ() + j; ++curZ) {
-							int int_12 = curZ - pos.getZ();
-							if (Math.abs(genZ) != j || Math.abs(int_12) != j || random.nextInt(2) != 0 && i != 0) {
+						for (curZ = pos.getZ() - leafSize; curZ <= pos.getZ() + leafSize; ++curZ) {
+							int offsetZ = curZ - pos.getZ();
+							if (Math.abs(genZ) != leafSize || Math.abs(offsetZ) != leafSize || random.nextInt(2) != 0 && localY != 0) {
 								genPos = new BlockPos(genX, genY, curZ);
 								if (isAirOrLeaves(world, genPos) || isReplaceablePlant(world, genPos)) {
 									this.setBlockState(posSet, world, genPos, LEAVES, bb);
@@ -118,12 +118,12 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 				}
 				
 				for (genY = pos.getY() - 3 + height; genY <= pos.getY() + height; ++genY) {
-					i = genY - (pos.getY() + height);
-					j = 2 - i / 2;
+					localY = genY - (pos.getY() + height);
+					leafSize = 2 - localY / 2;
 					BlockPos.Mutable mutablePos2 = new BlockPos.Mutable();
 					
-					for (genZ = pos.getX() - j; genZ <= pos.getX() + j; ++genZ) {
-						for (curZ = pos.getZ() - j; curZ <= pos.getZ() + j; ++curZ) {
+					for (genZ = pos.getX() - leafSize; genZ <= pos.getX() + leafSize; ++genZ) {
+						for (curZ = pos.getZ() - leafSize; curZ <= pos.getZ() + leafSize; ++curZ) {
 							mutablePos2.set(genZ, genY, curZ);
 							if (isLeaves(world, mutablePos2)) {
 								BlockPos vinePosWest = mutablePos2.west();
@@ -161,9 +161,9 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 	private void makeVines(ModifiableTestableWorld world, BlockPos pos, BooleanProperty boolProp) {
 		BlockState state = Blocks.VINE.getDefaultState().with(boolProp, true);
 		this.setBlockState(world, pos, state);
-		int i = 4;
+		int yOffset = 4;
 		
-		for (pos = pos.down(); isAir(world, pos) && i > 0; --i) {
+		for (pos = pos.down(); isAir(world, pos) && yOffset > 0; --yOffset) {
 			this.setBlockState(world, pos, state);
 			pos = pos.down();
 		}

@@ -61,18 +61,16 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 				int startX = x;
 				int startZ = z;
 				int startY = y + height - 1;
-				
-				int i;
-				int j;
-				for (i = 0; i < height; ++i) {
-					if (i >= g && h > 0) {
+
+				for (int localHeight = 0; localHeight < height; ++localHeight) {
+					if (localHeight >= g && h > 0) {
 						startX += dir.getOffsetX();
 						startZ += dir.getOffsetZ();
 						--h;
 					}
 					
-					j = y + i;
-					BlockPos trunkPos = new BlockPos(startX, j, startZ);
+					int localY = y + localHeight;
+					BlockPos trunkPos = new BlockPos(startX, localY, startZ);
 					if (isAirOrLeaves(world, trunkPos)) {
 						this.addLog(posSet, world, trunkPos, bb);
 						this.addLog(posSet, world, trunkPos.east(), bb);
@@ -81,19 +79,19 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 					}
 				}
 				
-				for (i = -2; i <= 0; ++i) {
-					for (j = -2; j <= 0; ++j) {
-						int k = -1;
-						this.addLeaves(world, startX + i, startY + k, startZ + j, bb, posSet);
-						this.addLeaves(world, 1 + startX - i, startY + k, startZ + j, bb, posSet);
-						this.addLeaves(world, startX + i, startY + k, 1 + startZ - j, bb, posSet);
-						this.addLeaves(world, 1 + startX - i, startY + k, 1 + startZ - j, bb, posSet);
-						if ((i > -2 || j > -1) && (i != -1 || j != -2)) {
-							k = 1;
-							this.addLeaves(world, startX + i, startY + k, startZ + j, bb, posSet);
-							this.addLeaves(world, 1 + startX - i, startY + k, startZ + j, bb, posSet);
-							this.addLeaves(world, startX + i, startY + k, 1 + startZ - j, bb, posSet);
-							this.addLeaves(world, 1 + startX - i, startY + k, 1 + startZ - j, bb, posSet);
+				for (int xOffset = -2; xOffset <= 0; ++xOffset) {
+					for (int zOffset = -2; zOffset <= 0; ++zOffset) {
+						int yOffset = -1;
+						this.addLeaves(world, startX + xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
+						this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
+						this.addLeaves(world, startX + xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
+						this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
+						if ((xOffset > -2 || zOffset > -1) && (xOffset != -1 || zOffset != -2)) {
+							yOffset = 1;
+							this.addLeaves(world, startX + xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
+							this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
+							this.addLeaves(world, startX + xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
+							this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
 						}
 					}
 				}
@@ -105,35 +103,33 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 					this.addLeaves(world, startX, startY + 2, startZ + 1, bb, posSet);
 				}
 				
-				for (i = -3; i <= 4; ++i) {
-					for (j = -3; j <= 4; ++j) {
-						if ((i != -3 || j != -3) && (i != -3 || j != 4) && (i != 4 || j != -3) && (i != 4 || j != 4) && (Math.abs(i) < 3 || Math.abs(j) < 3)) {
-							this.addLeaves(world, startX + i, startY, startZ + j, bb, posSet);
+				for (int xOffset = -3; xOffset <= 4; ++xOffset) {
+					for (int zOffset = -3; zOffset <= 4; ++zOffset) {
+						if ((xOffset != -3 || zOffset != -3) && (xOffset != -3 || zOffset != 4) && (xOffset != 4 || zOffset != -3) && (xOffset != 4 || zOffset != 4) && (Math.abs(xOffset) < 3 || Math.abs(zOffset) < 3)) {
+							this.addLeaves(world, startX + xOffset, startY, startZ + zOffset, bb, posSet);
 						}
 					}
 				}
 				
-				for (i = -1; i <= 2; ++i) {
-					for (j = -1; j <= 2; ++j) {
-						if ((i < 0 || i > 1 || j < 0 || j > 1) && random.nextInt(3) <= 0) {
+				for (int xOffset = -1; xOffset <= 2; ++xOffset) {
+					for (int zOffset = -1; zOffset <= 2; ++zOffset) {
+						if ((xOffset < 0 || xOffset > 1 || zOffset < 0 || zOffset > 1) && random.nextInt(3) <= 0) {
 							int trunkHeight = random.nextInt(3) + 2;
-							
-							int k;
-							for (k = 0; k < trunkHeight; ++k) {
-								this.addLog(posSet, world, new BlockPos(x + i, startY - k - 1, z + j), bb);
+
+							for (int localY = 0; localY < trunkHeight; ++localY) {
+								this.addLog(posSet, world, new BlockPos(x + xOffset, startY - localY - 1, z + zOffset), bb);
 							}
-							
-							int l;
-							for (k = -1; k <= 1; ++k) {
-								for (l = -1; l <= 1; ++l) {
-									this.addLeaves(world, startX + i + k, startY, startZ + j + l, bb, posSet);
+
+							for (int localX = -1; localX <= 1; ++localX) {
+								for (int localZ = -1; localZ <= 1; ++localZ) {
+									this.addLeaves(world, startX + xOffset + localX, startY, startZ + zOffset + localZ, bb, posSet);
 								}
 							}
 							
-							for (k = -2; k <= 2; ++k) {
-								for (l = -2; l <= 2; ++l) {
-									if (Math.abs(k) != 2 || Math.abs(l) != 2) {
-										this.addLeaves(world, startX + i + k, startY - 1, startZ + j + l, bb, posSet);
+							for (int localX = -2; localX <= 2; ++localX) {
+								for (int localZ = -2; localZ <= 2; ++localZ) {
+									if (Math.abs(localX) != 2 || Math.abs(localZ) != 2) {
+										this.addLeaves(world, startX + xOffset + localX, startY - 1, startZ + zOffset + localZ, bb, posSet);
 									}
 								}
 							}
@@ -153,19 +149,19 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 		int z = pos.getZ();
 		BlockPos.Mutable mutablePos = new BlockPos.Mutable();
 		
-		for (int i = 0; i <= height + 1; ++i) {
-			int j = 1;
-			if (i == 0) {
-				j = 0;
+		for (int localY = 0; localY <= height + 1; ++localY) {
+			int leafSize = 1;
+			if (localY == 0) {
+				leafSize = 0;
 			}
 			
-			if (i >= height - 1) {
-				j = 2;
+			if (localY >= height - 1) {
+				leafSize = 2;
 			}
 			
-			for (int k = -j; k <= j; ++k) {
-				for (int l = -j; l <= j; ++l) {
-					if (!canTreeReplace(world, mutablePos.set(x + k, y + i, z + l))) {
+			for (int localX = -leafSize; localX <= leafSize; ++localX) {
+				for (int localZ = -leafSize; localZ <= leafSize; ++localZ) {
+					if (!canTreeReplace(world, mutablePos.set(x + localX, y + localY, z + localZ))) {
 						return false;
 					}
 				}
