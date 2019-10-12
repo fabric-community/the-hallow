@@ -37,10 +37,12 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
 		int centreZ = pos.getZ() + rand.nextInt(16) - 8;
 		int lowY = pos.getY() - 1;
 
-		int radius = rand.nextInt(6) + 50;
+		int radius = rand.nextInt(6) + 14;
+		
+		int squaredRadius = radius * radius;
 		int baseHeight = rand.nextInt(3) + 5;
 
-		final double sqrtHalfRadius = Math.sqrt((double) radius / 2D);
+		final double pythagRadiusPart = Math.sqrt((double) squaredRadius / 2D);
 
 		BlockPos.Mutable posMutable = new BlockPos.Mutable();
 		BlockPos.Mutable posMutable2 = new BlockPos.Mutable();
@@ -56,36 +58,36 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
 				if (qBit1 == 0) {
 					switch(localPosition) {
 					case -1:
-						xOffset = -sqrtHalfRadius;
+						xOffset = -pythagRadiusPart;
 						break;
 					case 1:
-						xOffset = sqrtHalfRadius;
+						xOffset = pythagRadiusPart;
 						break;
 					default:
 						break;
 					}
 					
 					if (qBit2 == 0) {
-						zOffset = (xOffset == 0) ? 1 : sqrtHalfRadius;
+						zOffset = (xOffset == 0) ? radius : pythagRadiusPart;
 					} else {
-						zOffset = (xOffset == 0) ? -1 : -sqrtHalfRadius;
+						zOffset = (xOffset == 0) ? -radius : -pythagRadiusPart;
 					}
 				} else {
 					switch(localPosition) {
 					case -1:
-						zOffset = -sqrtHalfRadius;
+						zOffset = -pythagRadiusPart;
 						break;
 					case 1:
-						zOffset = sqrtHalfRadius;
+						zOffset = pythagRadiusPart;
 						break;
 					default:
 						break;
 					}
 					
 					if (qBit2 == 0) {
-						xOffset = (zOffset == 0) ? 1 : sqrtHalfRadius;
+						xOffset = (zOffset == 0) ? radius : pythagRadiusPart;
 					} else {
-						xOffset = (zOffset == 0) ? -1 : -sqrtHalfRadius;
+						xOffset = (zOffset == 0) ? -radius : -pythagRadiusPart;
 					}
 				}
 				
@@ -116,7 +118,7 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
 				
 				int localHeight = (int) offsetNoise.sample(mutable.getX(), mutable.getZ()) + (int) MathHelper.lerp(squaredDistanceTo, height, 0D) + lowY;
 				
-				for (int y = lowY; y < localHeight + 1; ++y) {
+				for (int y = lowY - 5; y < localHeight + 1; ++y) {
 					mutable.setY(y);
 					world.setBlockState(mutable, rand.nextInt(3) == 0 ? COBBLESTONE : STONE, 19);
 				}
