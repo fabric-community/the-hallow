@@ -4,7 +4,6 @@ import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -26,7 +25,7 @@ public class SpookyForestBiome extends SpookyBaseBiome {
 		
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
 		
-		DefaultBiomeFeatures.addDefaultGrass(this);
+		SpookyBiomeFeatures.addGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);

@@ -15,14 +15,16 @@
 		"SkeletonEntityMixin",
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"BlockEntityTypeMixin"
 	],
 	"client": [
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
 		"client.FirstPersonRendererMixin",
-		"client.BackgroundRendererMixin"
+		"client.BackgroundRendererMixin",
+		"client.SignBlockEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

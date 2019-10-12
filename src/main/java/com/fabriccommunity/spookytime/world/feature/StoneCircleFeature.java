@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import java.util.Random;
-
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.util.noise.OctaveOpenSimplexNoise;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -15,56 +10,61 @@ import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
-public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.util.noise.OctaveOpenSimplexNoise;
 
+import java.util.Random;
+
+public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
+	
 	private static final OctaveOpenSimplexNoise offsetNoise = new OctaveOpenSimplexNoise(new Random(0), 2, 25D, 4D, 3D);
 	
 	private static final BlockState STONE = SpookyBlocks.TAINTED_STONE.getDefaultState();
 	private static final BlockState COBBLESTONE = SpookyBlocks.TAINTED_COBBLESTONE.getDefaultState();
-
-
+	
+	
 	public StoneCircleFeature() {
 		super(DefaultFeatureConfig::deserialize);
 	}
-
+	
 	@Override
 	public boolean generate(IWorld world, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
 		return this.generate(world, rand, pos);
 	}
-
+	
 	private boolean generate(IWorld world, Random rand, BlockPos pos) {
 		int centreX = pos.getX() + rand.nextInt(16) - 8;
 		int centreZ = pos.getZ() + rand.nextInt(16) - 8;
 		int lowY = pos.getY() - 1;
-
+		
 		int radius = rand.nextInt(6) + 14;
 		
 		int squaredRadius = radius * radius;
 		int baseHeight = rand.nextInt(3) + 5;
-
+		
 		final double pythagRadiusPart = Math.sqrt((double) squaredRadius / 2D);
-
+		
 		BlockPos.Mutable posMutable = new BlockPos.Mutable();
 		BlockPos.Mutable posMutable2 = new BlockPos.Mutable();
-
+		
 		for (int quarter = 0; quarter < 4; ++quarter) {
 			for (int localPosition = -1; localPosition < 2; ++localPosition) {
 				int qBit1 = quarter & 0b01;
 				int qBit2 = quarter & 0b10;
-
+				
 				double xOffset = 0;
 				double zOffset = 0;
-
+				
 				if (qBit1 == 0) {
-					switch(localPosition) {
-					case -1:
-						xOffset = -pythagRadiusPart;
-						break;
-					case 1:
-						xOffset = pythagRadiusPart;
-						break;
-					default:
-						break;
+					switch (localPosition) {
+						case -1:
+							xOffset = -pythagRadiusPart;
+							break;
+						case 1:
+							xOffset = pythagRadiusPart;
+							break;
+						default:
+							break;
 					}
 					
 					if (qBit2 == 0) {
@@ -73,15 +73,15 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
 						zOffset = (xOffset == 0) ? -radius : -pythagRadiusPart;
 					}
 				} else {
-					switch(localPosition) {
-					case -1:
-						zOffset = -pythagRadiusPart;
-						break;
-					case 1:
-						zOffset = pythagRadiusPart;
-						break;
-					default:
-						break;
+					switch (localPosition) {
+						case -1:
+							zOffset = -pythagRadiusPart;
+							break;
+						case 1:
+							zOffset = pythagRadiusPart;
+							break;
+						default:
+							break;
 					}
 					
 					if (qBit2 == 0) {
@@ -100,10 +100,10 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
 				generateStone(world, rand, posMutable, posMutable2, baseHeight + rand.nextInt(3), lowY);
 			}
 		}
-
+		
 		return true;
 	}
-
+	
 	private void generateStone(ModifiableWorld world, Random rand, final BlockPos centre, BlockPos.Mutable mutable, int height, int lowY) {
 		final int posX = centre.getX();
 		final int posZ = centre.getZ();

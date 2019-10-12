@@ -13,7 +13,9 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.feature.BarrowFeature;
 import com.fabriccommunity.spookytime.world.feature.DeaderBushFeature;
 import com.fabriccommunity.spookytime.world.feature.DeceasedWildCropFeature;
+import com.fabriccommunity.spookytime.world.feature.LargeDeadwoodTreeFeature;
 import com.fabriccommunity.spookytime.world.feature.LargeSkeletalTreeFeature;
+import com.fabriccommunity.spookytime.world.feature.SmallDeadwoodTreeFeature;
 import com.fabriccommunity.spookytime.world.feature.SmallSkeletalTreeFeature;
 import com.fabriccommunity.spookytime.world.feature.SpiderLairFeature;
 import com.fabriccommunity.spookytime.world.feature.SpookyCactusFeature;
@@ -38,6 +40,8 @@ public class SpookyFeatures {
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> BARROW = register("barrow", new BarrowFeature());
 	public static final Feature<DefaultFeatureConfig> STONE_CIRCLE = register("stone_circle", new StoneCircleFeature());
+	public static final Feature<DefaultFeatureConfig> SMALL_DEADWOOD_TREE = register("small_deadwood_tree", new SmallDeadwoodTreeFeature(DefaultFeatureConfig::deserialize, false));
+	public static final Feature<DefaultFeatureConfig> LARGE_DEADWOOD_TREE = register("large_deadwood_tree", new LargeDeadwoodTreeFeature(DefaultFeatureConfig::deserialize, false));
 	
 	private SpookyFeatures() {
 		// NO-OP
