@@ -16,6 +16,7 @@ import net.minecraft.util.registry.Registry;
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.item.CandyItem;
 import com.fabriccommunity.spookytime.item.GoldenCandyCornItem;
+import com.fabriccommunity.spookytime.item.PaperBagItem;
 import com.fabriccommunity.spookytime.item.PumpkinRing;
 import com.fabriccommunity.spookytime.item.SkirtCostume;
 import com.fabriccommunity.spookytime.item.SpookyTrumpetItem;
@@ -53,7 +54,9 @@ public class SpookyItems {
 	public static final Item GOLD_CLUB = register("gold_club", new ClubItem(ToolMaterials.GOLD, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item DIAMOND_CLUB = register("diamond_club", new ClubItem(ToolMaterials.DIAMOND, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item GOLDEN_CANDY_CORN = register("golden_candy_corn", new GoldenCandyCornItem(newSettings().maxDamage(250), 1, 0.25f));
-	public static Item DEADWOOD_SIGN;
+	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings()));
+  
+  public static Item DEADWOOD_SIGN;
 	
 	private SpookyItems() {
 		// NO-OP
@@ -66,6 +69,7 @@ public class SpookyItems {
 	public static void init() {
 		TrinketSlots.addSubSlot("legs", "belt", new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
 		TrinketSlots.addSubSlot("hand", "ring", new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
+		TrinketSlots.addSubSlot("head", "mask", new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
 		
 		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.BAKED_PUMPKIN_SEEDS);
