@@ -56,17 +56,17 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 				this.setToDirt(world, downPos.south());
 				this.setToDirt(world, downPos.south().east());
 				Direction dir = Direction.Type.HORIZONTAL.random(random);
-				int g = height - random.nextInt(4);
-				int h = 2 - random.nextInt(3);
+				int baseTrunkHeight = height - random.nextInt(4);
+				int heightVariance = 2 - random.nextInt(3);
 				int startX = x;
 				int startZ = z;
 				int startY = y + height - 1;
 
 				for (int localHeight = 0; localHeight < height; ++localHeight) {
-					if (localHeight >= g && h > 0) {
+					if (localHeight >= baseTrunkHeight && heightVariance > 0) {
 						startX += dir.getOffsetX();
 						startZ += dir.getOffsetZ();
-						--h;
+						--heightVariance;
 					}
 					
 					int localY = y + localHeight;
