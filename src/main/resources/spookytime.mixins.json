@@ -15,7 +15,8 @@
 		"SkeletonEntityMixin",
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"EndermanEntityMixin"
 	],
 	"client": [
 		"client.ItemDynamicRendererMixin",
