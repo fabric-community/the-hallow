@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:pumpkin",
+		"spookytime:red_pumpkin",
+		"spookytime:blue_pumpkin",
+		"spookytime:yellow_pumpkin",
+		"spookytime:tan_pumpkin",
+		"spookytime:white_pumpkin",
+		"spookytime:witched_pumpkin",
+		"spookytime:rainbow_pumpkin"
+	]
+}

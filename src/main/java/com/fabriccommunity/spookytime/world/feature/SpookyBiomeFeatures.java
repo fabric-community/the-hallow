@@ -71,12 +71,6 @@ public class SpookyBiomeFeatures {
 	}
 	
 	public static void addOres(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.COAL_ORE.getDefaultState(), 17), Decorator.COUNT_RANGE, new RangeDecoratorConfig(20, 0, 0, 128)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.IRON_ORE.getDefaultState(), 9), Decorator.COUNT_RANGE, new RangeDecoratorConfig(20, 0, 0, 64)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.GOLD_ORE.getDefaultState(), 9), Decorator.COUNT_RANGE, new RangeDecoratorConfig(2, 0, 0, 32)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.REDSTONE_ORE.getDefaultState(), 8), Decorator.COUNT_RANGE, new RangeDecoratorConfig(8, 0, 0, 16)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.DIAMOND_ORE.getDefaultState(), 8), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.LAPIS_ORE.getDefaultState(), 7), Decorator.COUNT_DEPTH_AVERAGE, new CountDepthDecoratorConfig(1, 16, 16)));
 		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 	}
 }

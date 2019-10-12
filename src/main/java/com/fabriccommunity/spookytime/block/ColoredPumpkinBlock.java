@@ -53,6 +53,6 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
     }
 	
 	public static enum PumpkinColor {
-		RED, YELLOW, WHITE, BLUE, TAN, WITCHED, GREEN_STRIPED;
+		RED, YELLOW, WHITE, BLUE, TAN, WITCHED, RAINBOW;
 	}
 }

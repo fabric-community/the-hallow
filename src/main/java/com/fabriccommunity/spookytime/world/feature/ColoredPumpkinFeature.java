@@ -2,7 +2,6 @@ package com.fabriccommunity.spookytime.world.feature;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -33,7 +32,7 @@ public class ColoredPumpkinFeature {
 			if(random.nextBoolean()) {
 				return SpookyBlocks.WITCHED_PUMPKIN.getDefaultState();
 			} else {
-				return SpookyBlocks.GREEN_STRIPED_PUMPKIN.getDefaultState();
+				return SpookyBlocks.RAINBOW_PUMPKIN.getDefaultState();
 			}
 		}
 	};
