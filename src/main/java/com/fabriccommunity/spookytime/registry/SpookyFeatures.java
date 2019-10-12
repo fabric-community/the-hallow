@@ -19,6 +19,7 @@ import com.fabriccommunity.spookytime.world.feature.SpiderLairFeature;
 import com.fabriccommunity.spookytime.world.feature.SpookyCactusFeature;
 import com.fabriccommunity.spookytime.world.feature.SpookyOreFeature;
 import com.fabriccommunity.spookytime.world.feature.SpookyOreFeatureConfig;
+import com.fabriccommunity.spookytime.world.feature.StoneCircleFeature;
 import com.fabriccommunity.spookytime.world.feature.WitchWellFeature;
 
 /**
@@ -36,6 +37,7 @@ public class SpookyFeatures {
 	public static final Feature<DefaultFeatureConfig> SPIDER_LAIR = register("spider_lair", new SpiderLairFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> BARROW = register("barrow", new BarrowFeature());
+	public static final Feature<DefaultFeatureConfig> STONE_CIRCLE = register("stone_circle", new StoneCircleFeature());
 	
 	private SpookyFeatures() {
 		// NO-OP
