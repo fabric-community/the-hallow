@@ -70,7 +70,7 @@ public class BarrowFeature extends Feature<DefaultFeatureConfig> {
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	private void generateBarrowColumn(ModifiableWorld world, Random rand, int lowY, int heightOffset, BlockPos.Mutable pos, SurfaceConfig surfaceConfig) {
