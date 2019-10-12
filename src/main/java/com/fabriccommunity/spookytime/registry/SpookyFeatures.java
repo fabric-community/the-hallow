@@ -33,7 +33,8 @@ public class SpookyFeatures {
 	public static final Feature<SpookyOreFeatureConfig> ORE = register("ore", new SpookyOreFeature(SpookyOreFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> PUMPKIN = register("pumpkin", new DeceasedWildCropFeature(DefaultFeatureConfig::deserialize, Blocks.PUMPKIN.getDefaultState()));
 	public static final Feature<DefaultFeatureConfig> SPOOKY_CACTUS = register("spooky_cactus", new SpookyCactusFeature(DefaultFeatureConfig::deserialize));
-	public static final Feature<DefaultFeatureConfig> DEADER_BUSH = register("deader_bush", new DeaderBushFeature(DefaultFeatureConfig::deserialize));
+	public static final Feature<DefaultFeatureConfig> DEADER_BUSH = register("deader_bush", new DeaderBushFeature(DefaultFeatureConfig::deserialize, SpookyBlocks.DEADER_BUSH.getDefaultState()));
+	public static final Feature<DefaultFeatureConfig> BRAMBLES = register("brambles", new DeaderBushFeature(DefaultFeatureConfig::deserialize, SpookyBlocks.BRAMBLES.getDefaultState()));
 	public static final Feature<DefaultFeatureConfig> SMALL_SKELETON_TREE = register("skeleton_tree_small", new SmallSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
 	public static final Feature<DefaultFeatureConfig> LARGE_SKELETON_TREE = register("skeleton_tree_large", new LargeSkeletalTreeFeature(DefaultFeatureConfig::deserialize, false));
 	public static final Feature<DefaultFeatureConfig> SPIDER_LAIR = register("spider_lair", new SpiderLairFeature(DefaultFeatureConfig::deserialize));

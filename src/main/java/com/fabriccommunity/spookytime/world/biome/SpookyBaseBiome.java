@@ -25,6 +25,7 @@ public abstract class SpookyBaseBiome extends Biome implements SpookyBiomeInfo {
 		super(settings.parent(null));
 		
 		DefaultBiomeFeatures.addLandCarvers(this);
+		SpookyBiomeFeatures.addDecoration(this);
 		SpookyBiomeFeatures.addDisks(this);
 		SpookyBiomeFeatures.addOres(this);
 		SpookyBiomeFeatures.addMineables(this);

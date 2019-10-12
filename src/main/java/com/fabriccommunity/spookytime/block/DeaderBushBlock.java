@@ -2,6 +2,7 @@ package com.fabriccommunity.spookytime.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +26,6 @@ public class DeaderBushBlock extends PlantBlock {
 	@Override
 	protected boolean canPlantOnTop(BlockState state, BlockView view, BlockPos pos) {
 		Block block = state.getBlock();
-		return block == SpookyBlocks.TAINTED_SAND || block == SpookyBlocks.DECEASED_GRASS_BLOCK || block == SpookyBlocks.DECEASED_DIRT;
+		return block == SpookyBlocks.TAINTED_SAND || block == Blocks.SAND || block == Blocks.RED_SAND;
 	}
 }

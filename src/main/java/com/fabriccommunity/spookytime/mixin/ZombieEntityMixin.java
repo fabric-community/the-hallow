@@ -8,7 +8,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 
-import com.fabriccommunity.spookytime.MixinHelpers;
+import com.fabriccommunity.spookytime.util.MixinHelpers;
 
 /**
  * Handles zombies sometimes spawning wearing pumpkins on their heads.
