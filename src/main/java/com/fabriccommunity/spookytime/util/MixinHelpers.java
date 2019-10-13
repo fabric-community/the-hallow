@@ -4,7 +4,7 @@ import com.fabriccommunity.spookytime.api.SnowGolemEntityModifiers;
 import com.fabriccommunity.spookytime.block.ColoredCarvedPumpkinBlock;
 import com.fabriccommunity.spookytime.block.ColoredPumpkinBlock;
 import com.fabriccommunity.spookytime.mixin.CarvedPumpkinBlockAccessor;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyTags;
 import net.minecraft.advancement.criterion.Criterions;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -52,36 +52,20 @@ public class MixinHelpers {
 	}
 
 	public static final Predicate<BlockState> IS_PUMPKIN = (blockState) -> {
-		return blockState != null &&
-			(blockState.getBlock() == Blocks.CARVED_PUMPKIN ||
-				blockState.getBlock() == Blocks.JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.RAINBOW_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.RAINBOW_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.RED_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.RED_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.BLUE_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.BLUE_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.YELLOW_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.YELLOW_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.TAN_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.TAN_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.WHITE_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.WHITE_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.WITCHED_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.WITCHED_CARVED_PUMPKIN);
+		return blockState != null && (SpookyTags.CARVED_PUMPKIN_BLOCKS.contains(blockState.getBlock()) || (SpookyTags.JACK_O_LANTERN_BLOCKS.contains(blockState.getBlock())));
 	};
 
 	public static void trySpawnEntity(World world, BlockPos blockPos, CarvedPumpkinBlock carvedPumpkinBlock) {
 		CarvedPumpkinBlockAccessor accessor = (CarvedPumpkinBlockAccessor) carvedPumpkinBlock;
 
-		BlockPattern.Result blockPatternResult = accessor.getGetSnowGolemPattern().searchAround(world, blockPos);
+		BlockPattern.Result blockPatternResult = accessor.callGetSnowGolemPattern().searchAround(world, blockPos);
 
 		BlockState pumpkinState;
 
 		if (blockPatternResult != null) {
 			pumpkinState = blockPatternResult.translate(0, 0, 0).getBlockState();
 
-			for (int int_3 = 0; int_3 < accessor.getGetSnowGolemPattern().getHeight(); ++int_3) {
+			for (int int_3 = 0; int_3 < accessor.callGetSnowGolemPattern().getHeight(); ++int_3) {
 				CachedBlockPosition forLoopPosition = blockPatternResult.translate(0, int_3, 0);
 
 				world.setBlockState(forLoopPosition.getBlockPos(), Blocks.AIR.getDefaultState(), 2);
@@ -106,17 +90,17 @@ public class MixinHelpers {
 				Criterions.SUMMONED_ENTITY.handle(serverPlayerEntity, snowGolemEntity);
 			}
 
-			for (int int_5 = 0; int_5 < accessor.getGetSnowGolemPattern().getHeight(); ++int_5) {
+			for (int int_5 = 0; int_5 < accessor.callGetSnowGolemPattern().getHeight(); ++int_5) {
 				CachedBlockPosition forLoopBlockPos = blockPatternResult.translate(0, int_5, 0);
 
 				world.updateNeighbors(forLoopBlockPos.getBlockPos(), Blocks.AIR);
 			}
-		} else if ((blockPatternResult = accessor.getGetIronGolemPattern().searchAround(world, blockPos)) != null) {
+		} else if ((blockPatternResult = accessor.callGetIronGolemPattern().searchAround(world, blockPos)) != null) {
 			// Grab the state of the pumpkin ploped down
 			pumpkinState = blockPatternResult.translate(1, 0, 0).getBlockState();
 
-			for (int int_3 = 0; int_3 < accessor.getGetIronGolemPattern().getWidth(); ++int_3) {
-				for (int int_4 = 0; int_4 < accessor.getGetIronGolemPattern().getHeight(); ++int_4) {
+			for (int int_3 = 0; int_3 < accessor.callGetIronGolemPattern().getWidth(); ++int_3) {
+				for (int int_4 = 0; int_4 < accessor.callGetIronGolemPattern().getHeight(); ++int_4) {
 					CachedBlockPosition forLoopBlockPos = blockPatternResult.translate(int_3, int_4, 0);
 
 					world.setBlockState(forLoopBlockPos.getBlockPos(), Blocks.AIR.getDefaultState(), 2);
@@ -140,8 +124,8 @@ public class MixinHelpers {
 				Criterions.SUMMONED_ENTITY.handle(serverPlayerEntity, ironGolemEntity);
 			}
 
-			for (int int_5 = 0; int_5 < accessor.getGetIronGolemPattern().getWidth(); ++int_5) {
-				for (int int_6 = 0; int_6 < accessor.getGetIronGolemPattern().getHeight(); ++int_6) {
+			for (int int_5 = 0; int_5 < accessor.callGetIronGolemPattern().getWidth(); ++int_5) {
+				for (int int_6 = 0; int_6 < accessor.callGetIronGolemPattern().getHeight(); ++int_6) {
 					CachedBlockPosition forLoopCurrentPos = blockPatternResult.translate(int_5, int_6, 0);
 
 					world.updateNeighbors(forLoopCurrentPos.getBlockPos(), Blocks.AIR);

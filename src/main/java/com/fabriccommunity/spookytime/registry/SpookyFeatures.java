@@ -15,7 +15,7 @@ import com.fabriccommunity.spookytime.world.feature.SpookyOreFeature;
 import com.fabriccommunity.spookytime.world.feature.SpookyOreFeatureConfig;
 import com.fabriccommunity.spookytime.world.feature.StoneCircleFeature;
 import com.fabriccommunity.spookytime.world.feature.WitchWellFeature;
-import com.google.common.collect.ImmutableList;
+
 import net.minecraft.block.Block;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -24,18 +24,16 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import com.google.common.collect.ImmutableList;
 
 /**
  * @author Indigo Amann
  */
 public class SpookyFeatures {
-
-	private ImmutableList<Block> SELECTABLE_PUMPKIN_COLORS = SpookyBlocks.CARVED_PUMPKIN_COLORS.values().asList();
-
 	public static final TernarySurfaceConfig SPOOKY_FOREST = new TernarySurfaceConfig(SpookyBlocks.DECEASED_GRASS_BLOCK.getDefaultState(), SpookyBlocks.DECEASED_DIRT.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final TernarySurfaceConfig GHASTLY_DESERT = new TernarySurfaceConfig(SpookyBlocks.TAINTED_SAND.getDefaultState(), SpookyBlocks.TAINTED_SAND.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final Feature<SpookyOreFeatureConfig> ORE = register("ore", new SpookyOreFeature(SpookyOreFeatureConfig::deserialize));
-	public static final Feature<DefaultFeatureConfig> PUMPKIN = register("new_pumpkin", new RandomizedWildCropFeature(DefaultFeatureConfig::deserialize, ColoredPumpkinFeature.COLORED_PUMPKINS));
+	public static final Feature<DefaultFeatureConfig> PUMPKIN = register("colored_pumpkin", new RandomizedWildCropFeature(DefaultFeatureConfig::deserialize, ColoredPumpkinFeature.COLORED_PUMPKINS));
 	public static final Feature<DefaultFeatureConfig> SPOOKY_CACTUS = register("spooky_cactus", new SpookyCactusFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> DEADER_BUSH = register("deader_bush", new DeaderBushFeature(DefaultFeatureConfig::deserialize, SpookyBlocks.DEADER_BUSH.getDefaultState()));
 	public static final Feature<DefaultFeatureConfig> BRAMBLES = register("brambles", new DeaderBushFeature(DefaultFeatureConfig::deserialize, SpookyBlocks.BRAMBLES.getDefaultState()));

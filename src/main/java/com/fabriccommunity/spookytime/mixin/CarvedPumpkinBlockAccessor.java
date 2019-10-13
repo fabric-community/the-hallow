@@ -9,14 +9,14 @@ import net.minecraft.block.pattern.BlockPattern;
 @Mixin(CarvedPumpkinBlock.class)
 public interface CarvedPumpkinBlockAccessor {
 	@Invoker
-	public BlockPattern getGetSnowGolemDispenserPattern();
+	public BlockPattern callGetSnowGolemDispenserPattern();
 	
 	@Invoker
-	public BlockPattern getGetSnowGolemPattern();
+	public BlockPattern callGetSnowGolemPattern();
 	
 	@Invoker
-	public BlockPattern getGetIronGolemDispenserPattern();
+	public BlockPattern callGetIronGolemDispenserPattern();
 	
 	@Invoker
-    public BlockPattern getGetIronGolemPattern();
+    public BlockPattern callGetIronGolemPattern();
 }

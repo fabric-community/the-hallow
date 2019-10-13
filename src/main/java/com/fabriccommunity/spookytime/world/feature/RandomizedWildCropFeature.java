@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.function.Function;
 
 public class RandomizedWildCropFeature extends Feature<DefaultFeatureConfig> {
-	private final RandomChoiceSelector choiceSelector;
+	private final RandomBlockSelector choiceSelector;
 
-	public RandomizedWildCropFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> featureConfig, RandomChoiceSelector choiceSelector) {
+	public RandomizedWildCropFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> featureConfig, RandomBlockSelector choiceSelector) {
 		super(featureConfig);
 		this.choiceSelector = choiceSelector;
 	}

@@ -17,7 +17,7 @@ public class ColoredPumpkinFeature {
 		.add(SpookyBlocks.YELLOW_PUMPKIN)
 		.build();
 
-	public static final RandomChoiceSelector COLORED_PUMPKINS = (random, targetPos) -> {
+	public static final RandomBlockSelector COLORED_PUMPKINS = (random, targetPos) -> {
 		int sel = random.nextInt(100);
 		if(sel < 60) {
 			return Blocks.PUMPKIN.getDefaultState();

@@ -6,6 +6,6 @@ import net.minecraft.util.math.BlockPos;
 import java.util.Random;
 
 @FunctionalInterface
-public interface RandomChoiceSelector {
+public interface RandomBlockSelector {
 	BlockState getSelection(Random random, BlockPos targetPos);
 }

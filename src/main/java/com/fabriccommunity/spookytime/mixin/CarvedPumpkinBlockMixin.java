@@ -37,5 +37,5 @@ public abstract class CarvedPumpkinBlockMixin extends HorizontalFacingBlock {
 	@Overwrite
 	private void trySpawnEntity(World world_1, BlockPos blockPos_1) {
 		MixinHelpers.trySpawnEntity(world_1, blockPos_1, (CarvedPumpkinBlock) (Object) this);
-    }
+	}
 }
