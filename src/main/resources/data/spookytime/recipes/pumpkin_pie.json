@@ -2,19 +2,16 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "minecraft:bowl"
-		},
-		{
 			"tag": "spookytime:pumpkin"
 		},
 		{
-			"item": "minecraft:carrot"
+			"item": "minecraft:egg"
 		},
 		{
-			"item": "minecraft:baked_potato"
+			"item": "minecraft:sugar"
 		}
 	],
 	"result": {
-		"item": "spookytime:pumpkin_stew"
+		"item": "minecraft:pumpkin_pie"
 	}
 }
