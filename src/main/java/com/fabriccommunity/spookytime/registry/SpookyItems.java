@@ -1,7 +1,12 @@
 package com.fabriccommunity.spookytime.registry;
 
 import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.item.*;
+import com.fabriccommunity.spookytime.item.CandyItem;
+import com.fabriccommunity.spookytime.item.GoldenCandyCornItem;
+import com.fabriccommunity.spookytime.item.PaperBagItem;
+import com.fabriccommunity.spookytime.item.PumpkinRing;
+import com.fabriccommunity.spookytime.item.SkirtCostume;
+import com.fabriccommunity.spookytime.item.SpookyTrumpetItem;
 import com.fabriccommunity.spookytime.item.tool.ClubItem;
 import com.fabriccommunity.spookytime.item.tool.ScytheItem;
 import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
@@ -62,6 +67,7 @@ public class SpookyItems {
 	/**
 	 * Costumes
 	 */
+	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings().maxCount(1)));
 	public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(new Item.Settings().group(SpookyTime.GROUP).maxCount(1)));
 
 	/**
@@ -81,6 +87,7 @@ public class SpookyItems {
 	public static void init() {
 		TrinketSlots.addSubSlot("legs", "belt", new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
 		TrinketSlots.addSubSlot("hand", "ring", new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
+		TrinketSlots.addSubSlot("head", "mask", new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
 		
 		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.BAKED_PUMPKIN_SEEDS);

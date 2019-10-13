@@ -1,7 +1,10 @@
 package com.fabriccommunity.spookytime.block;
 
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyTags;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
 
 public class BloodBlock extends CraftingFluidBlock {
@@ -32,5 +35,26 @@ public class BloodBlock extends CraftingFluidBlock {
 		addRecipe(Items.RED_NETHER_BRICK_SLAB, Items.NETHER_BRICK_SLAB);
 		addRecipe(Items.RED_NETHER_BRICK_STAIRS, Items.NETHER_BRICK_STAIRS);
 		addRecipe(Items.RED_NETHER_BRICK_WALL, Items.NETHER_BRICK_WALL);
+
+		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.BLUE_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.YELLOW_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.TAN_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.RAINBOW_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.WHITE_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_PUMPKIN, Items.PUMPKIN);
+
+		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.BLUE_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.YELLOW_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.TAN_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.RAINBOW_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.WHITE_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, Items.CARVED_PUMPKIN);
+
+		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.BLUE_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.YELLOW_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.TAN_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.RAINBOW_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.WHITE_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, Items.JACK_O_LANTERN);
 	}
 }

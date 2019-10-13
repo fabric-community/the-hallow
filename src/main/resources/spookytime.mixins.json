@@ -18,7 +18,8 @@
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
 		"PlayerEntityMixin",
-		"CarvedPumpkinBlockAccessor"
+		"CarvedPumpkinBlockAccessor",
+		"EndermanEntityMixin"
 	],
 	"client": [
 		"client.ItemDynamicRendererMixin",

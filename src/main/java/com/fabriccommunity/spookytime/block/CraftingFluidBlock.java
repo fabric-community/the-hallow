@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -64,11 +65,7 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 	}
 	
 	public void addRecipe(ItemConvertible output, ItemConvertible... inputs) {
-		if(output instanceof Block) {
-			addRecipe(Item.fromBlock(ouput), Ingredient.ofItems(inputs));
-		} else {
-			addRecipe(output, Ingredient.ofItems(inputs));
-		}
+		addRecipe(output, Ingredient.ofItems(inputs));
 	}
 	
 	public void addRecipe(ItemConvertible output, ItemStack... inputs) {

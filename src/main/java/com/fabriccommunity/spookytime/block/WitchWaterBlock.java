@@ -2,6 +2,7 @@ package com.fabriccommunity.spookytime.block;
 
 import com.fabriccommunity.spookytime.registry.SpookyItems;
 import com.fabriccommunity.spookytime.registry.SpookyTags;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -14,6 +15,7 @@ import net.minecraft.entity.mob.CaveSpiderEntity;
 import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.fluid.BaseFluid;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -46,9 +48,32 @@ public class WitchWaterBlock extends CraftingFluidBlock {
 		addRecipe(SpookyBlocks.SMOOTH_TAINTED_SANDSTONE_SLAB, Items.SMOOTH_SANDSTONE_SLAB, Items.SMOOTH_RED_SANDSTONE_SLAB);
 		addRecipe(SpookyBlocks.CUT_TAINTED_SANDSTONE_SLAB, Items.CUT_SANDSTONE_SLAB, Items.CUT_RED_SANDSTONE_SLAB);
 		addRecipe(SpookyBlocks.TAINTED_SANDSTONE_WALL, Items.SANDSTONE_WALL, Items.RED_SANDSTONE_WALL);
-		//addRecipe(SpookyBlocks.WITCHED_PUMPKIN, Ingredient.fromTag(SpookyTags.PUMPKINS));
-		//addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, Items.CARVED_PUMPKIN);
-		//addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, Items.JACK_O_LANTERN);
+
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.BLUE_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.RED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.YELLOW_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.TAN_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.RAINBOW_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, SpookyBlocks.WHITE_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, Items.PUMPKIN);
+		// Rainbow pumpkin cannot be effected
+
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, SpookyBlocks.BLUE_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, SpookyBlocks.RED_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, SpookyBlocks.YELLOW_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, SpookyBlocks.TAN_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, SpookyBlocks.RAINBOW_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, SpookyBlocks.WHITE_CARVED_PUMPKIN);
+		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, Items.CARVED_PUMPKIN);
+
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, SpookyBlocks.BLUE_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, SpookyBlocks.RED_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, SpookyBlocks.YELLOW_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, SpookyBlocks.TAN_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, SpookyBlocks.RAINBOW_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, SpookyBlocks.WHITE_JACK_O_LANTERN);
+		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, Items.JACK_O_LANTERN);
+
 		addRecipe(SpookyBlocks.TINY_WITCHED_PUMPKIN, SpookyBlocks.TINY_PUMPKIN);
 	}
 	
