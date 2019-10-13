@@ -48,6 +48,7 @@ public class SpookyItems {
 	public static final Item SPOOKY_TRUMPET = register("spooky_trumpet", new SpookyTrumpetItem(newSettings()));
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, newSettings()));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(SpookyEntities.CROW, 0x161616, 0x454545, newSettings()));
+	public static final Item MUMMY_SPAWN_EGG = register("mummy_spawn_egg", new SpawnEggItem(SpookyEntities.MUMMY, 0xCBBBAD, 0x463C34, newSettings()));
 	public static final Item WOODEN_CLUB = register("wooden_club", new ClubItem(ToolMaterials.WOOD, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item STONE_CLUB = register("stone_club", new ClubItem(ToolMaterials.STONE, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item IRON_CLUB = register("iron_club", new ClubItem(ToolMaterials.IRON, 9, -3.6F, newSettings().maxCount(1)));
@@ -55,6 +56,8 @@ public class SpookyItems {
 	public static final Item DIAMOND_CLUB = register("diamond_club", new ClubItem(ToolMaterials.DIAMOND, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item GOLDEN_CANDY_CORN = register("golden_candy_corn", new GoldenCandyCornItem(newSettings().maxDamage(250), 1, 0.25f));
 	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings()));
+	public static final Item BLACK_FEATHER = register("black_feather", new Item(newSettings()));
+	public static final Item OLD_BANDAGE = register("old_bandage", new Item(newSettings()));
   
   public static Item DEADWOOD_SIGN;
 	

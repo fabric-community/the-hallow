@@ -1,6 +1,6 @@
 {
-    "parent": "block/cross",
-    "textures": {
-        "cross": "spookytime:block/tall_eerie_grass_bottom"
-    }
+	"parent": "block/cross",
+	"textures": {
+		"cross": "spookytime:block/tall_eerie_grass_bottom"
+	}
 }

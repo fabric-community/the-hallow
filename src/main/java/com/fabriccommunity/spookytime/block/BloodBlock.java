@@ -1,8 +1,15 @@
 package com.fabriccommunity.spookytime.block;
 
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.fluid.BaseFluid;
+import net.minecraft.item.DyeableItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class BloodBlock extends CraftingFluidBlock {
 	public BloodBlock(BaseFluid fluid, Settings settings) {
@@ -32,5 +39,22 @@ public class BloodBlock extends CraftingFluidBlock {
 		addRecipe(Items.RED_NETHER_BRICK_SLAB, Items.NETHER_BRICK_SLAB);
 		addRecipe(Items.RED_NETHER_BRICK_STAIRS, Items.NETHER_BRICK_STAIRS);
 		addRecipe(Items.RED_NETHER_BRICK_WALL, Items.NETHER_BRICK_WALL);
+	}
+	
+	@Override
+	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
+		super.onEntityCollision(blockState, world, pos, entity);
+		
+		if (pos.equals(entity.getBlockPos())) {
+			if (entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty()) {
+				ItemEntity itemEntity = (ItemEntity) entity;
+				ItemStack stack = itemEntity.getStack();
+				if (stack.getItem() instanceof DyeableItem) {
+					DyeableItem item = (DyeableItem) stack.getItem();
+					if(item.hasColor(stack)) item.setColor(stack, 0xFF0000 | item.getColor(stack));
+					else item.setColor(stack, 0xFF0000);
+				}
+			}
+		}
 	}
 }

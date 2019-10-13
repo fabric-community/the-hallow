@@ -15,12 +15,14 @@ import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
 import com.fabriccommunity.spookytime.client.render.CrowEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionAltarBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionPillarBlockEntityRenderer;
+import com.fabriccommunity.spookytime.client.render.MummyEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.PumpcownEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyCactusEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
 import com.fabriccommunity.spookytime.entity.CrowEntity;
+import com.fabriccommunity.spookytime.entity.MummyEntity;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestBlockEntity;
@@ -33,6 +35,7 @@ public class SpookyTimeClient implements ClientModInitializer {
 		EntityRendererRegistry.INSTANCE.register(CrowEntity.class, (dispatcher, context) -> new CrowEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(SpookyTreasureChestEntity.class, ((dispatcher, context) -> new SpookyTreasureChestEntityRenderer(dispatcher)));
 		EntityRendererRegistry.INSTANCE.register(SpookyCactusEntity.class, (dispatcher, context) -> new SpookyCactusEntityRenderer(dispatcher));
+		EntityRendererRegistry.INSTANCE.register(MummyEntity.class, (dispatcher, context) -> new MummyEntityRenderer(dispatcher));
 		
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionPillarBlockEntity.class, new InfusionPillarBlockEntityRenderer());
