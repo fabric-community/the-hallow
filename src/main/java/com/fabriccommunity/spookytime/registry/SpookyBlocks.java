@@ -20,13 +20,6 @@ import java.util.function.Function;
 
 public class SpookyBlocks {
 	/**
-	 * Fluids
-	 */
-	public static final Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(SpookyFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
-	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(SpookyFluids.BLOOD, FabricBlockSettings.copy(Blocks.LAVA).lightLevel(0).build()), (BlockItem) null);
-	public static final Block WITCH_WATER_BUBBLE_COLUMN = registerNoItem("witch_water_bubble_column", new WitchWaterBubbleColumnBlock(FabricBlockSettings.copy(Blocks.BUBBLE_COLUMN).build()));
-
-	/**
 	 * :tiny pumpkin:
 	 */
 	public static final Block TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(SpookyTime.PUMPKINS).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
@@ -152,7 +145,14 @@ public class SpookyBlocks {
 	public static final Block SPOOKY_TREASURE_CHEST = register("spooky_treasure_chest", new SpookyTreasureChestBlock(FabricBlockSettings.of(Material.METAL).build()), new Item.Settings().group(SpookyTime.GROUP));
 	public static final Block INFUSION_PILLAR_BLOCK = register("infusion_pillar", new InfusionPillarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block INFUSION_ALTAR_BLOCK = register("infusion_altar", new InfusionAltarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
-	
+
+	/**
+	 * Fluids
+	 */
+	public static final Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(SpookyFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
+	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(SpookyFluids.BLOOD, FabricBlockSettings.copy(Blocks.LAVA).lightLevel(0).build()), (BlockItem) null);
+	public static final Block WITCH_WATER_BUBBLE_COLUMN = registerNoItem("witch_water_bubble_column", new WitchWaterBubbleColumnBlock(FabricBlockSettings.copy(Blocks.BUBBLE_COLUMN).build()));
+
 	public static final ImmutableMap<PumpkinColor, Block> CARVED_PUMPKIN_COLORS = new ImmutableMap.Builder<PumpkinColor, Block>()
 			.put(PumpkinColor.RED, SpookyBlocks.RED_CARVED_PUMPKIN)
 			.put(PumpkinColor.YELLOW, SpookyBlocks.YELLOW_CARVED_PUMPKIN)

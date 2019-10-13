@@ -5,6 +5,7 @@ import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.fluid.BaseFluid;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -33,7 +34,10 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 			ItemStack stack = itemEntity.getStack();
 			for (Map.Entry<Ingredient, ItemStack> recipe : recipes.entrySet()) {
 				if (recipe.getKey().test(stack)) {
+					System.out.println("Found recipe:" + recipe.getKey().toJson().toString());
+					System.out.println("Stack Input:" + stack.toString());
 					ItemStack newStack = recipe.getValue().copy();
+					System.out.println("Stack Output: " + newStack.toString());
 					newStack.setCount(stack.getCount());
 					newStack.setTag(stack.getTag());
 					itemEntity.setStack(newStack);
@@ -60,7 +64,11 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 	}
 	
 	public void addRecipe(ItemConvertible output, ItemConvertible... inputs) {
-		addRecipe(output, Ingredient.ofItems(inputs));
+		if(output instanceof Block) {
+			addRecipe(Item.fromBlock(ouput), Ingredient.ofItems(inputs));
+		} else {
+			addRecipe(output, Ingredient.ofItems(inputs));
+		}
 	}
 	
 	public void addRecipe(ItemConvertible output, ItemStack... inputs) {

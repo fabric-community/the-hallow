@@ -1,5 +1,7 @@
 package com.fabriccommunity.spookytime.block;
 
+import com.fabriccommunity.spookytime.registry.SpookyItems;
+import com.fabriccommunity.spookytime.registry.SpookyTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -14,6 +16,7 @@ import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -26,6 +29,7 @@ import com.fabriccommunity.spookytime.registry.SpookyEntities;
 public class WitchWaterBlock extends CraftingFluidBlock {
 	public WitchWaterBlock(BaseFluid fluid, Settings settings) {
 		super(fluid, settings, SoundEvents.ENTITY_ILLUSIONER_CAST_SPELL);
+		addRecipe(SpookyItems.WITCH_WATER_BUCKET, Items.WATER_BUCKET);
 		addRecipe(SpookyBlocks.DECEASED_DIRT, Items.DIRT);
 		addRecipe(SpookyBlocks.DECEASED_GRASS_BLOCK, Items.GRASS_BLOCK);
 		addRecipe(SpookyBlocks.TAINTED_SAND, Items.SAND, Items.RED_SAND);
@@ -42,9 +46,9 @@ public class WitchWaterBlock extends CraftingFluidBlock {
 		addRecipe(SpookyBlocks.SMOOTH_TAINTED_SANDSTONE_SLAB, Items.SMOOTH_SANDSTONE_SLAB, Items.SMOOTH_RED_SANDSTONE_SLAB);
 		addRecipe(SpookyBlocks.CUT_TAINTED_SANDSTONE_SLAB, Items.CUT_SANDSTONE_SLAB, Items.CUT_RED_SANDSTONE_SLAB);
 		addRecipe(SpookyBlocks.TAINTED_SANDSTONE_WALL, Items.SANDSTONE_WALL, Items.RED_SANDSTONE_WALL);
-		addRecipe(SpookyBlocks.WITCHED_PUMPKIN, Items.PUMPKIN);
-		addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, Items.CARVED_PUMPKIN);
-		addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, Items.JACK_O_LANTERN);
+		//addRecipe(SpookyBlocks.WITCHED_PUMPKIN, Ingredient.fromTag(SpookyTags.PUMPKINS));
+		//addRecipe(SpookyBlocks.WITCHED_CARVED_PUMPKIN, Items.CARVED_PUMPKIN);
+		//addRecipe(SpookyBlocks.WITCHED_JACK_O_LANTERN, Items.JACK_O_LANTERN);
 		addRecipe(SpookyBlocks.TINY_WITCHED_PUMPKIN, SpookyBlocks.TINY_PUMPKIN);
 	}
 	

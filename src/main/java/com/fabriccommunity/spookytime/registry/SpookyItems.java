@@ -16,8 +16,8 @@ public class SpookyItems {
 	/**
 	 * Fluids
 	 */
-	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(SpookyFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
-	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(SpookyFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).group(SpookyTime.GROUP)));
+	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(SpookyFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1).group(SpookyTime.GROUP)));
+	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(SpookyFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1).group(SpookyTime.GROUP)));
 
 	/**
 	 * Food
