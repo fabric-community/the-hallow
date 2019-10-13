@@ -12,7 +12,15 @@ import com.fabriccommunity.spookytime.item.tool.ScytheItem;
 import com.fabriccommunity.spookytime.item.tool.SpookiumMaterial;
 import com.fabriccommunity.spookytime.util.PumpkinFoods;
 import dev.emi.trinkets.api.TrinketSlots;
-import net.minecraft.item.*;
+import net.minecraft.item.BucketItem;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.item.MushroomStewItem;
+import net.minecraft.item.SignItem;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -75,12 +83,17 @@ public class SpookyItems {
 	 */
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, new Item.Settings().group(SpookyTime.GROUP)));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(SpookyEntities.CROW, 0x161616, 0x454545, new Item.Settings().group(SpookyTime.GROUP)));
-	
+
+	/**
+	 * Other items
+	 */
+	public static Item DEADWOOD_SIGN;
+
 	private SpookyItems() {
 		// NO-OP
 	}
 	
-	private static Item.Settings newSettings() {
+	static Item.Settings newSettings() {
 		return new Item.Settings().group(SpookyTime.GROUP);
 	}
 	
@@ -94,7 +107,9 @@ public class SpookyItems {
 		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_STEW);
 		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_CANDY);
 		PumpkinFoods.registerPumpkinFood(SpookyBlocks.TINY_PUMPKIN.asItem());
-		PumpkinFoods.registerPumpkinFood(SpookyBlocks.TINY_WITCHED_PUMPKIN.asItem());
+		PumpkinFoods.registerPumpkinFood(SpookyBlocks.WITCHED_PUMPKIN.asItem());
+		
+		DEADWOOD_SIGN = register("deadwood_sign", new SignItem(newSettings().maxCount(16), SpookyBlocks.DEADWOOD_SIGN, SpookyBlocks.DEADWOOD_WALL_SIGN));
 	}
 	
 	protected static <T extends Item> T register(String name, T item) {

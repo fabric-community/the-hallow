@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime;
+package com.fabriccommunity.spookytime.util;
 
 import com.fabriccommunity.spookytime.api.SnowGolemEntityModifiers;
 import com.fabriccommunity.spookytime.block.ColoredCarvedPumpkinBlock;
@@ -68,8 +68,7 @@ public class MixinHelpers {
 				blockState.getBlock() == SpookyBlocks.WHITE_JACK_O_LANTERN ||
 				blockState.getBlock() == SpookyBlocks.WHITE_CARVED_PUMPKIN ||
 				blockState.getBlock() == SpookyBlocks.WITCHED_JACK_O_LANTERN ||
-				blockState.getBlock() == SpookyBlocks.WITCHED_CARVED_PUMPKIN ||
-				blockState.getBlock() == SpookyBlocks.TINY_PUMPKIN);
+				blockState.getBlock() == SpookyBlocks.WITCHED_CARVED_PUMPKIN);
 	};
 
 	public static void trySpawnEntity(World world, BlockPos blockPos, CarvedPumpkinBlock carvedPumpkinBlock) {
@@ -97,16 +96,7 @@ public class MixinHelpers {
 			SnowGolemEntityModifiers modifier = (SnowGolemEntityModifiers) snowGolemEntity;
 			modifier.setHeadState(pumpkinState);
 
-			if(pumpkinState.getBlock() instanceof ColoredCarvedPumpkinBlock) {
-				ColoredCarvedPumpkinBlock cblock = (ColoredCarvedPumpkinBlock) pumpkinState.getBlock();
-				if (cblock.getColor() == ColoredPumpkinBlock.PumpkinColor.WITCHED) {
-					if(!world.isClient) {
-						LightningEntity lightningEntity = new LightningEntity(world, floor.getX(), floor.getY(), floor.getZ(), true);
-						world.playSound(floor.getX(), floor.getY(), floor.getZ(), SoundEvents.ENTITY_WITCH_AMBIENT, SoundCategory.HOSTILE, 1.0F, 1.0F, true);
-						((ServerWorld) world).addLightning(lightningEntity);
-					}
-				}
-			}
+			strikeLightningIfWitched(pumpkinState, world, floor);
 
 			world.spawnEntity(snowGolemEntity);
 			Iterator<ServerPlayerEntity> iterator = world.getEntities(ServerPlayerEntity.class, snowGolemEntity.getBoundingBox().expand(5.0D)).iterator();
@@ -123,7 +113,7 @@ public class MixinHelpers {
 			}
 		} else if ((blockPatternResult = accessor.getGetIronGolemPattern().searchAround(world, blockPos)) != null) {
 			// Grab the state of the pumpkin ploped down
-			pumpkinState = blockPatternResult.translate(0, 0, 0).getBlockState();
+			pumpkinState = blockPatternResult.translate(1, 0, 0).getBlockState();
 
 			for (int int_3 = 0; int_3 < accessor.getGetIronGolemPattern().getWidth(); ++int_3) {
 				for (int int_4 = 0; int_4 < accessor.getGetIronGolemPattern().getHeight(); ++int_4) {
@@ -139,6 +129,9 @@ public class MixinHelpers {
 
 			ironGolemEntity.setPlayerCreated(true);
 			ironGolemEntity.setPositionAndAngles((double) floor.getX() + 0.5D, (double) floor.getY() + 0.05D, (double) floor.getZ() + 0.5D, 0.0F, 0.0F);
+
+			strikeLightningIfWitched(pumpkinState, world, floor);
+
 			world.spawnEntity(ironGolemEntity);
 			Iterator<ServerPlayerEntity> iterator = world.getEntities(ServerPlayerEntity.class, ironGolemEntity.getBoundingBox().expand(5.0D)).iterator();
 
@@ -152,6 +145,19 @@ public class MixinHelpers {
 					CachedBlockPosition forLoopCurrentPos = blockPatternResult.translate(int_5, int_6, 0);
 
 					world.updateNeighbors(forLoopCurrentPos.getBlockPos(), Blocks.AIR);
+				}
+			}
+		}
+	}
+
+	private static void strikeLightningIfWitched(BlockState pumpkinState, World world, BlockPos floor) {
+		if(pumpkinState.getBlock() instanceof ColoredCarvedPumpkinBlock) {
+			ColoredCarvedPumpkinBlock cblock = (ColoredCarvedPumpkinBlock) pumpkinState.getBlock();
+			if (cblock.getColor() == ColoredPumpkinBlock.PumpkinColor.WITCHED) {
+				if(!world.isClient) {
+					LightningEntity lightningEntity = new LightningEntity(world, floor.getX(), floor.getY(), floor.getZ(), true);
+					world.playSound(floor.getX(), floor.getY(), floor.getZ(), SoundEvents.ENTITY_WITCH_AMBIENT, SoundCategory.HOSTILE, 1.0F, 1.0F, true);
+					((ServerWorld) world).addLightning(lightningEntity);
 				}
 			}
 		}

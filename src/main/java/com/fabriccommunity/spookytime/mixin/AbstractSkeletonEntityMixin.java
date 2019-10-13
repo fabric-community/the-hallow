@@ -11,7 +11,7 @@ import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.LocalDifficulty;
 
-import com.fabriccommunity.spookytime.MixinHelpers;
+import com.fabriccommunity.spookytime.util.MixinHelpers;
 import com.fabriccommunity.spookytime.SpookyConfig;
 import com.fabriccommunity.spookytime.registry.SpookyItems;
 

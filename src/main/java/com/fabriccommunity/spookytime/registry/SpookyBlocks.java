@@ -4,6 +4,7 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.block.*;
 import com.fabriccommunity.spookytime.block.ColoredPumpkinBlock.PumpkinColor;
 import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
+import com.fabriccommunity.spookytime.world.DeadwoodSaplingGenerator;
 import com.google.common.collect.ImmutableMap;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -86,6 +87,8 @@ public class SpookyBlocks {
 	public static final Block MOIST_FLESH_BLOCK = register("moist_flesh_block", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.PINK).sounds(BlockSoundGroup.SLIME).build()));
 	public static final Block BRAIN_MATTER = register("brain_matter", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.PINK).sounds(BlockSoundGroup.SLIME).build()));
 	public static final Block BLEEDING_BLOCK = register("bleeding_block", new BleedingBlock(FabricBlockSettings.copy(Blocks.MAGMA_BLOCK).lightLevel(0).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.RED).sounds(BlockSoundGroup.SLIME).build()));
+	public static final Block CONGEALED_BLOOD = register("congealed_blood", new CongealedBloodBlock(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.RED).sounds(BlockSoundGroup.SLIME).build()));
 
 	/**
 	 * Glass
@@ -100,6 +103,9 @@ public class SpookyBlocks {
 	 */
 	public static final Block SPOOKY_CACTUS = register("spooky_cactus", new SpookyCactusBlock(FabricBlockSettings.copy(Blocks.CACTUS).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(SpookyTime.GROUP));
 	public static final Block DEADER_BUSH = register("deader_bush", new DeaderBushBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(SpookyTime.GROUP));
+	public static final Block EERIE_GRASS = register("eerie_grass", new SpookyFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
+	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
+	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
 	
 	/**
 	 * Spookium ores
@@ -139,6 +145,28 @@ public class SpookyBlocks {
 	public static final Block WITCHED_CARVED_PUMPKIN = register("witched_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.PURPLE).build(), PumpkinColor.WITCHED), new Item.Settings().group(SpookyTime.PUMPKINS));
 
 	/**
+	 * Deadwood
+	 */
+	public static final Block DEADWOOD_LOG = register("deadwood_log", new SpookyLogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.OAK_LOG).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block STRIPPED_DEADWOOD_LOG = register("stripped_deadwood_log", new LogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_WOOD = register("deadwood_wood", new SpookyLogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.OAK_WOOD).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block STRIPPED_DEADWOOD_WOOD = register("stripped_deadwood_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_LEAVES = register("deadwood_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).materialColor(MaterialColor.YELLOW).build()));
+	public static final Block DEADWOOD_SAPLING = register("deadwood_sapling", new SpookySaplingBlock(new DeadwoodSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).build()));
+	public static final Block DEADWOOD_PLANKS = register("deadwood_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_STAIRS = register("deadwood_stairs", new SpookyStairsBlock(DEADWOOD_PLANKS, FabricBlockSettings.copy(Blocks.OAK_STAIRS).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_SLAB = register("deadwood_slab", new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_FENCE = register("deadwood_fence", new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_FENCE_GATE = register("deadwood_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_PRESSURE_PLATE = register("deadwood_pressure_plate", new SpookyPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_BUTTON = register("deadwood_button", new SpookyButtonBlock(true, FabricBlockSettings.copy(Blocks.OAK_BUTTON).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_DOOR = register("deadwood_door", new SpookyDoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_TRAPDOOR = register("deadwood_trapdoor", new SpookyTrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new SpookySignBlock(SpookyTime.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
+	public static final Block DEADWOOD_WALL_SIGN = register("deadwood_wall_sign", new SpookyWallSignBlock(SpookyTime.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
+
+
+	/**
 	 * Misc
 	 */
 	public static final Block BREAD_CRUMBS = register("bread_crumbs", new BreadCrumbsBlock(FabricBlockSettings.of(Material.CAKE).breakByHand(true).collidable(false).noCollision().build()), new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).snack().build()));
@@ -162,13 +190,14 @@ public class SpookyBlocks {
 			.put(PumpkinColor.WITCHED, SpookyBlocks.WITCHED_CARVED_PUMPKIN)
 			.put(PumpkinColor.RAINBOW, SpookyBlocks.RAINBOW_CARVED_PUMPKIN)
 			.build();
-		
+
 	private SpookyBlocks() {
 		// NO-OP
 	}
 	
 	public static void init() {
-		// NO-OP
+		((SpookyLogBlock) DEADWOOD_LOG).setStripped(STRIPPED_DEADWOOD_LOG);
+		((SpookyLogBlock) DEADWOOD_WOOD).setStripped(STRIPPED_DEADWOOD_WOOD);
 	}
 	
 	static <T extends Block> T register(String name, T block, Item.Settings settings) {

@@ -19,6 +19,7 @@
 		"LivingEntityMixin",
 		"PlayerEntityMixin",
 		"CarvedPumpkinBlockAccessor",
+		"BlockEntityTypeMixin",
 		"EndermanEntityMixin"
 	],
 	"client": [
@@ -27,7 +28,8 @@
 		"client.MinecraftClientMixin",
 		"client.SnowmanPumpkinFeatureRendererMixin",
 		"client.FirstPersonRendererMixin",
-		"client.BackgroundRendererMixin"
+		"client.BackgroundRendererMixin",
+		"client.SignBlockEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

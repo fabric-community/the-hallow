@@ -18,6 +18,9 @@ import net.minecraft.world.World;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents a Fluid where an item may be transformed when thrown inside.
+ */
 public abstract class CraftingFluidBlock extends FluidBlock {
 	public final SoundEvent craftingSound;
 	public HashMap<Ingredient, ItemStack> recipes = new HashMap<Ingredient, ItemStack>();
@@ -35,10 +38,7 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 			ItemStack stack = itemEntity.getStack();
 			for (Map.Entry<Ingredient, ItemStack> recipe : recipes.entrySet()) {
 				if (recipe.getKey().test(stack)) {
-					System.out.println("Found recipe:" + recipe.getKey().toJson().toString());
-					System.out.println("Stack Input:" + stack.toString());
 					ItemStack newStack = recipe.getValue().copy();
-					System.out.println("Stack Output: " + newStack.toString());
 					newStack.setCount(stack.getCount());
 					newStack.setTag(stack.getTag());
 					itemEntity.setStack(newStack);

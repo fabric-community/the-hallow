@@ -14,7 +14,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 
-import com.fabriccommunity.spookytime.MixinHelpers;
+import com.fabriccommunity.spookytime.util.MixinHelpers;
 import com.fabriccommunity.spookytime.SpookyConfig;
 
 /**
