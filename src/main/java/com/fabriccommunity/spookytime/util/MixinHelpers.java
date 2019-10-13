@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime;
+package com.fabriccommunity.spookytime.util;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;

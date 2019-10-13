@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "bark",
+	"pattern": [
+		"##",
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "spookytime:deadwood_log"
+		}
+	},
+	"result": {
+		"item": "spookytime:deadwood_wood",
+		"count": 3
+	}
+}

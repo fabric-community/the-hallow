@@ -5,6 +5,7 @@ import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.MushroomStewItem;
+import net.minecraft.item.SignItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
@@ -54,12 +55,14 @@ public class SpookyItems {
 	public static final Item DIAMOND_CLUB = register("diamond_club", new ClubItem(ToolMaterials.DIAMOND, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item GOLDEN_CANDY_CORN = register("golden_candy_corn", new GoldenCandyCornItem(newSettings().maxDamage(250), 1, 0.25f));
 	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings()));
+  
+  public static Item DEADWOOD_SIGN;
 	
 	private SpookyItems() {
 		// NO-OP
 	}
 	
-	private static Item.Settings newSettings() {
+	static Item.Settings newSettings() {
 		return new Item.Settings().group(SpookyTime.GROUP);
 	}
 	
@@ -74,6 +77,8 @@ public class SpookyItems {
 		PumpkinFoods.registerPumpkinFood(SpookyItems.PUMPKIN_CANDY);
 		PumpkinFoods.registerPumpkinFood(SpookyBlocks.TINY_PUMPKIN.asItem());
 		PumpkinFoods.registerPumpkinFood(SpookyBlocks.WITCHED_PUMPKIN.asItem());
+		
+		DEADWOOD_SIGN = register("deadwood_sign", new SignItem(newSettings().maxCount(16), SpookyBlocks.DEADWOOD_SIGN, SpookyBlocks.DEADWOOD_WALL_SIGN));
 	}
 	
 	protected static <T extends Item> T register(String name, T item) {

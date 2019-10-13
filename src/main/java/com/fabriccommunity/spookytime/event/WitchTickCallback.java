@@ -2,6 +2,7 @@ package com.fabriccommunity.spookytime.event;
 
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
+
 import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.util.ActionResult;
 
@@ -21,7 +22,7 @@ public interface WitchTickCallback {
 				}
 			}
 			return ActionResult.PASS;
-	});
-
+		});
+	
 	ActionResult tick(WitchEntity witch);
 }

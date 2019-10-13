@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "spookytime:block/tall_eerie_grass_bottom" },
+        "half=upper":    { "model": "spookytime:block/tall_eerie_grass_top" }
+    }
+}
