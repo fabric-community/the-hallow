@@ -7,7 +7,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 
 public class ColoredPumpkinFeature {
-	private ColoredPumpkinFeature(){}
+	private ColoredPumpkinFeature(){
+		// NO-OP
+	}
 
 	private static final ImmutableList<Block> COMMON_PUMPKIN_TYPES = new ImmutableList.Builder<Block>()
 		.add(SpookyBlocks.BLUE_PUMPKIN)

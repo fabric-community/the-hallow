@@ -65,8 +65,8 @@ public class MixinHelpers {
 		if (blockPatternResult != null) {
 			pumpkinState = blockPatternResult.translate(0, 0, 0).getBlockState();
 
-			for (int int_3 = 0; int_3 < accessor.callGetSnowGolemPattern().getHeight(); ++int_3) {
-				CachedBlockPosition forLoopPosition = blockPatternResult.translate(0, int_3, 0);
+			for (int yTranslation = 0; yTranslation < accessor.callGetSnowGolemPattern().getHeight(); ++yTranslation) {
+				CachedBlockPosition forLoopPosition = blockPatternResult.translate(0, yTranslation, 0);
 
 				world.setBlockState(forLoopPosition.getBlockPos(), Blocks.AIR.getDefaultState(), 2);
 				world.playLevelEvent(2001, forLoopPosition.getBlockPos(), Block.getRawIdFromState(forLoopPosition.getBlockState()));
@@ -90,8 +90,8 @@ public class MixinHelpers {
 				Criterions.SUMMONED_ENTITY.handle(serverPlayerEntity, snowGolemEntity);
 			}
 
-			for (int int_5 = 0; int_5 < accessor.callGetSnowGolemPattern().getHeight(); ++int_5) {
-				CachedBlockPosition forLoopBlockPos = blockPatternResult.translate(0, int_5, 0);
+			for (int yTranslation = 0; yTranslation < accessor.callGetSnowGolemPattern().getHeight(); ++yTranslation) {
+				CachedBlockPosition forLoopBlockPos = blockPatternResult.translate(0, yTranslation, 0);
 
 				world.updateNeighbors(forLoopBlockPos.getBlockPos(), Blocks.AIR);
 			}
@@ -99,9 +99,9 @@ public class MixinHelpers {
 			// Grab the state of the pumpkin ploped down
 			pumpkinState = blockPatternResult.translate(1, 0, 0).getBlockState();
 
-			for (int int_3 = 0; int_3 < accessor.callGetIronGolemPattern().getWidth(); ++int_3) {
-				for (int int_4 = 0; int_4 < accessor.callGetIronGolemPattern().getHeight(); ++int_4) {
-					CachedBlockPosition forLoopBlockPos = blockPatternResult.translate(int_3, int_4, 0);
+			for (int xTranslation = 0; xTranslation < accessor.callGetIronGolemPattern().getWidth(); ++xTranslation) {
+				for (int yTranslation = 0; yTranslation < accessor.callGetIronGolemPattern().getHeight(); ++yTranslation) {
+					CachedBlockPosition forLoopBlockPos = blockPatternResult.translate(xTranslation, yTranslation, 0);
 
 					world.setBlockState(forLoopBlockPos.getBlockPos(), Blocks.AIR.getDefaultState(), 2);
 					world.playLevelEvent(2001, forLoopBlockPos.getBlockPos(), Block.getRawIdFromState(forLoopBlockPos.getBlockState()));
@@ -112,7 +112,7 @@ public class MixinHelpers {
 			IronGolemEntity ironGolemEntity = (IronGolemEntity) EntityType.IRON_GOLEM.create(world);
 
 			ironGolemEntity.setPlayerCreated(true);
-			ironGolemEntity.setPositionAndAngles((double) floor.getX() + 0.5D, (double) floor.getY() + 0.05D, (double) floor.getZ() + 0.5D, 0.0F, 0.0F);
+			ironGolemEntity.setPositionAndAngles(floor.getX() + 0.5D, floor.getY() + 0.05D, floor.getZ() + 0.5D, 0.0F, 0.0F);
 
 			strikeLightningIfWitched(pumpkinState, world, floor);
 
@@ -124,9 +124,9 @@ public class MixinHelpers {
 				Criterions.SUMMONED_ENTITY.handle(serverPlayerEntity, ironGolemEntity);
 			}
 
-			for (int int_5 = 0; int_5 < accessor.callGetIronGolemPattern().getWidth(); ++int_5) {
-				for (int int_6 = 0; int_6 < accessor.callGetIronGolemPattern().getHeight(); ++int_6) {
-					CachedBlockPosition forLoopCurrentPos = blockPatternResult.translate(int_5, int_6, 0);
+			for (int xTranslation = 0; xTranslation < accessor.callGetIronGolemPattern().getWidth(); ++xTranslation) {
+				for (int yTranslation = 0; yTranslation < accessor.callGetIronGolemPattern().getHeight(); ++yTranslation) {
+					CachedBlockPosition forLoopCurrentPos = blockPatternResult.translate(xTranslation, yTranslation, 0);
 
 					world.updateNeighbors(forLoopCurrentPos.getBlockPos(), Blocks.AIR);
 				}

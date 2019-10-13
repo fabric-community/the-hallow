@@ -5,8 +5,8 @@ import net.minecraft.block.CarvedPumpkinBlock;
 public class ColoredCarvedPumpkinBlock extends CarvedPumpkinBlock {
 	private final ColoredPumpkinBlock.PumpkinColor color;
 
-	public ColoredCarvedPumpkinBlock(Settings block$Settings_1, ColoredPumpkinBlock.PumpkinColor color) {
-		super(block$Settings_1);
+	public ColoredCarvedPumpkinBlock(Settings settings, ColoredPumpkinBlock.PumpkinColor color) {
+		super(settings);
 		this.color = color;
 	}
 

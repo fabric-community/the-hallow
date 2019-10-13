@@ -17,8 +17,8 @@ import java.util.function.Predicate;
 @Mixin(CarvedPumpkinBlock.class)
 public abstract class CarvedPumpkinBlockMixin extends HorizontalFacingBlock {
 	
-	protected CarvedPumpkinBlockMixin(Settings block$Settings_1) {
-		super(block$Settings_1);
+	protected CarvedPumpkinBlockMixin(Settings settings) {
+		super(settings);
 	}
 
 	static {
@@ -35,7 +35,7 @@ public abstract class CarvedPumpkinBlockMixin extends HorizontalFacingBlock {
 	 * @reason @see if block below. Also this is for future handling of Bone Golem Logic
 	 */
 	@Overwrite
-	private void trySpawnEntity(World world_1, BlockPos blockPos_1) {
-		MixinHelpers.trySpawnEntity(world_1, blockPos_1, (CarvedPumpkinBlock) (Object) this);
+	private void trySpawnEntity(World world, BlockPos blockPos) {
+		MixinHelpers.trySpawnEntity(world, blockPos, (CarvedPumpkinBlock) (Object) this);
 	}
 }

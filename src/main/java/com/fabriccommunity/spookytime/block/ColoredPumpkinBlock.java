@@ -22,33 +22,33 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 	
 	private PumpkinColor color;
 	
-	public ColoredPumpkinBlock(Settings blockSettings, PumpkinColor color) {
-		super(blockSettings);
+	public ColoredPumpkinBlock(Settings settings, PumpkinColor color) {
+		super(settings);
 		this.color = color;
 	}
 	
-	public boolean activate(BlockState blockState_1, World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1, Hand hand_1, BlockHitResult blockHitResult_1) {
-        ItemStack itemStack_1 = playerEntity_1.getStackInHand(hand_1);
+	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
+        ItemStack itemStack_1 = playerEntity.getStackInHand(hand);
 
         if (itemStack_1.getItem() == Items.SHEARS) {
-            if (!world_1.isClient) {
-                Direction direction_1 = blockHitResult_1.getSide();
-                Direction direction_2 = direction_1.getAxis() == Direction.Axis.Y ? playerEntity_1.getHorizontalFacing().getOpposite() : direction_1;
+            if (!world.isClient) {
+                Direction side = blockHitResult.getSide();
+                Direction facingTowardPlayer = side.getAxis() == Direction.Axis.Y ? playerEntity.getHorizontalFacing().getOpposite() : side;
 
-                world_1.playSound((PlayerEntity) null, blockPos_1, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                world_1.setBlockState(blockPos_1, (BlockState) SpookyBlocks.CARVED_PUMPKIN_COLORS.get(this.color).getDefaultState().with(CarvedPumpkinBlock.FACING, direction_2), 11);
-                ItemEntity itemEntity_1 = new ItemEntity(world_1, (double) blockPos_1.getX() + 0.5D + (double) direction_2.getOffsetX() * 0.65D, (double) blockPos_1.getY() + 0.1D, (double) blockPos_1.getZ() + 0.5D + (double) direction_2.getOffsetZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
+                world.playSound(null, blockPos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                world.setBlockState(blockPos, SpookyBlocks.CARVED_PUMPKIN_COLORS.get(this.color).getDefaultState().with(CarvedPumpkinBlock.FACING, facingTowardPlayer), 11);
+                ItemEntity itemEntity = new ItemEntity(world,blockPos.getX() + 0.5D + facingTowardPlayer.getOffsetX() * 0.65D, blockPos.getY() + 0.1D, blockPos.getZ() + 0.5D + facingTowardPlayer.getOffsetZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
 
-                itemEntity_1.setVelocity(0.05D * (double) direction_2.getOffsetX() + world_1.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction_2.getOffsetZ() + world_1.random.nextDouble() * 0.02D);
-                world_1.spawnEntity(itemEntity_1);
-                itemStack_1.damage(1, (LivingEntity) playerEntity_1, (playerEntity_1x) -> {
-                    playerEntity_1x.sendToolBreakStatus(hand_1);
+                itemEntity.setVelocity(0.05D * (double) facingTowardPlayer.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) facingTowardPlayer.getOffsetZ() + world.random.nextDouble() * 0.02D);
+                world.spawnEntity(itemEntity);
+                itemStack_1.damage(1, playerEntity, (playerEntityVar) -> {
+                    playerEntityVar.sendToolBreakStatus(hand);
                 });
             }
 
             return true;
         } else {
-            return super.activate(blockState_1, world_1, blockPos_1, playerEntity_1, hand_1, blockHitResult_1);
+            return super.activate(blockState, world, blockPos, playerEntity, hand, blockHitResult);
         }
     }
 	
