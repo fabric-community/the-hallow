@@ -3,7 +3,6 @@ package com.fabriccommunity.spookytime.world.biome;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
@@ -30,7 +29,7 @@ public class SpookyShoreBiome extends SpookyBaseBiome {
 		
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
 		
-		DefaultBiomeFeatures.addDefaultGrass(this);
+		SpookyBiomeFeatures.addGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
 		this.addSpawn(EntityCategory.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));

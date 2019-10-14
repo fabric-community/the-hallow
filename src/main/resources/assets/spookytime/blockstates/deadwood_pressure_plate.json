@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"powered=false": {"model": "spookytime:block/deadwood_pressure_plate"},
+		"powered=true": {"model": "spookytime:block/deadwood_pressure_plate_down"}
+	}
+}
