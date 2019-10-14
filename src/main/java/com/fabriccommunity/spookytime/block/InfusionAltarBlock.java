@@ -1,5 +1,7 @@
 package com.fabriccommunity.spookytime.block;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderLayer;
@@ -94,7 +96,8 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 			altarEntity.getWorld().addParticle(ParticleTypes.EXPLOSION, entity.getPos().getX(), entity.getPos().getY(), entity.getPos().getZ(), 0.0D, 0.0D, 0.0D);
 		});
 	}
-	
+
+	@Environment(EnvType.CLIENT)
 	public void createSound(InfusionAltarBlockEntity altarEntity) {
 		altarEntity.getWorld().playSound(MinecraftClient.getInstance().player, altarEntity.getPos(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 	}
