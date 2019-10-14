@@ -13,6 +13,7 @@ import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
 import com.fabriccommunity.spookytime.client.render.CrowEntityRenderer;
+import com.fabriccommunity.spookytime.client.render.CultistEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionAltarBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionPillarBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.MummyEntityRenderer;
@@ -22,6 +23,7 @@ import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestBlockEnti
 import com.fabriccommunity.spookytime.client.render.SpookyTreasureChestEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.TinyPumpkinRenderer;
 import com.fabriccommunity.spookytime.entity.CrowEntity;
+import com.fabriccommunity.spookytime.entity.CultistEntity;
 import com.fabriccommunity.spookytime.entity.MummyEntity;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
@@ -36,6 +38,7 @@ public class SpookyTimeClient implements ClientModInitializer {
 		EntityRendererRegistry.INSTANCE.register(SpookyTreasureChestEntity.class, ((dispatcher, context) -> new SpookyTreasureChestEntityRenderer(dispatcher)));
 		EntityRendererRegistry.INSTANCE.register(SpookyCactusEntity.class, (dispatcher, context) -> new SpookyCactusEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(MummyEntity.class, (dispatcher, context) -> new MummyEntityRenderer(dispatcher));
+		EntityRendererRegistry.INSTANCE.register(CultistEntity.class, (dispatcher, context) -> new CultistEntityRenderer(dispatcher));
 		
 		BlockEntityRendererRegistry.INSTANCE.register(TinyPumpkinBlockEntity.class, new TinyPumpkinRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionPillarBlockEntity.class, new InfusionPillarBlockEntityRenderer());

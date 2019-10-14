@@ -2,11 +2,12 @@ package com.fabriccommunity.spookytime.client.model;
 
 import net.minecraft.client.model.Cuboid;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.ModelWithHead;
 import net.minecraft.util.math.MathHelper;
 
 import com.fabriccommunity.spookytime.entity.CrowEntity;
 
-public class CrowEntityModel extends EntityModel<CrowEntity> {
+public class CrowEntityModel extends EntityModel<CrowEntity> implements ModelWithHead {
 	private final Cuboid body;
 	private final Cuboid leftLeg;
 	private final Cuboid rightLeg;
@@ -94,5 +95,10 @@ public class CrowEntityModel extends EntityModel<CrowEntity> {
 			leftWing.roll = 0F;
 			rightWing.roll = 0F;
 		}
+	}
+	
+	@Override
+	public Cuboid getHead() {
+		return head;
 	}
 }
