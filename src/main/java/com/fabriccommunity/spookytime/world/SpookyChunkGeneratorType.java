@@ -11,7 +11,11 @@ import java.util.function.Supplier;
 public class SpookyChunkGeneratorType extends ChunkGeneratorType<SpookyChunkGeneratorConfig, SpookyChunkGenerator> {
 	
 	public static final SpookyChunkGeneratorType INSTANCE = Registry.register(Registry.CHUNK_GENERATOR_TYPE, SpookyTime.id("spooky"), new SpookyChunkGeneratorType(false, () -> new SpookyChunkGeneratorConfig()));
-	
+
+	public static void init() {
+		// NO-OP
+	}
+
 	public SpookyChunkGeneratorType(boolean buffetScreen, Supplier<SpookyChunkGeneratorConfig> configSupplier) {
 		super(null, buffetScreen, configSupplier);
 	}

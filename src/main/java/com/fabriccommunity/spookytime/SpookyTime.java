@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime;
 
+import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
@@ -49,6 +50,7 @@ public class SpookyTime implements ModInitializer {
 		SpookyFeatures.init();
 		SpookyBiomes.init();
 		SpookyWorldGen.init();
+		SpookyChunkGeneratorType.init();
 		SpookyDimensions.init();
 		SpookyEvents.init();
 		SpookySounds.init();
