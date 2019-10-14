@@ -6,7 +6,10 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.doomtree.treeheart.DoomHeartBlockEntity;
 import com.fabriccommunity.spookytime.doomtree.treeheart.DoomTreeTracker;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.event.server.ServerStopCallback;
 import net.fabricmc.fabric.api.tag.TagRegistry;

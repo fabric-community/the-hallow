@@ -46,19 +46,19 @@ public class SpookyFeatures {
 	public static final Feature<DefaultFeatureConfig> STONE_CIRCLE = register("stone_circle", new StoneCircleFeature());
 	public static final Feature<DefaultFeatureConfig> SMALL_DEADWOOD_TREE = register("small_deadwood_tree", new SmallDeadwoodTreeFeature(DefaultFeatureConfig::deserialize, false));
 	public static final Feature<DefaultFeatureConfig> LARGE_DEADWOOD_TREE = register("large_deadwood_tree", new LargeDeadwoodTreeFeature(DefaultFeatureConfig::deserialize, false));
-
+	
 	private SpookyFeatures() {
 		// NO-OP
 	}
-
+	
 	public static void init() {
 		// NO-OP
 	}
-
+	
 	public static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
 		return Registry.register(Registry.FEATURE, SpookyTime.id(name), feature);
 	}
-
+	
 	private static <C extends SurfaceConfig, F extends SurfaceBuilder<C>> F register(String name, F surfaceBuilder) {
 		return Registry.register(Registry.SURFACE_BUILDER, SpookyTime.id(name), surfaceBuilder);
 	}
