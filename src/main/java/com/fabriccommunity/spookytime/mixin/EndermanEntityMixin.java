@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EndermanEntity.class)
 public class EndermanEntityMixin {
-	@Inject(at = @At("HEAD"), method = "isPlayerStaring", cancellable = true)
+	@Inject(at = @At("HEAD"), method = "isPlayerStaring(Lnet/minecraft/entity/player/PlayerEntity;)Z", cancellable = true)
 	private void isPlayerStaring(final PlayerEntity playerEntity, final CallbackInfoReturnable<Boolean> info) {
 		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(playerEntity);
 		if(trinketPlayer.getStack("head:mask").getItem().equals(SpookyItems.PAPER_BAG)) {

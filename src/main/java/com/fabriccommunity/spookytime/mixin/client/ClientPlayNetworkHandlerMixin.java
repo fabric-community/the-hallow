@@ -14,7 +14,7 @@ import com.fabriccommunity.spookytime.registry.SpookyDimensions;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
-	@Redirect(method = "onPlayerRespawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;openScreen(Lnet/minecraft/client/gui/screen/Screen;)V", ordinal = 0))
+	@Redirect(method = "onPlayerRespawn(Lnet/minecraft/client/network/packet/PlayerRespawnS2CPacket;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;openScreen(Lnet/minecraft/client/gui/screen/Screen;)V", ordinal = 0))
 	private void redirectOpenScreen_onPlayerRespawn(MinecraftClient client, Screen screen, PlayerRespawnS2CPacket packet) {
 		if (packet.getDimension() == SpookyDimensions.SPOOKY) {
 			Screen current = client.currentScreen;

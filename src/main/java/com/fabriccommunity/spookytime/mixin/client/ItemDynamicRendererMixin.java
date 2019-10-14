@@ -16,7 +16,7 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 public class ItemDynamicRendererMixin {
 	private final SpookyTreasureChestBlockEntity chestEntity = new SpookyTreasureChestBlockEntity();
 	
-	@Inject(at = @At("HEAD"), method = "render", cancellable = true)
+	@Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/item/ItemStack;)V", cancellable = true)
 	private void renderTreasureChest(final ItemStack itemStack, final CallbackInfo info) {
 		if (itemStack.getItem().equals(SpookyBlocks.SPOOKY_TREASURE_CHEST.asItem())) {
 			BlockEntityRenderDispatcher.INSTANCE.renderEntity(this.chestEntity);
