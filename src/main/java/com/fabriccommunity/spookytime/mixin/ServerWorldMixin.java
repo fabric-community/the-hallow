@@ -18,7 +18,7 @@ import java.util.Random;
  */
 @Mixin(ServerWorld.class)
 public class ServerWorldMixin {
-	@Redirect(method = "tickChunk(Lnet/minecraft/world/chunk/WorldChunk;I)V", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I", ordinal = 0, remap = false))
+	@Redirect(method = "tickChunk(Lnet/minecraft/world/chunk/WorldChunk;I)V", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I", ordinal = 0))
 	private int makeItThunderrr(Random random, int bound) {
 		return random.nextInt(bound) / SpookyConfig.SpookyWeather.thunderModifier;
 	}
