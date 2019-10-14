@@ -37,17 +37,17 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 	}
 
 	@Override
-	public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {
+	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return OUTLINE_SHAPE;
 	}
 
 	@Override
-	public boolean isOpaque(BlockState blockState_1) {
+	public boolean isOpaque(BlockState blockState) {
 		return false;
 	}
 
 	@Override
-	public VoxelShape getRayTraceShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1) {
+	public VoxelShape getRayTraceShape(BlockState blockState, BlockView blockView, BlockPos blockPos) {
 		return RAY_TRACE_SHAPE;
 	}
 
@@ -57,7 +57,7 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 	}
 
 	@Override
-	public BlockRenderType getRenderType(BlockState blockState_1) {
+	public BlockRenderType getRenderType(BlockState blockState) {
 		return BlockRenderType.MODEL;
 	}
 
