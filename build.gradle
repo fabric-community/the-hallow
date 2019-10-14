@@ -58,6 +58,7 @@ dependencies {
 	modImplementation("com.github.Draylar:world-traveler:${world_traveler_version}") {
 		transitive = false
 	}
+	include "com.github.Draylar:world-traveler:${world_traveler_version}"
 	
 	modApi("io.github.prospector:modmenu:${modmenu_version}") {
 		transitive = false
