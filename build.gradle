@@ -1,7 +1,9 @@
 plugins {
-	id 'fabric-loom' version '0.2.5-SNAPSHOT'
+	id "fabric-loom" version "0.2.5-SNAPSHOT"
 	id "eclipse"
 	id "maven-publish"
+	id "com.github.breadmoirai.github-release" version "2.2.9"
+	id "org.ajoberstar.grgit" version "3.1.1"
 	id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
@@ -16,7 +18,7 @@ repositories {
 		url = "https://maven.abusedmaster.xyz/"
 	}
 	maven {
-		url 'http://server.bbkr.space:8081/artifactory/libs-release'
+		url "http://server.bbkr.space:8081/artifactory/libs-release"
 	}
 	maven {
 		name = "CurseForge"
@@ -35,15 +37,14 @@ repositories {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
-
 def ENV = System.getenv()
-version = version + (ENV.BUILD_NUMBER ? ("+build." + ENV.BUILD_NUMBER) : "")
+
+group = project.maven_group
+archivesBaseName = project.archives_base_name
+version = project.mod_version + "+" + (ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}-" : "") + project.minecraft_version
 
 minecraft {
-	
+	refmapName = "${archives_base_name}-refmap.json"
 }
 
 dependencies {
@@ -79,21 +80,8 @@ dependencies {
 	
 	modImplementation "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
 	include "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
-
-	modImplementation ("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") { exclude(module: 'ModMenu') }
-}
-
-processResources {
-	inputs.property "version", project.version
 	
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
-		expand "version": project.version
-	}
-	
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
-	}
+	modImplementation ("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") { exclude(module: "ModMenu") }
 }
 
 processResources {
@@ -111,7 +99,7 @@ processResources {
 
 eclipse {
 	project {
-		name = mod_name
+		name = archives_base_name
 	}
 }
 
@@ -132,7 +120,7 @@ jar {
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = 'sources'
+	classifier = "sources"
 	from sourceSets.main.allSource
 	manifest
 	{
@@ -159,7 +147,34 @@ publishing {
 	
 	repositories {
 		mavenLocal()
+		if(project.hasProperty("github_maven_owner")) {
+			maven {
+				url = "https://maven.pkg.github.com/${github_maven_owner}"
+				
+				credentials {
+					username project.properties.github_username
+					password project.properties.github_packages_token
+				}
+			}
+		}
 	}
+}
+
+githubRelease {
+	token project.hasProperty("github_releases_token") ? project.github_releases_token : ""
+	if(project.hasProperty("github_repository_owner")) {
+		owner project.github_repository_owner
+	}
+	if(project.hasProperty("github_repository")) {
+		repo project.github_repository
+	}
+	
+	tagName project.version
+	targetCommitish { org.ajoberstar.grgit.Grgit.open(dir: ".").branch.current().name }
+	releaseName project.version
+	
+	FilenameFilter filter = { dir, filename -> filename.contains(project.version) && !filename.contains("-dev.jar") }
+	releaseAssets = jar.destinationDir.listFiles filter
 }
 
 curseforge {
@@ -176,14 +191,45 @@ curseforge {
 			addGameVersion "Fabric"
 			
 			mainArtifact(remapJar) {
-				displayName = "${mod_name}-${minecraft_version}-${project.version}.jar"
-				relations {
-					requiredDependency "fabric-api"
+				displayName = "${archives_base_name}-${project.version}.jar"
+				
+				if(project.hasProperty("required_dep_slugs") || project.hasProperty("embedded_lib_slugs") || project.hasProperty("optional_dep_slugs") || project.hasProperty("compatible_tool_slugs") || project.hasProperty("incompatible_slugs")) {
+					relations {
+						if(project.hasProperty("required_dep_slugs")) {
+							project.required_dep_slugs.split(", ").each { String slug ->
+								requiredDependency slug
+							}
+						}
+						
+						if(project.hasProperty("embedded_lib_slugs")) {
+							project.embedded_lib_slugs.split(", ").each { String slug ->
+								embeddedLibrary slug
+							}
+						}
+						
+						if(project.hasProperty("optional_dep_slugs")) {
+							project.optional_dep_slugs.split(", ").each { String slug ->
+								optionalDependency slug
+							}
+						}
+						
+						if(project.hasProperty("compatible_tool_slugs")) {
+							project.compatible_tool_slugs.split(", ").each { String slug ->
+								tool slug
+							}
+						}
+						
+						if(project.hasProperty("incompatible_slugs")) {
+							project.incompatible_slugs.split(", ").each { String slug ->
+								incompatible slug
+							}
+						}
+					}
 				}
 			}
 			
 			addArtifact(sourcesJar) {
-				displayName = "${mod_name}-${minecraft_version}-${project.version}-sources.jar"
+				displayName = "${archives_base_name}-${minecraft_version}-${project.version}-sources.jar"
 			}
 			
 			afterEvaluate {
