@@ -43,7 +43,6 @@ public class DoomTreeClient {
 		InvalidateRenderStateCallback.EVENT.register(() -> {
 			DoomTree.RENDER_REFRESH_HANDLER = p -> {
 				final MinecraftClient client = MinecraftClient.getInstance();
-				System.out.println("boop");
 				client.worldRenderer.updateBlock(client.world, p, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), 8);
 			};
 		});

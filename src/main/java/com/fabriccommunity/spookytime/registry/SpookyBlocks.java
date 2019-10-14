@@ -136,28 +136,28 @@ public class SpookyBlocks {
 	public static final Block EERIE_GRASS = register("eerie_grass", new SpookyFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
 	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
 	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
-
+	
 	private SpookyBlocks() {
 		// NO-OP
 	}
-
+	
 	public static void init() {
 		((SpookyLogBlock) DEADWOOD_LOG).setStripped(STRIPPED_DEADWOOD_LOG);
 		((SpookyLogBlock) DEADWOOD_WOOD).setStripped(STRIPPED_DEADWOOD_WOOD);
 	}
-
+	
 	static <T extends Block> T register(String name, T block, Item.Settings settings) {
 		return register(name, block, new BlockItem(block, settings));
 	}
-
+	
 	public static <T extends Block> T register(String name, T block) {
 		return register(name, block, new Item.Settings().group(SpookyTime.GROUP));
 	}
-
+	
 	static <T extends Block> T register(String name, T block, Function<T, BlockItem> itemFactory) {
 		return register(name, block, itemFactory.apply(block));
 	}
-
+	
 	static <T extends Block> T register(String name, T block, BlockItem item) {
 		T b = Registry.register(Registry.BLOCK, SpookyTime.id(name), block);
 		if (item != null) {
