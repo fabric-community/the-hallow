@@ -3,18 +3,6 @@
 		"": [
 			{
 				"model": "spookytime:block/tombstone"
-			},
-			{
-				"model": "spookytime:block/tombstone",
-				"y": 90
-			},
-			{
-				"model": "spookytime:block/tombstone",
-				"y": 180
-			},
-			{
-				"model": "spookytime:block/tombstone",
-				"y": 270
 			}
 		]
 	}

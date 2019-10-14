@@ -14,7 +14,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
 
 public class TombstoneBlock extends Block {
-	private static final VoxelShape SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 15.0D, 6.0D);
+	private static final VoxelShape SHAPE = Block.createCuboidShape(3.0D, 0.0D, 10.0D, 13.0D, 15.0D, 13.0D);
 
 	public TombstoneBlock(Settings settings) {
 		super(settings);
