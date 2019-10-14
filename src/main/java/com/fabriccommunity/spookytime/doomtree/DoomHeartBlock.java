@@ -22,7 +22,7 @@ public class DoomHeartBlock extends BlockWithEntity {
 	}
 
 	@Override
-	public BlockEntity createBlockEntity(BlockView var1) {
+	public BlockEntity createBlockEntity(BlockView blockView) {
 		return new DoomHeartBlockEntity();
 	}
 
@@ -42,7 +42,7 @@ public class DoomHeartBlock extends BlockWithEntity {
 	}
 
 	@Override
-	public BlockRenderType getRenderType(BlockState blockState_1) {
+	public BlockRenderType getRenderType(BlockState blockState) {
 		return BlockRenderType.MODEL;
 	}
 }

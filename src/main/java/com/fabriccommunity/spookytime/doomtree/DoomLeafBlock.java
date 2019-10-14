@@ -45,7 +45,7 @@ public class DoomLeafBlock extends Block {
 	}
 
 	@Override
-	public boolean isOpaque(BlockState blockState_1) {
+	public boolean isOpaque(BlockState blockState) {
 		return true;
 	}
 
@@ -55,17 +55,17 @@ public class DoomLeafBlock extends Block {
 //	}
 
 	@Override
-	public boolean canSuffocate(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1) {
+	public boolean canSuffocate(BlockState blockState, BlockView blockView, BlockPos blockPos) {
 		return true;
 	}
 
 	@Override
-	public boolean allowsSpawning(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityType<?> entityType_1) {
+	public boolean allowsSpawning(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
 		return false;
 	}
 
 //	@Override
-//	public int getLightSubtracted(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1) {
+//	public int getLightSubtracted(BlockState blockState, BlockView blockView, BlockPos blockPos) {
 //		return 1;
 //	}
 	
