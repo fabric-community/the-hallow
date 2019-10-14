@@ -20,12 +20,12 @@ public class DoomGleamBlock extends Block {
 		}
 
 		@Override
-		public BlockRenderType getRenderType(BlockState blockState_1) {
+		public BlockRenderType getRenderType(BlockState blockState) {
 			return BlockRenderType.INVISIBLE;
 		}
 
 		@Override
-		public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {
+		public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 			return VoxelShapes.empty();
 		}
 		
@@ -39,7 +39,7 @@ public class DoomGleamBlock extends Block {
 		}
 
 		@Override
-		public int getLuminance(BlockState blockState_1) {
+		public int getLuminance(BlockState blockState) {
 			return 7;
 		}
 		
