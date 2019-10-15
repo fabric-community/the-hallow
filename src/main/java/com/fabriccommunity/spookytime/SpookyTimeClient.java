@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime;
 
+import com.fabriccommunity.spookytime.client.SpookyColors;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.render.EntityRendererRegistry;
@@ -38,6 +39,8 @@ public class SpookyTimeClient implements ClientModInitializer {
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionPillarBlockEntity.class, new InfusionPillarBlockEntityRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionAltarBlockEntity.class, new InfusionAltarBlockEntityRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(SpookyTreasureChestBlockEntity.class, new SpookyTreasureChestBlockEntityRenderer());
+
+		SpookyColors.init();
 		
 		SpookyClientNetworking.init();
 		
