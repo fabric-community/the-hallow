@@ -81,12 +81,12 @@
 				{
 					"type": "minecraft:item",
 					"weight": 4,
-					"name": "minecraft:iron_club"
+					"name": "spookytime:iron_club"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 2,
-					"name": "minecraft:diamond_club"
+					"name": "spookytime:diamond_club"
 				},
 				{
 					"type": "minecraft:item",

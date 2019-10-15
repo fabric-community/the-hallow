@@ -43,7 +43,7 @@ public class SpookyBiomeFeatures {
 	}
 	
 	public static void addDefaultUplandsGeneration(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(SpookyFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(150)));
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(SpookyFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(160)));
 	}
 	
 	public static void addLakes(Biome biome) {
