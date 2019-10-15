@@ -12,7 +12,6 @@ import com.fabriccommunity.spookytime.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.spookytime.block.entity.TinyPumpkinBlockEntity;
 import com.fabriccommunity.spookytime.client.FluidResourceLoader;
 import com.fabriccommunity.spookytime.client.SpookyClientNetworking;
-import com.fabriccommunity.spookytime.client.SpookyColors;
 import com.fabriccommunity.spookytime.client.render.CrowEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionAltarBlockEntityRenderer;
 import com.fabriccommunity.spookytime.client.render.InfusionPillarBlockEntityRenderer;
@@ -40,7 +39,6 @@ public class SpookyTimeClient implements ClientModInitializer {
 		BlockEntityRendererRegistry.INSTANCE.register(InfusionAltarBlockEntity.class, new InfusionAltarBlockEntityRenderer());
 		BlockEntityRendererRegistry.INSTANCE.register(SpookyTreasureChestBlockEntity.class, new SpookyTreasureChestBlockEntityRenderer());
 		
-		SpookyColors.init();
 		SpookyClientNetworking.init();
 		
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new FluidResourceLoader());

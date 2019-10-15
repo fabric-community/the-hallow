@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"type=bottom": {"model": "spookytime:block/deadwood_slab"},
+		"type=top": {"model": "spookytime:block/deadwood_slab_top"},
+		"type=double": {"model": "spookytime:block/deadwood_planks"}
+	}
+}

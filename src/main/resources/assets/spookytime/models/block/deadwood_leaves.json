@@ -1,0 +1,6 @@
+{
+	"parent": "block/leaves",
+	"textures": {
+		"all": "spookytime:block/deadwood_leaves"
+	}
+}

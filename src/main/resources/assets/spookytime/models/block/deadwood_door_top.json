@@ -1,0 +1,7 @@
+{
+	"parent": "block/door_top",
+	"textures": {
+		"bottom": "spookytime:block/deadwood_door_bottom",
+		"top": "spookytime:block/deadwood_door_top"
+	}
+}

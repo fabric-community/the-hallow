@@ -1,18 +1,18 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;
-import net.minecraft.world.gen.decorator.CountDepthDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.LakeDecoratorConfig;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.DiskFeatureConfig;
+import net.minecraft.world.gen.feature.DoublePlantFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.LakeFeatureConfig;
 
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
@@ -30,12 +30,12 @@ public class SpookyBiomeFeatures {
 	
 	public static void addSpookyForestTrees(Biome biome) {
 		if (biome instanceof SpookyForestBiome) {
-			biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.DARK_OAK_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(1, 0.05F, 1)));
+			biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.LARGE_DEADWOOD_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(1, 0.05F, 1)));
 		}
 	}
 	
 	public static void addSpookySwampTrees(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.SWAMP_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(4, 0.1F, 1)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.SMALL_DEADWOOD_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(4, 0.1F, 1)));
 		// Still needs work as well
 	}
 	
@@ -45,12 +45,17 @@ public class SpookyBiomeFeatures {
 	}
 	
 	public static void addDefaultUplandsGeneration(Biome biome) {
-		// TODO
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(SpookyFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(120)));
 	}
 	
 	public static void addLakes(Biome biome) {
 		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, Biome.configureFeature(Feature.LAKE, new LakeFeatureConfig(SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(4)));
 		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, Biome.configureFeature(Feature.LAKE, new LakeFeatureConfig(SpookyBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(40)));
+	}
+	
+	public static void addExtraLakes(Biome biome) {
+		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, Biome.configureFeature(Feature.LAKE, new LakeFeatureConfig(SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(2)));
+		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, Biome.configureFeature(Feature.LAKE, new LakeFeatureConfig(SpookyBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(20)));
 	}
 	
 	public static void addWells(Biome biome) {
@@ -68,15 +73,19 @@ public class SpookyBiomeFeatures {
 	public static void addMineables(Biome biome) {
 		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(SpookyBlocks.DECEASED_DIRT.getDefaultState(), 33), Decorator.COUNT_RANGE, new RangeDecoratorConfig(10, 0, 0, 256)));
 		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(SpookyBlocks.TAINTED_GRAVEL.getDefaultState(), 33), Decorator.COUNT_RANGE, new RangeDecoratorConfig(8, 0, 0, 256)));
+		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(SpookyBlocks.INFESTED_TAINTED_STONE.getDefaultState(), 33), Decorator.COUNT_RANGE, new RangeDecoratorConfig(5, 0, 0, 256)));
 	}
 	
 	public static void addOres(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.COAL_ORE.getDefaultState(), 17), Decorator.COUNT_RANGE, new RangeDecoratorConfig(20, 0, 0, 128)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.IRON_ORE.getDefaultState(), 9), Decorator.COUNT_RANGE, new RangeDecoratorConfig(20, 0, 0, 64)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.GOLD_ORE.getDefaultState(), 9), Decorator.COUNT_RANGE, new RangeDecoratorConfig(2, 0, 0, 32)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.REDSTONE_ORE.getDefaultState(), 8), Decorator.COUNT_RANGE, new RangeDecoratorConfig(8, 0, 0, 16)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.DIAMOND_ORE.getDefaultState(), 8), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(Blocks.LAPIS_ORE.getDefaultState(), 7), Decorator.COUNT_DEPTH_AVERAGE, new CountDepthDecoratorConfig(1, 16, 16)));
 		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(SpookyFeatures.ORE, new SpookyOreFeatureConfig(SpookyBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
+	}
+	
+	public static void addGrass(Biome biome) {
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.GRASS, new GrassFeatureConfig(SpookyBlocks.EERIE_GRASS.getDefaultState()), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(Feature.DOUBLE_PLANT, new DoublePlantFeatureConfig(SpookyBlocks.TALL_EERIE_GRASS.getDefaultState()), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
+	}
+	
+	public static void addDecoration(Biome biome) {
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.BRAMBLES, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(2)));
 	}
 }
