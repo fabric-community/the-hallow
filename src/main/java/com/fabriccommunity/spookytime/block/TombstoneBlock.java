@@ -44,6 +44,11 @@ public class TombstoneBlock extends HorizontalFacingBlock {
 	}
 
 	@Override
+	public BlockRenderLayer getRenderLayer() {
+		return BlockRenderLayer.CUTOUT;
+	}
+
+	@Override
 	public VoxelShape getCollisionShape(BlockState state, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return SHAPES.get(state.get(FACING));
 	}
