@@ -1,6 +1,10 @@
 package com.fabriccommunity.spookytime.doomtree.model;
 
-import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.*;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MAX_LEVEL;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_BURNING;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_INFUSING;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_PRIMED_WATER;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_PRIMED_WITCHWATER;
 
 import java.util.List;
 import java.util.Random;
@@ -61,12 +65,15 @@ public class AlchemicalBasin extends SimpleModel {
 			
 	public static final int WITCH_WATER_COLOR = 0xFF5900A3;
 	public static final int WATER_COLOR = 0xFF188DFF;
+	public static final int BURNING_COLOR = 0xFFFF8060;
 	
 	protected final Renderer renderer = RendererAccess.INSTANCE.getRenderer();
 	protected final RenderMaterial matCutout = renderer.materialFinder().blendMode(0, BlockRenderLayer.CUTOUT).find();
 	protected final RenderMaterial matSolid = renderer.materialFinder().blendMode(0, BlockRenderLayer.SOLID).find();
 	protected final RenderMaterial matTranslucent = renderer.materialFinder().blendMode(0, BlockRenderLayer.TRANSLUCENT).find();
-
+	protected final RenderMaterial matGlow = renderer.materialFinder().blendMode(0, BlockRenderLayer.SOLID).emissive(0, true)
+			.disableAo(0, true).disableDiffuse(0, true).find();
+	
 	protected final int sideIndexA;
 	protected final int sideIndexB;
 	
@@ -94,44 +101,53 @@ public class AlchemicalBasin extends SimpleModel {
 		
 		AlchemicalBasinBlockEntity myBe = (AlchemicalBasinBlockEntity) renderData;
 		
-		final int mode = myBe.mode();
-		
-		if (mode == MODE_PRIMED_WITCHWATER) {
-			renderFluidContent(qe, WITCH_WATER_COLOR, myBe.level());
-		} else if (mode == MODE_PRIMED_WATER) {
-			renderFluidContent(qe, WATER_COLOR, myBe.level());
+		switch (myBe.mode()) {
+		case MODE_PRIMED_WITCHWATER:
+			renderFluidContent(qe, WITCH_WATER_COLOR, MAX_LEVEL, false);
+			break;
+			
+		case MODE_PRIMED_WATER:
+			renderFluidContent(qe, WATER_COLOR, MAX_LEVEL, false);
+			break;
+			
+		case MODE_BURNING:
+			renderFluidContent(qe, BURNING_COLOR, myBe.level(), true);
+			break;
+			
+		case MODE_INFUSING:
+		default:
 		}
 	}
 
-	private void renderFluidContent(QuadEmitter qe, int color, int level) {
+	private void renderFluidContent(QuadEmitter qe, int color, int level, boolean glow) {
 		final float depth = FLUID_BOTTOM_DEPTH + LEVEL_MULTIPLIER * level;
 		final float height = Math.min(PX13, 1f - depth);
 		
-		qe.material(matTranslucent)
+		qe.material(glow ? matGlow: matTranslucent)
 		.square(Direction.UP, PX1, PX1, PX15, PX15, depth)
 		.spriteColor(0, color, color, color, color)
 		.spriteBake(0, waterSprite, MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
 		
-		qe.material(matSolid)
+		qe.material(glow ? matGlow: matSolid)
 		.square(Direction.EAST, PX2, PX4, PX14, height , PX1)
 		.spriteColor(0, color, color, color, color)
 		.spriteBake(0, waterSprite, MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
 
-		qe.material(matSolid)
+		qe.material(glow ? matGlow: matSolid)
 		.square(Direction.WEST, PX2, PX4, PX14, height, PX1)
 		.spriteColor(0, color, color, color, color)
 		.spriteBake(0, waterSprite, MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
 
-		qe.material(matSolid)
+		qe.material(glow ? matGlow: matSolid)
 		.square(Direction.NORTH, PX2, PX4, PX14, height, PX1)
 		.spriteColor(0, color, color, color, color)
 		.spriteBake(0, waterSprite, MutableQuadView.BAKE_LOCK_UV);
 		qe.emit();
 
-		qe.material(matSolid)
+		qe.material(glow ? matGlow: matSolid)
 		.square(Direction.SOUTH, PX2, PX4, PX14, height, PX1)
 		.spriteColor(0, color, color, color, color)
 		.spriteBake(0, waterSprite, MutableQuadView.BAKE_LOCK_UV);

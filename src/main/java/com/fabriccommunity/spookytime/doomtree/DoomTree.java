@@ -6,10 +6,7 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.doomtree.treeheart.DoomHeartBlockEntity;
 import com.fabriccommunity.spookytime.doomtree.treeheart.DoomTreeTracker;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.event.server.ServerStopCallback;
 import net.fabricmc.fabric.api.tag.TagRegistry;
@@ -71,7 +68,8 @@ public class DoomTree {
 	public static Item DOOM_FRAGMENT_ITEM = Registry.register(Registry.ITEM, SpookyTime.id("doom_fragment"), new Item((new Item.Settings()).group(SpookyTime.GROUP)));
 	public static Item ALCHEMICAL_BASIN_FRAME = Registry.register(Registry.ITEM, SpookyTime.id("alchemical_basin_frame"), new Item((new Item.Settings()).group(SpookyTime.GROUP)));
 
-	public static Block ALCHEMICAL_BASIN_BLOCK = SpookyBlocks.register("alchemical_basin", new AlchemicalBasinBlock(FabricBlockSettings.of(Material.METAL).breakByHand(true).strength(0.5F, 0.5F).build()));
+	public static Block ALCHEMICAL_BASIN_BLOCK = SpookyBlocks.register("alchemical_basin", new AlchemicalBasinBlock(FabricBlockSettings
+			.of(Material.METAL).breakByHand(true).strength(0.5F, 0.5F).lightLevel(5).build()));
 
 	public static final BlockEntityType<AlchemicalBasinBlockEntity> ALCHEMICAL_BASIN =
 			Registry.register(Registry.BLOCK_ENTITY, SpookyTime.id("alchemical_basin"), BlockEntityType.Builder.create(AlchemicalBasinBlockEntity::new, ALCHEMICAL_BASIN_BLOCK).build(null));

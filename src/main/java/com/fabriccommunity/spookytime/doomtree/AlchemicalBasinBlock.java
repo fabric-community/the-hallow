@@ -1,6 +1,7 @@
 package com.fabriccommunity.spookytime.doomtree;
 
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MAX_LEVEL;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_BURNING;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_EMPTY;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_PRIMED_WATER;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_PRIMED_WITCHWATER;
@@ -11,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.RedstoneTorchBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +21,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateFactory.Builder;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.BooleanBiFunction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -29,11 +33,14 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class AlchemicalBasinBlock extends BlockWithEntity {
+	public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
+
 	private static final VoxelShape RAY_TRACE_SHAPE = createCuboidShape(2.0D, 4.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	private static final VoxelShape OUTLINE_SHAPE = VoxelShapes.combineAndSimplify(VoxelShapes.fullCube(), VoxelShapes.union(createCuboidShape(0.0D, 0.0D, 4.0D, 16.0D, 3.0D, 12.0D), createCuboidShape(4.0D, 0.0D, 0.0D, 12.0D, 3.0D, 16.0D), createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D), RAY_TRACE_SHAPE), BooleanBiFunction.ONLY_FIRST);
 
 	public AlchemicalBasinBlock(Block.Settings settings) {
 		super(settings);
+		setDefaultState(this.stateFactory.getDefaultState().with(LIT, false));
 	}
 
 	@Override
@@ -61,6 +68,17 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 		return BlockRenderType.MODEL;
 	}
 
+	@Override
+	public int getLuminance(BlockState blockState) {
+		return blockState.get(LIT) ? super.getLuminance(blockState) : 0;
+	}
+
+	@Override
+	protected void appendProperties(Builder<Block, BlockState> builder) {
+		super.appendProperties(builder);
+		builder.add(LIT);
+	}
+
 	/**
 	 * This is a big hack in the interest of time - essentially a prototype implementation.
 	 * If this sticks around will need to make a properly configurable handler with recipes.
@@ -82,7 +100,8 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 		final AlchemicalBasinBlockEntity myBe = (AlchemicalBasinBlockEntity) be;
 		final int mode = myBe.mode();
 		final Item item = stack.getItem();
-		final int limit = Math.max(0, MAX_LEVEL - myBe.level());
+		final int currentLevel = myBe.level();
+		final int limit = Math.max(0, MAX_LEVEL - currentLevel);
 
 		if (mode == MODE_EMPTY) {
 			if (item == SpookyItems.WITCH_WATER_BUCKET || item == Items.WATER_BUCKET) {
@@ -91,26 +110,40 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 						player.setStackInHand(hand, new ItemStack(Items.BUCKET));
 					}
 
-					myBe.setState(item == Items.WATER_BUCKET ? MODE_PRIMED_WATER : MODE_PRIMED_WITCHWATER, 32);
-					world.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					myBe.setState(item == Items.WATER_BUCKET ? MODE_PRIMED_WATER : MODE_PRIMED_WITCHWATER, 0);
+					world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
 				}
 
 				return true;
+			} else {
+				return false;
 			}
 		} 
 
 		final int doomFuelValue = item == DoomTree.DOOM_FRAGMENT_ITEM || item  == DoomTree.DOOM_LEAF_ITEM ? 1 
 				: item == DoomTree.DOOM_LOG_ITEM || item  == DoomTree.PLACED_DOOM_LOG_ITEM ? 4 : 0;
-		
-//		if (doomFuelValue > 0) {
-//			if (limit > 0 && doomFuelValue <= limit && (mode == MODE_PRIMED_WATER || mode == MODE_BURNING)) {
-//				final int maxConsumed = limit / doomFuelValue;
-//
-//			} else {
-//				return false;
-//			}
-//		}
 
+		if (doomFuelValue > 0) {
+			if (limit > 0 && doomFuelValue <= limit && (mode == MODE_PRIMED_WATER || mode == MODE_BURNING)) {
+				final int consumed = Math.min(limit / doomFuelValue, 1);
+
+				if (consumed > 0) {
+					if (!world.isClient) {
+						if (!player.abilities.creativeMode) {
+							stack.decrement(consumed);
+						}
+
+						myBe.setState(MODE_BURNING, currentLevel + consumed * doomFuelValue);
+						world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+						
+						if (mode != MODE_BURNING) {
+							world.setBlockState(pos, blockState.with(LIT, true), 3);
+						}
+					}
+				}
+			}
+			return true;
+		}
 
 		return false;
 	}
