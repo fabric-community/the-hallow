@@ -105,7 +105,7 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> implements
 		}
 		
 		if (rand.nextInt(3) == 0) {
-			setLootChest(world, pos.add(rand.nextInt(3) - 1, -3 - rand.nextInt(3), rand.nextInt(3) - 1), LOOT_TABLE, rand);
+			setLootChest(world, new BlockPos(centreX + rand.nextInt(3) - 1, lowY - 2 - rand.nextInt(3), centreZ + rand.nextInt(3) - 1), LOOT_TABLE, rand);
 		}
 		
 		return true;

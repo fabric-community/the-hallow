@@ -29,9 +29,7 @@ public class SpookyBiomeFeatures {
 	}
 	
 	public static void addSpookyForestTrees(Biome biome) {
-		if (biome instanceof SpookyForestBiome) {
-			biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.LARGE_DEADWOOD_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(1, 0.05F, 1)));
-		}
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.LARGE_DEADWOOD_TREE, FeatureConfig.DEFAULT, Decorator.COUNT_EXTRA_HEIGHTMAP, new CountExtraChanceDecoratorConfig(1, 0.05F, 1)));
 	}
 	
 	public static void addSpookySwampTrees(Biome biome) {
@@ -45,7 +43,7 @@ public class SpookyBiomeFeatures {
 	}
 	
 	public static void addDefaultUplandsGeneration(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(SpookyFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(120)));
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Biome.configureFeature(SpookyFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(150)));
 	}
 	
 	public static void addLakes(Biome biome) {
