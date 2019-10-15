@@ -15,7 +15,10 @@ import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
 public class SpookySwampBiome extends SpookyBaseBiome {
 	public SpookySwampBiome() {
 		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.SWAMP).depth(-0.2f).scale(0.18f).temperature(0.7f).downfall(0.8f).waterColor(0xBB0A1E).waterFogColor(0xBB0A1E));
-		
+
+		GRASS_COLOR = 0x2A2A2A;
+		FOLIAGE_COLOR = 0x2A2A2A;
+
 		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
 		
 		SpookyBiomeFeatures.addGrass(this);
