@@ -48,7 +48,7 @@ public abstract class ServerPlayNetworkHandlerMixin {
 	@Shadow
 	public ServerPlayerEntity player;
 	
-	@Inject(at = @At("TAIL"), method = "onChatMessage")
+	@Inject(at = @At("TAIL"), method = "onChatMessage(Lnet/minecraft/server/network/packet/ChatMessageC2SPacket;)V")
 	public void onChatMessage(ChatMessageC2SPacket packet, CallbackInfo info) {
 		if (packet.getChatMessage().toLowerCase().contains("trick or treat")) {
 			if (isPlayerWearingCostume(player)) {
