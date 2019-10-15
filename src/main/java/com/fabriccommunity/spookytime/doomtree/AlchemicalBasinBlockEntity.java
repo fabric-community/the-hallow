@@ -10,15 +10,15 @@ import net.minecraft.util.math.BlockPos;
 
 public class AlchemicalBasinBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable, RenderAttachmentBlockEntity {
 
-	public static int MODE_EMPTY = 0;
-	public static int MODE_PRIMED_WATER = 1;
-	public static int MODE_PRIMED_WITCHWATER = 2;
-	public static int MODE_BURNING = 3;
-	public static int MODE_INFUSING = 4;
-	public static int MAX_LEVEL = 32;
+	public static final int MODE_EMPTY = 0;
+	public static final int MODE_PRIMED_WATER = 1;
+	public static final int MODE_PRIMED_WITCHWATER = 2;
+	public static final int MODE_BURNING = 3;
+	public static final int MODE_INFUSING = 4;
+	public static final int MAX_LEVEL = 32;
 	
-	protected static String TAG_MODE = "mode";
-	protected static String TAG_LEVEL = "level";
+	protected static final String TAG_MODE = "mode";
+	protected static final String TAG_LEVEL = "level";
 	
 	protected int mode = MODE_EMPTY;
 	
