@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ChestBlockEntity;
@@ -10,6 +8,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
+
+import java.util.Random;
 
 public interface FeatureUtils {
 	
@@ -26,7 +26,7 @@ public interface FeatureUtils {
 		
 		BlockEntity entity = world.getBlockEntity(pos);
 		if (entity instanceof ChestBlockEntity) {
-			((ChestBlockEntity)entity).setLootTable(lootTable, rand.nextLong());
+			((ChestBlockEntity) entity).setLootTable(lootTable, rand.nextLong());
 		}
 	}
 }

@@ -59,8 +59,8 @@ public class SpookyItems {
 	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings()));
 	public static final Item BLACK_FEATHER = register("black_feather", new Item(newSettings()));
 	public static final Item OLD_BANDAGE = register("old_bandage", new Item(newSettings()));
-  
-  public static Item DEADWOOD_SIGN;
+	
+	public static Item DEADWOOD_SIGN;
 	
 	private SpookyItems() {
 		// NO-OP

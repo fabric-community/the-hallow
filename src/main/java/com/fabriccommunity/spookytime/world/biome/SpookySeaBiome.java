@@ -1,6 +1,5 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;

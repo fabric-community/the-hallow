@@ -14,8 +14,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 
-import com.fabriccommunity.spookytime.util.MixinHelpers;
 import com.fabriccommunity.spookytime.SpookyConfig;
+import com.fabriccommunity.spookytime.util.MixinHelpers;
 
 /**
  * Gives Endermen a chance to hold pumpkin blocks when spawning.

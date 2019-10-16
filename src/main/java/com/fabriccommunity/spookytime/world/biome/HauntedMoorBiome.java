@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
@@ -26,7 +24,7 @@ public class HauntedMoorBiome extends SpookyBaseBiome {
 		SpookyBiomeFeatures.addExtraLakes(this);
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(SpookyFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		SpookyBiomeFeatures.addDefaultUplandsGeneration(this);
-
+		
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(SpookyEntities.MUMMY, 95, 4, 4));
 	}
 }

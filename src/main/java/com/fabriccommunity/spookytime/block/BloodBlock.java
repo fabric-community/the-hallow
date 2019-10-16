@@ -51,7 +51,7 @@ public class BloodBlock extends CraftingFluidBlock {
 				ItemStack stack = itemEntity.getStack();
 				if (stack.getItem() instanceof DyeableItem) {
 					DyeableItem item = (DyeableItem) stack.getItem();
-					if(item.hasColor(stack)) item.setColor(stack, 0xFF0000 | item.getColor(stack));
+					if (item.hasColor(stack)) item.setColor(stack, 0xFF0000 | item.getColor(stack));
 					else item.setColor(stack, 0xFF0000);
 				}
 			}

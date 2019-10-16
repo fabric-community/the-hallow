@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.api.SpookyBiomeInfo;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
@@ -14,16 +9,21 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
+import com.fabriccommunity.spookytime.api.SpookyBiomeInfo;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+
+import com.google.common.collect.Lists;
 import java.util.List;
 
 public abstract class SpookyBaseBiome extends Biome implements SpookyBiomeInfo {
 	public static final List<Biome> BIOMES = Lists.newArrayList();
-	protected int GRASS_COLOR = 0xFFFFFF;
-	protected int FOLIAGE_COLOR = 0xFFFFFF;
-	
 	protected static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyFeatures.SPOOKY_FOREST);
 	protected static final ConfiguredSurfaceBuilder<?> MARSH_SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyFeatures.SPOOKY_MARSH);
 	protected static final ConfiguredSurfaceBuilder<?> DESERT_SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyFeatures.GHASTLY_DESERT);
+	protected int GRASS_COLOR = 0xFFFFFF;
+	protected int FOLIAGE_COLOR = 0xFFFFFF;
 	
 	protected SpookyBaseBiome(Settings settings) {
 		super(settings.parent(null));
@@ -58,12 +58,12 @@ public abstract class SpookyBaseBiome extends Biome implements SpookyBiomeInfo {
 	public boolean shouldFogRender() {
 		return true;
 	}
-
+	
 	@Override
 	public int getGrassColorAt(BlockPos blockPos_1) {
 		return GRASS_COLOR;
 	}
-
+	
 	@Override
 	public int getFoliageColorAt(BlockPos blockPos_1) {
 		return FOLIAGE_COLOR;

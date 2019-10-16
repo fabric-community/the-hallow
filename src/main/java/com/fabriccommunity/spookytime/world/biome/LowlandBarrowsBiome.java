@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;

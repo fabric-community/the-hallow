@@ -82,7 +82,7 @@ public abstract class LivingEntityMixin {
 	public void isClimbing(CallbackInfoReturnable<Boolean> info) {
 		BlockState inState = this.method_16212();
 		Block inBlock = inState.getBlock();
-		if(inBlock == SpookyBlocks.DEADWOOD_VINES) info.setReturnValue(true);
+		if (inBlock == SpookyBlocks.DEADWOOD_VINES) info.setReturnValue(true);
 	}
 	
 	@Shadow

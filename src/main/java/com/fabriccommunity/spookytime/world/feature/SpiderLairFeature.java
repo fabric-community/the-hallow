@@ -1,12 +1,5 @@
 package com.fabriccommunity.spookytime.world.feature;
 
-import java.util.Random;
-import java.util.function.Function;
-
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.mojang.datafixers.Dynamic;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.entity.EntityType;
@@ -17,6 +10,13 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import com.mojang.datafixers.Dynamic;
+
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+
+import java.util.Random;
+import java.util.function.Function;
 
 public class SpiderLairFeature extends Feature<DefaultFeatureConfig> implements FeatureUtils {
 	

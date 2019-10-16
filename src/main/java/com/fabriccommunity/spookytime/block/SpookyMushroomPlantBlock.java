@@ -2,7 +2,6 @@ package com.fabriccommunity.spookytime.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomPlantBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -17,7 +16,7 @@ public class SpookyMushroomPlantBlock extends MushroomPlantBlock {
 	
 	@Override
 	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
-		if(super.canPlaceAt(state, world, pos)) return true;
+		if (super.canPlaceAt(state, world, pos)) return true;
 		BlockPos downPos = pos.down();
 		BlockState downState = world.getBlockState(downPos);
 		Block downBlock = downState.getBlock();
