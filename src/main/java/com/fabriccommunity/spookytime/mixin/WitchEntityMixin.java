@@ -18,7 +18,7 @@ import com.fabriccommunity.spookytime.event.WitchTickCallback;
 
 @Mixin(WitchEntity.class)
 public abstract class WitchEntityMixin {
-	@Inject(method = "tickMovement", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "tickMovement()V", at = @At("HEAD"), cancellable = true)
 	public void tick(CallbackInfo info) {
 		ActionResult result = WitchTickCallback.EVENT.invoker().tick((WitchEntity) (Object) this);
 		if (result == ActionResult.FAIL) {

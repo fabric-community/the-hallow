@@ -12,7 +12,7 @@ import com.fabriccommunity.spookytime.block.SpookySign;
 
 @Mixin(SignBlockEntityRenderer.class)
 public class SignBlockEntityRendererMixin {
-	@Inject(method = "getModelTexture", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "getModelTexture(Lnet/minecraft/block/Block;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
 	private void getModelTexture(Block block, CallbackInfoReturnable info) {
 		if (block instanceof SpookySign) {
 			info.setReturnValue(((SpookySign) block).getTexture());

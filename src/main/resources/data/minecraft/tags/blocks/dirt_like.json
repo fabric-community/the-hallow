@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"spookytime:deceased_dirt",
-		"spookytime:deceased_grass_block"
+		"spookytime:deceased_grass_block",
+		"spookytime:deceased_moss"
 	]
 }

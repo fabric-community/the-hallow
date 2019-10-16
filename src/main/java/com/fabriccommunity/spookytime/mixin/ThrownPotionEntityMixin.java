@@ -17,7 +17,7 @@ import net.minecraft.entity.thrown.ThrownPotionEntity;
 
 @Mixin(ThrownPotionEntity.class)
 public class ThrownPotionEntityMixin {
-	@Inject(method = "doesWaterHurt", at = @At("RETURN"), cancellable = true)
+	@Inject(method = "doesWaterHurt(Lnet/minecraft/entity/LivingEntity;)Z", at = @At("RETURN"), cancellable = true)
 	private static void doesWaterHurt(LivingEntity entity, CallbackInfoReturnable<Boolean> info) {
 		info.setReturnValue(info.getReturnValue() || entity instanceof WitchEntity);
 	}

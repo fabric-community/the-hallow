@@ -17,7 +17,7 @@ public abstract class MinecraftClientMixin {
 	@Shadow
 	protected abstract void reset(Screen screen);
 	
-	@Redirect(method = "joinWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;reset(Lnet/minecraft/client/gui/screen/Screen;)V", ordinal = 0))
+	@Redirect(method = "joinWorld(Lnet/minecraft/client/world/ClientWorld;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;reset(Lnet/minecraft/client/gui/screen/Screen;)V", ordinal = 0))
 	private void redirectReset_joinWorld(MinecraftClient client, Screen screen, ClientWorld world) {
 		if (world.getDimension().getType() == SpookyDimensions.SPOOKY) {
 			reset(new SpookyLoadingScreen());

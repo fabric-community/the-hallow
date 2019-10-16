@@ -27,7 +27,7 @@ public abstract class PlayerEntityMixin {
 		value = "INVOKE",
 		target = "Lnet/minecraft/entity/player/HungerManager;eat(Lnet/minecraft/item/Item;Lnet/minecraft/item/ItemStack;)V",
 		shift = At.Shift.AFTER
-	), method = "eatFood")
+	), method = "eatFood(Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;")
 	private void addPumpkinRingBonus(World world, ItemStack itemStack, CallbackInfoReturnable<ItemStack> info) {
 		PlayerEntity playerEntity = (PlayerEntity) (Object) this;
 		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(playerEntity);

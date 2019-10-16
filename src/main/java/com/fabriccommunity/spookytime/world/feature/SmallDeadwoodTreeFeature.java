@@ -2,7 +2,6 @@ package com.fabriccommunity.spookytime.world.feature;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
@@ -159,7 +158,7 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 	}
 	
 	private void makeVines(ModifiableTestableWorld world, BlockPos pos, BooleanProperty boolProp) {
-		BlockState state = Blocks.VINE.getDefaultState().with(boolProp, true);
+		BlockState state = SpookyBlocks.DEADWOOD_VINES.getDefaultState().with(boolProp, true);
 		this.setBlockState(world, pos, state);
 		int yOffset = 4;
 		

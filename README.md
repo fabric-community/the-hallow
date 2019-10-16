@@ -1,11 +1,11 @@
-# Spooky Time
-Fabric Community mod for Hacktoberfest!
+# The Hallow
+Fabric Community mod for Hacktoberfest! Formerly known as Spooky Time.
 
 # Hacktoberfest
 Hacktoberfest is a fun event that takes place every October which teaches people about open source (and helps them make their first contributions). If you make 4+ PRs from October 1st to October 31st, you'll get a fun tshirt! More information can be found on the [Hacktoberfest website](https://hacktoberfest.digitalocean.com/). Available loot can be found [here](https://hacktoberfestswaglist.com/).
 
 # General
- Spooky Time is a Halloween themed community mod. If you have any spooky ideas, PR them! At the end of the month, we'll publish the mod to curseforge so everyone can play it. 
+ The Hallow is a Halloween themed community mod. If you have any spooky ideas, PR them! At the end of the month, we'll publish the mod to curseforge so everyone can play it. 
  
  # Style Guidelines
  When PRing to Fabric Community projects, we ask that you make an attempt to follow our style rules. A repo with more information [can be found here](https://github.com/fabric-community/style-guidelines). 

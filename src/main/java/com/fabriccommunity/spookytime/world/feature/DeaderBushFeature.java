@@ -10,8 +10,6 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import com.mojang.datafixers.Dynamic;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-
 import java.util.Random;
 import java.util.function.Function;
 
