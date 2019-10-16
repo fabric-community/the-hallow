@@ -37,6 +37,7 @@ import com.fabriccommunity.spookytime.block.DeaderBushBlock;
 import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
 import com.fabriccommunity.spookytime.block.InfusionAltarBlock;
 import com.fabriccommunity.spookytime.block.InfusionPillarBlock;
+import com.fabriccommunity.spookytime.block.PumpkinPieBlock;
 import com.fabriccommunity.spookytime.block.SpookyButtonBlock;
 import com.fabriccommunity.spookytime.block.SpookyCactusBlock;
 import com.fabriccommunity.spookytime.block.SpookyDoorBlock;
@@ -136,6 +137,8 @@ public class SpookyBlocks {
 	public static final Block EERIE_GRASS = register("eerie_grass", new SpookyFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
 	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
 	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
+	
+	public static final Block PUMPKIN_PIE = Registry.register(Registry.BLOCK, SpookyTime.id("pumpkin_pie"), new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()));
 	
 	private SpookyBlocks() {
 		// NO-OP
