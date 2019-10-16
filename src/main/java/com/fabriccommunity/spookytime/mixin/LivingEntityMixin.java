@@ -7,6 +7,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -18,6 +20,7 @@ import net.minecraft.world.World;
 
 import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
 import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 /**
  * Implement Beheading and Lifesteal, along with letting golden candy corn take durability when eaten instead of having it stack shrunken.
@@ -74,4 +77,14 @@ public abstract class LivingEntityMixin {
 			info.setReturnValue(stack);
 		}
 	}
+	
+	@Inject(method = "isClimbing", at = @At("RETURN"), cancellable = true)
+	public void isClimbing(CallbackInfoReturnable<Boolean> info) {
+		BlockState inState = this.method_16212();
+		Block inBlock = inState.getBlock();
+		if(inBlock == SpookyBlocks.DEADWOOD_VINES) info.setReturnValue(true);
+	}
+	
+	@Shadow
+	protected abstract BlockState method_16212();
 }

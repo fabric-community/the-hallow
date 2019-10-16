@@ -159,7 +159,7 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 	}
 	
 	private void makeVines(ModifiableTestableWorld world, BlockPos pos, BooleanProperty boolProp) {
-		BlockState state = Blocks.VINE.getDefaultState().with(boolProp, true);
+		BlockState state = SpookyBlocks.DEADWOOD_VINES.getDefaultState().with(boolProp, true);
 		this.setBlockState(world, pos, state);
 		int yOffset = 4;
 		

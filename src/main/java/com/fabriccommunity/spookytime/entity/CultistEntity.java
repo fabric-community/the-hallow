@@ -25,7 +25,7 @@ public class CultistEntity extends HostileEntity {
 	
 	protected void initAttributes() {
 		super.initAttributes();
-		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(1.0D);
+		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);
 		this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 		this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.8D);
 	}
