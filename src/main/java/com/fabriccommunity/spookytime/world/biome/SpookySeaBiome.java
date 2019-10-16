@@ -1,11 +1,11 @@
 package com.fabriccommunity.spookytime.world.biome;
 
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
-
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 
 // TODO
 public class SpookySeaBiome extends SpookyBaseBiome {
