@@ -17,6 +17,7 @@ import net.minecraft.block.PillarBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.VineBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -43,6 +44,7 @@ import com.fabriccommunity.spookytime.block.SpookyCactusBlock;
 import com.fabriccommunity.spookytime.block.SpookyDoorBlock;
 import com.fabriccommunity.spookytime.block.SpookyFernBlock;
 import com.fabriccommunity.spookytime.block.SpookyLogBlock;
+import com.fabriccommunity.spookytime.block.SpookyMushroomPlantBlock;
 import com.fabriccommunity.spookytime.block.SpookyPressurePlateBlock;
 import com.fabriccommunity.spookytime.block.SpookySaplingBlock;
 import com.fabriccommunity.spookytime.block.SpookySignBlock;
@@ -137,6 +139,9 @@ public class SpookyBlocks {
 	public static final Block EERIE_GRASS = register("eerie_grass", new SpookyFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
 	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
 	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
+	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
+	public static final Block GLOOMSHROOM = register("gloomshroom", new SpookyMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
+	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
 	
 	public static final Block PUMPKIN_PIE = Registry.register(Registry.BLOCK, SpookyTime.id("pumpkin_pie"), new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()));
 	

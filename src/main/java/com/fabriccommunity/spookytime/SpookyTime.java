@@ -1,6 +1,5 @@
 package com.fabriccommunity.spookytime;
 
-import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
@@ -26,6 +25,7 @@ import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 import com.fabriccommunity.spookytime.registry.SpookySounds;
 import com.fabriccommunity.spookytime.registry.SpookyTags;
 import com.fabriccommunity.spookytime.registry.SpookyWorldGen;
+import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

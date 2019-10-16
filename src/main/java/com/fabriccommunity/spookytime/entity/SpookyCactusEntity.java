@@ -1,5 +1,6 @@
 package com.fabriccommunity.spookytime.entity;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
@@ -12,6 +13,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntityWithAi;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.BlockPos;
@@ -141,5 +143,10 @@ public class SpookyCactusEntity extends MobEntityWithAi {
 	@Override
 	public float getPathfindingFavor(BlockPos pos, ViewableWorld world) {
 		return world.getBlockState(pos.down()).getBlock() == SpookyBlocks.TAINTED_SAND ? 10.0F : 1.0F;
+	}
+	
+	@Override
+	public void onDeath(DamageSource source) {
+		Block.dropStack(this.world, new BlockPos(this), new ItemStack(SpookyBlocks.SPOOKY_CACTUS, getCactusHeight()));
 	}
 }

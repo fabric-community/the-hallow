@@ -1,7 +1,8 @@
 package com.fabriccommunity.spookytime.world;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import net.minecraft.world.gen.chunk.OverworldChunkGeneratorConfig;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 
 public class SpookyChunkGeneratorConfig extends OverworldChunkGeneratorConfig {
 	public SpookyChunkGeneratorConfig() {
