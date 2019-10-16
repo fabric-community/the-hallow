@@ -29,7 +29,6 @@ public class TombstoneBlock extends HorizontalFacingBlock {
 
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext placementContext) {
-
 		return this.getDefaultState().with(FACING, placementContext.getPlayerFacing().getOpposite());
 	}
 
