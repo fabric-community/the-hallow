@@ -55,6 +55,7 @@ import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
 import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
 import com.fabriccommunity.spookytime.block.WitchWaterBlock;
+import com.fabriccommunity.spookytime.block.TombstoneBlock;
 import com.fabriccommunity.spookytime.block.WitchWaterBubbleColumnBlock;
 import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
 import com.fabriccommunity.spookytime.world.DeadwoodSaplingGenerator;
@@ -112,6 +113,7 @@ public class SpookyBlocks {
 	public static final Block SPOOKY_CACTUS = register("spooky_cactus", new SpookyCactusBlock(FabricBlockSettings.copy(Blocks.CACTUS).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(SpookyTime.GROUP));
 	public static final Block DEADER_BUSH = register("deader_bush", new DeaderBushBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(SpookyTime.GROUP));
 	public static final Block BREAD_CRUMBS = register("bread_crumbs", new BreadCrumbsBlock(FabricBlockSettings.of(Material.CAKE).breakByHand(true).collidable(false).noCollision().build()), new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).snack().build()));
+	public static final Block TOMBSTONE = register("tombstone", new TombstoneBlock(FabricBlockSettings.of(Material.CARPET).breakByHand(true).build()), new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(-1).saturationModifier(0.1f).snack().build()));
 	public static final Block INFUSION_PILLAR_BLOCK = register("infusion_pillar", new InfusionPillarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block INFUSION_ALTAR_BLOCK = register("infusion_altar", new InfusionAltarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block MOIST_FLESH_BLOCK = register("moist_flesh_block", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.PINK).sounds(BlockSoundGroup.SLIME).build()));
