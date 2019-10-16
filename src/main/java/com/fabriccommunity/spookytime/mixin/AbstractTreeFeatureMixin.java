@@ -19,7 +19,7 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
  */
 @Mixin(AbstractTreeFeature.class)
 public class AbstractTreeFeatureMixin {
-	@Inject(method = "isNaturalDirtOrGrass", at = @At(value = "HEAD"), cancellable = true)
+	@Inject(method = "isNaturalDirtOrGrass(Lnet/minecraft/world/TestableWorld;Lnet/minecraft/util/math/BlockPos;)Z", at = @At(value = "HEAD"), cancellable = true)
 	private static void isNaturalDeceased(TestableWorld testableWorld, BlockPos blockPos, CallbackInfoReturnable<Boolean> cir) {
 		if (testableWorld.testBlockState(blockPos, (blockState) -> {
 			Block block = blockState.getBlock();

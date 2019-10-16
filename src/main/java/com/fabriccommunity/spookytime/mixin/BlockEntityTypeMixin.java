@@ -12,7 +12,7 @@ import com.fabriccommunity.spookytime.block.SpookySign;
 
 @Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin {
-	@Inject(method = "supports", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "supports(Lnet/minecraft/block/Block;)Z", at = @At("HEAD"), cancellable = true)
 	private void supports(Block block, CallbackInfoReturnable info) {
 		if (BlockEntityType.SIGN.equals(this) && block instanceof SpookySign) {
 			info.setReturnValue(true);

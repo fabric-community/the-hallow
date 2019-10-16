@@ -17,7 +17,7 @@ import com.fabriccommunity.spookytime.util.MixinHelpers;
  */
 @Mixin(ZombieEntity.class)
 public class ZombieEntityMixin {
-	@Redirect(method = "initialize", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/ZombieEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
+	@Redirect(method = "initialize(Lnet/minecraft/world/IWorld;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnType;Lnet/minecraft/entity/EntityData;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/entity/EntityData;", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/ZombieEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
 	private ItemStack getStack(ZombieEntity zombieEntity, EquipmentSlot equipmentSlot) {
 		return MixinHelpers.getEquippedOrPumpkin(zombieEntity, equipmentSlot);
 	}

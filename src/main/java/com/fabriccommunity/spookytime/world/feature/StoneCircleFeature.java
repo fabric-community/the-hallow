@@ -1,6 +1,7 @@
 package com.fabriccommunity.spookytime.world.feature;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
@@ -10,18 +11,20 @@ import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
+import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.registry.SpookyBlocks;
 import com.fabriccommunity.spookytime.util.noise.OctaveOpenSimplexNoise;
 
 import java.util.Random;
 
-public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
+public class StoneCircleFeature extends Feature<DefaultFeatureConfig> implements FeatureUtils {
 	
 	private static final OctaveOpenSimplexNoise offsetNoise = new OctaveOpenSimplexNoise(new Random(0), 2, 25D, 4D, 3D);
 	
 	private static final BlockState STONE = SpookyBlocks.TAINTED_STONE.getDefaultState();
 	private static final BlockState COBBLESTONE = SpookyBlocks.TAINTED_COBBLESTONE.getDefaultState();
 	
+	private static final Identifier LOOT_TABLE = SpookyTime.id("chests/stone_circle");
 	
 	public StoneCircleFeature() {
 		super(DefaultFeatureConfig::deserialize);
@@ -99,6 +102,10 @@ public class StoneCircleFeature extends Feature<DefaultFeatureConfig> {
 				
 				generateStone(world, rand, posMutable, posMutable2, baseHeight + rand.nextInt(3), lowY);
 			}
+		}
+		
+		if (rand.nextInt(3) == 0) {
+			setLootChest(world, new BlockPos(centreX + rand.nextInt(3) - 1, lowY - 2 - rand.nextInt(3), centreZ + rand.nextInt(3) - 1), LOOT_TABLE, rand);
 		}
 		
 		return true;

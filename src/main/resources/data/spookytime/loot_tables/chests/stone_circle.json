@@ -1,0 +1,123 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": {
+				"min": 4.0,
+				"max": 7.0,
+				"type": "minecraft:uniform"
+			},
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 25,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:rotten_flesh"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 25,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 2.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "minecraft:bone"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 20,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 3.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "spookytime:caramel_apple"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1.0,
+								"max": 2.0,
+								"type": "minecraft:uniform"
+							}
+						}
+					],
+					"name": "spookytime:spookium_nugget"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 8,
+					"name": "spookytime:wooden_club"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 6,
+					"name": "spookytime:stone_club"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"name": "spookytime:iron_club"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 2,
+					"name": "spookytime:diamond_club"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"functions": [
+						{
+							"function": "minecraft:enchant_randomly",
+							"enchantments": [
+								"spookytime:beheading",
+								"spookytime:lifesteal"
+							]
+						}
+					],
+					"name": "minecraft:book"
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"condition": "random_chance",
+					"chance": 0.01
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "spookytime:golden_candy_corn"
+				}
+			]
+		}
+	]
+}

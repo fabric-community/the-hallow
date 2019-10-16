@@ -21,7 +21,7 @@ import com.fabriccommunity.spookytime.registry.SpookyDimensions;
  */
 @Mixin(BackgroundRenderer.class)
 public class BackgroundRendererMixin {
-	@ModifyVariable(method = "applyFog", at = @At(value = "INVOKE_ASSIGN", target = "net/minecraft/client/render/GameRenderer.getViewDistance()F", shift = At.Shift.AFTER))
+	@ModifyVariable(method = "applyFog(Lnet/minecraft/client/render/Camera;I)V", at = @At(value = "INVOKE_ASSIGN", target = "net/minecraft/client/render/GameRenderer.getViewDistance()F", shift = At.Shift.AFTER))
 	public float applyFog(float oldIntensity) {
 		MinecraftClient client = MinecraftClient.getInstance();
 		World world = client.world;

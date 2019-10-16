@@ -1,7 +1,5 @@
 package com.fabriccommunity.spookytime.registry;
 
-import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
-
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.SpookyBiomeSource;
 import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorConfig;
@@ -10,6 +8,7 @@ import com.fabriccommunity.spookytime.world.dimension.SpookyFogColorCalculator;
 import com.fabriccommunity.spookytime.world.dimension.SpookySkyAngleCalculator;
 import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
 import com.github.draylar.worldtraveler.api.dimension.EntityPlacerBuilder;
+import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
 
 public class SpookyDimensions {
 	public static final FabricDimensionType SPOOKY = FabricDimensionType.builder()
@@ -19,13 +18,7 @@ public class SpookyDimensions {
 			.fogColor(new SpookyFogColorCalculator())
 			.visibleSky(true)
 			.skyAngle(new SpookySkyAngleCalculator())
-			.setChunkGenerator(SpookyChunkGeneratorType.INSTANCE.create(world, new SpookyBiomeSource(world.getSeed()), new SpookyChunkGeneratorConfig() {
-				SpookyChunkGeneratorConfig init() {
-					defaultBlock = SpookyBlocks.TAINTED_STONE.getDefaultState();
-					defaultFluid = SpookyBlocks.WITCH_WATER_BLOCK.getDefaultState();
-					return this;
-				}
-			}.init()))
+			.setChunkGenerator(SpookyChunkGeneratorType.INSTANCE.create(world, new SpookyBiomeSource(world.getSeed()), new SpookyChunkGeneratorConfig()))
 			.setLightLevelsToBrightness(getLightLevels())
 			.build(world, type))
 		.defaultPlacer(new EntityPlacerBuilder().build())

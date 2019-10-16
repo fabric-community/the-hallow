@@ -1,22 +1,25 @@
 package com.fabriccommunity.spookytime.world.biome;
 
+import com.fabriccommunity.spookytime.api.SpookyBiomeInfo;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.registry.SpookyFeatures;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
+import com.google.common.collect.Lists;
 import net.minecraft.entity.EntityCategory;
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
-import com.fabriccommunity.spookytime.api.SpookyBiomeInfo;
-import com.fabriccommunity.spookytime.registry.SpookyEntities;
-import com.fabriccommunity.spookytime.registry.SpookyFeatures;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
-
-import com.google.common.collect.Lists;
 import java.util.List;
 
 public abstract class SpookyBaseBiome extends Biome implements SpookyBiomeInfo {
 	public static final List<Biome> BIOMES = Lists.newArrayList();
+	protected int GRASS_COLOR = 0xFFFFFF;
+	protected int FOLIAGE_COLOR = 0xFFFFFF;
 	
 	protected static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyFeatures.SPOOKY_FOREST);
 	protected static final ConfiguredSurfaceBuilder<?> MARSH_SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SpookyFeatures.SPOOKY_MARSH);
@@ -31,7 +34,8 @@ public abstract class SpookyBaseBiome extends Biome implements SpookyBiomeInfo {
 		SpookyBiomeFeatures.addOres(this);
 		SpookyBiomeFeatures.addMineables(this);
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.CROW, 40, 1, 2));
-		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(SpookyEntities.PUMPCOWN, 8, 4, 8));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
 		BIOMES.add(this);
 	}
 	
@@ -53,5 +57,15 @@ public abstract class SpookyBaseBiome extends Biome implements SpookyBiomeInfo {
 	@Override
 	public boolean shouldFogRender() {
 		return true;
+	}
+
+	@Override
+	public int getGrassColorAt(BlockPos blockPos_1) {
+		return GRASS_COLOR;
+	}
+
+	@Override
+	public int getFoliageColorAt(BlockPos blockPos_1) {
+		return FOLIAGE_COLOR;
 	}
 }
