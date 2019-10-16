@@ -1,13 +1,15 @@
 package com.fabriccommunity.spookytime.world.biome;
 
-import com.fabriccommunity.spookytime.registry.SpookyBlocks;
-import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+
+import com.fabriccommunity.spookytime.registry.SpookyBlocks;
+import com.fabriccommunity.spookytime.registry.SpookyEntities;
+import com.fabriccommunity.spookytime.world.feature.SpookyBiomeFeatures;
 
 // TODO
 public class SpookyShoreBiome extends SpookyBaseBiome {
@@ -25,5 +27,7 @@ public class SpookyShoreBiome extends SpookyBaseBiome {
 		SpookyBiomeFeatures.addGrass(this);
 		SpookyBiomeFeatures.addLakes(this);
 		SpookyBiomeFeatures.addDefaultSpookyTrees(this);
+		
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(SpookyEntities.MUMMY, 95, 4, 4));
 	}
 }

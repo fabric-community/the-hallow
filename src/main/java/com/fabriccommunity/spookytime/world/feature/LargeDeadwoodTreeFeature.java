@@ -61,7 +61,7 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 				int startX = x;
 				int startZ = z;
 				int startY = y + height - 1;
-
+				
 				for (int localHeight = 0; localHeight < height; ++localHeight) {
 					if (localHeight >= baseTrunkHeight && heightVariance > 0) {
 						startX += dir.getOffsetX();
@@ -115,11 +115,11 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 					for (int zOffset = -1; zOffset <= 2; ++zOffset) {
 						if ((xOffset < 0 || xOffset > 1 || zOffset < 0 || zOffset > 1) && random.nextInt(3) <= 0) {
 							int trunkHeight = random.nextInt(3) + 2;
-
+							
 							for (int localY = 0; localY < trunkHeight; ++localY) {
 								this.addLog(posSet, world, new BlockPos(x + xOffset, startY - localY - 1, z + zOffset), bb);
 							}
-
+							
 							for (int localX = -1; localX <= 1; ++localX) {
 								for (int localZ = -1; localZ <= 1; ++localZ) {
 									this.addLeaves(world, startX + xOffset + localX, startY, startZ + zOffset + localZ, bb, posSet);

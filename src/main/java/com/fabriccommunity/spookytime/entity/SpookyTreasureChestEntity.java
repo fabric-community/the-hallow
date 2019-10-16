@@ -64,7 +64,7 @@ public class SpookyTreasureChestEntity extends Entity {
 		
 		this.rotation = initialRotation;
 		this.shouldReplace = shouldReplace;
-
+		
 		if (world.isClient()) {
 			this.updateTrackedPosition(this.x, this.y, this.z);
 		}

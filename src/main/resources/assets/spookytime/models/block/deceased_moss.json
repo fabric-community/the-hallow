@@ -1,0 +1,8 @@
+{
+	"parent": "block/cube_bottom_top",
+	"textures": {
+		"bottom": "spookytime:block/deceased_dirt",
+		"top": "spookytime:block/deceased_moss_top",
+		"side": "spookytime:block/deceased_moss_side"
+	}
+}

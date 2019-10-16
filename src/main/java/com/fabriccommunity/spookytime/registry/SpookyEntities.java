@@ -13,6 +13,8 @@ import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.component.CandyComponent;
 import com.fabriccommunity.spookytime.component.CandyComponent.VillagerCandyComponent;
 import com.fabriccommunity.spookytime.entity.CrowEntity;
+import com.fabriccommunity.spookytime.entity.CultistEntity;
+import com.fabriccommunity.spookytime.entity.MummyEntity;
 import com.fabriccommunity.spookytime.entity.PumpcownEntity;
 import com.fabriccommunity.spookytime.entity.SpookyCactusEntity;
 import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
@@ -31,6 +33,8 @@ public class SpookyEntities {
 	public static final EntityType<PumpcownEntity> PUMPCOWN = register("pumpcown", FabricEntityTypeBuilder.create(EntityCategory.CREATURE, PumpcownEntity::new).size(EntityDimensions.fixed(0.9F, 1.4F)).build());
 	public static final EntityType<CrowEntity> CROW = register("crow", FabricEntityTypeBuilder.create(EntityCategory.CREATURE, CrowEntity::new).size(EntityDimensions.fixed(0.5F, 0.9F)).build());
 	public static final EntityType<SpookyCactusEntity> SPOOKY_CACTUS = register("spooky_cactus", FabricEntityTypeBuilder.create(EntityCategory.MISC, SpookyCactusEntity::new).size(EntityDimensions.changing(0.9F, 1.0F)).build());
+	public static final EntityType<MummyEntity> MUMMY = register("mummy", FabricEntityTypeBuilder.create(EntityCategory.MONSTER, MummyEntity::new).size(EntityDimensions.fixed(0.7F, 2.3F)).build());
+	public static final EntityType<CultistEntity> CULTIST = register("cultist", FabricEntityTypeBuilder.create(EntityCategory.MONSTER, CultistEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F)).build());
 	
 	private SpookyEntities() {
 		// NO-OP
