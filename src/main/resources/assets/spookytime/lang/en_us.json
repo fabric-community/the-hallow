@@ -112,6 +112,7 @@
 	"block.spookytime.gloomshroom": "Gloomshroom",
 	"block.spookytime.deadwood_vines": "Deadwood Vines",
 	"block.spookytime.deceased_moss": "Deceased Moss",
+	"block.spookytime.tombstone": "Tombstone",
 	"entity.spookytime.spooky_treasure_chest": "Spooky Treasure Chest",
 	"entity.spookytime.pumpcown": "Pumpcown",
 	"entity.spookytime.spooky_cactus": "Spooky Cactus",
@@ -148,7 +149,11 @@
 	"tooltip.spookytime.paper_bag": "They won't even notice you looking at them!",
 	"subtitle.spookytime.doot": "Trumpet doots spookily",
 	"subtitle.spookytime.megaladoot": "OH GOSH OH HECK",
+<<<<<<< Updated upstream
 	"subtitle.crow.ambient": "Crow caws",
 	"death.attack.brambles": "%1$s was pricked to death by brambles",
 	"death.attack.brambles.player": "%1$s was pricked to death by brambles whilst trying to escape %2$s"
+=======
+	"subtitle.crow.ambient": "Crow caws"
+>>>>>>> Stashed changes
 }
