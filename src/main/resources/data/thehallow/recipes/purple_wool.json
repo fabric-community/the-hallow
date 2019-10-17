@@ -1,5 +1,5 @@
 {
-	"type": "spookytime:witch_water_recipe",
+	"type": "thehallow:witch_water_recipe",
 	"input": [
 		{
 			"item": "minecraft:white_wool"

@@ -1,5 +1,5 @@
 {
-	"type": "spookytime:blood_recipe",
+	"type": "thehallow:blood_recipe",
 	"input": [
 		{
 			"item": "minecraft:white_wool"
