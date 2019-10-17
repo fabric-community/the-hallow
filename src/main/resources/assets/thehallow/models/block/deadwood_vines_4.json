@@ -1,0 +1,7 @@
+{
+	"parent": "block/vine_4",
+	"textures": {
+		"particle": "thehallow:block/deadwood_vines",
+		"vine": "thehallow:block/deadwood_vines"
+	}
+}

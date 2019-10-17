@@ -1,0 +1,21 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "thehallow:block/bread_crumbs"
+			},
+			{
+				"model": "thehallow:block/bread_crumbs",
+				"y": 90
+			},
+			{
+				"model": "thehallow:block/bread_crumbs",
+				"y": 180
+			},
+			{
+				"model": "thehallow:block/bread_crumbs",
+				"y": 270
+			}
+		]
+	}
+}

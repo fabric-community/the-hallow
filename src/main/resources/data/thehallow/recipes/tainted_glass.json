@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "thehallow:tainted_sand"
+	},
+	"result": "thehallow:tainted_glass",
+	"experience": 0.1,
+	"cookingtime": 200
+}

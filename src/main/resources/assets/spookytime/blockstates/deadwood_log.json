@@ -1,7 +1,0 @@
-{
-	"variants": {
-		"axis=y": {"model": "spookytime:block/deadwood_log"},
-		"axis=z": {"model": "spookytime:block/deadwood_log", "x": 90},
-		"axis=x": {"model": "spookytime:block/deadwood_log", "x": 90, "y": 90}
-	}
-}

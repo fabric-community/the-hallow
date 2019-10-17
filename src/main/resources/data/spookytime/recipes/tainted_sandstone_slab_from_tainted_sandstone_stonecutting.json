@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"ingredient": {
-		"item": "spookytime:tainted_sandstone"
-	},
-	"result": "spookytime:tainted_sandstone_slab",
-	"count": 2
-}

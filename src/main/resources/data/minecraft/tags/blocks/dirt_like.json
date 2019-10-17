@@ -1,8 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"spookytime:deceased_dirt",
-		"spookytime:deceased_grass_block",
-		"spookytime:deceased_moss"
+		"thehallow:deceased_dirt",
+		"thehallow:deceased_grass_block",
+		"thehallow:deceased_moss"
 	]
 }

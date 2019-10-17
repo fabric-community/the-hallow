@@ -1,0 +1,33 @@
+{
+	"required": true,
+	"package": "com.fabriccommunity.thehallow.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"AbstractTreeFeatureMixin",
+		"AbstractSkeletonEntityMixin",
+		"AnvilBlockMixin",
+		"MobEntityMixin",
+		"PlantBlockMixin",
+		"ServerPlayNetworkHandlerMixin",
+		"ServerWorldMixin",
+		"WitchEntityMixin",
+		"ThrownPotionEntityMixin",
+		"SkeletonEntityMixin",
+		"ZombieEntityMixin",
+		"LivingEntityMixin",
+		"PlayerEntityMixin",
+		"BlockEntityTypeMixin",
+		"EndermanEntityMixin"
+	],
+	"client": [
+		"client.ItemDynamicRendererMixin",
+		"client.ClientPlayNetworkHandlerMixin",
+		"client.MinecraftClientMixin",
+		"client.FirstPersonRendererMixin",
+		"client.BackgroundRendererMixin",
+		"client.SignBlockEntityRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

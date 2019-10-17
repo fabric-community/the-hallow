@@ -1,0 +1,21 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "thehallow:block/tainted_gravel"
+			},
+			{
+				"model": "thehallow:block/tainted_gravel",
+				"y": 90
+			},
+			{
+				"model": "thehallow:block/tainted_gravel",
+				"y": 180
+			},
+			{
+				"model": "thehallow:block/tainted_gravel",
+				"y": 270
+			}
+		]
+	}
+}

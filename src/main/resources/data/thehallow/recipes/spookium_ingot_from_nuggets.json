@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"sss",
+		"sss",
+		"sss"
+	],
+	"key": {
+		"s": {
+			"item": "thehallow:spookium_nugget"
+		}
+	},
+	"result": {
+		"item": "thehallow:spookium_ingot"
+	}
+}

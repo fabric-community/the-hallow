@@ -1,7 +1,0 @@
-{
-	"parent": "block/vine_4",
-	"textures": {
-		"particle": "spookytime:block/deadwood_vines",
-		"vine": "spookytime:block/deadwood_vines"
-	}
-}

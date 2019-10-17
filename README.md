@@ -1,5 +1,5 @@
 # The Hallow
-Fabric Community mod for Hacktoberfest! Formerly known as Spooky Time.
+Fabric Community mod for Hacktoberfest! Formerly known as The Hallow.
 
 # Hacktoberfest
 Hacktoberfest is a fun event that takes place every October which teaches people about open source (and helps them make their first contributions). If you make 4+ PRs from October 1st to October 31st, you'll get a fun tshirt! More information can be found on the [Hacktoberfest website](https://hacktoberfest.digitalocean.com/). Available loot can be found [here](https://hacktoberfestswaglist.com/).
@@ -19,4 +19,4 @@ Hacktoberfest is a fun event that takes place every October which teaches people
  5. be nice and be cool.
 
 # Connect
- Come join us at the [AOF `spooky-time` channel](https://discord.gg/6rkdm48) to discuss the progress of the mod!
+ Come join us at the [AOF `the-hallow` channel](https://discord.gg/6rkdm48) to discuss the progress of the mod!

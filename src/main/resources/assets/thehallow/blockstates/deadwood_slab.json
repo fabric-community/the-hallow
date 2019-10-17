@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"type=bottom": {"model": "thehallow:block/deadwood_slab"},
+		"type=top": {"model": "thehallow:block/deadwood_slab_top"},
+		"type=double": {"model": "thehallow:block/deadwood_planks"}
+	}
+}

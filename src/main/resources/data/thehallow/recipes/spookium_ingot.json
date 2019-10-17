@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "thehallow:spookium_ore"
+	},
+	"result": "thehallow:spookium_ingot",
+	"experience": 1.0,
+	"cookingtime": 200
+}
