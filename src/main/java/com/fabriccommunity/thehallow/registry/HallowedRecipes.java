@@ -2,13 +2,26 @@ package com.fabriccommunity.thehallow.registry;
 
 import com.fabriccommunity.thehallow.recipe.blood.BloodRecipe;
 import com.fabriccommunity.thehallow.recipe.blood.BloodRecipeSerializer;
+import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
+import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipeSerializer;
 import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
 import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class HallowedRecipes {
+	public static final RecipeSerializer<InfusionRecipe> INFUSION_RECIPE_SERIALIZER = Registry.register(
+		Registry.RECIPE_SERIALIZER,
+		InfusionRecipeSerializer.ID,
+		InfusionRecipeSerializer.INSTANCE);
+
+	public static final RecipeType INFUSION_RECIPE = Registry.register(
+		Registry.RECIPE_TYPE,
+		InfusionRecipe.Type.ID,
+		InfusionRecipe.Type.INSTANCE);
+
 	public static final RecipeSerializer<BloodRecipe> BLOOD_RECIPE_SERIALIZER = Registry.register(
 		Registry.RECIPE_SERIALIZER,
 		BloodRecipeSerializer.ID,

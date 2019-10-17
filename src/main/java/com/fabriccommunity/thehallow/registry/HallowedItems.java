@@ -27,8 +27,8 @@ import com.fabriccommunity.thehallow.util.PumpkinFoods;
 import dev.emi.trinkets.api.TrinketSlots;
 
 public class HallowedItems {
-	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(HallowedFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP)));
-	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(HallowedFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP)));
+	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(HallowedFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP).maxCount(1)));
+	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(HallowedFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP).maxCount(1)));
 	
 	public static final ToolMaterial SPOOKIUM = new SpookiumMaterial();
 	

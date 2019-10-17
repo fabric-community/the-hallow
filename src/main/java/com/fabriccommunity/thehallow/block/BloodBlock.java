@@ -1,6 +1,6 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.spookytime.recipe.blood.BloodRecipe;
+import com.fabriccommunity.thehallow.recipe.blood.BloodRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;

@@ -19,7 +19,6 @@ import com.fabriccommunity.thehallow.registry.HallowedEvents;
 import com.fabriccommunity.thehallow.registry.HallowedFeatures;
 import com.fabriccommunity.thehallow.registry.HallowedFluidTags;
 import com.fabriccommunity.thehallow.registry.HallowedFluids;
-import com.fabriccommunity.thehallow.registry.HallowedInfusion;
 import com.fabriccommunity.thehallow.registry.HallowedItems;
 import com.fabriccommunity.thehallow.registry.HallowedNetworking;
 import com.fabriccommunity.thehallow.registry.HallowedSounds;
@@ -44,7 +43,6 @@ public class TheHallow implements ModInitializer {
 		HallowedEntities.init();
 		HallowedBlocks.init();
 		HallowedItems.init();
-		HallowedInfusion.init();
 		HallowedRecipes.init();
 		HallowedBlockEntities.init();
 		HallowedEnchantments.init();

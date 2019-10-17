@@ -1,4 +1,4 @@
-package com.fabriccommunity.thehallow.recipe;
+package com.fabriccommunity.thehallow.recipe.infusion;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;

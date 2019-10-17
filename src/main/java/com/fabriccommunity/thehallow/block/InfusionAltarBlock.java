@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import com.fabriccommunity.thehallow.block.entity.InfusionAltarBlockEntity;
 import com.fabriccommunity.thehallow.block.entity.InfusionPillarBlockEntity;
 import com.fabriccommunity.thehallow.inventory.InfusionInventory;
-import com.fabriccommunity.thehallow.recipe.InfusionRecipe;
+import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
 import com.google.common.collect.Iterables;
