@@ -2,12 +2,12 @@
 	"replace": false,
 	"values": [
 		"minecraft:carved_pumpkin",
-		"spookytime:carved_red_pumpkin",
-		"spookytime:carved_blue_pumpkin",
-		"spookytime:carved_yellow_pumpkin",
-		"spookytime:carved_tan_pumpkin",
-		"spookytime:carved_white_pumpkin",
-		"spookytime:carved_witched_pumpkin",
-		"spookytime:carved_rainbow_pumpkin"
+		"spookytime:red_carved_pumpkin",
+		"spookytime:blue_carved_pumpkin",
+		"spookytime:yellow_carved_pumpkin",
+		"spookytime:tan_carved_pumpkin",
+		"spookytime:white_carved_pumpkin",
+		"spookytime:witched_carved_pumpkin",
+		"spookytime:rainbow_carved_pumpkin"
 	]
 }
