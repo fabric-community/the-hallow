@@ -29,11 +29,11 @@ public class AnvilBlockMixin {
 		BlockPos downPosition = upPosition.offset(Direction.DOWN);
 		Block checkBlock = world.getBlockState(downPosition).getBlock();
 		Block anvilBlock = world.getBlockState(upPosition).getBlock();
-		if (checkBlock instanceof PumpkinBlock && !(checkBlock instanceof ColoredPumpkinBlock)) { // TODO add colored tiny pumpkins later
+		if (checkBlock instanceof PumpkinBlock && !(checkBlock instanceof ColoredPumpkinBlock) || checkBlock.equals(SpookyBlocks.WITCHED_PUMPKIN)) { // TODO add colored tiny pumpkins later
 
 			Block.dropStack(world, upPosition, anvilBlock.getPickStack(world, upPosition, world.getBlockState(downPosition)));
 			world.clearBlockState(upPosition, true);
-			Block.dropStack(world, downPosition, new ItemStack(SpookyBlocks.TINY_PUMPKIN));
+			Block.dropStack(world, downPosition, checkBlock.equals(SpookyBlocks.WITCHED_PUMPKIN) ? new ItemStack(SpookyBlocks.TINY_WITCHED_PUMPKIN) : new ItemStack(SpookyBlocks.TINY_PUMPKIN));
 			world.clearBlockState(downPosition, true);
 		}
 	}
