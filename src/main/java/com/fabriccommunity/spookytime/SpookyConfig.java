@@ -32,6 +32,9 @@ public class SpookyConfig {
 			config.accessChild("fog", fog -> {
 				SpookyFog.fogSmoothingRadius = fog.getInt("fogSmoothingRadius", SpookyFog.fogSmoothingRadius, "Determines the radius in which biomes are checked to smooth out biome fog colors. Lower values = less intensive.");
 			});
+			config.accessChild("tweaks", tweaks -> {
+				Tweaks.pumpkinPieBlock = tweaks.getBool("pumpkin_pie_block", Tweaks.pumpkinPieBlock, "If true, allows placing pumpkin pie blocks using the vanilla pumpkin pie item");
+			});
 		});
 	}
 	
@@ -61,5 +64,9 @@ public class SpookyConfig {
 	
 	public static class SpookyFog {
 		public static int fogSmoothingRadius = 8;
+	}
+	
+	public static class Tweaks {
+		public static boolean pumpkinPieBlock = true;
 	}
 }
