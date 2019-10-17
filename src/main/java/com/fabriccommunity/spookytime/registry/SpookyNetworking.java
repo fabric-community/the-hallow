@@ -15,8 +15,8 @@ public class SpookyNetworking {
 		// NO-OP
 	}
 	
-	// Server-side packet handlers and other common init
 	public static void init() {
+		// NO-OP
 	}
 	
 	public static PacketByteBuf createShowFloatingItemPacket(Item item) {

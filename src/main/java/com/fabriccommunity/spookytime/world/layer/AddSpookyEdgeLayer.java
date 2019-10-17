@@ -11,7 +11,7 @@ import java.util.Map;
 public enum AddSpookyEdgeLayer implements CrossSamplingLayer {
 	INSTANCE;
 	
-	private final Map<Biome, Biome> EDGE_BIOME_MAP = new HashMap<>();
+	private final Map<Biome, Biome> EDGE_BIOME_MAP = new HashMap<Biome, Biome>();
 	
 	@Override
 	public int sample(LayerRandomnessSource rand, int border1, int border2, int border3, int border4, int centre) {

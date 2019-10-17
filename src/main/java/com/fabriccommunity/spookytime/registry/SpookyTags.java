@@ -8,14 +8,14 @@ import net.minecraft.tag.Tag;
 import com.fabriccommunity.spookytime.SpookyTime;
 
 public class SpookyTags {
-	public static Tag<Item> COSTUMES = register("costumes");
+	public static final Tag<Item> COSTUMES = register("costumes");
 	
 	private SpookyTags() {
 		// NO-OP
 	}
 	
 	public static void init() {
-	
+		// NO-OP
 	}
 	
 	public static Tag<Item> register(String name) {

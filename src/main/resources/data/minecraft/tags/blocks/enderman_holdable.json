@@ -4,6 +4,9 @@
 		"spookytime:deceased_dirt",
 		"spookytime:deceased_grass_block",
 		"spookytime:tainted_sand",
-		"spookytime:tainted_gravel"
+		"spookytime:tainted_gravel",
+		"spookytime:spooky_cactus",
+		"spookytime:deceased_moss",
+		"spookytime:gloomshroom"
 	]
 }

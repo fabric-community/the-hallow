@@ -20,7 +20,7 @@ public class SpookyFluids {
 	}
 	
 	public static void init() {
-	
+		// NO-OP
 	}
 	
 	static <T extends Fluid> T register(String name, T fluid) {

@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"111",
+		" 1 ",
+		"323"
+	],
+	"key": {
+		"1": {
+			"item": "minecraft:polished_andesite_slab"
+		},
+		"2": {
+			"item": "spookytime:spookium_block"
+		},
+		"3": {
+			"item": "minecraft:black_concrete"
+		}
+	},
+	"result": {
+		"item": "spookytime:infusion_pillar"
+	}
+}

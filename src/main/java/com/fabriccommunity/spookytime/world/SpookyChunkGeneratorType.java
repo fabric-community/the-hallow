@@ -17,6 +17,10 @@ public class SpookyChunkGeneratorType extends ChunkGeneratorType<SpookyChunkGene
 		super(null, buffetScreen, configSupplier);
 	}
 	
+	public static void init() {
+		// NO-OP
+	}
+	
 	@Override
 	public SpookyChunkGenerator create(World world, BiomeSource biomeSource, SpookyChunkGeneratorConfig config) {
 		return new SpookyChunkGenerator(world, biomeSource, config);

@@ -1,0 +1,7 @@
+{
+	"parent": "block/cube_column",
+	"textures": {
+		"end": "spookytime:block/stripped_deadwood_log",
+		"side": "spookytime:block/stripped_deadwood_log"
+	}
+}

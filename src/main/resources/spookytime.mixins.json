@@ -10,14 +10,22 @@
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
 		"ServerWorldMixin",
+		"WitchEntityMixin",
+		"ThrownPotionEntityMixin",
 		"SkeletonEntityMixin",
-		"ZombieEntityMixin"
+		"ZombieEntityMixin",
 		"LivingEntityMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"BlockEntityTypeMixin",
+		"EndermanEntityMixin"
 	],
 	"client": [
+		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
-		"client.MinecraftClientMixin"
+		"client.MinecraftClientMixin",
+		"client.FirstPersonRendererMixin",
+		"client.BackgroundRendererMixin",
+		"client.SignBlockEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

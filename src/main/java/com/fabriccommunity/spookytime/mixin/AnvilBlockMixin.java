@@ -23,9 +23,7 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
  */
 @Mixin(AnvilBlock.class)
 public class AnvilBlockMixin {
-	
-	
-	@Inject(method = "onLanding", at = @At("HEAD"))
+	@Inject(method = "onLanding(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;Lnet/minecraft/block/BlockState;)V", at = @At("HEAD"))
 	protected void onLanding(World world, BlockPos upPosition, BlockState blockState_1, BlockState blockState_2, CallbackInfo info) {
 		BlockPos downPosition = upPosition.offset(Direction.DOWN);
 		Block checkBlock = world.getBlockState(downPosition).getBlock();

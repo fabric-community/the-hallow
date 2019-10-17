@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpookyBiomeGroup {
-	private static List<SpookyBiomeGroup> spookyBiomeGroups = new ArrayList<>();
-	private static Int2ObjectMap<SpookyBiomeGroup> reverseMap = new Int2ObjectArrayMap<>();
+	private static List<SpookyBiomeGroup> spookyBiomeGroups = new ArrayList<SpookyBiomeGroup>();
+	private static Int2ObjectMap<SpookyBiomeGroup> reverseMap = new Int2ObjectArrayMap<SpookyBiomeGroup>();
 	private final int id;
 	private double weightTotal = 0;
-	private List<WeightedBiomeEntry> entries = new ArrayList<>();
+	private List<WeightedBiomeEntry> entries = new ArrayList<WeightedBiomeEntry>();
 	
 	public SpookyBiomeGroup(int id) {
 		this.id = id;

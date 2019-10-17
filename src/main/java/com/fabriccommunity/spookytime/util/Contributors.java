@@ -25,7 +25,7 @@ import java.util.List;
 public class Contributors {
 	// Please add names to the fabric mod json
 	
-	private static final List<Text> USER_INFO = new ArrayList<>();
+	private static final List<Text> USER_INFO = new ArrayList<Text>();
 	
 	static {
 		initContributors();

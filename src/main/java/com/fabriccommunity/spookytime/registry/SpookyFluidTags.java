@@ -16,7 +16,7 @@ public class SpookyFluidTags {
 	}
 	
 	public static void init() {
-	
+		// NO-OP
 	}
 	
 	private static Tag<Fluid> register(String name) {

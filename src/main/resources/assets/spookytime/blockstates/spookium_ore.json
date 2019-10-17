@@ -1,7 +1,9 @@
 {
 	"variants": {
 		"": [
-			{"model": "spookytime:block/spookium_ore"}
+			{
+				"model": "spookytime:block/spookium_ore"
+			}
 		]
 	}
 }

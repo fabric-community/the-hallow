@@ -11,9 +11,9 @@ import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.LocalDifficulty;
 
-import com.fabriccommunity.spookytime.MixinHelpers;
 import com.fabriccommunity.spookytime.SpookyConfig;
 import com.fabriccommunity.spookytime.registry.SpookyItems;
+import com.fabriccommunity.spookytime.util.MixinHelpers;
 
 import java.util.Random;
 
@@ -24,12 +24,12 @@ import java.util.Random;
  */
 @Mixin(AbstractSkeletonEntity.class)
 public class AbstractSkeletonEntityMixin {
-	@Redirect(method = "initialize", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/AbstractSkeletonEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
+	@Redirect(method = "initialize(Lnet/minecraft/world/IWorld;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnType;Lnet/minecraft/entity/EntityData;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/entity/EntityData;", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/AbstractSkeletonEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
 	private ItemStack getStack(AbstractSkeletonEntity entity, EquipmentSlot equipmentSlot) {
 		return MixinHelpers.getEquippedOrPumpkin(entity, equipmentSlot);
 	}
 	
-	@Inject(method = "initEquipment", at = @At(value = "TAIL"))
+	@Inject(method = "initEquipment(Lnet/minecraft/world/LocalDifficulty;)V", at = @At(value = "TAIL"))
 	protected void initEquipment(LocalDifficulty ld, CallbackInfo cb) {
 		Random random = new Random();
 		if (SpookyConfig.TrumpetSkeleton.enabled && random.nextInt(SpookyConfig.TrumpetSkeleton.chance) == 0) {

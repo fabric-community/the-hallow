@@ -18,7 +18,7 @@ import java.util.Map;
 
 public abstract class CraftingFluidBlock extends FluidBlock {
 	public final SoundEvent craftingSound;
-	public HashMap<Ingredient, ItemStack> recipes = new HashMap<>();
+	public HashMap<Ingredient, ItemStack> recipes = new HashMap<Ingredient, ItemStack>();
 	
 	public CraftingFluidBlock(BaseFluid fluid, Settings settings, SoundEvent craftingSound) {
 		super(fluid, settings);

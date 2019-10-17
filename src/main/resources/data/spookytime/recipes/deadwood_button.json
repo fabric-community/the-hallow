@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "wooden_button",
+	"ingredients": [
+		{
+			"item": "spookytime:deadwood_planks"
+		}
+	],
+	"result": {
+		"item": "spookytime:deadwood_button"
+	}
+}

@@ -3,7 +3,6 @@
 
 # gradle
 
-gradle-wrapper.properties
 .gradle/
 build/
 out/
@@ -52,3 +51,10 @@ bin/
 # fabric
 
 run/
+
+# other
+!**/gradle-wrapper.jar
+*.ini
+.DS_STORE
+.directory
+*.kate-swp
