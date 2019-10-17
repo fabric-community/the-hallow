@@ -2,11 +2,11 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "thehallow:spookium_block"
+			"item": "thehallow:hallowed_block"
 		}
 	],
 	"result": {
-		"item": "thehallow:spookium_ingot",
+		"item": "thehallow:hallowed_ingot",
 		"count": 9
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"item": "thehallow:spookium_ore"
+		"item": "thehallow:hallowed_ore"
 	},
-	"result": "thehallow:spookium_ingot",
+	"result": "thehallow:hallowed_ingot",
 	"experience": 1.0,
 	"cookingtime": 100
 }

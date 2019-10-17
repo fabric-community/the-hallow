@@ -2,7 +2,7 @@
 	"variants": {
 		"": [
 			{
-				"model": "thehallow:block/spookium_ore"
+				"model": "thehallow:block/hallowed_ore"
 			}
 		]
 	}

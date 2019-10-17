@@ -5,7 +5,7 @@ import net.minecraft.recipe.Ingredient;
 
 import com.fabriccommunity.thehallow.registry.HallowedItems;
 
-public class SpookiumMaterial implements ToolMaterial {
+public class HallowedMaterial implements ToolMaterial {
 	@Override
 	public int getDurability() {
 		return 1024;
@@ -33,6 +33,6 @@ public class SpookiumMaterial implements ToolMaterial {
 	
 	@Override
 	public Ingredient getRepairIngredient() {
-		return Ingredient.ofItems(HallowedItems.SPOOKIUM_INGOT);
+		return Ingredient.ofItems(HallowedItems.HALLOWED_INGOT);
 	}
 }

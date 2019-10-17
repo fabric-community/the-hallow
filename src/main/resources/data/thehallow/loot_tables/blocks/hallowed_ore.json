@@ -6,7 +6,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "thehallow:spookium_block"
+					"name": "thehallow:hallowed_ore"
 				}
 			],
 			"conditions": [

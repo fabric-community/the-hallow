@@ -103,8 +103,8 @@ public class HallowedBlocks {
 	public static final Block TAINTED_SANDSTONE_WALL = register("tainted_sandstone_wall", new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block SOUL_GLASS = register("soul_glass", new TranslucentGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.BROWN).build()));
 	public static final Block SOUL_GLASS_PANE = register("soul_glass_pane", new TranslucentGlassPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build()));
-	public static final Block SPOOKIUM_ORE = register("spookium_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(TheHallow.GROUP).rarity(Rarity.EPIC));
-	public static final Block SPOOKIUM_BLOCK = register("spookium_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(TheHallow.GROUP).rarity(Rarity.EPIC));
+	public static final Block HALLOWED_ORE = register("hallowed_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(TheHallow.GROUP).rarity(Rarity.EPIC));
+	public static final Block HALLOWED_BLOCK = register("hallowed_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(TheHallow.GROUP).rarity(Rarity.EPIC));
 	public static final Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(HallowedFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
 	public static final Block WITCH_WATER_BUBBLE_COLUMN = register("witch_water_bubble_column", new WitchWaterBubbleColumnBlock(FabricBlockSettings.copy(Blocks.BUBBLE_COLUMN).build()), (BlockItem) null);
 	public static final Block SPOOKY_TREASURE_CHEST = register("hallowed_treasure_chest", new HallowedTreasureChestBlock(FabricBlockSettings.of(Material.METAL).build()), new Item.Settings().group(TheHallow.GROUP));

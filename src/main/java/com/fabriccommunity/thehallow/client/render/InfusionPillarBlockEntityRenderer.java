@@ -26,7 +26,7 @@ public class InfusionPillarBlockEntityRenderer extends BlockEntityRenderer<Infus
 		
 		if (!pillar.storedStack.isEmpty()) {
 			GlStateManager.pushMatrix();
-			GlStateManager.translated(x + 0.5d, y + 1.1 + Math.sin(rotation) / 32, z + 0.5d);
+			GlStateManager.translated(x + 0.5d, y + 1.250 + Math.sin(rotation / 2) / 32, z + 0.5d);
 			GlStateManager.rotated(rotation * 2, 0, 1, 0);
 			GlStateManager.scaled(0.5, 0.5, 0.5);
 			itemRenderer.renderItem(pillar.storedStack, ModelTransformation.Type.FIXED);

@@ -14,6 +14,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
@@ -24,8 +25,12 @@ import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import javax.annotation.Nullable;
 
 public class InfusionPillarBlock extends Block implements BlockEntityProvider {
-	private static final VoxelShape SHAPE = Block.createCuboidShape(4, 0, 4, 12, 12, 12);
-	
+	private static final VoxelShape shapeA = Block.createCuboidShape(4, 0, 4, 12, 3, 12);
+	private static final VoxelShape shapeB = Block.createCuboidShape(4, 13, 4, 12, 16, 12);
+	private static final VoxelShape shapeC = Block.createCuboidShape(5, 3, 5, 11, 13, 11);
+
+	private static final VoxelShape SHAPE = VoxelShapes.union(shapeA, shapeB, shapeC);
+
 	public InfusionPillarBlock(Block.Settings settings) {
 		super(settings);
 	}

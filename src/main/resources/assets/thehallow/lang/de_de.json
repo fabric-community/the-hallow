@@ -6,8 +6,8 @@
 	"item.thehallow.pumpcown_spawn_egg": "Pumpcown-Spawn-Ei",
 	"item.thehallow.crow_spawn_egg": "Krähe-Spawn-Ei",
 	"item.thehallow.blaze_skirt": "Lohenrock",
-	"item.thehallow.spookium_ingot": "Spookiumbarren",
-	"item.thehallow.spookium_nugget": "Spookiumklumpen",
+	"item.thehallow.hallowed_ingot": "Spookiumbarren",
+	"item.thehallow.hallowed_nugget": "Spookiumklumpen",
 	"item.thehallow.soul_bottle": "Seeleflasche",
 	"item.thehallow.pumpkin_candy": "Kürbisbonbon",
 	"item.thehallow.rare_candy": "Seltenes Bonbon",
@@ -33,8 +33,8 @@
 	"block.thehallow.tainted_glass_pane": "Verdorbenes Glasscheibe",
 	"block.thehallow.soul_glass": "Seeleglas",
 	"block.thehallow.soul_glass_pane": "Seeleglasscheibe",
-	"block.thehallow.spookium_ore": "Spookiumerz",
-	"block.thehallow.spookium_block": "Spookiumblock",
+	"block.thehallow.hallowed_ore": "Spookiumerz",
+	"block.thehallow.hallowed_block": "Spookiumblock",
 	"biome.thehallow.hallowed_forest": "Gespenstischer Wald",
 	"biome.thehallow.hallowed_lowlands": "Gespenstisches Flachland"
 }

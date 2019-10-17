@@ -22,7 +22,7 @@ import com.fabriccommunity.thehallow.item.SkirtCostume;
 import com.fabriccommunity.thehallow.item.HallowedTrumpetItem;
 import com.fabriccommunity.thehallow.item.tool.ClubItem;
 import com.fabriccommunity.thehallow.item.tool.ScytheItem;
-import com.fabriccommunity.thehallow.item.tool.SpookiumMaterial;
+import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
 import com.fabriccommunity.thehallow.util.PumpkinFoods;
 import dev.emi.trinkets.api.TrinketSlots;
 
@@ -30,7 +30,7 @@ public class HallowedItems {
 	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(HallowedFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP).maxCount(1)));
 	public static final BucketItem BLOOD_BUCKET = register("blood_bucket", new BucketItem(HallowedFluids.BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP).maxCount(1)));
 	
-	public static final ToolMaterial SPOOKIUM = new SpookiumMaterial();
+	public static final ToolMaterial HALLOWED = new HallowedMaterial();
 	
 	public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(newSettings().maxCount(1)));
 	public static final Item CARAMEL_APPLE = register("caramel_apple", new CandyItem(newSettings(), 5, 0.3F));
@@ -40,9 +40,9 @@ public class HallowedItems {
 	public static final Item PEPPERMINT = register("peppermint", new CandyItem(newSettings(), 1, 0.2F));
 	public static final Item BAKED_PUMPKIN_SEEDS = register("baked_pumpkin_seeds", new Item(newSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).snack().build())));
 	public static final Item PUMPKIN_STEW = register("pumpkin_stew", new MushroomStewItem(newSettings().food(new FoodComponent.Builder().hunger(7).saturationModifier(1.4f).build()).recipeRemainder(Items.BOWL)));
-	public static final Item SPOOKIUM_INGOT = register("spookium_ingot", new Item(newSettings().rarity(Rarity.EPIC)));
-	public static final Item SPOOKIUM_NUGGET = register("spookium_nugget", new Item(newSettings().rarity(Rarity.EPIC)));
-	public static final Item REAPERS_SCYTHE = register("reapers_scythe", new ScytheItem(SPOOKIUM, 3, -2.0F, newSettings().maxCount(1).rarity(Rarity.EPIC)));
+	public static final Item HALLOWED_INGOT = register("hallowed_ingot", new Item(newSettings().rarity(Rarity.EPIC)));
+	public static final Item HALLOWED_NUGGET = register("hallowed_nugget", new Item(newSettings().rarity(Rarity.EPIC)));
+	public static final Item REAPERS_SCYTHE = register("reapers_scythe", new ScytheItem(HALLOWED, 3, -2.0F, newSettings().maxCount(1).rarity(Rarity.EPIC)));
 	public static final Item SOUL_BOTTLE = register("soul_bottle", new Item(newSettings()));
 	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(newSettings()));
 	public static final Item SPOOKY_TRUMPET = register("hallowed_trumpet", new HallowedTrumpetItem(newSettings()));

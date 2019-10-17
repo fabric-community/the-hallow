@@ -75,7 +75,7 @@ public class HallowedBiomeFeatures {
 	}
 	
 	public static void addOres(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(HallowedFeatures.ORE, new HallowedOreFeatureConfig(HallowedBlocks.SPOOKIUM_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
+		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Biome.configureFeature(HallowedFeatures.ORE, new HallowedOreFeatureConfig(HallowedBlocks.HALLOWED_ORE.getDefaultState(), 5), Decorator.COUNT_RANGE, new RangeDecoratorConfig(1, 0, 0, 16)));
 	}
 	
 	public static void addGrass(Biome biome) {

@@ -7,10 +7,10 @@
 	],
 	"key": {
 		"s": {
-			"item": "thehallow:spookium_nugget"
+			"item": "thehallow:hallowed_ingot"
 		}
 	},
 	"result": {
-		"item": "thehallow:spookium_ingot"
+		"item": "thehallow:hallowed_block"
 	}
 }
