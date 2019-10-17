@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.recipe;
+package com.fabriccommunity.spookytime.recipe.blood;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.exception.InvalidJsonException;
@@ -75,16 +75,20 @@ public class BloodRecipeSerializer implements RecipeSerializer<BloodRecipe> {
 	private int getCount(JsonObject countJson) {
 		int count;
 		// get count int
-		if(countJson.get(COUNT_KEY).isJsonPrimitive()) {
-			JsonPrimitive countPrimitive = countJson.getAsJsonPrimitive(COUNT_KEY);
+		if(countJson.has(COUNT_KEY)) {
+			if (countJson.get(COUNT_KEY).isJsonPrimitive()) {
+				JsonPrimitive countPrimitive = countJson.getAsJsonPrimitive(COUNT_KEY);
 
-			if(countPrimitive.isNumber()) {
-				count = countPrimitive.getAsNumber().intValue();
+				if (countPrimitive.isNumber()) {
+					count = countPrimitive.getAsNumber().intValue();
+				} else {
+					throw new IllegalArgumentException("Expected JsonPrimitive to be an int, got " + countJson.getAsString() + "!\n" + prettyPrintJson(countJson));
+				}
 			} else {
-				throw new IllegalArgumentException("Expected JsonPrimitive to be an int, got " + countJson.getAsString() + "!\n" + prettyPrintJson(countJson));
+				throw new InvalidJsonException("\"" + ITEM_KEY + "\" needs to be a JsonPrimitive int, found " + countJson.getClass() + "!\n" + prettyPrintJson(countJson));
 			}
 		} else {
-			throw new InvalidJsonException("\"" + ITEM_KEY + "\" needs to be a JsonPrimitive int, found " + countJson.getClass() + "!\n" + prettyPrintJson(countJson));
+			return 1;
 		}
 
 		return count;

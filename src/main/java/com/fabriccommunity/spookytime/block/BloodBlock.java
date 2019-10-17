@@ -1,6 +1,6 @@
 package com.fabriccommunity.spookytime.block;
 
-import com.fabriccommunity.spookytime.recipe.BloodRecipe;
+import com.fabriccommunity.spookytime.recipe.blood.BloodRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;

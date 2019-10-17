@@ -1,4 +1,4 @@
-package com.fabriccommunity.spookytime.recipe;
+package com.fabriccommunity.spookytime.recipe.blood;
 
 import com.fabriccommunity.spookytime.SpookyTime;
 import net.minecraft.inventory.BasicInventory;
