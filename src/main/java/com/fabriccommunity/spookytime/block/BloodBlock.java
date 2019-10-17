@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.inventory.BasicInventory;
+import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.math.BlockPos;
@@ -24,6 +25,20 @@ public class BloodBlock extends FluidBlock {
 	@Override
 	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		if(!world.isClient) {
+			if (pos.equals(entity.getBlockPos())) {
+				if (entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty()) {
+					ItemEntity itemEntity = (ItemEntity) entity;
+					ItemStack stack = itemEntity.getStack();
+					if (stack.getItem() instanceof DyeableItem) {
+						DyeableItem item = (DyeableItem) stack.getItem();
+						if (item.hasColor(stack)) item.setColor(stack, 0xFF0000 | item.getColor(stack));
+						else item.setColor(stack, 0xFF0000);
+
+						return;
+					}
+				}
+			}
+
 			List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos));
 			BasicInventory inventory = new BasicInventory(entities.size());
 
