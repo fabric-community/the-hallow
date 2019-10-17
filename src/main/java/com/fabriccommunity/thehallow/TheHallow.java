@@ -1,5 +1,6 @@
 package com.fabriccommunity.thehallow;
 
+import com.fabriccommunity.thehallow.registry.HallowedRecipes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
@@ -44,6 +45,7 @@ public class TheHallow implements ModInitializer {
 		HallowedBlocks.init();
 		HallowedItems.init();
 		HallowedInfusion.init();
+		HallowedRecipes.init();
 		HallowedBlockEntities.init();
 		HallowedEnchantments.init();
 		HallowedCommands.init();
