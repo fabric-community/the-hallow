@@ -1,8 +1,8 @@
 package com.fabriccommunity.spookytime;
 
+import com.fabriccommunity.spookytime.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -58,6 +58,7 @@ public class SpookyTime implements ModInitializer {
 		SpookyFluidTags.init();
 		SpookyTags.init();
 		SpookyNetworking.init();
+		SpookyRecipes.init();
 		SpookyEvents.init();
 	}
 }
