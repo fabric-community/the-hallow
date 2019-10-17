@@ -1,5 +1,8 @@
 package com.fabriccommunity.spookytime.item;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -34,6 +37,7 @@ public class SkirtCostume extends Item implements ITrinket {
 	}
 	
 	@Override
+	@Environment(EnvType.CLIENT)
 	public void render(String slot, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
 		ItemRenderer renderer = MinecraftClient.getInstance().getItemRenderer();
 		GlStateManager.pushMatrix();

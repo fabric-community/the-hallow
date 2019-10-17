@@ -31,6 +31,7 @@ import com.google.common.collect.ImmutableList;
  */
 public class SpookyFeatures {
 	public static final TernarySurfaceConfig SPOOKY_FOREST = new TernarySurfaceConfig(SpookyBlocks.DECEASED_GRASS_BLOCK.getDefaultState(), SpookyBlocks.DECEASED_DIRT.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
+	public static final TernarySurfaceConfig SPOOKY_MARSH = new TernarySurfaceConfig(SpookyBlocks.DECEASED_MOSS.getDefaultState(), SpookyBlocks.DECEASED_DIRT.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final TernarySurfaceConfig GHASTLY_DESERT = new TernarySurfaceConfig(SpookyBlocks.TAINTED_SAND.getDefaultState(), SpookyBlocks.TAINTED_SAND.getDefaultState(), SpookyBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final Feature<SpookyOreFeatureConfig> ORE = register("ore", new SpookyOreFeature(SpookyOreFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> PUMPKIN = register("colored_pumpkin", new RandomizedWildCropFeature(DefaultFeatureConfig::deserialize, ColoredPumpkinFeature.COLORED_PUMPKINS));

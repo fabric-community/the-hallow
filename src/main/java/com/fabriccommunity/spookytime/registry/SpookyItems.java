@@ -83,11 +83,15 @@ public class SpookyItems {
 	 */
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(SpookyEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, new Item.Settings().group(SpookyTime.GROUP)));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(SpookyEntities.CROW, 0x161616, 0x454545, new Item.Settings().group(SpookyTime.GROUP)));
+	public static final Item MUMMY_SPAWN_EGG = register("mummy_spawn_egg", new SpawnEggItem(SpookyEntities.MUMMY, 0xCBBBAD, 0x463C34, newSettings()));
+	public static final Item CULTIST_SPAWN_EGG = register("cultist_spawn_egg", new SpawnEggItem(SpookyEntities.CULTIST, 0x102F4E, 0x01041E, newSettings()));
 
 	/**
 	 * Other items
 	 */
 	public static Item DEADWOOD_SIGN;
+	public static final Item BLACK_FEATHER = register("black_feather", new Item(newSettings()));
+	public static final Item OLD_BANDAGE = register("old_bandage", new Item(newSettings()));
 
 	private SpookyItems() {
 		// NO-OP

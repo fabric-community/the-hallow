@@ -1,8 +1,8 @@
 package com.fabriccommunity.spookytime;
 
+import com.fabriccommunity.spookytime.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -24,6 +24,7 @@ import com.fabriccommunity.spookytime.registry.SpookyNetworking;
 import com.fabriccommunity.spookytime.registry.SpookySounds;
 import com.fabriccommunity.spookytime.registry.SpookyTags;
 import com.fabriccommunity.spookytime.registry.SpookyWorldGen;
+import com.fabriccommunity.spookytime.world.SpookyChunkGeneratorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,6 +51,7 @@ public class SpookyTime implements ModInitializer {
 		SpookyFeatures.init();
 		SpookyBiomes.init();
 		SpookyWorldGen.init();
+		SpookyChunkGeneratorType.init();
 		SpookyDimensions.init();
 		SpookyEvents.init();
 		SpookySounds.init();
@@ -57,6 +59,7 @@ public class SpookyTime implements ModInitializer {
 		SpookyFluidTags.init();
 		SpookyTags.init();
 		SpookyNetworking.init();
+		SpookyRecipes.init();
 		SpookyEvents.init();
 	}
 }

@@ -6,55 +6,76 @@ import net.minecraft.fluid.BaseFluid;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
+import com.fabriccommunity.spookytime.recipe.blood.BloodRecipe;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.fluid.BaseFluid;
+import net.minecraft.inventory.BasicInventory;
+import net.minecraft.item.DyeableItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 
-public class BloodBlock extends CraftingFluidBlock {
+import java.util.List;
+import java.util.Optional;
+
+public class BloodBlock extends FluidBlock {
 	public BloodBlock(BaseFluid fluid, Settings settings) {
-		super(fluid, settings, SoundEvents.ENTITY_PLAYER_SPLASH);
-		addRecipe(Items.RED_BANNER, Items.WHITE_BANNER);
-		addRecipe(Items.RED_BED, Items.WHITE_BED);
-		addRecipe(Items.RED_CARPET, Items.WHITE_CARPET);
-		addRecipe(Items.RED_CONCRETE, Items.WHITE_CONCRETE);
-		addRecipe(Items.RED_CONCRETE_POWDER, Items.WHITE_CONCRETE_POWDER);
-		addRecipe(Items.RED_SHULKER_BOX, Items.SHULKER_BOX);
-		addRecipe(Items.RED_STAINED_GLASS, Items.GLASS);
-		addRecipe(Items.RED_STAINED_GLASS_PANE, Items.GLASS_PANE);
-		addRecipe(Items.RED_WOOL, Items.WHITE_WOOL);
-		addRecipe(Items.RED_SAND, Items.SAND);
-		addRecipe(Items.RED_SANDSTONE, Items.SANDSTONE);
-		addRecipe(Items.SMOOTH_RED_SANDSTONE, Items.SMOOTH_SANDSTONE);
-		addRecipe(Items.CUT_RED_SANDSTONE, Items.CUT_SANDSTONE);
-		addRecipe(Items.CHISELED_RED_SANDSTONE, Items.CHISELED_SANDSTONE);
-		addRecipe(Items.RED_SANDSTONE_STAIRS, Items.SANDSTONE_STAIRS);
-		addRecipe(Items.SMOOTH_RED_SANDSTONE_STAIRS, Items.SMOOTH_SANDSTONE_STAIRS);
-		addRecipe(Items.RED_SANDSTONE_SLAB, Items.SANDSTONE_SLAB);
-		addRecipe(Items.SMOOTH_RED_SANDSTONE_SLAB, Items.SMOOTH_SANDSTONE_SLAB);
-		addRecipe(Items.CUT_RED_SANDSTONE_SLAB, Items.CUT_SANDSTONE_SLAB);
-		addRecipe(Items.RED_SANDSTONE_WALL, Items.SANDSTONE_WALL);
-		addRecipe(Items.RED_TULIP, Items.WHITE_TULIP);
-		addRecipe(Items.RED_NETHER_BRICKS, Items.NETHER_BRICKS);
-		addRecipe(Items.RED_NETHER_BRICK_SLAB, Items.NETHER_BRICK_SLAB);
-		addRecipe(Items.RED_NETHER_BRICK_STAIRS, Items.NETHER_BRICK_STAIRS);
-		addRecipe(Items.RED_NETHER_BRICK_WALL, Items.NETHER_BRICK_WALL);
+		super(fluid, settings);
+	}
 
-		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.BLUE_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.YELLOW_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.TAN_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.RAINBOW_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_PUMPKIN, SpookyBlocks.WHITE_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_PUMPKIN, Items.PUMPKIN);
+	@Override
+	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
+		if(!world.isClient) {
+			if (pos.equals(entity.getBlockPos())) {
+				if (entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty()) {
+					ItemEntity itemEntity = (ItemEntity) entity;
+					ItemStack stack = itemEntity.getStack();
+					if (stack.getItem() instanceof DyeableItem) {
+						DyeableItem item = (DyeableItem) stack.getItem();
+						if (item.hasColor(stack)) item.setColor(stack, 0xFF0000 | item.getColor(stack));
+						else item.setColor(stack, 0xFF0000);
 
-		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.BLUE_CARVED_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.YELLOW_CARVED_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.TAN_CARVED_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.RAINBOW_CARVED_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, SpookyBlocks.WHITE_CARVED_PUMPKIN);
-		addRecipe(SpookyBlocks.RED_CARVED_PUMPKIN, Items.CARVED_PUMPKIN);
+						return;
+					}
+				}
+			}
 
-		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.BLUE_JACK_O_LANTERN);
-		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.YELLOW_JACK_O_LANTERN);
-		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.TAN_JACK_O_LANTERN);
-		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.RAINBOW_JACK_O_LANTERN);
-		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, SpookyBlocks.WHITE_JACK_O_LANTERN);
-		addRecipe(SpookyBlocks.RED_JACK_O_LANTERN, Items.JACK_O_LANTERN);
+			List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos));
+			BasicInventory inventory = new BasicInventory(entities.size());
+
+			entities.forEach(itemEntity -> {
+				ItemStack stack = itemEntity.getStack();
+				inventory.add(stack);
+			});
+
+			Optional<BloodRecipe> match = world.getRecipeManager()
+				.getFirstMatch(BloodRecipe.Type.INSTANCE, inventory, world);
+
+			if(match.isPresent()) {
+				spawnCraftingResult(world, pos, match.get().getOutput());
+
+				for(Ingredient ingredient : match.get().getIngredients()) {
+					for(ItemEntity testEntity : entities) {
+						if(ingredient.method_8093(testEntity.getStack())) {
+							testEntity.getStack().decrement(1);
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		super.onEntityCollision(blockState, world, pos, entity);
+	}
+
+	private void spawnCraftingResult(World world, BlockPos pos, ItemStack result) {
+		ItemEntity itemEntity = new ItemEntity(world, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, result);
+		world.spawnEntity(itemEntity);
+		// todo: add particles and/or an animation when dropping the recipe result
 	}
 }

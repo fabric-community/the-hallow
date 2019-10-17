@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"": [
+			{"model": "spookytime:block/deceased_moss"},
+			{"model": "spookytime:block/deceased_moss", "y": 90},
+			{"model": "spookytime:block/deceased_moss", "y": 180},
+			{"model": "spookytime:block/deceased_moss", "y": 270}
+		]
+	}
+}

@@ -1,5 +1,8 @@
 package com.fabriccommunity.spookytime.world.dimension;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +15,7 @@ import com.github.draylar.worldtraveler.api.dimension.utils.FogColorCalculator;
 
 public class SpookyFogColorCalculator implements FogColorCalculator {
 	@Override
+	@Environment(EnvType.CLIENT)
 	public Vec3d calculate(float v, float v1) {
 		World world = MinecraftClient.getInstance().world;
 		PlayerEntity player = MinecraftClient.getInstance().player;

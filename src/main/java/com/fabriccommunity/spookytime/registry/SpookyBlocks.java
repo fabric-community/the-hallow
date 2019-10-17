@@ -7,7 +7,24 @@ import com.fabriccommunity.spookytime.item.WitchedPumpkinItem;
 import com.fabriccommunity.spookytime.world.DeadwoodSaplingGenerator;
 import com.google.common.collect.ImmutableMap;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.*;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.InfestedBlock;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.LogBlock;
+import net.minecraft.block.Material;
+import net.minecraft.block.MaterialColor;
+import net.minecraft.block.OreBlock;
+import net.minecraft.block.PillarBlock;
+import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.VineBlock;
+import net.minecraft.block.WallBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -16,6 +33,34 @@ import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+import com.fabriccommunity.spookytime.block.BleedingBlock;
+import com.fabriccommunity.spookytime.block.BloodBlock;
+import com.fabriccommunity.spookytime.block.BramblesBlock;
+import com.fabriccommunity.spookytime.block.BreadCrumbsBlock;
+import com.fabriccommunity.spookytime.block.CongealedBloodBlock;
+import com.fabriccommunity.spookytime.block.DeaderBushBlock;
+import com.fabriccommunity.spookytime.block.DeceasedGrassBlock;
+import com.fabriccommunity.spookytime.block.InfusionAltarBlock;
+import com.fabriccommunity.spookytime.block.InfusionPillarBlock;
+import com.fabriccommunity.spookytime.block.SpookyButtonBlock;
+import com.fabriccommunity.spookytime.block.SpookyCactusBlock;
+import com.fabriccommunity.spookytime.block.SpookyDoorBlock;
+import com.fabriccommunity.spookytime.block.SpookyFernBlock;
+import com.fabriccommunity.spookytime.block.SpookyLogBlock;
+import com.fabriccommunity.spookytime.block.SpookyMushroomPlantBlock;
+import com.fabriccommunity.spookytime.block.SpookyPressurePlateBlock;
+import com.fabriccommunity.spookytime.block.SpookySaplingBlock;
+import com.fabriccommunity.spookytime.block.SpookySignBlock;
+import com.fabriccommunity.spookytime.block.SpookyStairsBlock;
+import com.fabriccommunity.spookytime.block.SpookyTrapdoorBlock;
+import com.fabriccommunity.spookytime.block.SpookyTreasureChestBlock;
+import com.fabriccommunity.spookytime.block.SpookyWallSignBlock;
+import com.fabriccommunity.spookytime.block.TinyPumpkinBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassBlock;
+import com.fabriccommunity.spookytime.block.TranslucentGlassPaneBlock;
+import com.fabriccommunity.spookytime.block.WitchWaterBlock;
+import com.fabriccommunity.spookytime.block.TombstoneBlock;
+import com.fabriccommunity.spookytime.block.WitchWaterBubbleColumnBlock;
 
 import java.util.function.Function;
 
@@ -106,7 +151,10 @@ public class SpookyBlocks {
 	public static final Block EERIE_GRASS = register("eerie_grass", new SpookyFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
 	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
 	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
-	
+	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
+	public static final Block GLOOMSHROOM = register("gloomshroom", new SpookyMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
+	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
+
 	/**
 	 * Spookium Blocks
 	 */
@@ -147,6 +195,7 @@ public class SpookyBlocks {
 	/**
 	 * Deadwood
 	 */
+	public static final Block TOMBSTONE = register("tombstone", new TombstoneBlock(FabricBlockSettings.of(Material.CARPET).breakByHand(true).build()), new Item.Settings().group(SpookyTime.GROUP).food(new FoodComponent.Builder().hunger(-1).saturationModifier(0.1f).snack().build()));
 	public static final Block DEADWOOD_LOG = register("deadwood_log", new SpookyLogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.OAK_LOG).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block STRIPPED_DEADWOOD_LOG = register("stripped_deadwood_log", new LogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_WOOD = register("deadwood_wood", new SpookyLogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.OAK_WOOD).materialColor(MaterialColor.PURPLE).build()));
@@ -164,7 +213,6 @@ public class SpookyBlocks {
 	public static final Block DEADWOOD_TRAPDOOR = register("deadwood_trapdoor", new SpookyTrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new SpookySignBlock(SpookyTime.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
 	public static final Block DEADWOOD_WALL_SIGN = register("deadwood_wall_sign", new SpookyWallSignBlock(SpookyTime.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
-
 
 	/**
 	 * Misc

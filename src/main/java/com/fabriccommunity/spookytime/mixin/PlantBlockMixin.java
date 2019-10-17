@@ -19,9 +19,9 @@ import com.fabriccommunity.spookytime.registry.SpookyBlocks;
  */
 @Mixin(PlantBlock.class)
 public class PlantBlockMixin {
-	@Inject(method = "canPlantOnTop", at = @At("RETURN"), cancellable = true)
-	protected void canPlantOnTop(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, CallbackInfoReturnable<Boolean> callbackInfo) {
-		if (blockState_1.getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK || blockState_1.getBlock() == SpookyBlocks.DECEASED_DIRT) {
+	@Inject(method = "canPlantOnTop(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)Z", at = @At("RETURN"), cancellable = true)
+	protected void canPlantOnTop(BlockState blockState, BlockView blockView, BlockPos blockPos, CallbackInfoReturnable<Boolean> callbackInfo) {
+		if (blockState.getBlock() == SpookyBlocks.DECEASED_GRASS_BLOCK || blockState.getBlock() == SpookyBlocks.DECEASED_DIRT) {
 			callbackInfo.setReturnValue(true);
 		}
 	}

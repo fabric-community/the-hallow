@@ -1,7 +1,6 @@
 package com.fabriccommunity.spookytime.block;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FernBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.util.math.BlockPos;

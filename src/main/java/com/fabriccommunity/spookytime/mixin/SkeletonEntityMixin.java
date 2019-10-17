@@ -14,7 +14,7 @@ import com.fabriccommunity.spookytime.registry.SpookySounds;
 
 @Mixin(SkeletonEntity.class)
 public class SkeletonEntityMixin {
-	@Inject(method = "getAmbientSound", at = @At("RETURN"), cancellable = true)
+	@Inject(method = "getAmbientSound()Lnet/minecraft/sound/SoundEvent;", at = @At("RETURN"), cancellable = true)
 	protected void getAmbientSound(CallbackInfoReturnable<SoundEvent> cb) {
 		//noinspection ConstantConditions
 		if (((SkeletonEntity) (Object) this).getEquippedStack(EquipmentSlot.MAINHAND).getItem() == SpookyItems.SPOOKY_TRUMPET) {
