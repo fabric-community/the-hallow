@@ -29,8 +29,6 @@ public class HallowedSwampBiome extends HallowedBaseBiome {
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowedFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		HallowedBiomeFeatures.addHallowedSwampTrees(this);
 		HallowedBiomeFeatures.addLairs(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowedEntities.MUMMY, 95, 4, 4));
 	}
 	
 	@Override

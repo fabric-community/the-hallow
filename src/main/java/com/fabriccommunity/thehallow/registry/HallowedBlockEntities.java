@@ -24,10 +24,10 @@ public class HallowedBlockEntities {
 		HallowedBlocks.WITCHED_PUMPKIN
 	);
 	
-	public static final BlockEntityType<HallowedTreasureChestBlockEntity> SPOOKY_TREASURE_CHEST_BE = register(
+	public static final BlockEntityType<HallowedTreasureChestBlockEntity> HALLOWED_TREASURE_CHEST_BE = register(
 		"hallowed_treasure_chest",
 		HallowedTreasureChestBlockEntity::new,
-		HallowedBlocks.SPOOKY_TREASURE_CHEST
+		HallowedBlocks.HALLOWED_TREASURE_CHEST
 	);
 	
 	public static final BlockEntityType<InfusionPillarBlockEntity> INFUSION_PILLAR_BLOCK_ENTITY = register(

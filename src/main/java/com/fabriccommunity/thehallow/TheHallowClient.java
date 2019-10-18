@@ -27,7 +27,7 @@ import com.fabriccommunity.thehallow.entity.CrowEntity;
 import com.fabriccommunity.thehallow.entity.CultistEntity;
 import com.fabriccommunity.thehallow.entity.MummyEntity;
 import com.fabriccommunity.thehallow.entity.PumpcownEntity;
-import com.fabriccommunity.thehallow.entity.HallowedCactusEntity;
+import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
 import com.fabriccommunity.thehallow.entity.HallowedTreasureChestBlockEntity;
 import com.fabriccommunity.thehallow.entity.HallowedTreasureChestEntity;
 
@@ -37,7 +37,7 @@ public class TheHallowClient implements ClientModInitializer {
 		EntityRendererRegistry.INSTANCE.register(PumpcownEntity.class, (dispatcher, context) -> new PumpcownEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(CrowEntity.class, (dispatcher, context) -> new CrowEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(HallowedTreasureChestEntity.class, ((dispatcher, context) -> new HallowedTreasureChestEntityRenderer(dispatcher)));
-		EntityRendererRegistry.INSTANCE.register(HallowedCactusEntity.class, (dispatcher, context) -> new HallowedCactusEntityRenderer(dispatcher));
+		EntityRendererRegistry.INSTANCE.register(RestlessCactusEntity.class, (dispatcher, context) -> new HallowedCactusEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(MummyEntity.class, (dispatcher, context) -> new MummyEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(CultistEntity.class, (dispatcher, context) -> new CultistEntityRenderer(dispatcher));
 		

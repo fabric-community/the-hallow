@@ -21,19 +21,19 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-import com.fabriccommunity.thehallow.entity.HallowedCactusEntity;
+import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 
 import java.util.Iterator;
 import java.util.Random;
 
-public class HallowedCactusBlock extends Block {
+public class RestlessCactusBlock extends Block {
 	public static final IntProperty AGE = Properties.AGE_15;
 	protected static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
 	protected static final VoxelShape OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 	
-	public HallowedCactusBlock(Block.Settings settings) {
+	public RestlessCactusBlock(Block.Settings settings) {
 		super(settings);
 		this.setDefaultState(this.stateFactory.getDefaultState().with(AGE, 0));
 	}
@@ -71,7 +71,7 @@ public class HallowedCactusBlock extends Block {
 					world.setBlockState(pos.up(height), Blocks.AIR.getDefaultState());
 				}
 				
-				HallowedCactusEntity entity = new HallowedCactusEntity(HallowedEntities.SPOOKY_CACTUS, world);
+				RestlessCactusEntity entity = new RestlessCactusEntity(HallowedEntities.RESTLESS_CACTUS, world);
 				entity.setPosition(pos.getX() + 0.5f, pos.getY(), pos.getZ() + 0.5f);
 				entity.setCactusHeight(height);
 				entity.age = age;
@@ -113,7 +113,7 @@ public class HallowedCactusBlock extends Block {
 		do {
 			if (!iterator.hasNext()) {
 				Block block = world.getBlockState(pos.down()).getBlock();
-				return (block == HallowedBlocks.SPOOKY_CACTUS || block == HallowedBlocks.TAINTED_SAND) && !world.getBlockState(pos.up()).getMaterial().isLiquid();
+				return (block == HallowedBlocks.RESTLESS_CACTUS || block == HallowedBlocks.TAINTED_SAND) && !world.getBlockState(pos.up()).getMaterial().isLiquid();
 			}
 			
 			direction = iterator.next();

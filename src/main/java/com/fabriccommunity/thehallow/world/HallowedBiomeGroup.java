@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HallowedBiomeGroup {
-	private static List<HallowedBiomeGroup> spookyBiomeGroups = new ArrayList<HallowedBiomeGroup>();
+	private static List<HallowedBiomeGroup> hallowedBiomeGroups = new ArrayList<HallowedBiomeGroup>();
 	private static Int2ObjectMap<HallowedBiomeGroup> reverseMap = new Int2ObjectArrayMap<HallowedBiomeGroup>();
 	private final int id;
 	private double weightTotal = 0;
@@ -21,7 +21,7 @@ public class HallowedBiomeGroup {
 	}
 	
 	public static int pickRandomBiomeGroup(LayerRandomnessSource rand) {
-		return spookyBiomeGroups.get(rand.nextInt(spookyBiomeGroups.size())).id;
+		return hallowedBiomeGroups.get(rand.nextInt(hallowedBiomeGroups.size())).id;
 	}
 	
 	public static HallowedBiomeGroup getById(int id) {
@@ -29,7 +29,7 @@ public class HallowedBiomeGroup {
 	}
 	
 	public static HallowedBiomeGroup addBiomeGroup(HallowedBiomeGroup group) {
-		spookyBiomeGroups.add(group);
+		hallowedBiomeGroups.add(group);
 		reverseMap.put(group.id, group);
 		return group;
 	}

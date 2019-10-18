@@ -56,7 +56,7 @@ public class HallowedTreasureChestEntity extends Entity {
 	}
 	
 	public HallowedTreasureChestEntity(World world, double x, double y, double z, boolean shouldReplace, float initialRotation) {
-		super(HallowedEntities.SPOOKY_TREASURE_CHEST, world);
+		super(HallowedEntities.HALLOWED_TREASURE_CHEST, world);
 		
 		this.x = x;
 		this.y = y;

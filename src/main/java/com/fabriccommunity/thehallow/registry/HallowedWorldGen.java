@@ -10,14 +10,14 @@ import com.fabriccommunity.thehallow.world.layer.AddHallowedShoreLayer;
 import com.fabriccommunity.thehallow.world.layer.AddSubBiomesLayer;
 
 public class HallowedWorldGen {
-	public static final HallowedBiomeGroup SPOOKY = new HallowedBiomeGroup(0)
-		.addBiome(HallowedBiomes.SPOOKY_FOREST, 1)
-		.addBiome(HallowedBiomes.SPOOKY_LOWLANDS, 1)
-		.addBiome(HallowedBiomes.SPOOKY_SWAMP, 1)
+	public static final HallowedBiomeGroup HALLOW = new HallowedBiomeGroup(0)
+		.addBiome(HallowedBiomes.HALLOWED_FOREST, 1)
+		.addBiome(HallowedBiomes.HALLOWED_LOWLANDS, 1)
+		.addBiome(HallowedBiomes.HALLOWED_SWAMP, 1)
 		.addBiome(HallowedBiomes.GHASTLY_DESERT, 1);
 	
 	public static final HallowedBiomeGroup SEA_ISLANDS = new HallowedBiomeGroup(1)
-		.addBiome(HallowedBiomes.SPOOKY_SEA, 1);
+		.addBiome(HallowedBiomes.HALLOWED_SEA, 1);
 	
 	public static final HallowedBiomeGroup UPLANDS = new HallowedBiomeGroup(2)
 		.addBiome(HallowedBiomes.HAUNTED_UPLANDS, 1)
@@ -30,29 +30,29 @@ public class HallowedWorldGen {
 	public static void init() {
 		// Add dimension biome placement stuff here
 		
-		addLargeSubBiome(HallowedBiomes.SPOOKY_LOWLANDS, HallowedBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.33f);
-		addHillsSubBiome(HallowedBiomes.SPOOKY_LOWLANDS, HallowedBiomes.SPOOKY_LOWLANDS_BARROWS);
+		addLargeSubBiome(HallowedBiomes.HALLOWED_LOWLANDS, HallowedBiomes.HALLOWED_LOWLANDS_PUMPKINS, 0.33f);
+		addHillsSubBiome(HallowedBiomes.HALLOWED_LOWLANDS, HallowedBiomes.HALLOWED_LOWLANDS_BARROWS);
 		
-		addHillsSubBiome(HallowedBiomes.SPOOKY_FOREST, HallowedBiomes.SPOOKY_FOREST_HILLS);
+		addHillsSubBiome(HallowedBiomes.HALLOWED_FOREST, HallowedBiomes.HALLOWED_FOREST_HILLS);
 		
 		// Islands
-		addSmallSubBiome(HallowedBiomes.SPOOKY_SEA, HallowedBiomes.SPOOKY_LOWLANDS, 0.22f);
-		addSmallSubBiome(HallowedBiomes.SPOOKY_SEA, HallowedBiomes.SPOOKY_FOREST, 0.22f);
-		addSmallSubBiome(HallowedBiomes.SPOOKY_SEA, HallowedBiomes.GHASTLY_DESERT, 0.22f);
-		addSmallSubBiome(HallowedBiomes.SPOOKY_SEA, HallowedBiomes.SPOOKY_LOWLANDS_PUMPKINS, 0.22f);
+		addSmallSubBiome(HallowedBiomes.HALLOWED_SEA, HallowedBiomes.HALLOWED_LOWLANDS, 0.22f);
+		addSmallSubBiome(HallowedBiomes.HALLOWED_SEA, HallowedBiomes.HALLOWED_FOREST, 0.22f);
+		addSmallSubBiome(HallowedBiomes.HALLOWED_SEA, HallowedBiomes.GHASTLY_DESERT, 0.22f);
+		addSmallSubBiome(HallowedBiomes.HALLOWED_SEA, HallowedBiomes.HALLOWED_LOWLANDS_PUMPKINS, 0.22f);
 		
 		// Uplands Edge
 		setEdgeBiome(HallowedBiomes.HAUNTED_MOOR, HallowedBiomes.HAUNTED_UPLANDS);
 		
 		// Rivers
-		setRiverBiome(HallowedBiomes.SPOOKY_SEA, null);
-		setRiverBiome(HallowedBiomes.SPOOKY_SHORE, HallowedBiomes.SPOOKY_SEA);
+		setRiverBiome(HallowedBiomes.HALLOWED_SEA, null);
+		setRiverBiome(HallowedBiomes.HALLOWED_SHORE, HallowedBiomes.HALLOWED_SEA);
 		
 		setRiverBiome(HallowedBiomes.HAUNTED_MOOR, null);
 		setRiverBiome(HallowedBiomes.HAUNTED_UPLANDS, null);
 		
-		// Make SPOOKY more common by adding twice
-		addBiomeGroups(SPOOKY, SPOOKY, SEA_ISLANDS, UPLANDS);
+		// Make HALLOWED more common by adding twice
+		addBiomeGroups(HALLOW, HALLOW, SEA_ISLANDS, UPLANDS);
 	}
 	
 	private static void addBiomeGroups(HallowedBiomeGroup... biomeGroups) {

@@ -19,7 +19,7 @@ public abstract class MinecraftClientMixin {
 	
 	@Redirect(method = "joinWorld(Lnet/minecraft/client/world/ClientWorld;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;reset(Lnet/minecraft/client/gui/screen/Screen;)V", ordinal = 0))
 	private void redirectReset_joinWorld(MinecraftClient client, Screen screen, ClientWorld world) {
-		if (world.getDimension().getType() == HallowedDimensions.SPOOKY) {
+		if (world.getDimension().getType() == HallowedDimensions.THE_HALLOW) {
 			reset(new HallowedLoadingScreen());
 		} else {
 			reset(screen);

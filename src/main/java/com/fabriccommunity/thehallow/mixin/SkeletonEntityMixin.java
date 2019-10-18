@@ -17,7 +17,7 @@ public class SkeletonEntityMixin {
 	@Inject(method = "getAmbientSound()Lnet/minecraft/sound/SoundEvent;", at = @At("RETURN"), cancellable = true)
 	protected void getAmbientSound(CallbackInfoReturnable<SoundEvent> cb) {
 		//noinspection ConstantConditions
-		if (((SkeletonEntity) (Object) this).getEquippedStack(EquipmentSlot.MAINHAND).getItem() == HallowedItems.SPOOKY_TRUMPET) {
+		if (((SkeletonEntity) (Object) this).getEquippedStack(EquipmentSlot.MAINHAND).getItem() == HallowedItems.TRUMPET) {
 			cb.setReturnValue(HallowedSounds.DOOT);
 		}
 	}

@@ -19,8 +19,8 @@ import java.util.List;
 
 public abstract class HallowedBaseBiome extends Biome implements HallowedBiomeInfo {
 	public static final List<Biome> BIOMES = Lists.newArrayList();
-	protected static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, HallowedFeatures.SPOOKY_FOREST);
-	protected static final ConfiguredSurfaceBuilder<?> MARSH_SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, HallowedFeatures.SPOOKY_MARSH);
+	protected static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, HallowedFeatures.HALLOWED_FOREST);
+	protected static final ConfiguredSurfaceBuilder<?> MARSH_SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, HallowedFeatures.HALLOWED_MARSH);
 	protected static final ConfiguredSurfaceBuilder<?> DESERT_SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, HallowedFeatures.GHASTLY_DESERT);
 	protected int GRASS_COLOR = 0xFFFFFF;
 	protected int FOLIAGE_COLOR = 0xFFFFFF;
@@ -36,6 +36,7 @@ public abstract class HallowedBaseBiome extends Biome implements HallowedBiomeIn
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(HallowedEntities.CROW, 40, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowedEntities.MUMMY, 95, 4, 4));
 		BIOMES.add(this);
 	}
 	

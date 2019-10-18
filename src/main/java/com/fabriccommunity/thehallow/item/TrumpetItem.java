@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 
 import com.fabriccommunity.thehallow.registry.HallowedSounds;
 
-public class HallowedTrumpetItem extends Item {
-	public HallowedTrumpetItem(Settings settings) {
+public class TrumpetItem extends Item {
+	public TrumpetItem(Settings settings) {
 		super(settings);
 	}
 	
