@@ -115,6 +115,9 @@ public class AlchemicalBasin extends SimpleModel {
 			break;
 
 		case MODE_INFUSING:
+			renderFluidContent(qe, INFUSING_COLOR, myBe.level(), true);
+			break;
+
 		default:
 		}
 	}
