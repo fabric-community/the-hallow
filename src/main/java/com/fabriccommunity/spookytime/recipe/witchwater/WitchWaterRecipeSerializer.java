@@ -13,6 +13,7 @@ import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class WitchWaterRecipeSerializer implements RecipeSerializer<WitchWaterRecipe> {
 	private WitchWaterRecipeSerializer() {
@@ -116,9 +117,10 @@ public class WitchWaterRecipeSerializer implements RecipeSerializer<WitchWaterRe
 
 			if(itemPrimitive.isString()) {
 				Identifier itemIdentifier = new Identifier(itemPrimitive.getAsString());
-
-				if(Registry.ITEM.containsId(itemIdentifier)) {
-					result = Registry.ITEM.get(itemIdentifier);
+				
+				Optional<Item> opt = Registry.ITEM.getOrEmpty(itemIdentifier);
+				if(opt.isPresent()) {
+					result = opt.get();
 				} else {
 					throw new IllegalArgumentException("Item registry does not contain " + itemIdentifier.toString() + "!" + "\n" + prettyPrintJson(itemJson));
 				}
