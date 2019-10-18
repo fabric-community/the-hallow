@@ -1,0 +1,11 @@
+{
+	"type": "spookytime:witch_water_recipe",
+	"input": [
+		{
+			"item": "spookytime:red_carved_pumpkin"
+		}
+	],
+	"result": {
+		"item": "spookytime:witched_carved_pumpkin"
+	}
+}

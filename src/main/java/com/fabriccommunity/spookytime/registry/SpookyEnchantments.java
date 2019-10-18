@@ -1,13 +1,12 @@
 package com.fabriccommunity.spookytime.registry;
 
+import com.fabriccommunity.spookytime.SpookyTime;
+import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
+import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.registry.Registry;
-
-import com.fabriccommunity.spookytime.SpookyTime;
-import com.fabriccommunity.spookytime.enchantment.BeheadingEnchantment;
-import com.fabriccommunity.spookytime.enchantment.LifestealEnchantment;
 
 public class SpookyEnchantments {
 	public static final Enchantment BEHEADING = register("beheading", new BeheadingEnchantment(Enchantment.Weight.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));

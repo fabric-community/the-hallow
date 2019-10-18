@@ -33,6 +33,7 @@ public class SpookyTime implements ModInitializer {
 	public static final String MOD_ID = "spookytime";
 	public static final Logger LOGGER = LogManager.getLogger("Spooky Time");
 	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "group"), () -> new ItemStack(SpookyItems.REAPERS_SCYTHE));
+	public static final ItemGroup PUMPKINS = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "pumpkins"), () -> new ItemStack(SpookyBlocks.WITCHED_JACK_O_LANTERN));
 	
 	public static Identifier id(String name) {
 		return new Identifier(MOD_ID, name);

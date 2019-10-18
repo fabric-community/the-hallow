@@ -1,0 +1,11 @@
+{
+	"type": "spookytime:blood_recipe",
+	"input": [
+		{
+			"item": "spookytime:white_pumpkin"
+		}
+	],
+	"result": {
+		"item": "spookytime:red_pumpkin"
+	}
+}

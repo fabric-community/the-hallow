@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:jack_o_lantern",
+		"spookytime:red_jack_o_lantern",
+		"spookytime:blue_jack_o_lantern",
+		"spookytime:yellow_jack_o_lantern",
+		"spookytime:tan_jack_o_lantern",
+		"spookytime:white_jack_o_lantern",
+		"spookytime:witched_jack_o_lantern",
+		"spookytime:rainbow_jack_o_lantern"
+	]
+}

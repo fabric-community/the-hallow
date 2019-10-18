@@ -1,10 +1,5 @@
 package com.fabriccommunity.spookytime.registry;
 
-import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.world.biome.GhastlyDesert;
 import com.fabriccommunity.spookytime.world.biome.HauntedMoorBiome;
@@ -18,6 +13,9 @@ import com.fabriccommunity.spookytime.world.biome.SpookyRiverBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookySeaBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookyShoreBiome;
 import com.fabriccommunity.spookytime.world.biome.SpookySwampBiome;
+import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 
 public class SpookyBiomes {
 	// Spooky Forest

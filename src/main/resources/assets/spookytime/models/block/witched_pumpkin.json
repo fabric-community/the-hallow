@@ -1,7 +1,7 @@
 {
-	"parent": "spookytime:block/tiny_pumpkin",
-	"textures": {
-		"0": "spookytime:block/witched_pumpkin",
-		"particle": "spookytime:block/witched_pumpkin"
-	}
+    "parent": "block/pumpkin",
+    "textures": {
+        "end": "spookytime:block/witched_pumpkin_top",
+        "side": "spookytime:block/witched_pumpkin_side"
+    }
 }

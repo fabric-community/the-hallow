@@ -1,0 +1,11 @@
+{
+	"type": "spookytime:witch_water_recipe",
+	"input": [
+		{
+			"item": "minecraft:jack_o_lantern"
+		}
+	],
+	"result": {
+		"item": "spookytime:witched_jack_o_lantern"
+	}
+}
