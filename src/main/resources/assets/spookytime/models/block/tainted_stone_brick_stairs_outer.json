@@ -1,8 +1,0 @@
-{
-	"parent": "block/outer_stairs",
-	"textures": {
-		"bottom": "spookytime:block/tainted_stone_bricks",
-		"top": "spookytime:block/tainted_stone_bricks",
-		"side": "spookytime:block/tainted_stone_bricks"
-	}
-}

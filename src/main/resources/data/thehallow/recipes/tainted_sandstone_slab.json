@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###"
+	],
+	"key": {
+		"#": [
+			{
+				"item": "thehallow:tainted_sandstone"
+			},
+			{
+				"item": "thehallow:chiseled_tainted_sandstone"
+			}
+		]
+	},
+	"result": {
+		"item": "thehallow:tainted_sandstone_slab",
+		"count": 6
+	}
+}

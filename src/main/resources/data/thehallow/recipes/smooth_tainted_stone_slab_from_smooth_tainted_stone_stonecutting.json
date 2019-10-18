@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "thehallow:smooth_tainted_stone"
+	},
+	"result": "thehallow:smooth_tainted_stone_slab",
+	"count": 2
+}

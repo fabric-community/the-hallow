@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "thehallow:block/spooky_treasure_chest"
+		},
+		"facing=south": {
+			"model": "thehallow:block/spooky_treasure_chest",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "thehallow:block/spooky_treasure_chest",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "thehallow:block/spooky_treasure_chest",
+			"y": 90
+		}
+	}
+}

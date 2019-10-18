@@ -1,0 +1,11 @@
+{
+	"type": "thehallow:blood_recipe",
+	"input": [
+		{
+			"item": "thehallow:yellow_pumpkin"
+		}
+	],
+	"result": {
+		"item": "thehallow:red_pumpkin"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"type": "thehallow:blood_recipe",
+	"input": [
+		{
+			"item": "thehallow:blue_jack_o_lantern"
+		}
+	],
+	"result": {
+		"item": "thehallow:red_jack_o_lantern"
+	}
+}

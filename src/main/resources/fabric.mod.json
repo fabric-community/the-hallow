@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "spookytime",
+	"id": "thehallow",
 	"version": "${version}",
-	"name": "Spooky Time",
-	"description": "Time to get spooky! This mod was a collaboration by the Fabric community made for Hacktoberfest 2019.",
+	"name": "The Hallow",
+	"description": "Enter the Hallow! This mod is a collaboration by the Fabric community originally made for Hacktoberfest 2019.",
 	"authors": [
 		{
 			"name": "The Fabric Community",
@@ -82,18 +82,18 @@
 		"sources": "https://github.com/fabric-community/spooky-time"
 	},
 	"license": "MIT",
-	"icon": "assets/spookytime/icon.png",
+	"icon": "assets/thehallow/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.fabriccommunity.spookytime.SpookyTime"
+			"com.fabriccommunity.thehallow.TheHallow"
 		],
 		"client": [
-			"com.fabriccommunity.spookytime.SpookyTimeClient"
+			"com.fabriccommunity.thehallow.TheHallowClient"
 		]
 	},
 	"mixins": [
-		"spookytime.mixins.json"
+		"thehallow.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.4.0",

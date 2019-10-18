@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "thehallow:spookium_ingot"
+		}
+	],
+	"result": {
+		"item": "thehallow:spookium_nugget",
+		"count": 9
+	}
+}

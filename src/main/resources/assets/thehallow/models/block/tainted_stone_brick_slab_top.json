@@ -1,0 +1,8 @@
+{
+	"parent": "block/slab_top",
+	"textures": {
+		"bottom": "thehallow:block/tainted_stone_bricks",
+		"top": "thehallow:block/tainted_stone_bricks",
+		"side": "thehallow:block/tainted_stone_bricks"
+	}
+}

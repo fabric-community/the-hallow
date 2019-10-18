@@ -1,6 +1,0 @@
-{
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "spookytime:block/tall_eerie_grass_top"
-	}
-}

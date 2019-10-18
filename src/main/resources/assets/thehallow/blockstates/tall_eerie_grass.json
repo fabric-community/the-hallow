@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"half=lower": {"model": "thehallow:block/tall_eerie_grass_bottom"},
+		"half=upper": {"model": "thehallow:block/tall_eerie_grass_top"}
+	}
+}

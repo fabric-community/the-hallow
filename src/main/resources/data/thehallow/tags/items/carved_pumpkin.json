@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:carved_pumpkin",
+		"thehallow:red_carved_pumpkin",
+		"thehallow:blue_carved_pumpkin",
+		"thehallow:yellow_carved_pumpkin",
+		"thehallow:tan_carved_pumpkin",
+		"thehallow:white_carved_pumpkin",
+		"thehallow:witched_carved_pumpkin",
+		"thehallow:rainbow_carved_pumpkin"
+	]
+}
