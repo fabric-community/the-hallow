@@ -66,6 +66,7 @@ public class AlchemicalBasin extends SimpleModel {
 	public static final int WITCH_WATER_COLOR = 0xFF5900A3;
 	public static final int WATER_COLOR = 0xFF188DFF;
 	public static final int BURNING_COLOR = 0xFFFF8060;
+	public static final int INFUSING_COLOR = 0xFF80B0FF;
 
 	protected final Renderer renderer = RendererAccess.INSTANCE.getRenderer();
 	protected final RenderMaterial matCutout = renderer.materialFinder().blendMode(0, BlockRenderLayer.CUTOUT).find();

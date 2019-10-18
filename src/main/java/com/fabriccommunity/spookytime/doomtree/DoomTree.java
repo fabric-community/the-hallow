@@ -130,10 +130,10 @@ public class DoomTree {
 	public static final Item WARDED_IRON_LEGGINGS =  Registry.register(Registry.ITEM, SpookyTime.id("warded_iron_leggings"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).group(SpookyTime.GROUP)));
 	public static final Item WARDED_IRON_BOOTS =  Registry.register(Registry.ITEM, SpookyTime.id("warded_iron_boots"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).group(SpookyTime.GROUP)));
 
-	public static final Item ENCRUSTED_HELMET =  Registry.register(Registry.ITEM, SpookyTime.id("warded_iron_helmet"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.HEAD, (new Item.Settings()).group(SpookyTime.GROUP)));
-	public static final Item ENCRUSTED_CHESTPLATE =  Registry.register(Registry.ITEM, SpookyTime.id("warded_iron_chestplate"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.CHEST, (new Item.Settings()).group(SpookyTime.GROUP)));
-	public static final Item ENCRUSTED_LEGGINGS =  Registry.register(Registry.ITEM, SpookyTime.id("warded_iron_leggings"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).group(SpookyTime.GROUP)));
-	public static final Item ENCRUSTED_BOOTS =  Registry.register(Registry.ITEM, SpookyTime.id("warded_iron_boots"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).group(SpookyTime.GROUP)));
+	public static final Item ENCRUSTED_HELMET =  Registry.register(Registry.ITEM, SpookyTime.id("encrusted_helmet"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.HEAD, (new Item.Settings()).group(SpookyTime.GROUP)));
+	public static final Item ENCRUSTED_CHESTPLATE =  Registry.register(Registry.ITEM, SpookyTime.id("encrusted_chestplate"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.CHEST, (new Item.Settings()).group(SpookyTime.GROUP)));
+	public static final Item ENCRUSTED_LEGGINGS =  Registry.register(Registry.ITEM, SpookyTime.id("encrusted_leggings"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).group(SpookyTime.GROUP)));
+	public static final Item ENCRUSTED_BOOTS =  Registry.register(Registry.ITEM, SpookyTime.id("encrusted_boots"), new ArmorItem(WARDED_IRON_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).group(SpookyTime.GROUP)));
 
 	
 	public static final ToolMaterial WARDED_IRON_TOOL_MATERIAL = new SimpleToolMaterial(2, 300, 6.6F, 2.2F, 15, () -> {

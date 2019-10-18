@@ -69,17 +69,6 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 		return BlockRenderType.MODEL;
 	}
 
-	@Override
-	public int getLuminance(BlockState blockState) {
-		return blockState.get(LIT) ? super.getLuminance(blockState) : 0;
-	}
-
-	@Override
-	protected void appendProperties(Builder<Block, BlockState> builder) {
-		super.appendProperties(builder);
-		builder.add(LIT);
-	}
-
 	/**
 	 * This is a big hack in the interest of time - essentially a prototype implementation.
 	 * If this sticks around will need to make a properly configurable handler with recipes.
