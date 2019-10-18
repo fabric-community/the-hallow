@@ -12,7 +12,7 @@ import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
 import com.github.draylar.worldtraveler.api.dimension.EntityPlacerBuilder;
 
 public class HallowedDimensions {
-	public static final FabricDimensionType SPOOKY = FabricDimensionType.builder()
+	public static final FabricDimensionType THE_HALLOW = FabricDimensionType.builder()
 		.skyLight(true)
 		.factory((world, type) -> new DimensionBuilder()
 			.renderFog(true)
@@ -23,7 +23,7 @@ public class HallowedDimensions {
 			.setLightLevelsToBrightness(getLightLevels())
 			.build(world, type))
 		.defaultPlacer(new EntityPlacerBuilder().build())
-		.buildAndRegister(TheHallow.id("spooky"));
+		.buildAndRegister(TheHallow.id("the_hallow"));
 	
 	private HallowedDimensions() {
 		// NO-OP

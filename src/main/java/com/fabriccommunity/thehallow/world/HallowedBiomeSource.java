@@ -23,16 +23,16 @@ public class HallowedBiomeSource extends BiomeSource {
 	
 	public HallowedBiomeSource(long seed) {
 		allowedBiomes = new Biome[]{
-			HallowedBiomes.SPOOKY_FOREST,
-			HallowedBiomes.SPOOKY_FOREST_HILLS,
-			HallowedBiomes.SPOOKY_LOWLANDS,
-			HallowedBiomes.SPOOKY_LOWLANDS_BARROWS,
-			HallowedBiomes.SPOOKY_LOWLANDS_PUMPKINS,
+			HallowedBiomes.HALLOWED_FOREST,
+			HallowedBiomes.HALLOWED_FOREST_HILLS,
+			HallowedBiomes.HALLOWED_LOWLANDS,
+			HallowedBiomes.HALLOWED_LOWLANDS_BARROWS,
+			HallowedBiomes.HALLOWED_LOWLANDS_PUMPKINS,
 			HallowedBiomes.GHASTLY_DESERT,
-			HallowedBiomes.SPOOKY_RIVER,
-			HallowedBiomes.SPOOKY_SEA,
-			HallowedBiomes.SPOOKY_SHORE,
-			HallowedBiomes.SPOOKY_SWAMP,
+			HallowedBiomes.HALLOWED_RIVER,
+			HallowedBiomes.HALLOWED_SEA,
+			HallowedBiomes.HALLOWED_SHORE,
+			HallowedBiomes.HALLOWED_SWAMP,
 			HallowedBiomes.HAUNTED_UPLANDS,
 			HallowedBiomes.HAUNTED_MOOR
 		};

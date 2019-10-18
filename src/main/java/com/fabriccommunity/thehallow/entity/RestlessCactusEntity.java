@@ -20,19 +20,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-import com.fabriccommunity.thehallow.block.HallowedCactusBlock;
+import com.fabriccommunity.thehallow.block.RestlessCactusBlock;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
 import java.util.List;
 
 @SuppressWarnings("unchecked")
-public class HallowedCactusEntity extends MobEntityWithAi {
-	public static final TrackedData<Integer> CACTUS_HEIGHT = DataTracker.registerData(HallowedCactusEntity.class, TrackedDataHandlerRegistry.INTEGER);
+public class RestlessCactusEntity extends MobEntityWithAi {
+	public static final TrackedData<Integer> CACTUS_HEIGHT = DataTracker.registerData(RestlessCactusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	public BlockPos landPos;
 	public int age;
 	public int hop;
 	
-	public HallowedCactusEntity(EntityType<?> type, World world) {
+	public RestlessCactusEntity(EntityType<?> type, World world) {
 		super((EntityType<? extends MobEntityWithAi>) type, world);
 		setVelocity(0.0F, 0.5F, 0.0F);
 		calculateDimensions();
@@ -74,7 +74,7 @@ public class HallowedCactusEntity extends MobEntityWithAi {
 				if (hop == 1) {
 					int i;
 					for (i = 0; i < getCactusHeight(); i++) {
-						world.setBlockState(landPos.up(i), HallowedBlocks.SPOOKY_CACTUS.getDefaultState().with(HallowedCactusBlock.AGE, age));
+						world.setBlockState(landPos.up(i), HallowedBlocks.RESTLESS_CACTUS.getDefaultState().with(RestlessCactusBlock.AGE, age));
 					}
 					this.remove();
 				}
@@ -147,6 +147,6 @@ public class HallowedCactusEntity extends MobEntityWithAi {
 	
 	@Override
 	public void onDeath(DamageSource source) {
-		Block.dropStack(this.world, new BlockPos(this), new ItemStack(HallowedBlocks.SPOOKY_CACTUS, getCactusHeight()));
+		Block.dropStack(this.world, new BlockPos(this), new ItemStack(HallowedBlocks.RESTLESS_CACTUS, getCactusHeight()));
 	}
 }

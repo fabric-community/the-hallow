@@ -7,6 +7,6 @@ import com.fabriccommunity.thehallow.registry.HallowedBlockEntities;
 public class HallowedTreasureChestBlockEntity extends BlockEntity {
 	
 	public HallowedTreasureChestBlockEntity() {
-		super(HallowedBlockEntities.SPOOKY_TREASURE_CHEST_BE);
+		super(HallowedBlockEntities.HALLOWED_TREASURE_CHEST_BE);
 	}
 }

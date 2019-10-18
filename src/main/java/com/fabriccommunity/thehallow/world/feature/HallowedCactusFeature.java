@@ -25,8 +25,8 @@ public class HallowedCactusFeature extends Feature<DefaultFeatureConfig> {
 				int height = 1 + random.nextInt(random.nextInt(3) + 1);
 				
 				for (int j = 0; j < height; j++) {
-					if (HallowedBlocks.SPOOKY_CACTUS.getDefaultState().canPlaceAt(world, pos2)) {
-						world.setBlockState(pos2.up(j), HallowedBlocks.SPOOKY_CACTUS.getDefaultState(), 2);
+					if (HallowedBlocks.RESTLESS_CACTUS.getDefaultState().canPlaceAt(world, pos2)) {
+						world.setBlockState(pos2.up(j), HallowedBlocks.RESTLESS_CACTUS.getDefaultState(), 2);
 					}
 				}
 			}

@@ -61,7 +61,7 @@ public class PumpcownEntity extends CowEntity {
 			if (!this.world.isClient) {
 				this.remove();
 				
-				if (this.world.getDimension().getType() == HallowedDimensions.SPOOKY) {
+				if (this.world.getDimension().getType() == HallowedDimensions.THE_HALLOW) {
 					this.world.createExplosion(this, this.x, this.y, this.z, 3.0F, Explosion.DestructionType.BREAK);
 				} else {
 					CowEntity cow = EntityType.COW.create(this.world);

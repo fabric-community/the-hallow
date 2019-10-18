@@ -30,7 +30,7 @@ public class BackgroundRendererMixin {
 		int count = 0;
 		int radius = HallowedConfig.HallowedFog.fogSmoothingRadius;
 		
-		if (world.getDimension().getType() == HallowedDimensions.SPOOKY) {
+		if (world.getDimension().getType() == HallowedDimensions.THE_HALLOW) {
 			for (int x = 0; x < radius; x++) {
 				for (int z = 0; z < radius; z++) {
 					BlockPos pos = player.getBlockPos().add(x - (radius / 2), 0, z - (radius / 2));

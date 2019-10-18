@@ -11,10 +11,10 @@ import net.minecraft.util.Identifier;
 import com.mojang.blaze3d.platform.GlStateManager;
 
 import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.entity.HallowedCactusEntity;
+import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
-public class HallowedCactusEntityRenderer extends MobEntityRenderer<HallowedCactusEntity, EntityModel<HallowedCactusEntity>> {
+public class HallowedCactusEntityRenderer extends MobEntityRenderer<RestlessCactusEntity, EntityModel<RestlessCactusEntity>> {
 	private static final Identifier SKIN = new Identifier(TheHallow.MOD_ID, "textures/entity/pumpcown.png");
 	
 	public HallowedCactusEntityRenderer(EntityRenderDispatcher dispatcher) {
@@ -22,9 +22,9 @@ public class HallowedCactusEntityRenderer extends MobEntityRenderer<HallowedCact
 	}
 	
 	@Override
-	public void render(HallowedCactusEntity entity, double x, double y, double z, float float_1, float float_2) {
+	public void render(RestlessCactusEntity entity, double x, double y, double z, float float_1, float float_2) {
 		BlockRenderManager manager = MinecraftClient.getInstance().getBlockRenderManager();
-		BlockState state = HallowedBlocks.SPOOKY_CACTUS.getDefaultState();
+		BlockState state = HallowedBlocks.RESTLESS_CACTUS.getDefaultState();
 		this.bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
 		
 		GlStateManager.pushMatrix();
@@ -43,7 +43,7 @@ public class HallowedCactusEntityRenderer extends MobEntityRenderer<HallowedCact
 	}
 	
 	@Override
-	protected Identifier getTexture(HallowedCactusEntity cactus) {
+	protected Identifier getTexture(RestlessCactusEntity cactus) {
 		return SKIN;
 	}
 }

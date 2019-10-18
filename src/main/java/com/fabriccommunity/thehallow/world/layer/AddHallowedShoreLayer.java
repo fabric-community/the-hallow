@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum AddHallowedShoreLayer implements CrossSamplingLayer {
-	DEFAULT(HallowedBiomes.SPOOKY_SHORE);
+	DEFAULT(HallowedBiomes.HALLOWED_SHORE);
 	
 	private final Biome defaultEdge;
 	private final Map<Biome, Biome> EDGE_BIOME_MAP = new HashMap<Biome, Biome>();
@@ -22,7 +22,7 @@ public enum AddHallowedShoreLayer implements CrossSamplingLayer {
 	
 	@Override
 	public int sample(LayerRandomnessSource rand, int border1, int border2, int border3, int border4, int centre) {
-		final int SEA_ID = Registry.BIOME.getRawId(HallowedBiomes.SPOOKY_SEA); // not a constant since this could change on registry remapping
+		final int SEA_ID = Registry.BIOME.getRawId(HallowedBiomes.HALLOWED_SEA); // not a constant since this could change on registry remapping
 		
 		if ((centre != SEA_ID) && (border1 == SEA_ID || border2 == SEA_ID || border3 == SEA_ID || border4 == SEA_ID)) {
 			Biome biome = Registry.BIOME.get(centre);

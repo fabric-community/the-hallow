@@ -18,7 +18,7 @@ public class ItemDynamicRendererMixin {
 	
 	@Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/item/ItemStack;)V", cancellable = true)
 	private void renderTreasureChest(final ItemStack itemStack, final CallbackInfo info) {
-		if (itemStack.getItem().equals(HallowedBlocks.SPOOKY_TREASURE_CHEST.asItem())) {
+		if (itemStack.getItem().equals(HallowedBlocks.HALLOWED_TREASURE_CHEST.asItem())) {
 			BlockEntityRenderDispatcher.INSTANCE.renderEntity(this.chestEntity);
 			info.cancel();
 		}

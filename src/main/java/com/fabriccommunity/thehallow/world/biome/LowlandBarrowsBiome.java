@@ -27,7 +27,5 @@ public class LowlandBarrowsBiome extends HallowedBaseBiome {
 		HallowedBiomeFeatures.addWells(this);
 		HallowedBiomeFeatures.addLairs(this);
 		HallowedBiomeFeatures.addBarrows(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowedEntities.MUMMY, 95, 4, 4));
 	}
 }

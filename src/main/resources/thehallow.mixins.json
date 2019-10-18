@@ -17,7 +17,8 @@
 		"LivingEntityMixin",
 		"PlayerEntityMixin",
 		"BlockEntityTypeMixin",
-		"EndermanEntityMixin"
+		"EndermanEntityMixin",
+		"SpawnRestrictionMixin"
 	],
 	"client": [
 		"client.ItemDynamicRendererMixin",

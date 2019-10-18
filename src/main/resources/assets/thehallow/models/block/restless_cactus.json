@@ -2,10 +2,10 @@
 	"parent": "block/block",
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "thehallow:block/hallowed_cactus_side",
-		"bottom": "thehallow:block/hallowed_cactus_bottom",
-		"top": "thehallow:block/hallowed_cactus_top",
-		"side": "thehallow:block/hallowed_cactus_side"
+		"particle": "thehallow:block/restless_cactus_side",
+		"bottom": "thehallow:block/restless_cactus_bottom",
+		"top": "thehallow:block/restless_cactus_top",
+		"side": "thehallow:block/restless_cactus_side"
 	},
 	"elements": [
 		{

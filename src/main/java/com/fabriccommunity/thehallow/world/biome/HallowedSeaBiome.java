@@ -17,7 +17,5 @@ public class HallowedSeaBiome extends HallowedBaseBiome {
 		HallowedBiomeFeatures.addGrass(this);
 		HallowedBiomeFeatures.addLakes(this);
 		HallowedBiomeFeatures.addDefaultHallowedTrees(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowedEntities.MUMMY, 95, 4, 4));
 	}
 }

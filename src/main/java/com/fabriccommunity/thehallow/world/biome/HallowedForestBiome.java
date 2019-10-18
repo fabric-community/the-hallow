@@ -30,7 +30,5 @@ public class HallowedForestBiome extends HallowedBaseBiome {
 		HallowedBiomeFeatures.addHallowedForestTrees(this);
 		HallowedBiomeFeatures.addWells(this);
 		HallowedBiomeFeatures.addLairs(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowedEntities.MUMMY, 95, 4, 4));
 	}
 }

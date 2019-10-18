@@ -34,7 +34,7 @@ public class AbstractSkeletonEntityMixin {
 		Random random = new Random();
 		if (HallowedConfig.TrumpetSkeleton.enabled && random.nextInt(HallowedConfig.TrumpetSkeleton.chance) == 0) {
 			//noinspection ConstantConditions
-			((AbstractSkeletonEntity) (Object) this).setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(HallowedItems.SPOOKY_TRUMPET));
+			((AbstractSkeletonEntity) (Object) this).setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(HallowedItems.TRUMPET));
 		}
 	}
 }
