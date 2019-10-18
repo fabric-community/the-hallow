@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "spookytime:block/red_jack_o_lantern" },
+        "facing=south": { "model": "spookytime:block/red_jack_o_lantern", "y": 180 },
+        "facing=west":  { "model": "spookytime:block/red_jack_o_lantern", "y": 270 },
+        "facing=east":  { "model": "spookytime:block/red_jack_o_lantern", "y": 90 }
+    }
+}

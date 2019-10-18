@@ -1,0 +1,11 @@
+{
+	"type": "spookytime:blood_recipe",
+	"input": [
+		{
+			"item": "minecraft:jack_o_lantern"
+		}
+	],
+	"result": {
+		"item": "spookytime:red_jack_o_lantern"
+	}
+}

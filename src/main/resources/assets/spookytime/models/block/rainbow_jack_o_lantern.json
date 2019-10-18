@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "spookytime:block/rainbow_pumpkin_top",
+        "front": "spookytime:block/rainbow_jack_o_lantern",
+        "side": "spookytime:block/rainbow_pumpkin_side"
+    }
+}

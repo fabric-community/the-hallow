@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "spookytime:pumpkin"
+		},
+		{
+			"item": "minecraft:egg"
+		},
+		{
+			"item": "minecraft:sugar"
+		}
+	],
+	"result": {
+		"item": "minecraft:pumpkin_pie"
+	}
+}
