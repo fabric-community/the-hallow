@@ -28,7 +28,5 @@ public class HauntedMoorBiome extends HallowBaseBiome {
 
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		HallowBiomeFeatures.addDefaultUplandsGeneration(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowEntities.MUMMY, 95, 4, 4));
 	}
 }

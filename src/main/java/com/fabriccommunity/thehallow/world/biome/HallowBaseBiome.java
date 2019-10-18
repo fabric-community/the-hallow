@@ -36,6 +36,7 @@ public abstract class HallowBaseBiome extends Biome implements HallowBiomeInfo {
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(HallowEntities.CROW, 40, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowEntities.MUMMY, 95, 4, 4));
 		BIOMES.add(this);
 	}
 	

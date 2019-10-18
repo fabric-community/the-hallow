@@ -29,8 +29,6 @@ public class HallowSwampBiome extends HallowBaseBiome {
 		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		HallowBiomeFeatures.addHallowSwampTrees(this);
 		HallowBiomeFeatures.addLairs(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowEntities.MUMMY, 95, 4, 4));
 	}
 	
 	@Override

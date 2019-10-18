@@ -30,6 +30,5 @@ public class PumpkinPatchBiome extends HallowBaseBiome {
 		HallowBiomeFeatures.addDefaultHallowTrees(this);
 		
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(HallowEntities.PUMPCOWN, 8, 4, 8));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowEntities.MUMMY, 95, 4, 4));
 	}
 }

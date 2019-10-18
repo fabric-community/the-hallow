@@ -26,7 +26,5 @@ public class HauntedUplandsBiome extends HallowBaseBiome {
 		HallowBiomeFeatures.addDefaultUplandsGeneration(this);
 		HallowBiomeFeatures.addWells(this);
 		HallowBiomeFeatures.addLairs(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowEntities.MUMMY, 95, 4, 4));
 	}
 }

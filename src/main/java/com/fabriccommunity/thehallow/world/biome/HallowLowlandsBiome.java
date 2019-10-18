@@ -26,7 +26,5 @@ public class HallowLowlandsBiome extends HallowBaseBiome {
 		HallowBiomeFeatures.addDefaultHallowTrees(this);
 		HallowBiomeFeatures.addWells(this);
 		HallowBiomeFeatures.addLairs(this);
-		
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(HallowEntities.MUMMY, 95, 4, 4));
 	}
 }
