@@ -1,0 +1,19 @@
+{
+	"replace": false,
+	"values": [
+		"spookytime:warded_iron_ingot",
+		"spookytime:warded_iron_nugget",
+		"spookytime:warded_diamond",
+		"spookytime:warded_stick",
+		"spookytime:warded_iron_helmet",
+		"spookytime:warded_iron_chestplate",
+		"spookytime:warded_iron_leggings",
+		"spookytime:warded_iron_boots",
+		"spookytime:warded_iron_shovel",
+		"spookytime:warded_iron_hoe",
+		"spookytime:warded_iron_pickaxe",
+		"spookytime:warded_iron_axe",
+		"spookytime:warded_iron_sword",
+		"spookytime:doomed_stone"
+	]
+}

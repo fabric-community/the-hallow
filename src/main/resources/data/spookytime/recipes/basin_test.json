@@ -1,0 +1,8 @@
+{
+  "type": "spookytime:basin_warding",
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": "minecraft:gold_ingot",
+  "cost": 1
+}

@@ -3,6 +3,7 @@ package com.fabriccommunity.spookytime.doomtree;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MAX_LEVEL;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_BURNING;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_EMPTY;
+import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_INFUSING;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_PRIMED_WATER;
 import static com.fabriccommunity.spookytime.doomtree.AlchemicalBasinBlockEntity.MODE_PRIMED_WITCHWATER;
 
@@ -135,7 +136,7 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 
 						myBe.setState(MODE_BURNING, currentLevel + consumed * doomFuelValue);
 						world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-						
+
 						if (mode != MODE_BURNING) {
 							world.setBlockState(pos, blockState.with(LIT, true), 3);
 						}
@@ -143,6 +144,60 @@ public class AlchemicalBasinBlock extends BlockWithEntity {
 				}
 			}
 			return true;
+		}
+
+		final int wardingFuelValue = item == DoomTree.WARDING_ESSENCE_ITEM ? 1 
+				: item == DoomTree.WARDING_ESSENCE_BLOCK_ITEM ? 4 : 0;
+
+		if (wardingFuelValue > 0) {
+			if (limit > 0 && wardingFuelValue <= limit && (mode == MODE_PRIMED_WITCHWATER || mode == MODE_INFUSING)) {
+				final int consumed = Math.min(limit / wardingFuelValue, 1);
+
+				if (consumed > 0) {
+					if (!world.isClient) {
+						if (!player.abilities.creativeMode) {
+							stack.decrement(consumed);
+						}
+
+						myBe.setState(MODE_INFUSING, currentLevel + consumed * wardingFuelValue);
+						world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+						if (mode != MODE_INFUSING) {
+							world.setBlockState(pos, blockState.with(LIT, true), 3);
+						}
+					}
+				}
+			}
+			return true;
+		}
+
+		if (mode == MODE_INFUSING) {
+			final BasinWardingRecipe recipe = BasinWardingRecipeHelper.get(stack);
+
+			if (recipe != null) {
+				final int newLevel = currentLevel - recipe.cost;
+				if (newLevel >= 0 && !world.isClient) {
+					myBe.setState(newLevel == 0 ? MODE_EMPTY : MODE_INFUSING, newLevel);
+
+					if (!player.abilities.creativeMode) {
+						stack.decrement(1);
+					}
+
+					final ItemStack result = recipe.result.copy();
+
+					if (stack.isEmpty()) {
+						player.setStackInHand(hand, result);
+					} else if (!player.inventory.insertStack(result)) {
+						player.dropItem(result, false);
+					}
+
+					if (newLevel == 0) {
+						world.setBlockState(pos, blockState.with(LIT, false), 3);
+					}
+				}
+
+				return true;
+			}
 		}
 
 		return false;
