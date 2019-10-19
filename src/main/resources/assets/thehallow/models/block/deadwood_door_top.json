@@ -1,0 +1,7 @@
+{
+	"parent": "block/door_top",
+	"textures": {
+		"bottom": "thehallow:block/deadwood_door_bottom",
+		"top": "thehallow:block/deadwood_door_top"
+	}
+}

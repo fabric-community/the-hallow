@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"ingredient": {
-		"item": "spookytime:tainted_stone_bricks"
-	},
-	"result": "spookytime:tainted_stone_brick_stairs",
-	"count": 1
-}

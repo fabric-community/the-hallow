@@ -1,0 +1,8 @@
+{
+	"parent": "block/inner_stairs",
+	"textures": {
+		"bottom": "thehallow:block/deadwood_planks",
+		"top": "thehallow:block/deadwood_planks",
+		"side": "thehallow:block/deadwood_planks"
+	}
+}

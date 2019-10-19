@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"# #",
+		" # "
+	],
+	"key": {
+		"#": {
+			"item": "thehallow:soul_glass"
+		}
+	},
+	"result": {
+		"item": "thehallow:soul_bottle",
+		"count": 3
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"##",
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "thehallow:tainted_sand"
+		}
+	},
+	"result": {
+		"item": "thehallow:tainted_sandstone"
+	}
+}

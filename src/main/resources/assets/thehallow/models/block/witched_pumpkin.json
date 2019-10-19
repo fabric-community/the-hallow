@@ -1,0 +1,7 @@
+{
+	"parent": "thehallow:block/tiny_pumpkin",
+	"textures": {
+		"0": "thehallow:block/witched_pumpkin",
+		"particle": "thehallow:block/witched_pumpkin"
+	}
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/tinted_cross",
+    "textures": {
+        "cross": "thehallow:block/tall_eerie_grass_top"
+    }
+}

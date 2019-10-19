@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"axis=y": {"model": "thehallow:block/stripped_deadwood_log"},
+		"axis=z": {"model": "thehallow:block/stripped_deadwood_log", "x": 90},
+		"axis=x": {"model": "thehallow:block/stripped_deadwood_log", "x": 90, "y": 90}
+	}
+}

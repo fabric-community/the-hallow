@@ -44,7 +44,7 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version + "+" + (ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}-" : "") + project.minecraft_version
 
 minecraft {
-	refmapName = "spookytime-refmap.json"
+	refmapName = "thehallow-refmap.json"
 }
 
 dependencies {

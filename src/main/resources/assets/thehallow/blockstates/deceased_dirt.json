@@ -1,0 +1,21 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "thehallow:block/deceased_dirt"
+			},
+			{
+				"model": "thehallow:block/deceased_dirt",
+				"y": 90
+			},
+			{
+				"model": "thehallow:block/deceased_dirt",
+				"y": 180
+			},
+			{
+				"model": "thehallow:block/deceased_dirt",
+				"y": 270
+			}
+		]
+	}
+}

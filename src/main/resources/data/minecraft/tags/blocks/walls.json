@@ -1,8 +1,8 @@
 {
 	"replace": false,
 	"values": [
-		"spookytime:tainted_sandstone_wall",
-		"spookytime:tainted_cobblestone_wall",
-		"spookytime:tainted_stone_brick_wall"
+		"thehallow:tainted_sandstone_wall",
+		"thehallow:tainted_cobblestone_wall",
+		"thehallow:tainted_stone_brick_wall"
 	]
 }

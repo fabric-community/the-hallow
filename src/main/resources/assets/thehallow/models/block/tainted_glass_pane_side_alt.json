@@ -1,0 +1,7 @@
+{
+	"parent": "block/template_glass_pane_side_alt",
+	"textures": {
+		"edge": "thehallow:block/tainted_glass_pane_top",
+		"pane": "thehallow:block/tainted_glass"
+	}
+}

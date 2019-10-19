@@ -1,0 +1,65 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "thehallow:block/pillar_block",
+		"particle": "thehallow:block/pillar_block"
+	},
+	"elements": [
+		{
+			"name": "bottom",
+			"from": [4, 0, 4],
+			"to": [12, 3, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 8, 3], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 3], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 3], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 3], "texture": "#0"},
+				"up": {"uv": [8, 0, 16, 8], "texture": "#0"},
+				"down": {"uv": [8, 8, 16, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "top",
+			"from": [4, 13, 4],
+			"to": [12, 16, 12],
+			"faces": {
+				"north": {"uv": [0, 3, 8, 6], "texture": "#0"},
+				"east": {"uv": [0, 3, 8, 6], "texture": "#0"},
+				"south": {"uv": [0, 3, 8, 6], "texture": "#0"},
+				"west": {"uv": [0, 3, 8, 6], "texture": "#0"},
+				"up": {"uv": [8, 8, 16, 16], "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "pillar",
+			"from": [5, 3, 5],
+			"to": [11, 13, 11],
+			"faces": {
+				"north": {"uv": [0, 6, 6, 16], "texture": "#0"},
+				"east": {"uv": [0, 6, 6, 16], "texture": "#0"},
+				"south": {"uv": [0, 6, 6, 16], "texture": "#0"},
+				"west": {"uv": [0, 6, 6, 16], "texture": "#0"},
+				"up": {"uv": [9, 9, 15, 15], "texture": "#0"},
+				"down": {"uv": [9, 10, 15, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, -4.5, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, -4.5, 0]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	}
+}

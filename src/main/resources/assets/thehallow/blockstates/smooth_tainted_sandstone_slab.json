@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "thehallow:block/smooth_tainted_sandstone_slab"
+		},
+		"type=top": {
+			"model": "thehallow:block/smooth_tainted_sandstone_slab_top"
+		},
+		"type=double": {
+			"model": "thehallow:block/smooth_tainted_sandstone"
+		}
+	}
+}

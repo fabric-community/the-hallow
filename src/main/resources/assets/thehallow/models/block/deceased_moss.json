@@ -1,0 +1,8 @@
+{
+	"parent": "block/cube_bottom_top",
+	"textures": {
+		"bottom": "thehallow:block/deceased_dirt",
+		"top": "thehallow:block/deceased_moss_top",
+		"side": "thehallow:block/deceased_moss_side"
+	}
+}

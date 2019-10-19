@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"axis=y": {"model": "thehallow:block/deadwood_wood"},
+		"axis=z": {"model": "thehallow:block/deadwood_wood", "x": 90},
+		"axis=x": {"model": "thehallow:block/deadwood_wood", "x": 90, "y": 90}
+	}
+}
