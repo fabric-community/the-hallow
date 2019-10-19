@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "minecraft:pumpkin_seeds"
+	},
+	"result": "thehallow:baked_pumpkin_seeds",
+	"experience": 0.05,
+	"cookingtime": 50
+}

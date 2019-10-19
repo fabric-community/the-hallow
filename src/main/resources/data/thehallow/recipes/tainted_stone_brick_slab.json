@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "thehallow:tainted_stone_bricks"
+		}
+	},
+	"result": {
+		"item": "thehallow:tainted_stone_brick_slab",
+		"count": 6
+	}
+}

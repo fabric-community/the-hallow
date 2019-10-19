@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"thehallow:deadwood_log",
+		"thehallow:deadwood_wood",
+		"thehallow:stripped_deadwood_log",
+		"thehallow:stripped_deadwood_wood"
+	]
+}

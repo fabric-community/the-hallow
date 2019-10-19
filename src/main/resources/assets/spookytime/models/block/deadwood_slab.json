@@ -1,8 +1,0 @@
-{
-	"parent": "block/slab",
-	"textures": {
-		"bottom": "spookytime:block/deadwood_planks",
-		"top": "spookytime:block/deadwood_planks",
-		"side": "spookytime:block/deadwood_planks"
-	}
-}

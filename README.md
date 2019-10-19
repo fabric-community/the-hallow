@@ -1,22 +1,21 @@
 # The Hallow
-Fabric Community mod for Hacktoberfest! Formerly known as Spooky Time.
+A mysterious adventure brought to you by the Fabric Community team.
 
 # Hacktoberfest
-Hacktoberfest is a fun event that takes place every October which teaches people about open source (and helps them make their first contributions). If you make 4+ PRs from October 1st to October 31st, you'll get a fun tshirt! More information can be found on the [Hacktoberfest website](https://hacktoberfest.digitalocean.com/). Available loot can be found [here](https://hacktoberfestswaglist.com/).
+Hacktoberfest is a fun event that takes place every October which teaches people about open-source and encourage them to make their first public contributions.
 
-# General
- The Hallow is a Halloween themed community mod. If you have any spooky ideas, PR them! At the end of the month, we'll publish the mod to curseforge so everyone can play it. 
- 
- # Style Guidelines
- When PRing to Fabric Community projects, we ask that you make an attempt to follow our style rules. A repo with more information [can be found here](https://github.com/fabric-community/style-guidelines). 
+If you make **4** [_PRs_](https://help.github.com/en/articles/about-pull-requests) during October (1st - 31rd), you will be awarded a nice T-Shirt!
 
-# Rules
- 1. all contributions must be serious; no simple whitespace fixes or single character changes.
- 2. large PRs (which is determined by the reviewer) will be merged in 1 day unless anyone comments. All other PRs will be merged instantly, given that they follow the other rules.
-   2.1. PRs by repo maintainers must be reviewed & accepted by at least 1 other person.
- 3. be serious; no 900,000 attack damage weapons or nukes that crash the game. The goal is to publish this mod and have it in modpacks!
- 4. stay in the Halloween theme. As long as your idea is spooky, it's okay!
- 5. be nice and be cool.
+For more information, check out the [Hacktoberfest](https://hacktoberfest.digitalocean.com/) website. Available awards can be found [HERE](https://hacktoberfestswaglist.com/).
 
-# Connect
- Come join us at the [AOF `spooky-time` channel](https://discord.gg/6rkdm48) to discuss the progress of the mod!
+## Rules
+ 1. Contributions must abide by the following:
+    - No single character _PRs_;
+    - No ridiculously unbalanced additions;
+    - No running away from the main theme;
+    - Style guidelines which can be found [HERE](https://github.com/fabric-community/style-guidelines).
+ 2. Contributors must abide by the following:
+    - Be a decent human being;
+
+## Contact
+ You can join us at the All of Fabric `the-hallow` [channel](https://discord.gg/6rkdm48) to discuss the mod's development.

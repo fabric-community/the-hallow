@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"powered=false": {"model": "thehallow:block/deadwood_pressure_plate"},
+		"powered=true": {"model": "thehallow:block/deadwood_pressure_plate_down"}
+	}
+}

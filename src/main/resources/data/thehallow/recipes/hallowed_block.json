@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"sss",
+		"sss",
+		"sss"
+	],
+	"key": {
+		"s": {
+			"item": "thehallow:hallowed_ingot"
+		}
+	},
+	"result": {
+		"item": "thehallow:hallowed_block"
+	}
+}

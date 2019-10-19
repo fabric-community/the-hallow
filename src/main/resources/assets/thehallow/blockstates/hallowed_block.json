@@ -1,0 +1,9 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "thehallow:block/hallowed_block"
+			}
+		]
+	}
+}

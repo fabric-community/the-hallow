@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"spookytime:tainted_glass",
-		"spookytime:soul_glass"
+		"thehallow:tainted_glass",
+		"thehallow:soul_glass"
 	]
 }

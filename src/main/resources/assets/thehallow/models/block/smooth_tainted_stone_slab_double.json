@@ -1,0 +1,7 @@
+{
+	"parent": "block/cube_column",
+	"textures": {
+		"end": "thehallow:block/smooth_tainted_stone",
+		"side": "thehallow:block/smooth_tainted_stone_slab_side"
+	}
+}

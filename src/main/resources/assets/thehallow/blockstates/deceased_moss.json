@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"": [
+			{"model": "thehallow:block/deceased_moss"},
+			{"model": "thehallow:block/deceased_moss", "y": 90},
+			{"model": "thehallow:block/deceased_moss", "y": 180},
+			{"model": "thehallow:block/deceased_moss", "y": 270}
+		]
+	}
+}

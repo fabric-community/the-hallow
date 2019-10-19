@@ -1,13 +1,13 @@
 {
 	"replace": false,
 	"values": [
-		"spookytime:tainted_sandstone_slab",
-		"spookytime:smooth_tainted_sandstone_slab",
-		"spookytime:cut_tainted_sandstone_slab",
-		"spookytime:tainted_stone_slab",
-		"spookytime:tainted_cobblestone_slab",
-		"spookytime:smooth_tainted_stone_slab",
-		"spookytime:tainted_stone_brick_slab",
-		"spookytime:deadwood_slab"
+		"thehallow:tainted_sandstone_slab",
+		"thehallow:smooth_tainted_sandstone_slab",
+		"thehallow:cut_tainted_sandstone_slab",
+		"thehallow:tainted_stone_slab",
+		"thehallow:tainted_cobblestone_slab",
+		"thehallow:smooth_tainted_stone_slab",
+		"thehallow:tainted_stone_brick_slab",
+		"thehallow:deadwood_slab"
 	]
 }

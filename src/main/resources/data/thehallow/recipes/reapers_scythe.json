@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"ss ",
+		"# s",
+		"#  "
+	],
+	"key": {
+		"s": {
+			"item": "thehallow:hallowed_ingot"
+		},
+		"#": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "thehallow:reapers_scythe"
+	}
+}

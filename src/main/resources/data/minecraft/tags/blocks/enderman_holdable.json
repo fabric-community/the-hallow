@@ -1,12 +1,12 @@
 {
 	"replace": false,
 	"values": [
-		"spookytime:deceased_dirt",
-		"spookytime:deceased_grass_block",
-		"spookytime:tainted_sand",
-		"spookytime:tainted_gravel",
-		"spookytime:spooky_cactus",
-		"spookytime:deceased_moss",
-		"spookytime:gloomshroom"
+		"thehallow:deceased_dirt",
+		"thehallow:deceased_grass_block",
+		"thehallow:tainted_sand",
+		"thehallow:tainted_gravel",
+		"thehallow:restless_cactus",
+		"thehallow:deceased_moss",
+		"thehallow:gloomshroom"
 	]
 }

@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "planks",
+	"ingredients": [
+		{
+			"tag": "thehallow:deadwood_logs"
+		}
+	],
+	"result": {
+		"item": "thehallow:deadwood_planks",
+		"count": 4
+	}
+}

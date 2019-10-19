@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "thehallow:hallowed_block"
+		}
+	],
+	"result": {
+		"item": "thehallow:hallowed_ingot",
+		"count": 9
+	}
+}

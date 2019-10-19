@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "thehallow:tainted_stone"
+	},
+	"result": "thehallow:chiseled_tainted_stone_bricks",
+	"count": 1
+}

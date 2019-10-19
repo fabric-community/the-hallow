@@ -1,0 +1,55 @@
+{
+	"type": "minecraft:gift",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "thehallow:caramel_apple",
+					"weight": 30
+				},
+				{
+					"type": "minecraft:item",
+					"name": "thehallow:pumpkin_candy",
+					"weight": 50
+				},
+				{
+					"type": "minecraft:item",
+					"name": "thehallow:rare_candy",
+					"weight": 8
+				},
+				{
+					"type": "minecraft:item",
+					"name": "thehallow:winged_strawberry_candy",
+					"weight": 40
+				},
+				{
+					"type": "minecraft:item",
+					"name": "thehallow:peppermint",
+					"weight": 25
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:cookie",
+					"weight": 20
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:cake",
+					"weight": 5
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:golden_apple",
+					"weight": 1
+				},
+				{
+					"type": "minecraft:item",
+					"name": "thehallow:golden_candy_corn",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

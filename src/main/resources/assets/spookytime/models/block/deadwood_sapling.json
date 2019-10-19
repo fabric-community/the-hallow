@@ -1,6 +1,0 @@
-{
-	"parent": "block/cross",
-	"textures": {
-		"cross": "spookytime:block/deadwood_sapling"
-	}
-}

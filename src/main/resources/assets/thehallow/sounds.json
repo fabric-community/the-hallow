@@ -1,0 +1,24 @@
+{
+	"doot": {
+		"category": "players",
+		"sounds": [
+			"thehallow:doot"
+		],
+		"subtitle": "subtitle.thehallow.doot"
+	},
+	"megaladoot": {
+		"category": "players",
+		"sounds": [
+			"thehallow:megaladoot"
+		],
+		"subtitle": "subtitle.thehallow.megaladoot"
+	},
+	"entity.crow.ambient": {
+		"category": "neutral",
+		"sounds": [
+			"thehallow:crow/crow1",
+			"thehallow:crow/crow2"
+		],
+		"subtitle": "subtitle.crow.ambient"
+	}
+}

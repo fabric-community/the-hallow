@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "thehallow:hallowed_ore"
+	},
+	"result": "thehallow:hallowed_ingot",
+	"experience": 1.0,
+	"cookingtime": 200
+}
