@@ -1,13 +1,15 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.command.ContibutorsCommand;
-import com.fabriccommunity.spookytime.command.SpooktoberCommand;
-import com.fabriccommunity.spookytime.command.SpookyCommand;
+import net.fabricmc.fabric.api.registry.CommandRegistry;
+
+import net.minecraft.server.command.ServerCommandSource;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
-import net.fabricmc.fabric.api.registry.CommandRegistry;
-import net.minecraft.server.command.ServerCommandSource;
+
+import com.fabriccommunity.spookytime.command.ContibutorsCommand;
+import com.fabriccommunity.spookytime.command.SpooktoberCommand;
+import com.fabriccommunity.spookytime.command.SpookyCommand;
 
 import static net.minecraft.server.command.CommandManager.literal;
 

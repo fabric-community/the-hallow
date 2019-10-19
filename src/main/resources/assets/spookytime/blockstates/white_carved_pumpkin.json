@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "spookytime:block/white_carved_pumpkin" },
-        "facing=south": { "model": "spookytime:block/white_carved_pumpkin", "y": 180 },
-		"facing=east":  { "model": "spookytime:block/white_carved_pumpkin", "y": 90 },
-        "facing=west":  { "model": "spookytime:block/white_carved_pumpkin", "y": 270 }
-    }
-}

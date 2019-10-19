@@ -1,5 +1,14 @@
 package com.fabriccommunity.spookytime.registry;
 
+import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCategory;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.VillagerEntity;
+import net.minecraft.util.registry.Registry;
+
 import com.fabriccommunity.spookytime.SpookyTime;
 import com.fabriccommunity.spookytime.component.CandyComponent;
 import com.fabriccommunity.spookytime.component.CandyComponent.VillagerCandyComponent;
@@ -12,13 +21,6 @@ import com.fabriccommunity.spookytime.entity.SpookyTreasureChestEntity;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.event.EntityComponentCallback;
-import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCategory;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.util.registry.Registry;
 
 public class SpookyEntities {
 	public static final ComponentType<CandyComponent> CANDY = ComponentRegistry.INSTANCE.registerIfAbsent(SpookyTime.id("candy"), CandyComponent.class);

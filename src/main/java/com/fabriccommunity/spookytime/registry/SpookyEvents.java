@@ -1,14 +1,16 @@
 package com.fabriccommunity.spookytime.registry;
 
-import com.fabriccommunity.spookytime.event.WitchTickCallback;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.loot.condition.RandomChanceLootCondition;
 import net.minecraft.world.loot.entry.ItemEntry;
+
+import com.fabriccommunity.spookytime.event.WitchTickCallback;
 
 public class SpookyEvents {
 	public static void init() {

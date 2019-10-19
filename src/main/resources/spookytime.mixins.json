@@ -6,8 +6,6 @@
 		"AbstractTreeFeatureMixin",
 		"AbstractSkeletonEntityMixin",
 		"AnvilBlockMixin",
-		"CarvedPumpkinBlockMixin",
-		"SnowGolemEntityMixin",
 		"MobEntityMixin",
 		"PlantBlockMixin",
 		"ServerPlayNetworkHandlerMixin",
@@ -18,7 +16,6 @@
 		"ZombieEntityMixin",
 		"LivingEntityMixin",
 		"PlayerEntityMixin",
-		"CarvedPumpkinBlockAccessor",
 		"BlockEntityTypeMixin",
 		"EndermanEntityMixin"
 	],
@@ -26,7 +23,6 @@
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
-		"client.SnowmanPumpkinFeatureRendererMixin",
 		"client.FirstPersonRendererMixin",
 		"client.BackgroundRendererMixin",
 		"client.SignBlockEntityRendererMixin"
