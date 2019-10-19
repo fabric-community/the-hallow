@@ -7,6 +7,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.registry.Registry;
 
+import com.fabriccommunity.thehallow.TheHallow;
+
 import com.google.common.collect.Iterables;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -18,7 +20,7 @@ import java.util.List;
 
 public class InfusionRecipeSerializer implements RecipeSerializer<InfusionRecipe> {
 	public static final InfusionRecipeSerializer INSTANCE = new InfusionRecipeSerializer();
-	public static final Identifier ID = new Identifier("thehallow:infusion");
+	public static final Identifier ID = TheHallow.id("infusion");
 	
 	private InfusionRecipeSerializer() {
 		// NO-OP

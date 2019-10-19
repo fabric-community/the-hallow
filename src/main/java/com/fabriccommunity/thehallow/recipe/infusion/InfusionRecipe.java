@@ -9,6 +9,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.inventory.InfusionInventory;
 
 import com.google.gson.JsonArray;
@@ -137,7 +138,7 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	
 	public static class Type implements RecipeType<InfusionRecipe> {
 		public static final Type INSTANCE = new Type();
-		public static final String ID = "infusion";
+		public static final Identifier ID = TheHallow.id("infusion");
 		
 		private Type() {
 			// NO-OP
