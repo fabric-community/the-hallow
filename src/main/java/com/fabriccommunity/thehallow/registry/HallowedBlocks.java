@@ -38,6 +38,7 @@ import com.fabriccommunity.thehallow.block.DeaderBushBlock;
 import com.fabriccommunity.thehallow.block.DeceasedGrassBlock;
 import com.fabriccommunity.thehallow.block.InfusionAltarBlock;
 import com.fabriccommunity.thehallow.block.InfusionPillarBlock;
+import com.fabriccommunity.thehallow.block.PumpkinPieBlock;
 import com.fabriccommunity.thehallow.block.HallowedButtonBlock;
 import com.fabriccommunity.thehallow.block.RestlessCactusBlock;
 import com.fabriccommunity.thehallow.block.HallowedDoorBlock;
@@ -143,6 +144,8 @@ public class HallowedBlocks {
 	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
+	
+	public static final Block PUMPKIN_PIE = Registry.register(Registry.BLOCK, TheHallow.id("pumpkin_pie"), new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()));
 	
 	private HallowedBlocks() {
 		// NO-OP
