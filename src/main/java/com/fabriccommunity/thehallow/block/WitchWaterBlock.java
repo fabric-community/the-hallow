@@ -41,10 +41,10 @@ public class WitchWaterBlock extends FluidBlock {
 		if(!world.isClient) {
 			if (entity instanceof LivingEntity) {
 				LivingEntity livingEntity = (LivingEntity) entity;
-				if (!livingEntity.isUndead() && !(livingEntity instanceof PumpcownEntity)) {
-					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.POISON, 20));
-					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20));
-					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20));
+				if (!livingEntity.isUndead() && !(livingEntity instanceof PumpcownEntity) && !(livingEntity instanceof WitchEntity)) {
+					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.POISON, 100));
+					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100));
+					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100));
 				}
 			}
 
