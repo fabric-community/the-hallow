@@ -1,0 +1,11 @@
+{
+	"type": "thehallow:witch_water_recipe",
+	"input": [
+		{
+			"item": "thehallow:red_jack_o_lantern"
+		}
+	],
+	"result": {
+		"item": "thehallow:witched_jack_o_lantern"
+	}
+}

@@ -21,7 +21,7 @@ public class HallowedBlockEntities {
 		"tiny_pumpkin",
 		TinyPumpkinBlockEntity::new,
 		HallowedBlocks.TINY_PUMPKIN,
-		HallowedBlocks.WITCHED_PUMPKIN
+		HallowedBlocks.TINY_WITCHED_PUMPKIN
 	);
 	
 	public static final BlockEntityType<HallowedTreasureChestBlockEntity> HALLOWED_TREASURE_CHEST_BE = register(

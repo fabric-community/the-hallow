@@ -31,10 +31,11 @@ import org.apache.logging.log4j.Logger;
 public class TheHallow implements ModInitializer {
 	public static final String MOD_ID = "thehallow";
 	public static final Logger LOGGER = LogManager.getLogger("The Hallow");
-	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "group"), () -> new ItemStack(HallowedItems.REAPERS_SCYTHE));
-	
-	public static Identifier id(String name) {
-		return new Identifier(MOD_ID, name);
+	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(HallowedItems.REAPERS_SCYTHE));
+	public static final ItemGroup PUMPKINS = FabricItemGroupBuilder.build(id("pumpkins"), () -> new ItemStack(HallowedBlocks.WITCHED_PUMPKIN));
+
+	public static Identifier id(String key) {
+		return new Identifier(MOD_ID, key);
 	}
 	
 	@Override

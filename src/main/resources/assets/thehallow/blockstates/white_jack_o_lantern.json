@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "thehallow:block/white_jack_o_lantern" },
+        "facing=south": { "model": "thehallow:block/white_jack_o_lantern", "y": 180 },
+        "facing=west":  { "model": "thehallow:block/white_jack_o_lantern", "y": 270 },
+        "facing=east":  { "model": "thehallow:block/white_jack_o_lantern", "y": 90 }
+    }
+}

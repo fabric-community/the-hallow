@@ -80,7 +80,7 @@ public class HallowedItems {
 		PumpkinFoods.registerPumpkinFood(HallowedItems.PUMPKIN_STEW);
 		PumpkinFoods.registerPumpkinFood(HallowedItems.PUMPKIN_CANDY);
 		PumpkinFoods.registerPumpkinFood(HallowedBlocks.TINY_PUMPKIN.asItem());
-		PumpkinFoods.registerPumpkinFood(HallowedBlocks.WITCHED_PUMPKIN.asItem());
+		PumpkinFoods.registerPumpkinFood(HallowedBlocks.TINY_WITCHED_PUMPKIN.asItem());
 		
 		DEADWOOD_SIGN = register("deadwood_sign", new SignItem(newSettings().maxCount(16), HallowedBlocks.DEADWOOD_SIGN, HallowedBlocks.DEADWOOD_WALL_SIGN));
 	}

@@ -1,0 +1,7 @@
+{
+    "parent": "block/pumpkin",
+    "textures": {
+        "end": "thehallow:block/red_pumpkin_top",
+        "side": "thehallow:block/red_pumpkin_side"
+    }
+}

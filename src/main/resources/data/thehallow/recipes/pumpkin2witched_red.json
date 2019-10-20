@@ -1,0 +1,11 @@
+{
+	"type": "thehallow:witch_water_recipe",
+	"input": [
+		{
+			"item": "thehallow:red_pumpkin"
+		}
+	],
+	"result": {
+		"item": "thehallow:witched_pumpkin"
+	}
+}
