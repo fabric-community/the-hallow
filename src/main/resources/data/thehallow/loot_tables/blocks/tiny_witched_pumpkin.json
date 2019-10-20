@@ -6,7 +6,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "thehallow:witched_pumpkin"
+					"name": "thehallow:tiny_witched_pumpkin"
 				}
 			],
 			"conditions": [
