@@ -78,7 +78,7 @@ dependencies {
 	modImplementation("com.github.emilyploszaj:trinkets:${trinkets_version}") {
 		transitive = false
 	}
-
+	
 	modImplementation "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
 	include "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
 	
