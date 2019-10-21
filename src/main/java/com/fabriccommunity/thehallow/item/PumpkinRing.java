@@ -1,22 +1,31 @@
 package com.fabriccommunity.thehallow.item;
 
+import java.util.List;
+
+import dev.emi.trinkets.api.ITrinket;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-
-import dev.emi.trinkets.api.ITrinket;
-
-import java.util.List;
 
 public class PumpkinRing extends Item implements ITrinket {
 	public PumpkinRing(Settings settings) {
 		super(settings);
+		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
 	
+	@Override
+	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		return ITrinket.equipTrinket(player, hand);
+	}
+
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> list, TooltipContext context) {
 		list.add(new TranslatableText("tooltip.thehallow.pumpkin_ring").formatted(Formatting.GRAY));
