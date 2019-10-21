@@ -26,9 +26,9 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 	}
 
 	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
-		ItemStack itemStack_1 = playerEntity.getStackInHand(hand);
+		ItemStack stack = playerEntity.getStackInHand(hand);
 
-		if (itemStack_1.getItem() == Items.SHEARS) {
+		if (stack.getItem() == Items.SHEARS) {
 			if (!world.isClient) {
 				Direction side = blockHitResult.getSide();
 				Direction facingTowardPlayer = side.getAxis() == Direction.Axis.Y ? playerEntity.getHorizontalFacing().getOpposite() : side;
@@ -39,7 +39,7 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 
 				itemEntity.setVelocity(0.05D * (double) facingTowardPlayer.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) facingTowardPlayer.getOffsetZ() + world.random.nextDouble() * 0.02D);
 				world.spawnEntity(itemEntity);
-				itemStack_1.damage(1, playerEntity, (playerEntityVar) -> {
+				stack.damage(1, playerEntity, (playerEntityVar) -> {
 					playerEntityVar.sendToolBreakStatus(hand);
 				});
 			}
@@ -50,7 +50,7 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 		}
 	}
 
-	public static enum PumpkinColor {
+	public enum PumpkinColor {
 		RED, YELLOW, WHITE, BLUE, TAN, WITCHED, RAINBOW;
 	}
 }
