@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -21,8 +22,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -33,9 +37,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 
+import java.util.Random;
+
 public class HallowCharmItem extends Item implements ITrinket {
 	public HallowCharmItem(Settings settings) {
 		super(settings);
+		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
 
 	@Override
@@ -64,9 +71,11 @@ public class HallowCharmItem extends Item implements ITrinket {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		if (world.getDimension().getType() == HallowedDimensions.THE_HALLOW) {
 			player.setCurrentHand(hand);
+			player.playSound(SoundEvents.BLOCK_PORTAL_TRIGGER, 1F, 1F);
 			return new TypedActionResult<>(ActionResult.SUCCESS, player.getActiveItem());
+		} else {
+			return ITrinket.equipTrinket(player, hand);
 		}
-		return new TypedActionResult<>(ActionResult.FAIL, player.getStackInHand(hand));
 	}
 
 	@Override
@@ -123,5 +132,18 @@ public class HallowCharmItem extends Item implements ITrinket {
 		GlStateManager.rotatef(-180F, 0.0F, 0.0F, 1.0F);
 		renderer.renderItem(new ItemStack(HallowedItems.HALLOW_CHARM), ModelTransformation.Type.FIXED);
 		GlStateManager.popMatrix();
+	}
+
+	@Override
+	public void usageTick(World world, LivingEntity user, ItemStack stack, int ticksLeft) {
+		Random random = new Random();
+		BlockPos pos = user.getBlockPos();
+		double x = pos.getX() + random.nextFloat();
+		double y = pos.getY() + random.nextFloat();
+		double z = pos.getZ() + random.nextFloat();
+		double velX = (random.nextFloat() - 0.5D) * 0.5D;
+		double velY = (random.nextFloat() - 0.5D) * 0.5D;
+		double velZ = (random.nextFloat() - 0.5D) * 0.5D;
+		world.addParticle(ParticleTypes.PORTAL, x, y, z, velX, velY, velZ);
 	}
 }
