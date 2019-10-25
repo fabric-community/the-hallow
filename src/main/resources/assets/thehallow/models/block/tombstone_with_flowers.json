@@ -78,6 +78,20 @@
 			"faces": {
 				"up": { "uv": [ 14, 2, 16, 4 ], "texture": "#texture" }
 			}
+		},
+		{   "from": [ 0, 0, 1 ],
+			"to": [ 16, 0.1, 9 ],
+			"faces": {
+				"up": { "uv": [ 0, 0, 16, 8 ], "texture": "#flower_tex" },
+				"down": { "uv": [ 0, 0, 16, 8 ], "texture": "#flower_tex" }
+			}
+		},
+		{   "from": [ 0, 1, 1 ],
+			"to": [ 16, 1, 9 ],
+			"faces": {
+				"up": { "uv": [ 0, 8, 16, 16 ], "texture": "#flower_tex" },
+				"down": { "uv": [ 0, 8, 16, 16 ], "texture": "#flower_tex" }
+			}
 		}
 	]
 }

@@ -1,6 +1,16 @@
 package com.fabriccommunity.thehallow.registry;
 
 import com.fabriccommunity.thehallow.item.*;
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.item.tool.ClubItem;
+import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
+import com.fabriccommunity.thehallow.item.tool.ScytheItem;
+import com.fabriccommunity.thehallow.util.PumpkinFoods;
+
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
+import dev.emi.trinkets.api.TrinketSlots;
+
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -13,13 +23,6 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
-
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.item.tool.ClubItem;
-import com.fabriccommunity.thehallow.item.tool.ScytheItem;
-import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
-import com.fabriccommunity.thehallow.util.PumpkinFoods;
-import dev.emi.trinkets.api.TrinketSlots;
 
 public class HallowedItems {
 	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(HallowedFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP).maxCount(1)));
@@ -67,10 +70,10 @@ public class HallowedItems {
 	}
 	
 	public static void init() {
-		TrinketSlots.addSubSlot("legs", "belt", new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
-		TrinketSlots.addSubSlot("hand", "ring", new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
-		TrinketSlots.addSubSlot("head", "mask", new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
-		TrinketSlots.addSubSlot("head", "necklace", new Identifier("trinkets", "textures/item/empty_trinket_slot_necklace.png"));
+		TrinketSlots.addSubSlot(SlotGroups.LEGS, Slots.BELT, new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
+		TrinketSlots.addSubSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
+		TrinketSlots.addSubSlot(SlotGroups.HEAD, Slots.MASK, new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
+		TrinketSlots.addSubSlot(SlotGroups.HEAD, Slots.NECKLACE, new Identifier("trinkets", "textures/item/empty_trinket_slot_necklace.png"));
 		
 		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
 		PumpkinFoods.registerPumpkinFood(HallowedItems.BAKED_PUMPKIN_SEEDS);
