@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#/#",
+		" E ",
+		" / "
+	],
+	"key": {
+		"#": {
+			"item": "thehallow:old_bandage"
+		},
+		"/": {
+			"item": "thehallow:black_feather"
+		},
+		"E": {
+			"item": "minecraft:ender_pearl"
+		}
+	},
+	"result": {
+		"item": "thehallow:hallow_charm",
+		"count": 1
+	}
+}
