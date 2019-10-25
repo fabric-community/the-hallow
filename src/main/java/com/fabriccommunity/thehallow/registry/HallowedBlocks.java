@@ -110,10 +110,10 @@ public class HallowedBlocks {
 	public static final Block HALLOWED_TREASURE_CHEST = register("hallowed_treasure_chest", new HallowedTreasureChestBlock(FabricBlockSettings.of(Material.METAL).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(HallowedFluids.BLOOD, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
 	public static final Block BLEEDING_BLOCK = register("bleeding_block", new BleedingBlock(FabricBlockSettings.copy(Blocks.MAGMA_BLOCK).lightLevel(0).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block TOMBSTONE = register("tombstone", new TombstoneBlock(FabricBlockSettings.of(Material.STONE).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block RESTLESS_CACTUS = register("restless_cactus", new RestlessCactusBlock(FabricBlockSettings.copy(Blocks.CACTUS).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block DEADER_BUSH = register("deader_bush", new DeaderBushBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block BREAD_CRUMBS = register("bread_crumbs", new BreadCrumbsBlock(FabricBlockSettings.of(Material.CAKE).breakByHand(true).collidable(false).noCollision().build()), new Item.Settings().group(TheHallow.GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).snack().build()));
-	public static final Block TOMBSTONE = register("tombstone", new TombstoneBlock(FabricBlockSettings.of(Material.CARPET).breakByHand(true).build()), new Item.Settings().group(TheHallow.GROUP).food(new FoodComponent.Builder().hunger(-1).saturationModifier(0.1f).snack().build()));
 	public static final Block INFUSION_PILLAR_BLOCK = register("infusion_pillar", new InfusionPillarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block INFUSION_ALTAR_BLOCK = register("infusion_altar", new InfusionAltarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block MOIST_FLESH_BLOCK = register("moist_flesh_block", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.PINK).sounds(BlockSoundGroup.SLIME).build()));
