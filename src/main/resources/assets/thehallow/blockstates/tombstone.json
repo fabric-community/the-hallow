@@ -1,20 +1,36 @@
 {
 	"variants": {
-		"facing=east": {
+		"facing=north,age=0": {
+			"model": "thehallow:block/tombstone",
+			"y": 0
+		},
+		"facing=east,age=0": {
 			"model": "thehallow:block/tombstone",
 			"y": 90
 		},
-		"facing=south": {
+		"facing=south,age=0": {
 			"model": "thehallow:block/tombstone",
 			"y": 180
 		},
-		"facing=west": {
+		"facing=west,age=0": {
 			"model": "thehallow:block/tombstone",
 			"y": 270
 		},
-		"facing=north": {
-			"model": "thehallow:block/tombstone",
+		"facing=north,age=1": {
+			"model": "thehallow:block/tombstone_with_flowers",
 			"y": 0
+		},
+		"facing=east,age=1": {
+			"model": "thehallow:block/tombstone_with_flowers",
+			"y": 90
+		},
+		"facing=south,age=1": {
+			"model": "thehallow:block/tombstone_with_flowers",
+			"y": 180
+		},
+		"facing=west,age=1": {
+			"model": "thehallow:block/tombstone_with_flowers",
+			"y": 270
 		}
 	}
 }
