@@ -1,12 +1,7 @@
 package com.fabriccommunity.thehallow.registry;
 
+import com.fabriccommunity.thehallow.item.*;
 import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.item.CandyItem;
-import com.fabriccommunity.thehallow.item.GoldenCandyCornItem;
-import com.fabriccommunity.thehallow.item.PaperBagItem;
-import com.fabriccommunity.thehallow.item.PumpkinRing;
-import com.fabriccommunity.thehallow.item.SkirtCostume;
-import com.fabriccommunity.thehallow.item.TrumpetItem;
 import com.fabriccommunity.thehallow.item.tool.ClubItem;
 import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
 import com.fabriccommunity.thehallow.item.tool.ScytheItem;
@@ -15,6 +10,7 @@ import com.fabriccommunity.thehallow.util.PumpkinFoods;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
 import dev.emi.trinkets.api.TrinketSlots;
+
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -46,7 +42,7 @@ public class HallowedItems {
 	public static final Item HALLOWED_NUGGET = register("hallowed_nugget", new Item(newSettings().rarity(Rarity.EPIC)));
 	public static final Item REAPERS_SCYTHE = register("reapers_scythe", new ScytheItem(HALLOWED, 3, -2.0F, newSettings().maxCount(1).rarity(Rarity.EPIC)));
 	public static final Item SOUL_BOTTLE = register("soul_bottle", new Item(newSettings()));
-	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(newSettings()));
+	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(newSettings().maxCount(1)));
 	public static final Item TRUMPET = register("trumpet", new TrumpetItem(newSettings()));
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(HallowedEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, newSettings()));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(HallowedEntities.CROW, 0x161616, 0x454545, newSettings()));
@@ -58,9 +54,10 @@ public class HallowedItems {
 	public static final Item GOLD_CLUB = register("gold_club", new ClubItem(ToolMaterials.GOLD, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item DIAMOND_CLUB = register("diamond_club", new ClubItem(ToolMaterials.DIAMOND, 9, -3.6F, newSettings().maxCount(1)));
 	public static final Item GOLDEN_CANDY_CORN = register("golden_candy_corn", new GoldenCandyCornItem(newSettings().maxDamage(250), 1, 0.25f));
-	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings()));
+	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings().maxCount(1)));
 	public static final Item BLACK_FEATHER = register("black_feather", new Item(newSettings()));
 	public static final Item OLD_BANDAGE = register("old_bandage", new Item(newSettings()));
+	public static final Item HALLOW_CHARM = register("hallow_charm", new HallowCharmItem(newSettings().maxCount(1)));
 	
 	public static Item DEADWOOD_SIGN;
 	
@@ -76,6 +73,7 @@ public class HallowedItems {
 		TrinketSlots.addSubSlot(SlotGroups.LEGS, Slots.BELT, new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
 		TrinketSlots.addSubSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
 		TrinketSlots.addSubSlot(SlotGroups.HEAD, Slots.MASK, new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
+		TrinketSlots.addSubSlot(SlotGroups.HEAD, Slots.NECKLACE, new Identifier("trinkets", "textures/item/empty_trinket_slot_necklace.png"));
 		
 		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
 		PumpkinFoods.registerPumpkinFood(HallowedItems.BAKED_PUMPKIN_SEEDS);

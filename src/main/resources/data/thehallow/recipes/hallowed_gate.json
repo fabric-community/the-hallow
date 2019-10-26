@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"#W#",
+		"NNN"
+	],
+	"key": {
+		"#": {
+			"item": "thehallow:soul_glass"
+		},
+		"W": {
+			"item": "minecraft:wither_skeleton_skull"
+		},
+		"N": {
+			"item": "minecraft:nether_bricks"
+		}
+	},
+	"result": {
+		"item": "thehallow:hallowed_gate",
+		"count": 1
+	}
+}

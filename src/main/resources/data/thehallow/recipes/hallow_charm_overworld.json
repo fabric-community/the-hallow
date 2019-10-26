@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#/#",
+		" E ",
+		" / "
+	],
+	"key": {
+		"#": {
+			"item": "minecraft:leather"
+		},
+		"/": {
+			"item": "minecraft:blaze_rod"
+		},
+		"E": {
+			"item": "minecraft:ender_eye"
+		}
+	},
+	"result": {
+		"item": "thehallow:hallow_charm",
+		"count": 1
+	}
+}
