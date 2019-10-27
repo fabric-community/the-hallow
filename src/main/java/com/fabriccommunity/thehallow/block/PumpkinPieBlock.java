@@ -39,7 +39,7 @@ public class PumpkinPieBlock extends Block {
 	}
 	
 	public VoxelShape getOutlineShape(BlockState state, BlockView blockView, BlockPos pos, EntityContext entityContext) {
-		return SHAPE[state.get(BITES)];
+		return SHAPE[state.get(BITES) - 1];
 	}
 	
 	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
