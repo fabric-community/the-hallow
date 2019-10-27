@@ -45,32 +45,30 @@ public class PumpkinPieBlock extends Block {
 	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
 		if (!world.isClient) {
 			return this.tryEat(world, pos, state, player);
-		} else {
-			ItemStack stack = player.getStackInHand(hand);
-			return this.tryEat(world, pos, state, player) || stack.isEmpty();
 		}
+		ItemStack stack = player.getStackInHand(hand);
+		return this.tryEat(world, pos, state, player) || stack.isEmpty();
 	}
 	
 	private boolean tryEat(IWorld iWorld, BlockPos pos, BlockState state, PlayerEntity player) {
 		if (!player.canConsume(false)) {
 			return false;
-		} else {
-			float saturation = 0.1F;
-			TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(player);
-			ItemStack mainHandStack = trinketPlayer.getStack("hand:ring");
-			ItemStack offHandStack = trinketPlayer.getStack("offhand:ring");
-			if (mainHandStack.getItem().equals(HallowedItems.PUMPKIN_RING) || offHandStack.getItem().equals(HallowedItems.PUMPKIN_RING)) {
-				saturation = 0.3F;
-			}
-			player.getHungerManager().add(2, saturation);
-			int bites = state.get(BITES);
-			if (bites > 1) {
-				iWorld.setBlockState(pos, state.with(BITES, bites - 1), 3);
-			} else {
-				iWorld.clearBlockState(pos, false);
-			}
-			return true;
 		}
+		float saturation = 0.1F;
+		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(player);
+		ItemStack mainHandStack = trinketPlayer.getStack("hand:ring");
+		ItemStack offHandStack = trinketPlayer.getStack("offhand:ring");
+		if (mainHandStack.getItem().equals(HallowedItems.PUMPKIN_RING) || offHandStack.getItem().equals(HallowedItems.PUMPKIN_RING)) {
+			saturation = 0.3F;
+		}
+		player.getHungerManager().add(2, saturation);
+		int bites = state.get(BITES);
+		if (bites > 1) {
+			iWorld.setBlockState(pos, state.with(BITES, bites - 1), 3);
+		} else {
+			iWorld.clearBlockState(pos, false);
+		}
+		return true;
 	}
 	
 	public BlockState getStateForNeighborUpdate(BlockState state_1, Direction direction, BlockState state_2, IWorld iWorld, BlockPos pos_1, BlockPos pos_2) {
