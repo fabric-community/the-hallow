@@ -1,5 +1,6 @@
 package com.fabriccommunity.thehallow.registry;
 
+import com.fabriccommunity.thehallow.block.*;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
@@ -29,35 +30,6 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.block.BleedingBlock;
-import com.fabriccommunity.thehallow.block.BloodBlock;
-import com.fabriccommunity.thehallow.block.BramblesBlock;
-import com.fabriccommunity.thehallow.block.BreadCrumbsBlock;
-import com.fabriccommunity.thehallow.block.CongealedBloodBlock;
-import com.fabriccommunity.thehallow.block.DeaderBushBlock;
-import com.fabriccommunity.thehallow.block.DeceasedGrassBlock;
-import com.fabriccommunity.thehallow.block.InfusionAltarBlock;
-import com.fabriccommunity.thehallow.block.InfusionPillarBlock;
-import com.fabriccommunity.thehallow.block.PumpkinPieBlock;
-import com.fabriccommunity.thehallow.block.HallowedButtonBlock;
-import com.fabriccommunity.thehallow.block.RestlessCactusBlock;
-import com.fabriccommunity.thehallow.block.HallowedDoorBlock;
-import com.fabriccommunity.thehallow.block.HallowedFernBlock;
-import com.fabriccommunity.thehallow.block.HallowedLogBlock;
-import com.fabriccommunity.thehallow.block.HallowedMushroomPlantBlock;
-import com.fabriccommunity.thehallow.block.HallowedPressurePlateBlock;
-import com.fabriccommunity.thehallow.block.HallowedSaplingBlock;
-import com.fabriccommunity.thehallow.block.HallowedSignBlock;
-import com.fabriccommunity.thehallow.block.HallowedStairsBlock;
-import com.fabriccommunity.thehallow.block.HallowedTrapdoorBlock;
-import com.fabriccommunity.thehallow.block.HallowedTreasureChestBlock;
-import com.fabriccommunity.thehallow.block.HallowedWallSignBlock;
-import com.fabriccommunity.thehallow.block.TinyPumpkinBlock;
-import com.fabriccommunity.thehallow.block.TranslucentGlassBlock;
-import com.fabriccommunity.thehallow.block.TranslucentGlassPaneBlock;
-import com.fabriccommunity.thehallow.block.WitchWaterBlock;
-import com.fabriccommunity.thehallow.block.TombstoneBlock;
-import com.fabriccommunity.thehallow.block.WitchWaterBubbleColumnBlock;
 import com.fabriccommunity.thehallow.item.WitchedPumpkinItem;
 import com.fabriccommunity.thehallow.world.DeadwoodSaplingGenerator;
 
@@ -144,6 +116,7 @@ public class HallowedBlocks {
 	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block HALLOWED_GATE = register("hallowed_gate", new HallowedGateBlock(FabricBlockSettings.copy(Blocks.ENCHANTING_TABLE).materialColor(MaterialColor.BROWN).build()));
 	
 	public static final Block PUMPKIN_PIE = Registry.register(Registry.BLOCK, TheHallow.id("pumpkin_pie"), new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()));
 	
