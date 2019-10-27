@@ -117,8 +117,7 @@ public class HallowedBlocks {
 	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block HALLOWED_GATE = register("hallowed_gate", new HallowedGateBlock(FabricBlockSettings.copy(Blocks.ENCHANTING_TABLE).materialColor(MaterialColor.BROWN).build()));
-	
-	public static final Block PUMPKIN_PIE = Registry.register(Registry.BLOCK, TheHallow.id("pumpkin_pie"), new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()));
+	public static final Block PUMPKIN_PIE = register("pumpkin_pie", new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()), (BlockItem) null);
 	
 	private HallowedBlocks() {
 		// NO-OP
