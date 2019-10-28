@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"bites=1": { "model": "thehallow:block/pumpkin_pie_one_quarter" },
+		"bites=2": { "model": "thehallow:block/pumpkin_pie_half" },
+		"bites=3": { "model": "thehallow:block/pumpkin_pie_three_quarters" },
+		"bites=4": { "model": "thehallow:block/pumpkin_pie" }
+	}
+}
