@@ -71,8 +71,8 @@ public class PumpkinPieBlock extends Block {
 		return true;
 	}
 	
-	public BlockState getStateForNeighborUpdate(BlockState state_1, Direction direction, BlockState state_2, IWorld iWorld, BlockPos pos_1, BlockPos pos_2) {
-		return direction == Direction.DOWN && !state_1.canPlaceAt(iWorld, pos_1) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state_1, direction, state_2, iWorld, pos_1, pos_2);
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState state2, IWorld iWorld, BlockPos pos, BlockPos pos2) {
+		return direction == Direction.DOWN && !state.canPlaceAt(iWorld, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, state2, iWorld, pos, pos2);
 	}
 	
 	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
