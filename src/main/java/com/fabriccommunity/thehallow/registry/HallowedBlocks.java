@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CarpetBlock;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
@@ -26,6 +27,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
@@ -118,6 +120,38 @@ public class HallowedBlocks {
 	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block HALLOWED_GATE = register("hallowed_gate", new HallowedGateBlock(FabricBlockSettings.copy(Blocks.ENCHANTING_TABLE).materialColor(MaterialColor.BROWN).build()));
 	public static final Block PUMPKIN_PIE = register("pumpkin_pie", new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()), (BlockItem) null);
+	public static final Block WHITE_CLOTH = register("white_cloth", new Block(FabricBlockSettings.copy(Blocks.WHITE_WOOL).build()));
+	public static final Block ORANGE_CLOTH = register("orange_cloth", new Block(FabricBlockSettings.copy(Blocks.ORANGE_WOOL).build()));
+	public static final Block MAGENTA_CLOTH = register("magenta_cloth", new Block(FabricBlockSettings.copy(Blocks.MAGENTA_WOOL).build()));
+	public static final Block LIGHT_BLUE_CLOTH = register("light_blue_cloth", new Block(FabricBlockSettings.copy(Blocks.LIGHT_BLUE_WOOL).build()));
+	public static final Block YELLOW_CLOTH = register("yellow_cloth", new Block(FabricBlockSettings.copy(Blocks.YELLOW_WOOL).build()));
+	public static final Block LIME_CLOTH = register("lime_cloth", new Block(FabricBlockSettings.copy(Blocks.LIME_WOOL).build()));
+	public static final Block PINK_CLOTH = register("pink_cloth", new Block(FabricBlockSettings.copy(Blocks.PINK_WOOL).build()));
+	public static final Block GRAY_CLOTH = register("gray_cloth", new Block(FabricBlockSettings.copy(Blocks.GRAY_WOOL).build()));
+	public static final Block LIGHT_GRAY_CLOTH = register("light_gray_cloth", new Block(FabricBlockSettings.copy(Blocks.LIGHT_GRAY_WOOL).build()));
+	public static final Block CYAN_CLOTH = register("cyan_cloth", new Block(FabricBlockSettings.copy(Blocks.CYAN_WOOL).build()));
+	public static final Block PURPLE_CLOTH = register("purple_cloth", new Block(FabricBlockSettings.copy(Blocks.PURPLE_WOOL).build()));
+	public static final Block BLUE_CLOTH = register("blue_cloth", new Block(FabricBlockSettings.copy(Blocks.BLUE_WOOL).build()));
+	public static final Block BROWN_CLOTH = register("brown_cloth", new Block(FabricBlockSettings.copy(Blocks.BROWN_WOOL).build()));
+	public static final Block GREEN_CLOTH = register("green_cloth", new Block(FabricBlockSettings.copy(Blocks.GREEN_WOOL).build()));
+	public static final Block RED_CLOTH = register("red_cloth", new Block(FabricBlockSettings.copy(Blocks.RED_WOOL).build()));
+	public static final Block BLACK_CLOTH = register("black_cloth", new Block(FabricBlockSettings.copy(Blocks.BLACK_WOOL).build()));
+	public static final Block WHITE_RUG = register("white_rug", new HallowedCarpetBlock(DyeColor.WHITE, FabricBlockSettings.copy(Blocks.WHITE_CARPET).build()));
+	public static final Block ORANGE_RUG = register("orange_rug", new HallowedCarpetBlock(DyeColor.ORANGE, FabricBlockSettings.copy(Blocks.ORANGE_CARPET).build()));
+	public static final Block MAGENTA_RUG = register("magenta_rug", new HallowedCarpetBlock(DyeColor.MAGENTA, FabricBlockSettings.copy(Blocks.MAGENTA_CARPET).build()));
+	public static final Block LIGHT_BLUE_RUG = register("light_blue_rug", new HallowedCarpetBlock(DyeColor.LIGHT_BLUE, FabricBlockSettings.copy(Blocks.LIGHT_BLUE_CARPET).build()));
+	public static final Block YELLOW_RUG = register("yellow_rug", new HallowedCarpetBlock(DyeColor.YELLOW, FabricBlockSettings.copy(Blocks.YELLOW_CARPET).build()));
+	public static final Block LIME_RUG = register("lime_rug", new HallowedCarpetBlock(DyeColor.LIME, FabricBlockSettings.copy(Blocks.LIME_CARPET).build()));
+	public static final Block PINK_RUG = register("pink_rug", new HallowedCarpetBlock(DyeColor.PINK, FabricBlockSettings.copy(Blocks.PINK_CARPET).build()));
+	public static final Block GRAY_RUG = register("gray_rug", new HallowedCarpetBlock(DyeColor.GRAY, FabricBlockSettings.copy(Blocks.GRAY_CARPET).build()));
+	public static final Block LIGHT_GRAY_RUG = register("light_gray_rug", new HallowedCarpetBlock(DyeColor.LIGHT_GRAY, FabricBlockSettings.copy(Blocks.LIGHT_GRAY_CARPET).build()));
+	public static final Block CYAN_RUG = register("cyan_rug", new HallowedCarpetBlock(DyeColor.CYAN, FabricBlockSettings.copy(Blocks.CYAN_CARPET).build()));
+	public static final Block PURPLE_RUG = register("purple_rug", new HallowedCarpetBlock(DyeColor.PURPLE, FabricBlockSettings.copy(Blocks.PURPLE_CARPET).build()));
+	public static final Block BLUE_RUG = register("blue_rug", new HallowedCarpetBlock(DyeColor.BLUE, FabricBlockSettings.copy(Blocks.BLUE_CARPET).build()));
+	public static final Block BROWN_RUG = register("brown_rug", new HallowedCarpetBlock(DyeColor.BROWN, FabricBlockSettings.copy(Blocks.BROWN_CARPET).build()));
+	public static final Block GREEN_RUG = register("green_rug", new HallowedCarpetBlock(DyeColor.GREEN, FabricBlockSettings.copy(Blocks.GREEN_CARPET).build()));
+	public static final Block RED_RUG = register("red_rug", new HallowedCarpetBlock(DyeColor.RED, FabricBlockSettings.copy(Blocks.RED_CARPET).build()));
+	public static final Block BLACK_RUG = register("black_rug", new HallowedCarpetBlock(DyeColor.BLACK, FabricBlockSettings.copy(Blocks.BLACK_CARPET).build()));
 	
 	private HallowedBlocks() {
 		// NO-OP

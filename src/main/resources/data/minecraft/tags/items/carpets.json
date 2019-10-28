@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "thehallow:white_rug",
+    "thehallow:orange_rug",
+    "thehallow:magenta_rug",
+    "thehallow:light_blue_rug",
+    "thehallow:yellow_rug",
+    "thehallow:lime_rug",
+    "thehallow:pink_rug",
+    "thehallow:gray_rug",
+    "thehallow:light_gray_rug",
+    "thehallow:cyan_rug",
+    "thehallow:purple_rug",
+    "thehallow:blue_rug",
+    "thehallow:brown_rug",
+    "thehallow:green_rug",
+    "thehallow:red_rug",
+    "thehallow:black_rug"
+  ]
+}
