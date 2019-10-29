@@ -5,7 +5,7 @@
 			"item": "minecraft:bowl"
 		},
 		{
-			"tag": "spookytime:pumpkin"
+			"tag": "thehallow:pumpkins"
 		},
 		{
 			"item": "minecraft:carrot"
@@ -15,6 +15,6 @@
 		}
 	],
 	"result": {
-		"item": "spookytime:pumpkin_stew"
+		"item": "thehallow:pumpkin_stew"
 	}
 }

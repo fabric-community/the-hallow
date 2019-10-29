@@ -102,12 +102,12 @@ public abstract class ServerPlayNetworkHandlerMixin {
 	
 	private boolean isPlayerWearingCostume(PlayerEntity player) {
 		for (int i = 0; i < 4; i++) {
-			if (HallowedTags.COSTUMES.contains(player.inventory.armor.get(i).getItem()))
+			if (HallowedTags.Items.COSTUMES.contains(player.inventory.armor.get(i).getItem()))
 				return true;
 		}
 		Inventory inv = TrinketsApi.getTrinketsInventory(player);
 		for (int i = 0; i < inv.getInvSize(); i++) {
-			if (HallowedTags.COSTUMES.contains(inv.getInvStack(i).getItem())) return true;
+			if (HallowedTags.Items.COSTUMES.contains(inv.getInvStack(i).getItem())) return true;
 		}
 		return false;
 	}
