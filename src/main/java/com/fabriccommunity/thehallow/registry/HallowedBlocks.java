@@ -1,9 +1,8 @@
 package com.fabriccommunity.thehallow.registry;
 
-import com.fabriccommunity.thehallow.block.ColoredCarvedPumpkinBlock;
-import com.fabriccommunity.thehallow.block.ColoredPumpkinBlock;
 import com.fabriccommunity.thehallow.block.ColoredPumpkinBlock.PumpkinColor;
 import com.google.common.collect.ImmutableMap;
+import com.fabriccommunity.thehallow.block.*;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
@@ -33,34 +32,6 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.block.BleedingBlock;
-import com.fabriccommunity.thehallow.block.BloodBlock;
-import com.fabriccommunity.thehallow.block.BramblesBlock;
-import com.fabriccommunity.thehallow.block.BreadCrumbsBlock;
-import com.fabriccommunity.thehallow.block.CongealedBloodBlock;
-import com.fabriccommunity.thehallow.block.DeaderBushBlock;
-import com.fabriccommunity.thehallow.block.DeceasedGrassBlock;
-import com.fabriccommunity.thehallow.block.InfusionAltarBlock;
-import com.fabriccommunity.thehallow.block.InfusionPillarBlock;
-import com.fabriccommunity.thehallow.block.HallowedButtonBlock;
-import com.fabriccommunity.thehallow.block.RestlessCactusBlock;
-import com.fabriccommunity.thehallow.block.HallowedDoorBlock;
-import com.fabriccommunity.thehallow.block.HallowedFernBlock;
-import com.fabriccommunity.thehallow.block.HallowedLogBlock;
-import com.fabriccommunity.thehallow.block.HallowedMushroomPlantBlock;
-import com.fabriccommunity.thehallow.block.HallowedPressurePlateBlock;
-import com.fabriccommunity.thehallow.block.HallowedSaplingBlock;
-import com.fabriccommunity.thehallow.block.HallowedSignBlock;
-import com.fabriccommunity.thehallow.block.HallowedStairsBlock;
-import com.fabriccommunity.thehallow.block.HallowedTrapdoorBlock;
-import com.fabriccommunity.thehallow.block.HallowedTreasureChestBlock;
-import com.fabriccommunity.thehallow.block.HallowedWallSignBlock;
-import com.fabriccommunity.thehallow.block.TinyPumpkinBlock;
-import com.fabriccommunity.thehallow.block.TranslucentGlassBlock;
-import com.fabriccommunity.thehallow.block.TranslucentGlassPaneBlock;
-import com.fabriccommunity.thehallow.block.WitchWaterBlock;
-import com.fabriccommunity.thehallow.block.TombstoneBlock;
-import com.fabriccommunity.thehallow.block.WitchWaterBubbleColumnBlock;
 import com.fabriccommunity.thehallow.item.WitchedPumpkinItem;
 import com.fabriccommunity.thehallow.world.DeadwoodSaplingGenerator;
 
@@ -115,10 +86,10 @@ public class HallowedBlocks {
 	public static final Block HALLOWED_TREASURE_CHEST = register("hallowed_treasure_chest", new HallowedTreasureChestBlock(FabricBlockSettings.of(Material.METAL).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block BLOOD_BLOCK = register("blood", new BloodBlock(HallowedFluids.BLOOD, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);
 	public static final Block BLEEDING_BLOCK = register("bleeding_block", new BleedingBlock(FabricBlockSettings.copy(Blocks.MAGMA_BLOCK).lightLevel(0).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block TOMBSTONE = register("tombstone", new TombstoneBlock(FabricBlockSettings.of(Material.STONE).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block RESTLESS_CACTUS = register("restless_cactus", new RestlessCactusBlock(FabricBlockSettings.copy(Blocks.CACTUS).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block DEADER_BUSH = register("deader_bush", new DeaderBushBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).materialColor(MaterialColor.BROWN).build()), new Item.Settings().group(TheHallow.GROUP));
 	public static final Block BREAD_CRUMBS = register("bread_crumbs", new BreadCrumbsBlock(FabricBlockSettings.of(Material.CAKE).breakByHand(true).collidable(false).noCollision().build()), new Item.Settings().group(TheHallow.GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).snack().build()));
-	public static final Block TOMBSTONE = register("tombstone", new TombstoneBlock(FabricBlockSettings.of(Material.CARPET).breakByHand(true).build()), new Item.Settings().group(TheHallow.GROUP).food(new FoodComponent.Builder().hunger(-1).saturationModifier(0.1f).snack().build()));
 	public static final Block INFUSION_PILLAR_BLOCK = register("infusion_pillar", new InfusionPillarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block INFUSION_ALTAR_BLOCK = register("infusion_altar", new InfusionAltarBlock(FabricBlockSettings.copy(Blocks.COBBLESTONE_WALL).build()));
 	public static final Block MOIST_FLESH_BLOCK = register("moist_flesh_block", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.PINK).sounds(BlockSoundGroup.SLIME).build()));
@@ -148,8 +119,9 @@ public class HallowedBlocks {
 	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
+  public static final Block HALLOWED_GATE = register("hallowed_gate", new HallowedGateBlock(FabricBlockSettings.copy(Blocks.ENCHANTING_TABLE).materialColor(MaterialColor.BROWN).build()));
+	public static final Block PUMPKIN_PIE = register("pumpkin_pie", new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()), (BlockItem) null);
 
-	// Pumpkins
 	public static final Block RAINBOW_PUMPKIN = register("rainbow_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
 	public static final Block RAINBOW_CARVED_PUMPKIN = register("rainbow_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
 	public static final Block RAINBOW_JACK_O_LANTERN = register("rainbow_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));

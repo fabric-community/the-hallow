@@ -32,6 +32,9 @@ public class HallowedConfig {
 			config.accessChild("fog", fog -> {
 				HallowedFog.fogSmoothingRadius = fog.getInt("fogSmoothingRadius", HallowedFog.fogSmoothingRadius, "Determines the radius in which biomes are checked to smooth out biome fog colors. Lower values = less intensive.");
 			});
+			config.accessChild("tweaks", tweaks -> {
+				Tweaks.pumpkinPieBlock = tweaks.getBool("pumpkin_pie_block", Tweaks.pumpkinPieBlock, "If true, allows placing pumpkin pie blocks using the vanilla pumpkin pie item");
+			});
 		});
 	}
 	
@@ -61,5 +64,9 @@ public class HallowedConfig {
 	
 	public static class HallowedFog {
 		public static int fogSmoothingRadius = 8;
+	}
+	
+	public static class Tweaks {
+		public static boolean pumpkinPieBlock = true;
 	}
 }
