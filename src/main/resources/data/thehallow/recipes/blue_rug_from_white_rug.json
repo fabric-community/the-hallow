@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rug",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "thehallow:white_rug"
+    },
+    "$": {
+      "item": "minecraft:blue_dye"
+    }
+  },
+  "result": {
+    "item": "thehallow:blue_rug",
+    "count": 8
+  }
+}

@@ -1,5 +1,6 @@
 package com.fabriccommunity.thehallow.item;
 
+import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.block.HallowedGateBlock;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedDimensions;
@@ -23,6 +24,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.MessageType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.TranslatableText;
@@ -32,6 +34,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 
@@ -48,18 +52,22 @@ public class HallowCharmItem extends Item implements ITrinket {
 		PlayerEntity player = context.getPlayer();
 		if (context.getWorld().isClient) return ActionResult.PASS;
 		BlockState state = context.getWorld().getBlockState(context.getBlockPos());
-		if (context.getWorld().getDimension().getType() == DimensionType.OVERWORLD && state.getBlock() == HallowedBlocks.HALLOWED_GATE) {
-			if (HallowedGateBlock.isValid(context.getWorld(), context.getBlockPos(), state)) {
-				BlockPos pos = player.getBlockPos();
-				CompoundTag tag = new CompoundTag();
-				tag.putInt("x", pos.getX());
-				tag.putInt("y", pos.getY());
-				tag.putInt("z", pos.getZ());
-				context.getStack().putSubTag("PortalLoc", tag);
-				FabricDimensions.teleport(player, HallowedDimensions.THE_HALLOW, DO_NOTHING);
-				player.teleport(pos.getX(), pos.getY(), pos.getZ());
+		if(state.getBlock() == HallowedBlocks.HALLOWED_GATE) {
+			if (context.getWorld().getDimension().getType() == DimensionType.OVERWORLD) {
+				if (HallowedGateBlock.isValid(context.getWorld(), context.getBlockPos(), state)) {
+					BlockPos pos = player.getBlockPos();
+					CompoundTag tag = new CompoundTag();
+					tag.putInt("x", pos.getX());
+					tag.putInt("y", pos.getY());
+					tag.putInt("z", pos.getZ());
+					context.getStack().putSubTag("PortalLoc", tag);
+					FabricDimensions.teleport(player, HallowedDimensions.THE_HALLOW);
+					return ActionResult.SUCCESS;
+				} else {
+					player.addChatMessage(new TranslatableText("text.thehallow.gate_incomplete"), true);
+				}
 			} else {
-				player.sendMessage(new TranslatableText("text.hallow.gate_incomplete"));
+				player.addChatMessage(new TranslatableText("text.thehallow.gate_in_wrong_dimension"), true);
 			}
 		}
 		return ActionResult.PASS;
@@ -97,12 +105,12 @@ public class HallowCharmItem extends Item implements ITrinket {
 			CompoundTag locTag = tag.getCompound("PortalLoc");
 			BlockPos pos = new BlockPos(locTag.getInt("x"), locTag.getInt("y"), locTag.getInt("z"));
 			tag.remove("PortalLoc");
-			FabricDimensions.teleport(player, DimensionType.OVERWORLD, DO_NOTHING);
+			FabricDimensions.teleport(player, DimensionType.OVERWORLD, HallowedDimensions.DO_NOTHING);
 			player.teleport(pos.getX(), pos.getY(), pos.getZ());
 			return stack;
 		} else {
 			BlockPos pos = player.getSpawnPosition();
-			FabricDimensions.teleport(player, DimensionType.OVERWORLD, DO_NOTHING);
+			FabricDimensions.teleport(player, DimensionType.OVERWORLD, HallowedDimensions.DO_NOTHING);
 			player.teleport(pos.getX(), pos.getY(), pos.getZ());
 			return stack;
 		}
@@ -112,8 +120,6 @@ public class HallowCharmItem extends Item implements ITrinket {
 	public boolean hasEnchantmentGlint(ItemStack stack) {
 		return stack.getOrCreateTag().containsKey("PortalLoc");
 	}
-
-	private EntityPlacer DO_NOTHING = (entity, world, dim, offsetX, offsetZ) -> new BlockPattern.TeleportTarget(new Vec3d(0, 500, 0), entity.getVelocity(), 0);
 
 	@Override
 	public boolean canWearInSlot(String group, String slot) {
