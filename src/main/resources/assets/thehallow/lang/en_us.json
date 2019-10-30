@@ -179,11 +179,22 @@
 	"text.thehallow.candycorn.0": "It tastes so sweet,",
 	"text.thehallow.candycorn.1": "it's hard to stop eating...",
 	"text.thehallow.gate_incomplete": "Gate incomplete: must have full surrounding ring",
+	"text.thehallow.gate_in_wrong_dimension": "The Gate doesn't seem to work in this dimension...",
 	"tooltip.thehallow.pumpkin_ring": "That Pumpkin Pie looks awfully delicious...",
 	"tooltip.thehallow.paper_bag": "They won't even notice you looking at them!",
 	"subtitle.thehallow.doot": "Trumpet doots spookily",
 	"subtitle.thehallow.megaladoot": "OH GOSH OH HECK",
 	"subtitle.crow.ambient": "Crow caws",
 	"death.attack.brambles": "%1$s was pricked to death by brambles",
-	"death.attack.brambles.player": "%1$s was pricked to death by brambles whilst trying to escape %2$s"
+	"death.attack.brambles.player": "%1$s was pricked to death by brambles whilst trying to escape %2$s",
+	"advancements.thehallow.root.title": "The Hallow",
+	"advancements.thehallow.root.description": "A new world awaits",
+	"advancements.thehallow.make_soul_glass.title": "Windows of the Soul",
+	"advancements.thehallow.make_soul_glass.description": "Smelt Soul Sand into Soul Glass",
+	"advancements.thehallow.craft_gate.title": "A Locked Gate",
+	"advancements.thehallow.craft_gate.description": "Craft a Hallowed Gate",
+	"advancements.thehallow.craft_charm.title": "A Charming Key",
+	"advancements.thehallow.craft_charm.description": "Craft a Hallow Charm",
+	"advancements.thehallow.enter_hallow.title": "A Whole New World",
+	"advancements.thehallow.enter_hallow.description": "Enter The Hallow"
 }

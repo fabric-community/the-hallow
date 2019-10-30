@@ -1,0 +1,35 @@
+{
+    "display": {
+		"title": {
+			"translate": "advancements.thehallow.root.title"
+		},
+		"description": {
+			"translate": "advancements.thehallow.root.description"
+		},
+        "icon": {
+            "item": "thehallow:deceased_grass_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "thehallow:textures/block/tainted_stone.png"
+    },
+    "criteria": {
+        "collected_soul_sand": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:soul_sand"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": [
+            "thehallow:soul_glass"
+        ]
+    }
+}
