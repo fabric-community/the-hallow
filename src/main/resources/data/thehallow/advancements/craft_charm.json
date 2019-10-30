@@ -1,0 +1,30 @@
+{
+    "display": {
+        "title": {
+            "translate": "advancements.thehallow.craft_charm.title"
+        },
+        "description": {
+            "translate": "advancements.thehallow.craft_charm.description"
+        },
+        "icon": {
+            "item": "thehallow:hallow_charm"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "craft_charm": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "thehallow:hallow_charm"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "thehallow:craft_gate"
+}

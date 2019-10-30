@@ -25,14 +25,11 @@ public class HallowedGateBlock extends Block {
 
 	public static boolean isValid(World world, BlockPos pos, BlockState state) {
 		if (state.getBlock() != HallowedBlocks.HALLOWED_GATE) return false;
-		for (Direction dir : Direction.values()) {
-			if (dir == Direction.UP || dir == Direction.DOWN) continue;
-			BlockState newState = world.getBlockState(pos.offset(dir));
-			if (!HallowedTags.GATE_CIRCLE.contains(newState.getBlock())) return false;
-			if (dir == Direction.NORTH || dir == Direction.SOUTH) {
-				BlockState eastState = world.getBlockState(pos.offset(Direction.EAST));
-				BlockState westState = world.getBlockState(pos.offset(Direction.WEST));
-				if (!HallowedTags.GATE_CIRCLE.contains(eastState.getBlock()) || !HallowedTags.GATE_CIRCLE.contains(westState.getBlock())) return false;
+		for (int x = -1; x < 2; x++) {
+			for (int z = -1; z < 2; z++) {
+				if (x == 0 && z == 0) continue;
+				BlockState newState = world.getBlockState(pos.add(x, 0, z));
+				if (!HallowedTags.GATE_CIRCLE.contains(newState.getBlock())) return false;
 			}
 		}
 		return true;

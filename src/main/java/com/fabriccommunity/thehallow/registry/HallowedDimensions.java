@@ -1,6 +1,11 @@
 package com.fabriccommunity.thehallow.registry;
 
+import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
+
+import net.minecraft.block.pattern.BlockPattern;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.Heightmap;
 
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.world.HallowedBiomeSource;
@@ -12,6 +17,8 @@ import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
 import com.github.draylar.worldtraveler.api.dimension.EntityPlacerBuilder;
 
 public class HallowedDimensions {
+	public static EntityPlacer DO_NOTHING = (entity, world, dim, offsetX, offsetZ) -> new BlockPattern.TeleportTarget(new Vec3d(entity.getBlockPos().getX(), world.method_8497(entity.getBlockPos().getX() >> 4, entity.getBlockPos().getZ() >> 4).sampleHeightmap(Heightmap.Type.MOTION_BLOCKING, entity.getBlockPos().getX() & 15, entity.getBlockPos().getZ() & 15) + 1, entity.getBlockPos().getZ()), entity.getVelocity(), (int)entity.yaw);
+	
 	public static final FabricDimensionType THE_HALLOW = FabricDimensionType.builder()
 		.skyLight(true)
 		.factory((world, type) -> new DimensionBuilder()
@@ -22,7 +29,7 @@ public class HallowedDimensions {
 			.setChunkGenerator(HallowedChunkGeneratorType.INSTANCE.create(world, new HallowedBiomeSource(world.getSeed()), new HallowedChunkGeneratorConfig()))
 			.setLightLevelsToBrightness(getLightLevels())
 			.build(world, type))
-		.defaultPlacer(new EntityPlacerBuilder().build())
+		.defaultPlacer(DO_NOTHING)
 		.buildAndRegister(TheHallow.id("the_hallow"));
 	
 	private HallowedDimensions() {

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cloth",
+  "ingredients": [
+    {
+      "item": "minecraft:green_dye"
+    },
+    {
+      "item": "thehallow:white_cloth"
+    }
+  ],
+  "result": {
+    "item": "thehallow:green_cloth"
+  }
+}
