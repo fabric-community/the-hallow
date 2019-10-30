@@ -230,7 +230,7 @@ curseforge {
 			}
 			
 			addArtifact(sourcesJar) {
-				displayName = "${archives_base_name}-${minecraft_version}-${project.version}-sources.jar"
+				displayName = "${archives_base_name}-${project.version}-sources.jar"
 			}
 			
 			afterEvaluate {
