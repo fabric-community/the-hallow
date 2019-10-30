@@ -33,7 +33,7 @@ public class Contributors {
 	
 	private static void initContributors() {
 		ModMetadata metadata = FabricLoader.getInstance().getModContainer(TheHallow.MOD_ID)
-			.orElseThrow(() -> new IllegalStateException("Cannot find the hallow mod, report to fabric loader!"))
+			.orElseThrow(() -> new IllegalStateException("Cannot find The Hallow mod, please report the issue to the authors!"))
 			.getMetadata();
 		
 		for (Person author : metadata.getAuthors()) {
