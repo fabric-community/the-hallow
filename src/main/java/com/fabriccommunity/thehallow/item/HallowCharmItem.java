@@ -7,6 +7,8 @@ import com.fabriccommunity.thehallow.registry.HallowedDimensions;
 import com.fabriccommunity.thehallow.registry.HallowedItems;
 import com.mojang.blaze3d.platform.GlStateManager;
 import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.util.NbtType;
@@ -123,7 +125,7 @@ public class HallowCharmItem extends Item implements ITrinket {
 
 	@Override
 	public boolean canWearInSlot(String group, String slot) {
-		return group.contains("head") && slot.contains("necklace");
+		return group.contains(SlotGroups.HEAD) && slot.contains(Slots.NECKLACE);
 	}
 
 	@Override
