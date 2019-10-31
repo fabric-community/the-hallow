@@ -1,26 +1,19 @@
 package com.fabriccommunity.thehallow.registry;
 
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.component.CandyComponent;
+import com.fabriccommunity.thehallow.component.CandyComponent.VillagerCandyComponent;
+import com.fabriccommunity.thehallow.entity.*;
+import nerdhub.cardinal.components.api.ComponentRegistry;
+import nerdhub.cardinal.components.api.ComponentType;
+import nerdhub.cardinal.components.api.event.EntityComponentCallback;
 import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.util.registry.Registry;
-
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.component.CandyComponent;
-import com.fabriccommunity.thehallow.component.CandyComponent.VillagerCandyComponent;
-import com.fabriccommunity.thehallow.entity.CrowEntity;
-import com.fabriccommunity.thehallow.entity.CultistEntity;
-import com.fabriccommunity.thehallow.entity.MummyEntity;
-import com.fabriccommunity.thehallow.entity.PumpcownEntity;
-import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
-import com.fabriccommunity.thehallow.entity.HallowedTreasureChestEntity;
-import nerdhub.cardinal.components.api.ComponentRegistry;
-import nerdhub.cardinal.components.api.ComponentType;
-import nerdhub.cardinal.components.api.event.EntityComponentCallback;
 
 public class HallowedEntities {
 	public static final ComponentType<CandyComponent> CANDY = ComponentRegistry.INSTANCE.registerIfAbsent(TheHallow.id("candy"), CandyComponent.class);
@@ -35,15 +28,21 @@ public class HallowedEntities {
 	public static final EntityType<RestlessCactusEntity> RESTLESS_CACTUS = register("restless_cactus", FabricEntityTypeBuilder.create(EntityCategory.MISC, RestlessCactusEntity::new).size(EntityDimensions.changing(0.9F, 1.0F)).build());
 	public static final EntityType<MummyEntity> MUMMY = register("mummy", FabricEntityTypeBuilder.create(EntityCategory.MONSTER, MummyEntity::new).size(EntityDimensions.fixed(0.7F, 2.3F)).build());
 	public static final EntityType<CultistEntity> CULTIST = register("cultist", FabricEntityTypeBuilder.create(EntityCategory.MONSTER, CultistEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F)).build());
-	
+	public static final EntityType<ShotgunProjectileEntity> SHOTGUN_PROJECTILE = register(
+		"shotgun_projectile",
+		FabricEntityTypeBuilder.<ShotgunProjectileEntity>create(
+			EntityCategory.MISC,
+			ShotgunProjectileEntity::new
+		).setImmuneToFire().size(EntityDimensions.fixed(0.25f, 0.25f)).build());
+
 	private HallowedEntities() {
 		// NO-OP
 	}
-	
+
 	public static void init() {
 		EntityComponentCallback.event(VillagerEntity.class).register((player, components) -> components.put(CANDY, new VillagerCandyComponent()));
 	}
-	
+
 	private static <T extends Entity> EntityType<T> register(String name, EntityType<T> entity) {
 		return Registry.register(Registry.ENTITY_TYPE, TheHallow.id(name), entity);
 	}

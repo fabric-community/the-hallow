@@ -1,0 +1,18 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "thehallow:item/shotgun"
+	},
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [0, -90, 0],
+			"translation": [0, 0, 0],
+			"scale": [2, 0.5, 0.5]
+		},
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 0],
+			"translation": [0, 0, 0],
+			"scale": [1, 0.40, 0.40]
+		}
+	}
+}
