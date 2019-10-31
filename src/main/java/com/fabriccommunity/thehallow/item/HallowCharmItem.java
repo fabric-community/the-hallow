@@ -105,12 +105,12 @@ public class HallowCharmItem extends Item implements ITrinket {
 			CompoundTag locTag = tag.getCompound("PortalLoc");
 			BlockPos pos = new BlockPos(locTag.getInt("x"), locTag.getInt("y"), locTag.getInt("z"));
 			tag.remove("PortalLoc");
-			FabricDimensions.teleport(player, DimensionType.OVERWORLD, HallowedDimensions.DO_NOTHING);
+			FabricDimensions.teleport(player, DimensionType.OVERWORLD, HallowedDimensions.FIND_SURFACE);
 			player.teleport(pos.getX(), pos.getY(), pos.getZ());
 			return stack;
 		} else {
-			BlockPos pos = player.getSpawnPosition();
-			FabricDimensions.teleport(player, DimensionType.OVERWORLD, HallowedDimensions.DO_NOTHING);
+			FabricDimensions.teleport(player, DimensionType.OVERWORLD, HallowedDimensions.FIND_SURFACE);
+			BlockPos pos = player.getEntityWorld().getSpawnPos();
 			player.teleport(pos.getX(), pos.getY(), pos.getZ());
 			return stack;
 		}
