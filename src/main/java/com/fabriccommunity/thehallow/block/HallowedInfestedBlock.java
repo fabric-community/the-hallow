@@ -6,7 +6,7 @@ import net.minecraft.block.InfestedBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.BatEntity;
+import net.minecraft.entity.mob.EndermiteEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
@@ -21,10 +21,10 @@ public class HallowedInfestedBlock extends InfestedBlock {
 	@Override
 	public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
 		if (!world.isClient && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
-			BatEntity bat = (BatEntity) EntityType.BAT.create(world);
-			bat.setPositionAndAngles(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
-			world.spawnEntity(bat);
-			bat.playSpawnEffects();
+			EndermiteEntity endermite = (EndermiteEntity) EntityType.ENDERMITE.create(world);
+			endermite.setPositionAndAngles(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
+			world.spawnEntity(endermite);
+			endermite.playSpawnEffects();
 		}
 	}
 }
