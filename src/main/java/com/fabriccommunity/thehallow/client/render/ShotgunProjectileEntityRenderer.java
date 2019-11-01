@@ -21,7 +21,7 @@ public class ShotgunProjectileEntityRenderer extends EntityRenderer<ShotgunProje
 	public void render(ShotgunProjectileEntity entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		bindEntityTexture(entity);
 
-		// Code is copied from Techguns and re-adapted for fabric
+		// Code is derived from pWn3d1337
 		GlStateManager.pushMatrix();
 
 		GlStateManager.translatef((float) x, (float) y, (float) z);

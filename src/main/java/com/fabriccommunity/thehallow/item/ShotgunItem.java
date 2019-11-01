@@ -22,6 +22,7 @@ public class ShotgunItem extends Item {
 
 	private void shootGun(World world, PlayerEntity playerEntity) {
 		for (int i = 0; i < MAX_PELLETS; i++) {
+			// Code below derived from pWn3d1337
 			float velMul = 4.0f;
 			double velX = -MathHelper.sin(playerEntity.headYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(playerEntity.pitch / 180.0F * (float) Math.PI) * velMul;
