@@ -1,0 +1,35 @@
+{
+    "display": {
+		"title": {
+			"translate": "advancements.thehallow.make_soul_glass.title"
+		},
+		"description": {
+			"translate": "advancements.thehallow.make_soul_glass.description"
+		},
+        "icon": {
+            "item": "thehallow:soul_glass"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "smelt_soul_glass": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "thehallow:soul_glass"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": [
+            "thehallow:hallowed_gate"
+        ]
+    },
+    "parent": "thehallow:root"
+}

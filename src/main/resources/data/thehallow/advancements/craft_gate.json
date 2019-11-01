@@ -1,0 +1,35 @@
+{
+    "display": {
+		"title": {
+			"translate": "advancements.thehallow.craft_gate.title"
+		},
+		"description": {
+			"translate": "advancements.thehallow.craft_gate.description"
+		},
+        "icon": {
+            "item": "thehallow:hallowed_gate"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "craft_gateway": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "thehallow:hallowed_gate"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": [
+            "thehallow:hallow_charm_overworld"
+        ]
+    },
+    "parent": "thehallow:make_soul_glass"
+}

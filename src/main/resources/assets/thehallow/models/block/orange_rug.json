@@ -1,0 +1,7 @@
+{
+    "parent": "block/carpet",
+    "textures": {
+        "particle": "thehallow:block/orange_cloth",
+        "wool": "thehallow:block/orange_cloth"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "display": {
+        "title": {
+			"translate": "advancements.thehallow.enter_hallow.title"
+        },
+        "description": {
+			"translate": "advancements.thehallow.enter_hallow.description"
+        },
+        "icon": {
+            "item": "thehallow:deceased_grass_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "enter_hallow": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+                "from": "overworld",
+                "to": "thehallow:thehallow"
+            }
+        }
+    },
+    "rewards": {
+        "recipes": [
+            "thehallow:hallow_charm_hallow"
+        ]
+    },
+    "parent": "thehallow:craft_charm"
+}

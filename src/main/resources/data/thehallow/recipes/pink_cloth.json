@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cloth",
+  "ingredients": [
+    {
+      "item": "minecraft:pink_dye"
+    },
+    {
+      "item": "thehallow:white_cloth"
+    }
+  ],
+  "result": {
+    "item": "thehallow:pink_cloth"
+  }
+}

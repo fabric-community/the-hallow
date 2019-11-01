@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rug",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "thehallow:cyan_cloth"
+    }
+  },
+  "result": {
+    "item": "thehallow:cyan_rug",
+    "count": 3
+  }
+}

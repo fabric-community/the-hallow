@@ -58,7 +58,7 @@ public class HallowedItems {
 	public static final Item GOLDEN_CANDY_CORN = register("golden_candy_corn", new GoldenCandyCornItem(newSettings().maxDamage(250), 1, 0.25f));
 	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings().maxCount(1)));
 	public static final Item BLACK_FEATHER = register("black_feather", new Item(newSettings()));
-	public static final Item OLD_BANDAGE = register("old_bandage", new Item(newSettings()));
+	public static final Item OLD_CLOTH = register("old_cloth", new Item(newSettings()));
 	public static final Item HALLOW_CHARM = register("hallow_charm", new HallowCharmItem(newSettings().maxCount(1)));
 	
 	public static Item DEADWOOD_SIGN;
