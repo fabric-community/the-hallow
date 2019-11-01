@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.CarpetBlock;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
@@ -26,6 +25,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.SignItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Rarity;
@@ -110,8 +110,8 @@ public class HallowedBlocks {
 	public static final Block DEADWOOD_BUTTON = register("deadwood_button", new HallowedButtonBlock(true, FabricBlockSettings.copy(Blocks.OAK_BUTTON).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_DOOR = register("deadwood_door", new HallowedDoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_TRAPDOOR = register("deadwood_trapdoor", new HallowedTrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).materialColor(MaterialColor.PURPLE).build()));
-	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new HallowedSignBlock(TheHallow.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
 	public static final Block DEADWOOD_WALL_SIGN = register("deadwood_wall_sign", new HallowedWallSignBlock(TheHallow.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
+	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new HallowedSignBlock(TheHallow.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), block -> new SignItem(new Item.Settings().group(TheHallow.GROUP).maxCount(16), block, DEADWOOD_WALL_SIGN));
 	public static final Block EERIE_GRASS = register("eerie_grass", new HallowedFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
 	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
 	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
@@ -177,8 +177,7 @@ public class HallowedBlocks {
 	static <T extends Block> T register(String name, T block, BlockItem item) {
 		T b = Registry.register(Registry.BLOCK, TheHallow.id(name), block);
 		if (item != null) {
-			BlockItem bi = HallowedItems.register(name, item);
-			bi.appendBlocks(BlockItem.BLOCK_ITEMS, bi);
+			HallowedItems.register(name, item);
 		}
 		return b;
 	}

@@ -16,7 +16,6 @@ import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.MushroomStewItem;
-import net.minecraft.item.SignItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
@@ -59,8 +58,6 @@ public class HallowedItems {
 	public static final Item OLD_CLOTH = register("old_cloth", new Item(newSettings()));
 	public static final Item HALLOW_CHARM = register("hallow_charm", new HallowCharmItem(newSettings().maxCount(1)));
 	
-	public static Item DEADWOOD_SIGN;
-	
 	private HallowedItems() {
 		// NO-OP
 	}
@@ -81,8 +78,6 @@ public class HallowedItems {
 		PumpkinFoods.registerPumpkinFood(HallowedItems.PUMPKIN_CANDY);
 		PumpkinFoods.registerPumpkinFood(HallowedBlocks.TINY_PUMPKIN.asItem());
 		PumpkinFoods.registerPumpkinFood(HallowedBlocks.WITCHED_PUMPKIN.asItem());
-		
-		DEADWOOD_SIGN = register("deadwood_sign", new SignItem(newSettings().maxCount(16), HallowedBlocks.DEADWOOD_SIGN, HallowedBlocks.DEADWOOD_WALL_SIGN));
 	}
 	
 	protected static <T extends Item> T register(String name, T item) {
