@@ -26,7 +26,7 @@
 		"client.MinecraftClientMixin",
 		"client.FirstPersonRendererMixin",
 		"client.BackgroundRendererMixin",
-		"client.SignBlockEntityRendererMixin",
+		"client.SignBlockEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
