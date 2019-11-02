@@ -11,7 +11,7 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class ShotgunProjectileEntityRenderer extends EntityRenderer<ShotgunProjectileEntity> {
-	private static final Identifier SKIN = new Identifier(TheHallow.MOD_ID, "textures/entity/bullet.png");
+	private static final Identifier SKIN = TheHallow.id("textures/entity/bullet.png");
 
 	public ShotgunProjectileEntityRenderer(EntityRenderDispatcher entityRenderDispatcher) {
 		super(entityRenderDispatcher);
@@ -40,7 +40,7 @@ public class ShotgunProjectileEntityRenderer extends EntityRenderer<ShotgunProje
 		GlStateManager.rotatef(45.0f, 1.0f, 0.0f, 0.0f);
 		GlStateManager.scalef(f10, f10, f10);
 
-		double length = 8.0d; //Actually, this is half of length/width
+		double length = 8.0d; // Actually, this is half of length/width
 		double width = 8.0d;
 
 		for (int i = 0; i < 4; ++i) {
