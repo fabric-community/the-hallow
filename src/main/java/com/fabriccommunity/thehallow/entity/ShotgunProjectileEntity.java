@@ -1,14 +1,17 @@
 package com.fabriccommunity.thehallow.entity;
 
-
+import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
-import net.minecraft.client.network.packet.EntitySpawnS2CPacket;
+import io.netty.buffer.Unpooled;
+import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ProjectileUtil;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Packet;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -17,9 +20,11 @@ import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
 
 public class ShotgunProjectileEntity extends Entity {
+	public static final Identifier ENTITY_ID = TheHallow.id("shotgun_projectile");
+
 	public Entity owner;
 
-	public float damage = 1.0f; // Half a heart per projectile
+	public float damage = 5.0f;
 	public int lifetime = 40; // ticks to live before despawn, in this case 2 seconds til despawn
 
 	public ShotgunProjectileEntity(EntityType<? extends ShotgunProjectileEntity> entityType, World world) {
@@ -37,6 +42,7 @@ public class ShotgunProjectileEntity extends Entity {
 								   float yaw, float pitch,
 								   double velX, double velY, double velZ) {
 		super(HallowedEntities.SHOTGUN_PROJECTILE, world);
+
 		this.owner = owner;
 		setPositionAndAngles(x, y, z, yaw, pitch);
 		setVelocity(velX + random.nextGaussian() * 0.05f, velY + random.nextGaussian() * 0.05f, velZ + random.nextGaussian() * 0.05f);
@@ -69,7 +75,7 @@ public class ShotgunProjectileEntity extends Entity {
 				remove();
 			} else if (type == HitResult.Type.ENTITY) {
 				Entity hitEntity = ((EntityHitResult) hitResult).getEntity();
-				hitEntity.damage(DamageSource.GENERIC, 5.0f);
+				hitEntity.damage(DamageSource.GENERIC, damage);
 				remove();
 			}
 		}
@@ -84,6 +90,8 @@ public class ShotgunProjectileEntity extends Entity {
 		}
 
 		setPosition(x, y, z);
+
+		super.tick();
 	}
 
 	@Override
@@ -100,6 +108,23 @@ public class ShotgunProjectileEntity extends Entity {
 
 	@Override
 	public Packet<?> createSpawnPacket() {
-		return new EntitySpawnS2CPacket(this, owner.getEntityId());
+		PacketByteBuf packet = new PacketByteBuf(Unpooled.buffer());
+
+		packet.writeDouble(x);
+		packet.writeDouble(y);
+		packet.writeDouble(z);
+
+		packet.writeFloat(yaw);
+		packet.writeFloat(pitch);
+
+		Vec3d vel = getVelocity();
+		packet.writeDouble(vel.x);
+		packet.writeDouble(vel.y);
+		packet.writeDouble(vel.z);
+
+		packet.writeInt(owner.getEntityId());
+		packet.writeInt(getEntityId());
+
+		return ServerSidePacketRegistry.INSTANCE.toPacket(ENTITY_ID, packet);
 	}
 }
