@@ -39,7 +39,12 @@ public class GameRendererMixin
 					}
 				}
 			}
-			info.setReturnValue(Math.min(totalIntensity / count, info.getReturnValue()));
+			
+			final float distance = totalIntensity / count;
+			if(distance < info.getReturnValue())
+			{
+				info.setReturnValue(distance);
+			}
 		}
 	}
 }
