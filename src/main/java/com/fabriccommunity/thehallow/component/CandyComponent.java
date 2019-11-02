@@ -19,6 +19,7 @@ public interface CandyComponent extends Component {
 	class VillagerCandyComponent implements CandyComponent {
 		public Map<UUID, Long> lastGivenCandy = new HashMap<UUID, Long>();
 		
+		@Override
 		public boolean canGiveCandy(Entity entity) {
 			if (!lastGivenCandy.containsKey(entity.getUuid())) {
 				return true;
@@ -27,6 +28,7 @@ public interface CandyComponent extends Component {
 			}
 		}
 		
+		@Override
 		public void setLastCandyTime(Entity entity, long time) {
 			lastGivenCandy.put(entity.getUuid(), time);
 		}

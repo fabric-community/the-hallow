@@ -1,10 +1,6 @@
 package com.fabriccommunity.thehallow.block;
 
 import com.fabriccommunity.thehallow.entity.PumpcownEntity;
-import com.fabriccommunity.thehallow.recipe.blood.BloodRecipe;
-import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
-import com.fabriccommunity.thehallow.registry.HallowedEntities;
-import com.fabriccommunity.thehallow.entity.PumpcownEntity;
 import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import net.minecraft.block.BlockState;
@@ -21,7 +17,6 @@ import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;

@@ -24,6 +24,7 @@ public class SpiderLairFeature extends Feature<DefaultFeatureConfig> implements 
 		super(function);
 	}
 	
+	@Override
 	public boolean generate(IWorld iWorld, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig defaultFeatureConfig) {
 		if (iWorld.getBlockState(pos.down()).getBlock() == HallowedBlocks.DECEASED_GRASS_BLOCK) {
 			setSpawner(iWorld, pos, EntityType.SPIDER);

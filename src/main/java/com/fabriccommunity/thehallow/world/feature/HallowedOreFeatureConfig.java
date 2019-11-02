@@ -25,6 +25,6 @@ public class HallowedOreFeatureConfig implements FeatureConfig {
 	
 	@Override
 	public <T> Dynamic<T> serialize(DynamicOps<T> dynamicOps) {
-		return new Dynamic(dynamicOps, dynamicOps.createMap(ImmutableMap.of(dynamicOps.createString("size"), dynamicOps.createInt(this.size), dynamicOps.createString("state"), BlockState.serialize(dynamicOps, this.state).getValue())));
+		return new Dynamic<T>(dynamicOps, dynamicOps.createMap(ImmutableMap.of(dynamicOps.createString("size"), dynamicOps.createInt(this.size), dynamicOps.createString("state"), BlockState.serialize(dynamicOps, this.state).getValue())));
 	}
 }

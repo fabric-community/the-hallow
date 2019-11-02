@@ -16,6 +16,7 @@ public class CultistEntity extends HostileEntity {
 		this.setCanPickUpLoot(true);
 	}
 	
+	@Override
 	protected void initGoals() {
 		this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, false));
 		this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -23,6 +24,7 @@ public class CultistEntity extends HostileEntity {
 		this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
 	}
 	
+	@Override
 	protected void initAttributes() {
 		super.initAttributes();
 		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);

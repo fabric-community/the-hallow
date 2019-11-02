@@ -38,10 +38,12 @@ public class PumpkinPieBlock extends Block {
 		this.setDefaultState(this.stateFactory.getDefaultState().with(BITES, 4));
 	}
 	
+	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView blockView, BlockPos pos, EntityContext entityContext) {
 		return SHAPE[state.get(BITES) - 1];
 	}
 	
+	@Override
 	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
 		if (!world.isClient) {
 			return this.tryEat(world, pos, state, player);
@@ -71,30 +73,37 @@ public class PumpkinPieBlock extends Block {
 		return true;
 	}
 	
+	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState state2, IWorld iWorld, BlockPos pos, BlockPos pos2) {
 		return direction == Direction.DOWN && !state.canPlaceAt(iWorld, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, state2, iWorld, pos, pos2);
 	}
 	
+	@Override
 	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
 		return world.getBlockState(pos.down()).getMaterial().isSolid();
 	}
 	
+	@Override
 	public boolean canPlaceAtSide(BlockState state, BlockView blockView, BlockPos pos, BlockPlacementEnvironment placementEnv) {
 		return false;
 	}
 	
+	@Override
 	protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactoryBuilder) {
 		stateFactoryBuilder.add(BITES);
 	}
 	
+	@Override
 	public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
 		return (state.get(BITES) * 4) - 1;
 	}
 	
+	@Override
 	public boolean hasComparatorOutput(BlockState state) {
 		return true;
 	}
 	
+	@Override
 	public String getTranslationKey() {
 		return Items.PUMPKIN_PIE.getTranslationKey();
 	}

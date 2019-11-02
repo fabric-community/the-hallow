@@ -15,6 +15,7 @@ public class CultistEntityRenderer extends BipedEntityRenderer<CultistEntity, Cu
 		super(erd, new CultistModel(), 0.5F);
 	}
 	
+	@Override
 	protected Identifier method_3982(CultistEntity entity) {
 		return SKIN;
 	}

@@ -52,6 +52,7 @@ public class BloodFluid extends BaseFluid {
 		return HallowedItems.BLOOD_BUCKET;
 	}
 	
+	@Override
 	@Environment(EnvType.CLIENT)
 	public ParticleEffect getParticle() {
 		return ParticleTypes.DRIPPING_WATER;
