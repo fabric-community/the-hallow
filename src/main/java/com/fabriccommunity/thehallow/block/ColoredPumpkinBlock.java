@@ -45,9 +45,9 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 			}
 
 			return true;
-		} else {
-			return super.activate(blockState, world, blockPos, playerEntity, hand, blockHitResult);
 		}
+
+		return super.activate(blockState, world, blockPos, playerEntity, hand, blockHitResult);
 	}
 
 	public enum PumpkinColor {
