@@ -152,10 +152,10 @@ public class HallowedBlocks {
 	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
 	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
 
-	// Pumpkins
 	public static final Block RAINBOW_PUMPKIN = register("rainbow_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.ORANGE).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
 	public static final Block RAINBOW_CARVED_PUMPKIN = register("rainbow_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
 	public static final Block RAINBOW_JACK_O_LANTERN = register("rainbow_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.LIME).lightLevel(15).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
+
 	public static final Block RED_PUMPKIN = register("red_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.RED).build(), PumpkinColor.RED), new Item.Settings().group(TheHallow.PUMPKINS));
 	public static final Block RED_JACK_O_LANTERN = register("red_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.RED).lightLevel(15).build(), ColoredPumpkinBlock.PumpkinColor.RED), new Item.Settings().group(TheHallow.PUMPKINS));
 	public static final Block RED_CARVED_PUMPKIN = register("red_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.of(Material.PUMPKIN).materialColor(MaterialColor.RED).build(), PumpkinColor.RED), new Item.Settings().group(TheHallow.PUMPKINS));
