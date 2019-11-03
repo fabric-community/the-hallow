@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rug",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "thehallow:light_gray_cloth"
+    }
+  },
+  "result": {
+    "item": "thehallow:light_gray_rug",
+    "count": 3
+  }
+}

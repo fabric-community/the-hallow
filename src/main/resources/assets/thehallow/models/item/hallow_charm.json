@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "thehallow:item/old_bandage"
+		"layer0": "thehallow:item/hallow_charm"
 	}
 }

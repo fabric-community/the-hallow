@@ -1,0 +1,12 @@
+{
+	"type": "thehallow:blood_recipe",
+	"input": [
+		{
+			"item": "thehallow:white_cloth"
+		}
+	],
+	"result": {
+		"item": "thehallow:red_cloth",
+		"count": 1
+	}
+}

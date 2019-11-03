@@ -1,0 +1,20 @@
+{
+	"variants": {
+		"facing=east": {
+			"model": "thehallow:block/hallowed_gate",
+			"y": 90
+		},
+		"facing=south": {
+			"model": "thehallow:block/hallowed_gate",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "thehallow:block/hallowed_gate",
+			"y": 270
+		},
+		"facing=north": {
+			"model": "thehallow:block/hallowed_gate",
+			"y": 0
+		}
+	}
+}

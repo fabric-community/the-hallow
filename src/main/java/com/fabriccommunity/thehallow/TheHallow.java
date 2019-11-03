@@ -24,6 +24,7 @@ import com.fabriccommunity.thehallow.registry.HallowedNetworking;
 import com.fabriccommunity.thehallow.registry.HallowedSounds;
 import com.fabriccommunity.thehallow.registry.HallowedTags;
 import com.fabriccommunity.thehallow.registry.HallowedWorldGen;
+import com.fabriccommunity.thehallow.registry.MinecraftItems;
 import com.fabriccommunity.thehallow.world.HallowedChunkGeneratorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -60,5 +61,7 @@ public class TheHallow implements ModInitializer {
 		HallowedTags.init();
 		HallowedNetworking.init();
 		HallowedEvents.init();
+		
+		MinecraftItems.init();
 	}
 }

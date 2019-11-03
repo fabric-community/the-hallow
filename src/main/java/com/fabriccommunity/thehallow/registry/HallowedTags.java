@@ -21,6 +21,8 @@ public class HallowedTags {
 	}
 
 	public static class Blocks {
+		public static final Tag<Block> GATE_CIRCLE = registerBlock("gate_circle");
+
 		private Blocks() {
 			// NO-OP
 		}
