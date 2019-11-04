@@ -6,8 +6,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnRestriction;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
 
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.component.CandyComponent;
@@ -17,6 +20,7 @@ import com.fabriccommunity.thehallow.entity.CultistEntity;
 import com.fabriccommunity.thehallow.entity.MummyEntity;
 import com.fabriccommunity.thehallow.entity.PumpcownEntity;
 import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
+import com.fabriccommunity.thehallow.mixin.SpawnRestrictionInvoker;
 import com.fabriccommunity.thehallow.entity.HallowedTreasureChestEntity;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
@@ -41,6 +45,7 @@ public class HallowedEntities {
 	}
 	
 	public static void init() {
+		SpawnRestrictionInvoker.invokeSetRestrictions(HallowedEntities.MUMMY, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::method_20680);
 		EntityComponentCallback.event(VillagerEntity.class).register((player, components) -> components.put(CANDY, new VillagerCandyComponent()));
 	}
 	
