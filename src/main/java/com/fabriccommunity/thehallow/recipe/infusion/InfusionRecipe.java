@@ -1,5 +1,6 @@
 package com.fabriccommunity.thehallow.recipe.infusion;
 
+import com.google.gson.JsonObject;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -24,11 +25,11 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	Ingredient input;
 	ItemStack output;
 	
-	public InfusionRecipe(Identifier id, Ingredient target, Ingredient input, Ingredient output) {
+	public InfusionRecipe(Identifier id, Ingredient target, Ingredient input, ItemStack output) {
 		this.id = id;
 		this.target = target;
 		this.input = input;
-		this.output = output != null ? output.getStackArray()[0] : null;
+		this.output = output;
 	}
 	
 	public boolean isMatch(InfusionInventory infusionInventory) {
@@ -91,12 +92,7 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	
 	@Override
 	public ItemStack craft(Inventory inputInventory) {
-		if (matches(inputInventory, null)) {
-			inputInventory.clear();
-			return getOutput();
-		} else {
-			return ItemStack.EMPTY;
-		}
+		return getOutput().copy();
 	}
 	
 	@Override
@@ -116,14 +112,10 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	public Ingredient getInput() {
 		return input;
 	}
-	
-	public Ingredient getResult() {
-		return Ingredient.ofStacks(this.getOutput());
-	}
-	
+
 	@Override
 	public ItemStack getOutput() {
-		return output.copy();
+		return output;
 	}
 	
 	@Override
@@ -135,19 +127,19 @@ public class InfusionRecipe implements Recipe<Inventory> {
 	public RecipeType<?> getType() {
 		return Type.INSTANCE;
 	}
-	
+
 	public static class Type implements RecipeType<InfusionRecipe> {
 		public static final Type INSTANCE = new Type();
 		public static final Identifier ID = TheHallow.id("infusion");
-		
+
 		private Type() {
 			// NO-OP
 		}
 	}
-	
+
 	class InfusionRecipeFormat {
 		JsonArray target;
 		JsonArray input;
-		JsonArray output;
+		JsonObject output;
 	}
 }

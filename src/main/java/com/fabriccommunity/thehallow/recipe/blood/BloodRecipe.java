@@ -32,7 +32,7 @@ public class BloodRecipe implements Recipe<BasicInventory> {
 		this.recipeId = recipeId;
 	}
 
-	BloodRecipe(List<Ingredient> ingredients, ItemStack result, Identifier recipeId) {
+	public BloodRecipe(List<Ingredient> ingredients, ItemStack result, Identifier recipeId) {
 		this.ingredients = ingredients;
 		this.result = result;
 		this.recipeId = recipeId;

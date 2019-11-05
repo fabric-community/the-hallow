@@ -3,6 +3,7 @@ package com.fabriccommunity.thehallow.recipe.infusion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.registry.Registry;
@@ -43,18 +44,18 @@ public class InfusionRecipeSerializer implements RecipeSerializer<InfusionRecipe
 	@Override
 	public InfusionRecipe read(Identifier ID, JsonObject json) {
 		InfusionRecipe.InfusionRecipeFormat recipe = new Gson().fromJson(json, InfusionRecipe.InfusionRecipeFormat.class);
-		return new InfusionRecipe(ID, fromJson(recipe.target), fromJson(recipe.input), fromJson(recipe.output));
+		return new InfusionRecipe(ID, fromJson(recipe.target), fromJson(recipe.input), ShapedRecipe.getItemStack(recipe.output));
 	}
 	
 	@Override
 	public void write(PacketByteBuf buffer, InfusionRecipe recipe) {
 		recipe.getTarget().write(buffer);
 		recipe.getInput().write(buffer);
-		recipe.getResult().write(buffer);
+		buffer.writeItemStack(recipe.getOutput());
 	}
 	
 	@Override
 	public InfusionRecipe read(Identifier ID, PacketByteBuf buffer) {
-		return new InfusionRecipe(ID, Ingredient.fromPacket(buffer), Ingredient.fromPacket(buffer), Ingredient.fromPacket(buffer));
+		return new InfusionRecipe(ID, Ingredient.fromPacket(buffer), Ingredient.fromPacket(buffer), buffer.readItemStack());
 	}
 }

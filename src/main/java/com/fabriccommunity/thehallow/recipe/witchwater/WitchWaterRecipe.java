@@ -32,7 +32,7 @@ public class WitchWaterRecipe implements Recipe<BasicInventory> {
 		this.recipeId = recipeId;
 	}
 
-	WitchWaterRecipe(List<Ingredient> ingredients, ItemStack result, Identifier recipeId) {
+	public WitchWaterRecipe(List<Ingredient> ingredients, ItemStack result, Identifier recipeId) {
 		this.ingredients = ingredients;
 		this.result = result;
 		this.recipeId = recipeId;
