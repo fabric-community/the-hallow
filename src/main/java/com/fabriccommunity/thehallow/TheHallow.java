@@ -1,9 +1,11 @@
 package com.fabriccommunity.thehallow;
 
+import com.fabriccommunity.thehallow.compat.libcd.HallowTweaker;
 import com.fabriccommunity.thehallow.registry.HallowedRecipes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -62,5 +64,9 @@ public class TheHallow implements ModInitializer {
 		HallowedEvents.init();
 		
 		MinecraftItems.init();
+
+		if (FabricLoader.getInstance().isModLoaded("libcd")) {
+			HallowTweaker.init();
+		}
 	}
 }
