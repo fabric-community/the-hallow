@@ -19,7 +19,7 @@ public class FluidRecipe implements Recipe<BasicInventory> {
 	private final Type type;
 	private final FluidRecipeSerializer serializer;
 
-	FluidRecipe(List<Ingredient> ingredients, ItemStack result, Identifier recipeId, Type type, FluidRecipeSerializer serializer) {
+	public FluidRecipe(List<Ingredient> ingredients, ItemStack result, Identifier recipeId, Type type, FluidRecipeSerializer serializer) {
 		this.ingredients = ingredients;
 		this.result = result;
 		this.recipeId = recipeId;

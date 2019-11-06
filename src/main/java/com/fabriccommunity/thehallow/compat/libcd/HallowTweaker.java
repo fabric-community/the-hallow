@@ -1,8 +1,8 @@
 package com.fabriccommunity.thehallow.compat.libcd;
 
-import com.fabriccommunity.thehallow.recipe.blood.BloodRecipe;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipeSerializer;
 import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
-import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
 import io.github.cottonmc.libcd.tweaker.RecipeParser;
 import io.github.cottonmc.libcd.tweaker.RecipeTweaker;
 import io.github.cottonmc.libcd.tweaker.Tweaker;
@@ -29,7 +29,7 @@ public class HallowTweaker {
 			for (Object obj : input) {
 				ingredients.add(RecipeParser.processIngredient(obj));
 			}
-			tweaker.addRecipe(new BloodRecipe(ingredients, stack, id));
+			tweaker.addRecipe(new FluidRecipe(ingredients, stack, id, FluidRecipe.Type.BLOOD, FluidRecipeSerializer.BLOOD));
 		} catch (Exception e) {
 			tweaker.getLogger().error("Error parsing blood recipe - " + e.getMessage());
 		}
@@ -43,7 +43,7 @@ public class HallowTweaker {
 			for (Object obj : input) {
 				ingredients.add(RecipeParser.processIngredient(obj));
 			}
-			tweaker.addRecipe(new WitchWaterRecipe(ingredients, stack, id));
+			tweaker.addRecipe(new FluidRecipe(ingredients, stack, id, FluidRecipe.Type.WITCH_WATER, FluidRecipeSerializer.WITCH_WATER));
 		} catch (Exception e) {
 			tweaker.getLogger().error("Error parsing witch water recipe - " + e.getMessage());
 		}
