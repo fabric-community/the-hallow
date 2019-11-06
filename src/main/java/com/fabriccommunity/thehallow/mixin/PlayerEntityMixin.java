@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.fabriccommunity.thehallow.registry.HallowedItems;
-import com.fabriccommunity.thehallow.util.PumpkinFoods;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 
@@ -38,7 +38,7 @@ public abstract class PlayerEntityMixin {
 		
 		if (mainHandStack.getItem().equals(HallowedItems.PUMPKIN_RING) || offHandStack.getItem().equals(HallowedItems.PUMPKIN_RING)) {
 			if (item.isFood()) {
-				if (PumpkinFoods.isItemPumpkin(item)) {
+				if (item.isIn(HallowedTags.PUMPKIN_FOODS)) {
 					FoodComponent foodComponent = item.getFoodComponent();
 					int extraHunger = (int) Math.ceil(foodComponent.getHunger() * .25);
 					this.hungerManager.add(extraHunger, 1);
