@@ -3,6 +3,8 @@ package com.fabriccommunity.thehallow.item;
 import java.util.List;
 
 import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,6 +24,11 @@ public class PumpkinRing extends Item implements ITrinket {
 	}
 	
 	@Override
+	public boolean canWearInSlot(String group, String slot) {
+		return group.contains(SlotGroups.HAND) && slot.equals(Slots.RING);
+	}
+	
+	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		return ITrinket.equipTrinket(player, hand);
 	}
@@ -30,10 +37,5 @@ public class PumpkinRing extends Item implements ITrinket {
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> list, TooltipContext context) {
 		list.add(new TranslatableText("tooltip.thehallow.pumpkin_ring").formatted(Formatting.GRAY));
 		super.appendTooltip(itemStack, world, list, context);
-	}
-	
-	@Override
-	public boolean canWearInSlot(String group, String slot) {
-		return group.contains("hand") && slot.equals("ring");
 	}
 }

@@ -83,6 +83,8 @@ dependencies {
 	include "com.github.indi-code:TinyConfig:${project.tiny_config_version}"//"io.github.indicode.fabric:tinyconfig:${project.tiny_config_version}"
 	
 	modImplementation ("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") { exclude(module: "ModMenu") }
+	
+	modImplementation "io.github.cottonmc:LibCD:${project.libcd_version}"
 }
 
 processResources {
