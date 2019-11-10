@@ -4,12 +4,10 @@ import com.fabriccommunity.thehallow.compat.libcd.HallowTweaker;
 import com.fabriccommunity.thehallow.registry.HallowedRecipes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-
 import com.fabriccommunity.thehallow.registry.HallowedBiomes;
 import com.fabriccommunity.thehallow.registry.HallowedBlockEntities;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -19,7 +17,6 @@ import com.fabriccommunity.thehallow.registry.HallowedEnchantments;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import com.fabriccommunity.thehallow.registry.HallowedEvents;
 import com.fabriccommunity.thehallow.registry.HallowedFeatures;
-import com.fabriccommunity.thehallow.registry.HallowedFluidTags;
 import com.fabriccommunity.thehallow.registry.HallowedFluids;
 import com.fabriccommunity.thehallow.registry.HallowedItems;
 import com.fabriccommunity.thehallow.registry.HallowedNetworking;
@@ -37,8 +34,8 @@ public class TheHallow implements ModInitializer {
 	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(HallowedItems.REAPERS_SCYTHE));
 	public static final ItemGroup PUMPKINS = FabricItemGroupBuilder.build(id("pumpkins"), () -> new ItemStack(HallowedBlocks.WITCHED_PUMPKIN));
 
-	public static Identifier id(String key) {
-		return new Identifier(MOD_ID, key);
+	public static Identifier id(String name) {
+		return new Identifier(MOD_ID, name);
 	}
 	
 	@Override
@@ -59,7 +56,6 @@ public class TheHallow implements ModInitializer {
 		HallowedEvents.init();
 		HallowedSounds.init();
 		HallowedFluids.init();
-		HallowedFluidTags.init();
 		HallowedTags.init();
 		HallowedNetworking.init();
 		HallowedEvents.init();

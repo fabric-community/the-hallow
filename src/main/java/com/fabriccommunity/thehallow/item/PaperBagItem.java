@@ -37,7 +37,7 @@ public class PaperBagItem extends Item implements ITrinket {
 	
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> list, TooltipContext tooltipContext) {
-		String translatedTooltip = new TranslatableText("tooltip.thehallow.paper_bag").asString();
+		String translatedTooltip = new TranslatableText("text.thehallow.paper_bag").asString();
 		String[] translatedTooltipWords = translatedTooltip.split(" ");
 		
 		StringBuilder tooltipBuilder = new StringBuilder();

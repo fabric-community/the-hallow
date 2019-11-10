@@ -22,9 +22,9 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedFluidTags;
 import com.fabriccommunity.thehallow.registry.HallowedFluids;
 import com.fabriccommunity.thehallow.registry.HallowedItems;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
 
 public class BloodFluid extends BaseFluid {
 	@Override
@@ -60,7 +60,7 @@ public class BloodFluid extends BaseFluid {
 	
 	@Override
 	public boolean method_15777(FluidState fluidState, BlockView blockView, BlockPos blockPos, Fluid fluid, Direction direction) {
-		return direction == Direction.DOWN && !fluid.matches(HallowedFluidTags.BLOOD);
+		return direction == Direction.DOWN && !fluid.matches(HallowedTags.Fluids.BLOOD);
 	}
 	
 	@Override

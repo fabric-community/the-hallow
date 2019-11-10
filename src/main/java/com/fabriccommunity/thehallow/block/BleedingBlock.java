@@ -13,7 +13,7 @@ import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedFluidTags;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
 
 import java.util.Random;
 
@@ -39,7 +39,7 @@ public class BleedingBlock extends Block {
 	@Override
 	public void onRandomTick(BlockState state, World world, BlockPos pos1, Random rand) {
 		BlockPos pos2 = pos1.up();
-		if (world.getFluidState(pos1).matches(HallowedFluidTags.WITCH_WATER)) {
+		if (world.getFluidState(pos1).matches(HallowedTags.Fluids.WITCH_WATER)) {
 			world.playSound(null, pos1, SoundEvents.ENTITY_DROWNED_HURT_WATER, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.random.nextFloat() - world.random.nextFloat()) * 0.8F);
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticles(ParticleTypes.CURRENT_DOWN, (double) pos2.getX() + 0.5D, (double) pos2.getY() + 0.25D, (double) pos2.getZ() + 0.5D, 8, 0.5D, 0.25D, 0.5D, 0.0D);

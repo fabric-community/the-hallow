@@ -1,38 +1,38 @@
 {
-	"doot": {
+	"trumpet.doot": {
 		"category": "players",
 		"sounds": [
-			"thehallow:doot"
+			"thehallow:trumpet/doot"
 		],
-		"subtitle": "subtitle.thehallow.doot"
+		"subtitle": "subtitle.thehallow.trumpet.doot"
 	},
-	"megaladoot": {
+	"trumpet.megaladoot": {
 		"category": "players",
 		"sounds": [
-			"thehallow:megaladoot"
+			"thehallow:trumpet/megaladoot"
 		],
-		"subtitle": "subtitle.thehallow.megaladoot"
+		"subtitle": "subtitle.thehallow.trumpet.megaladoot"
 	},
-	"shotgun_shot": {
+	"shotgun.shot": {
 		"category": "players",
 		"sounds": [
-			"thehallow:shotgun_shot"
+			"thehallow:shotgun/shot"
 		],
-		"subtitle": "subtitle.thehallow.shotgun_shot"
+		"subtitle": "subtitle.thehallow.shotgun.shot"
 	},
-	"shotgun_no_ammo": {
+	"shotgun.no_ammo": {
 		"category": "players",
 		"sounds": [
-			"thehallow:shotgun_no_ammo"
+			"thehallow:shotgun/no_ammo"
 		],
-		"subtitle": "subtitle.thehallow.shotgun_no_ammo"
+		"subtitle": "subtitle.thehallow.shotgun.no_ammo"
 	},
-	"shotgun_shell_reload": {
+	"shotgun.shell_reload": {
 		"category": "players",
 		"sounds": [
-			"thehallow:shotgun_shell_reload"
+			"thehallow:shotgun/shell_reload"
 		],
-		"subtitle": "subtitle.thehallow.shotgun_shell_reload"
+		"subtitle": "subtitle.thehallow.shotgun.shell_reload"
 	},
 	"entity.crow.ambient": {
 		"category": "neutral",
@@ -40,6 +40,6 @@
 			"thehallow:crow/crow1",
 			"thehallow:crow/crow2"
 		],
-		"subtitle": "subtitle.crow.ambient"
+		"subtitle": "subtitle.thehallow.crow.ambient"
 	}
 }
