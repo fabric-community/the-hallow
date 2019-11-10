@@ -21,6 +21,7 @@ public class HallowedLogBlock extends LogBlock {
 		super(topColor, settings);
 	}
 	
+	@Override
 	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.isEmpty() || !(stack.getItem() instanceof MiningToolItem)) {

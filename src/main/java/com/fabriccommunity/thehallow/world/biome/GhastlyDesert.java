@@ -1,8 +1,7 @@
 package com.fabriccommunity.thehallow.world.biome;
 
-import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import com.fabriccommunity.thehallow.registry.HallowedFeatures;
-import net.minecraft.entity.EntityCategory;
+
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;

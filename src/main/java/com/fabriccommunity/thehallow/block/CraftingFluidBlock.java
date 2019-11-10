@@ -5,65 +5,59 @@ import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.fluid.BaseFluid;
-import net.minecraft.item.ItemConvertible;
+import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.Optional;
+
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
 
 public abstract class CraftingFluidBlock extends FluidBlock {
-	public final SoundEvent craftingSound;
-	public HashMap<Ingredient, ItemStack> recipes = new HashMap<Ingredient, ItemStack>();
+	public final FluidRecipe.Type recipeType;
 	
-	public CraftingFluidBlock(BaseFluid fluid, Settings settings, SoundEvent craftingSound) {
+	public CraftingFluidBlock(BaseFluid fluid, Settings settings, FluidRecipe.Type recipeType) {
 		super(fluid, settings);
-		this.craftingSound = craftingSound;
+		this.recipeType = recipeType;
 	}
 	
 	@Override
 	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		super.onEntityCollision(blockState, world, pos, entity);
-		if (pos.equals(entity.getBlockPos()) && entity instanceof ItemEntity && !((ItemEntity) entity).getStack().isEmpty()) {
-			ItemEntity itemEntity = (ItemEntity) entity;
-			ItemStack stack = itemEntity.getStack();
-			for (Map.Entry<Ingredient, ItemStack> recipe : recipes.entrySet()) {
-				if (recipe.getKey().test(stack)) {
-					ItemStack newStack = recipe.getValue().copy();
-					newStack.setCount(stack.getCount());
-					newStack.setTag(stack.getTag());
-					itemEntity.setStack(newStack);
-					world.playSound(null, pos, craftingSound, SoundCategory.BLOCKS, world.random.nextFloat() * 0.5f + 0.5f, 0.75f + world.random.nextFloat() * 0.5f);
+		if(entity instanceof ItemEntity) {
+			List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos));
+			BasicInventory inventory = new BasicInventory(entities.size());
+			
+			entities.forEach(itemEntity -> { //required for multi-input recipes
+				ItemStack stack = itemEntity.getStack();
+				inventory.add(stack);
+			});
+			
+			Optional<FluidRecipe> match = world.getRecipeManager()
+				.getFirstMatch(recipeType, inventory, world);
+
+			if (match.isPresent()) {
+				spawnCraftingResult(world, pos, match.get().craft(inventory));
+
+				for (Ingredient ingredient : match.get().getIngredients()) {
+					for (ItemEntity testEntity : entities) {
+						if (ingredient.method_8093(testEntity.getStack())) {
+							testEntity.getStack().decrement(1);
+							break;
+						}
+					}
 				}
 			}
 		}
 	}
 	
-	public void addRecipe(ItemStack output, Ingredient input) {
-		recipes.put(input, output);
-	}
-	
-	public void addRecipe(ItemConvertible output, Ingredient input) {
-		recipes.put(input, new ItemStack(output));
-	}
-	
-	public void addRecipe(ItemStack output, ItemConvertible... inputs) {
-		addRecipe(output, Ingredient.ofItems(inputs));
-	}
-	
-	public void addRecipe(ItemStack output, ItemStack... inputs) {
-		addRecipe(output, Ingredient.ofStacks(inputs));
-	}
-	
-	public void addRecipe(ItemConvertible output, ItemConvertible... inputs) {
-		addRecipe(output, Ingredient.ofItems(inputs));
-	}
-	
-	public void addRecipe(ItemConvertible output, ItemStack... inputs) {
-		addRecipe(output, Ingredient.ofStacks(inputs));
+	private void spawnCraftingResult(World world, BlockPos pos, ItemStack result) {
+		ItemEntity itemEntity = new ItemEntity(world, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, result);
+		world.spawnEntity(itemEntity);
+		// todo: add particles and/or an animation when dropping the recipe result
 	}
 }

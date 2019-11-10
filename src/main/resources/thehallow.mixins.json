@@ -18,14 +18,14 @@
 		"PlayerEntityMixin",
 		"BlockEntityTypeMixin",
 		"EndermanEntityMixin",
-		"SpawnRestrictionMixin"
+		"SpawnRestrictionInvoker"
 	],
 	"client": [
 		"client.ItemDynamicRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
 		"client.FirstPersonRendererMixin",
-		"client.BackgroundRendererMixin",
+		"client.GameRendererMixin",
 		"client.SignBlockEntityRendererMixin"
 	],
 	"injectors": {

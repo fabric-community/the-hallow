@@ -66,14 +66,17 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 		return SHAPES.get(state.get(FACING));
 	}
 
+	@Override
 	public boolean isFertilizable(BlockView blockView, BlockPos blockPos, BlockState state, boolean bool) {
 		return state.get(AGE) == 0;
 	}
 
+	@Override
 	public boolean canGrow(World world, Random random, BlockPos blockPos, BlockState state) {
 		return state.get(AGE) == 0;
 	}
 
+	@Override
 	public void grow(World world, Random random, BlockPos pos, BlockState state) {
 		if (state.get(AGE) == 0 && (isPlacedOnSoil(world, pos))) {
 			world.setBlockState(pos, state.with(AGE, 1));

@@ -11,10 +11,12 @@ public class MummyEntity extends ZombieEntity {
 		super(type, world);
 	}
 	
+	@Override
 	protected boolean burnsInDaylight() {
 		return false;
 	}
 	
+	@Override
 	protected void initAttributes() {
 		super.initAttributes();
 		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
@@ -22,10 +24,12 @@ public class MummyEntity extends ZombieEntity {
 		this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.5D);
 	}
 	
+	@Override
 	protected boolean canConvertInWater() {
 		return false;
 	}
 	
+	@Override
 	protected ItemStack getSkull() {
 		return ItemStack.EMPTY;
 	}

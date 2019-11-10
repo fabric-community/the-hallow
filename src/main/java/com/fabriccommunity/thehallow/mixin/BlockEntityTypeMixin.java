@@ -13,8 +13,8 @@ import com.fabriccommunity.thehallow.block.HallowedSign;
 @Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin {
 	@Inject(method = "supports(Lnet/minecraft/block/Block;)Z", at = @At("HEAD"), cancellable = true)
-	private void supports(Block block, CallbackInfoReturnable info) {
-		if (BlockEntityType.SIGN.equals(this) && block instanceof HallowedSign) {
+	private void supports(Block block, CallbackInfoReturnable<Boolean> info) {
+		if (BlockEntityType.SIGN.equals((Object) this) && block instanceof HallowedSign) {
 			info.setReturnValue(true);
 		}
 	}

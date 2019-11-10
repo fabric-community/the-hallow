@@ -1,8 +1,7 @@
 package com.fabriccommunity.thehallow.world.biome;
 
-import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
-import net.minecraft.entity.EntityCategory;
+
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;

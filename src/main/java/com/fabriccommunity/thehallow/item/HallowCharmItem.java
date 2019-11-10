@@ -1,6 +1,5 @@
 package com.fabriccommunity.thehallow.item;
 
-import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.block.HallowedGateBlock;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedDimensions;
@@ -9,12 +8,10 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import dev.emi.trinkets.api.ITrinket;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
-import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
@@ -26,7 +23,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.MessageType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.TranslatableText;
@@ -35,9 +31,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 

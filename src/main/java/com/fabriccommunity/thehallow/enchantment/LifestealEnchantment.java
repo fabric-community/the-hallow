@@ -33,6 +33,7 @@ public class LifestealEnchantment extends Enchantment {
 		}
 	}
 	
+	@Override
 	public int getMaximumLevel() {
 		return 3;
 	}

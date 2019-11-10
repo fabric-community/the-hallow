@@ -34,6 +34,7 @@ public class BeheadingEnchantment extends Enchantment {
 		}
 	}
 	
+	@Override
 	public int getMaximumLevel() {
 		return 5;
 	}

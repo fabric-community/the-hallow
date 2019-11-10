@@ -1,17 +1,11 @@
 package com.fabriccommunity.thehallow.block;
 
 import com.fabriccommunity.thehallow.entity.PumpcownEntity;
-import com.fabriccommunity.thehallow.recipe.blood.BloodRecipe;
-import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
-import com.fabriccommunity.thehallow.registry.HallowedEntities;
-import com.fabriccommunity.thehallow.entity.PumpcownEntity;
-import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FluidBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -19,21 +13,13 @@ import net.minecraft.entity.mob.CaveSpiderEntity;
 import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.fluid.BaseFluid;
-import net.minecraft.inventory.BasicInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Optional;
-
-public class WitchWaterBlock extends FluidBlock {
+public class WitchWaterBlock extends CraftingFluidBlock {
 	public WitchWaterBlock(BaseFluid fluid, Settings settings) {
-		super(fluid, settings);
+		super(fluid, settings, FluidRecipe.Type.WITCH_WATER);
 	}
 
 	@Override
@@ -46,33 +32,6 @@ public class WitchWaterBlock extends FluidBlock {
 					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100));
 					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100));
 				}
-			}
-
-			if(entity instanceof ItemEntity) {
-				List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos));
-				BasicInventory inventory = new BasicInventory(entities.size());
-
-				entities.forEach(itemEntity -> {
-					ItemStack stack = itemEntity.getStack();
-					inventory.add(stack);
-				});
-
-				Optional<WitchWaterRecipe> match = world.getRecipeManager()
-					.getFirstMatch(WitchWaterRecipe.Type.INSTANCE, inventory, world);
-
-				if (match.isPresent()) {
-					spawnCraftingResult(world, pos, match.get().getOutput());
-
-					for (Ingredient ingredient : match.get().getIngredients()) {
-						for (ItemEntity testEntity : entities) {
-							if (ingredient.method_8093(testEntity.getStack())) {
-								testEntity.getStack().decrement(1);
-								break;
-							}
-						}
-					}
-				}
-			} else {
 				if (pos.equals(entity.getBlockPos())) {
 					if (entity.getType() == EntityType.SKELETON) {
 						WitherSkeletonEntity witherSkeletonEntity = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, world);
@@ -104,11 +63,5 @@ public class WitchWaterBlock extends FluidBlock {
 		}
 
 		super.onEntityCollision(blockState, world, pos, entity);
-	}
-
-	private void spawnCraftingResult(World world, BlockPos pos, ItemStack result) {
-		ItemEntity itemEntity = new ItemEntity(world, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, result);
-		world.spawnEntity(itemEntity);
-		// todo: add particles and/or an animation when dropping the recipe result
 	}
 }

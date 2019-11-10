@@ -1,17 +1,9 @@
 package com.fabriccommunity.thehallow.exception;
 
 public class InvalidJsonException extends RuntimeException {
-	private final String message;
-
+	private static final long serialVersionUID = -7857427222095572275L;
+	
 	public InvalidJsonException(String message) {
-		super();
-		this.message = message;
-	}
-
-	@Override
-	public String getLocalizedMessage() {
-		return message;
+		super(message);
 	}
 }
-
-
