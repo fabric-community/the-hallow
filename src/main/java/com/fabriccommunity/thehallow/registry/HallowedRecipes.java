@@ -1,11 +1,9 @@
 package com.fabriccommunity.thehallow.registry;
 
-import com.fabriccommunity.thehallow.recipe.blood.BloodRecipe;
-import com.fabriccommunity.thehallow.recipe.blood.BloodRecipeSerializer;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipeSerializer;
 import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
 import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipeSerializer;
-import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipe;
-import com.fabriccommunity.thehallow.recipe.witchwater.WitchWaterRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
@@ -22,28 +20,28 @@ public class HallowedRecipes {
 		InfusionRecipe.Type.ID,
 		InfusionRecipe.Type.INSTANCE);
 
-	public static final RecipeSerializer<BloodRecipe> BLOOD_RECIPE_SERIALIZER = Registry.register(
+	public static final RecipeSerializer<FluidRecipe> BLOOD_RECIPE_SERIALIZER = Registry.register(
 		Registry.RECIPE_SERIALIZER,
-		BloodRecipeSerializer.ID,
-		BloodRecipeSerializer.INSTANCE
+		FluidRecipeSerializer.BLOOD.id,
+		FluidRecipeSerializer.BLOOD
 	);
 
-	public static final RecipeType<BloodRecipe> BLOOD_RECIPE = Registry.register(
+	public static final RecipeType<FluidRecipe> BLOOD_RECIPE = Registry.register(
 		Registry.RECIPE_TYPE,
-		BloodRecipe.Type.ID,
-		BloodRecipe.Type.INSTANCE
+		FluidRecipeSerializer.BLOOD.id,
+		FluidRecipe.Type.BLOOD
 	);
 
-	public static final RecipeSerializer<WitchWaterRecipe> WITCH_WATER_RECIPE_SERIALIZER = Registry.register(
+	public static final RecipeSerializer<FluidRecipe> WITCH_WATER_RECIPE_SERIALIZER = Registry.register(
 		Registry.RECIPE_SERIALIZER,
-		WitchWaterRecipeSerializer.ID,
-		WitchWaterRecipeSerializer.INSTANCE
+		FluidRecipeSerializer.WITCH_WATER.id,
+		FluidRecipeSerializer.WITCH_WATER
 	);
 
-	public static final RecipeType<WitchWaterRecipe> WITCH_WATER_RECIPE = Registry.register(
+	public static final RecipeType<FluidRecipe> WITCH_WATER_RECIPE = Registry.register(
 		Registry.RECIPE_TYPE,
-		WitchWaterRecipe.Type.ID,
-		WitchWaterRecipe.Type.INSTANCE
+		FluidRecipeSerializer.WITCH_WATER.id,
+		FluidRecipe.Type.WITCH_WATER
 	);
 
 	public static void init() {
