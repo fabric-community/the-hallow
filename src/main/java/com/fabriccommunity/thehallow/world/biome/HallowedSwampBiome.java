@@ -25,7 +25,7 @@ public class HallowedSwampBiome extends HallowedBaseBiome {
 		HallowedBiomeFeatures.addGrass(this);
 		HallowedBiomeFeatures.addGloomshrooms(this);
 		HallowedBiomeFeatures.addLakes(this);
-		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowedFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowedFeatures.COLORED_PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 		HallowedBiomeFeatures.addHallowedSwampTrees(this);
 		HallowedBiomeFeatures.addLairs(this);
 	}

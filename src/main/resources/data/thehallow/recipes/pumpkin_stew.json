@@ -5,7 +5,7 @@
 			"item": "minecraft:bowl"
 		},
 		{
-			"item": "minecraft:pumpkin"
+			"tag": "thehallow:pumpkins"
 		},
 		{
 			"item": "minecraft:carrot"

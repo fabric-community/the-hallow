@@ -29,7 +29,7 @@ public class HallowedGateBlock extends Block {
 			for (int z = -1; z < 2; z++) {
 				if (x == 0 && z == 0) continue;
 				BlockState newState = world.getBlockState(pos.add(x, 0, z));
-				if (!HallowedTags.GATE_CIRCLE.contains(newState.getBlock())) return false;
+				if (!HallowedTags.Blocks.GATE_CIRCLE.contains(newState.getBlock())) return false;
 			}
 		}
 		return true;

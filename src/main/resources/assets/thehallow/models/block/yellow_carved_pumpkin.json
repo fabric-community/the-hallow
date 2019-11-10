@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "thehallow:block/yellow_pumpkin_top",
+        "front": "thehallow:block/yellow_carved_pumpkin",
+        "side": "thehallow:block/yellow_pumpkin_side"
+    }
+}
