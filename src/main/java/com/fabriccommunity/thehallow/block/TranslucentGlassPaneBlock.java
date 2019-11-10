@@ -8,6 +8,7 @@ public class TranslucentGlassPaneBlock extends PaneBlock {
 		super(settings);
 	}
 	
+	@Override
 	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}

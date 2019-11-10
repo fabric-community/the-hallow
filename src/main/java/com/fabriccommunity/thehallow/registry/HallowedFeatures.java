@@ -57,7 +57,7 @@ public class HallowedFeatures {
 		return Registry.register(Registry.FEATURE, TheHallow.id(name), feature);
 	}
 	
-	private static <C extends SurfaceConfig, F extends SurfaceBuilder<C>> F register(String name, F surfaceBuilder) {
+	public static <C extends SurfaceConfig, F extends SurfaceBuilder<C>> F register(String name, F surfaceBuilder) {
 		return Registry.register(Registry.SURFACE_BUILDER, TheHallow.id(name), surfaceBuilder);
 	}
 }

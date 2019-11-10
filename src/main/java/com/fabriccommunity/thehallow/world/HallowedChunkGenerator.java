@@ -38,6 +38,7 @@ public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkG
 		this.noiseSampler = new OctavePerlinNoiseSampler(this.random, 16);
 	}
 	
+	@Override
 	public void populateEntities(ChunkRegion region) {
 		int centreX = region.getCenterChunkX();
 		int centreZ = region.getCenterChunkZ();
@@ -47,10 +48,12 @@ public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkG
 		SpawnHelper.populateEntities(region, biome, centreX, centreZ, rand);
 	}
 	
+	@Override
 	protected void sampleNoiseColumn(double[] array, int x, int z) {
 		this.sampleNoiseColumn(array, x, z, 684.4119873046875D, 684.4119873046875D, 8.555149841308594D, 4.277574920654297D, 3, -10);
 	}
 	
+	@Override
 	protected double computeNoiseFalloff(double depth, double scale, int y) {
 		double result = ((double) y - (8.5D + depth * 8.5D / 8.0D * 4.0D)) * 12.0D * 128.0D / 256.0D / scale;
 		if (result < 0.0D) {
@@ -60,6 +63,7 @@ public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkG
 		return result;
 	}
 	
+	@Override
 	protected double[] computeNoiseRange(int x, int z) {
 		double[] values = new double[2];
 		float scaleResult = 0.0F;
@@ -113,20 +117,24 @@ public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkG
 		return result;
 	}
 	
+	@Override
 	public List<Biome.SpawnEntry> getEntitySpawnList(EntityCategory category, BlockPos pos) {
 		// Custom feature spawn stuff goes here
 		
 		return super.getEntitySpawnList(category, pos);
 	}
 	
+	@Override
 	public void spawnEntities(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals) {
 	
 	}
 	
+	@Override
 	public int getSpawnHeight() {
 		return this.world.getSeaLevel() + 1;
 	}
 	
+	@Override
 	public int getSeaLevel() {
 		return 63;
 	}

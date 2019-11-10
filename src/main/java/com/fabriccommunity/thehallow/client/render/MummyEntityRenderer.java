@@ -15,12 +15,14 @@ public class MummyEntityRenderer extends ZombieEntityRenderer {
 		super(erd);
 	}
 	
+	@Override
 	protected void scale(ZombieEntity entity, float f1) {
 		float f2 = 1.2F;
 		GlStateManager.scalef(f2, f2, f2);
 		super.scale(entity, f1);
 	}
 	
+	@Override
 	protected Identifier method_4163(ZombieEntity entity) {
 		return SKIN;
 	}

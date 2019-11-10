@@ -55,33 +55,33 @@ public class HallowedWorldGen {
 		addBiomeGroups(HALLOW, HALLOW, SEA_ISLANDS, UPLANDS);
 	}
 	
-	private static void addBiomeGroups(HallowedBiomeGroup... biomeGroups) {
+	public static void addBiomeGroups(HallowedBiomeGroup... biomeGroups) {
 		for (HallowedBiomeGroup group : biomeGroups) {
 			HallowedBiomeGroup.addBiomeGroup(group);
 		}
 	}
 	
-	private static void addLargeSubBiome(Biome parent, Biome subBiome, double chance) {
+	public static void addLargeSubBiome(Biome parent, Biome subBiome, double chance) {
 		AddSubBiomesLayer.LARGE.addSubBiome(parent, subBiome, chance);
 	}
 	
-	private static void addSmallSubBiome(Biome parent, Biome subBiome, double chance) {
+	public static void addSmallSubBiome(Biome parent, Biome subBiome, double chance) {
 		AddSubBiomesLayer.SMALL.addSubBiome(parent, subBiome, chance);
 	}
 	
-	private static void addHillsSubBiome(Biome parent, Biome hillsBiome) {
+	public static void addHillsSubBiome(Biome parent, Biome hillsBiome) {
 		AddSubBiomesLayer.HILLS.addSubBiome(parent, hillsBiome, 0.3f);
 	}
 	
-	private static void setRiverBiome(Biome parent, Biome river) {
+	public static void setRiverBiome(Biome parent, Biome river) {
 		OverworldBiomes.setRiverBiome(parent, river);
 	}
 	
-	private static void setEdgeBiome(Biome parent, Biome edge) {
+	public static void setEdgeBiome(Biome parent, Biome edge) {
 		AddHallowedEdgeLayer.INSTANCE.setEdgeBiome(parent, edge);
 	}
 	
-	private static void setShoreBiome(Biome parent, Biome shore) {
+	public static void setShoreBiome(Biome parent, Biome shore) {
 		AddHallowedShoreLayer.DEFAULT.setEdgeBiome(parent, shore);
 	}
 }
