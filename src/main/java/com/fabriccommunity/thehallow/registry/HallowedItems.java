@@ -5,7 +5,6 @@ import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.item.tool.ClubItem;
 import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
 import com.fabriccommunity.thehallow.item.tool.ScytheItem;
-import com.fabriccommunity.thehallow.util.PumpkinFoods;
 
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
@@ -44,6 +43,8 @@ public class HallowedItems {
 	public static final Item SOUL_BOTTLE = register("soul_bottle", new Item(newSettings()));
 	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(newSettings().maxCount(1)));
 	public static final Item TRUMPET = register("trumpet", new TrumpetItem(newSettings()));
+	public static final Item SHOTGUN = register("shotgun", new ShotgunItem(newSettings().maxCount(1).maxDamage(9)));
+	public static final Item SHOTGUN_SHELL = register("shotgun_shell", new ShotgunShellItem(newSettings()));
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(HallowedEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, newSettings()));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(HallowedEntities.CROW, 0x161616, 0x454545, newSettings()));
 	public static final Item MUMMY_SPAWN_EGG = register("mummy_spawn_egg", new SpawnEggItem(HallowedEntities.MUMMY, 0xCBBBAD, 0x463C34, newSettings()));
@@ -74,13 +75,6 @@ public class HallowedItems {
 		TrinketSlots.addSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
 		TrinketSlots.addSlot(SlotGroups.HEAD, Slots.MASK, new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
 		TrinketSlots.addSlot(SlotGroups.HEAD, Slots.NECKLACE, new Identifier("trinkets", "textures/item/empty_trinket_slot_necklace.png"));
-		
-		PumpkinFoods.registerPumpkinFood(Items.PUMPKIN_PIE);
-		PumpkinFoods.registerPumpkinFood(HallowedItems.BAKED_PUMPKIN_SEEDS);
-		PumpkinFoods.registerPumpkinFood(HallowedItems.PUMPKIN_STEW);
-		PumpkinFoods.registerPumpkinFood(HallowedItems.PUMPKIN_CANDY);
-		PumpkinFoods.registerPumpkinFood(HallowedBlocks.TINY_PUMPKIN.asItem());
-		PumpkinFoods.registerPumpkinFood(HallowedBlocks.WITCHED_PUMPKIN.asItem());
 		
 		DEADWOOD_SIGN = register("deadwood_sign", new SignItem(newSettings().maxCount(16), HallowedBlocks.DEADWOOD_SIGN, HallowedBlocks.DEADWOOD_WALL_SIGN));
 	}

@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:pumpkin_pie",
+		"thehallow:baked_pumpkin_seeds",
+		"thehallow:pumpkin_stew",
+		"thehallow:pumpkin_candy",
+		"thehallow:tiny_pumpkin",
+		"thehallow:witched_pumpkin"
+	]
+}

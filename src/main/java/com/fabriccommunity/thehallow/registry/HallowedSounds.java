@@ -8,6 +8,9 @@ import com.fabriccommunity.thehallow.TheHallow;
 public class HallowedSounds {
 	public static final SoundEvent DOOT = register("doot");
 	public static final SoundEvent MEGALADOOT = register("megaladoot");
+	public static final SoundEvent SHOTGUN_SHOT = register("shotgun_shot");
+	public static final SoundEvent SHOTGUN_NO_AMMO = register("shotgun_no_ammo");
+	public static final SoundEvent SHOTGUN_SHELL_RELOAD = register("shotgun_shell_reload");
 	public static final SoundEvent CROW_AMBIENT = register("entity.crow.ambient");
 	
 	private HallowedSounds() {
