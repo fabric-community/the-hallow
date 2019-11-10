@@ -10,8 +10,8 @@
             "item": "thehallow:deceased_grass_block"
         },
         "frame": "task",
-        "show_toast": true,
-        "announce_to_chat": true,
+        "show_toast": false,
+        "announce_to_chat": false,
         "hidden": false,
         "background": "thehallow:textures/block/tainted_stone.png"
     },
