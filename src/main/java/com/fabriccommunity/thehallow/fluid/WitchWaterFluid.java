@@ -23,9 +23,9 @@ import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedFluidTags;
 import com.fabriccommunity.thehallow.registry.HallowedFluids;
 import com.fabriccommunity.thehallow.registry.HallowedItems;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
 
 import java.util.Random;
 
@@ -63,7 +63,7 @@ public class WitchWaterFluid extends BaseFluid {
 	
 	@Override
 	public boolean method_15777(FluidState fluidState, BlockView blockView, BlockPos blockPos, Fluid fluid, Direction direction) {
-		return direction == Direction.DOWN && !fluid.matches(HallowedFluidTags.WITCH_WATER);
+		return direction == Direction.DOWN && !fluid.matches(HallowedTags.Fluids.WITCH_WATER);
 	}
 	
 	@Override

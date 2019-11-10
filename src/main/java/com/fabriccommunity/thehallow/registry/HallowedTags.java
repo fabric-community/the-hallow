@@ -11,35 +11,61 @@ import net.minecraft.tag.Tag;
 import com.fabriccommunity.thehallow.TheHallow;
 
 public class HallowedTags {
-	public static final Tag<Item> COSTUMES = item("costumes");
-	public static final Tag<Block> GATE_CIRCLE = block("gate_circle");
-	public static final Tag<Item> PUMPKIN_FOODS = item("pumpkin_foods");
-  public static final Tag<Block> PUMPKINS = block("pumpkins");
-	public static final Tag<Block> CARVED_PUMPKINS = block("carved_pumpkins");
-	public static final Tag<Block> JACK_O_LANTERNS = block("jack_o_lanterns");
-  public static final Tag<Item> COMMON_PUMPKINS = item("common_pumpkins");
+	public static class Fluids {
+		public static final Tag<Fluid> WITCH_WATER = register("witch_water");
+		public static final Tag<Fluid> BLOOD = register("blood");
+		
+		public static Tag<Fluid> register(String name) {
+			return TagRegistry.fluid(TheHallow.id(name));
+		}
+		
+		protected static void init() {
+			// NO-OP
+		}
+	}
+	
+	public static class Items {
+		public static final Tag<Item> COSTUMES = register("costumes");
+		public static final Tag<Item> FEATHERS = register("feathers");
+		public static final Tag<Item> COBBLESTONE = register("cobblestone");
+		public static final Tag<Item> PUMPKIN_FOODS = register("pumpkin_foods");
+		public static final Tag<Item> COMMON_PUMPKINS = register("common_pumpkins");
+		public static final Tag<Item> PUMPKINS = register("pumpkins");
+		public static final Tag<Item> CARVED_PUMPKINS = register("carved_pumpkins");
+		public static final Tag<Item> JACK_O_LANTERNS = register("jack_o_lanterns");
+		
+		public static Tag<Item> register(String name) {
+			return TagRegistry.item(TheHallow.id(name));
+		}
+		
+		protected static void init() {
+			// NO-OP
+		}
+	}
+	
+	public static class Blocks {
+		public static final Tag<Block> COBBLESTONE = register("cobblestone");
+		public static final Tag<Block> GATE_CIRCLE = register("gate_circle");
+		public static final Tag<Block> PUMPKINS = register("pumpkins");
+		public static final Tag<Block> CARVED_PUMPKINS = register("carved_pumpkins");
+		public static final Tag<Block> JACK_O_LANTERNS = register("jack_o_lanterns");
+		
+		public static Tag<Block> register(String name) {
+			return TagRegistry.block(TheHallow.id(name));
+		}
+		
+		protected static void init() {
+			// NO-OP
+		}
+	}
 	
 	private HallowedTags() {
 		// NO-OP
 	}
 	
 	public static void init() {
-		// NO-OP
-	}
-	
-	public static Tag<Block> block(String name) {
-		return TagRegistry.block(TheHallow.id(name));
-	}
-	
-	public static Tag<Item> item(String name) {
-		return TagRegistry.item(TheHallow.id(name));
-	}
-	
-	public static Tag<Fluid> fluid(String name) {
-		return TagRegistry.fluid(TheHallow.id(name));
-	}
-	
-	public static Tag<EntityType<?>> entityType(String name) {
-		return TagRegistry.entityType(TheHallow.id(name));
+		Fluids.init();
+		Items.init();
+		Blocks.init();
 	}
 }

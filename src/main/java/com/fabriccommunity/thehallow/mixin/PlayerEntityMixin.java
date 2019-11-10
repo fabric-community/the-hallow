@@ -38,7 +38,7 @@ public abstract class PlayerEntityMixin {
 		
 		if (mainHandStack.getItem().equals(HallowedItems.PUMPKIN_RING) || offHandStack.getItem().equals(HallowedItems.PUMPKIN_RING)) {
 			if (item.isFood()) {
-				if (item.isIn(HallowedTags.PUMPKIN_FOODS)) {
+				if (item.isIn(HallowedTags.Items.PUMPKIN_FOODS)) {
 					FoodComponent foodComponent = item.getFoodComponent();
 					int extraHunger = (int) Math.ceil(foodComponent.getHunger() * .25);
 					this.hungerManager.add(extraHunger, 1);

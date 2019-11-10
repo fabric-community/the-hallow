@@ -80,8 +80,8 @@
 	"text.thehallow.loading.costumes": "Haciendo disfrazes...",
 	"text.thehallow.loading.witch_water": "Mezclando witch water...",
 	"text.thehallow.loading.pumpcowns": "Acariciando pumpcowns...",
-	"tooltip.thehallow.pumpkin_ring": "Esta tarta de calabaza te aparace deliciosisima...",
-	"subtitle.thehallow.doot": "La trompeta suena espeluznante",
-	"subtitle.thehallow.megaladoot": "DIOS MÍO",
-	"subtitle.crow.ambient": "Un cuervo grazna"
+	"text.thehallow.pumpkin_ring": "Esta tarta de calabaza te aparace deliciosisima...",
+	"subtitle.thehallow.trumpet.doot": "La trompeta suena espeluznante",
+	"subtitle.thehallow.trumpet.megaladoot": "DIOS MÍO",
+	"subtitle.thehallow.crow.ambient": "Un cuervo grazna"
 }

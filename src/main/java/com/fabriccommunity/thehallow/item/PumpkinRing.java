@@ -35,7 +35,7 @@ public class PumpkinRing extends Item implements ITrinket {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> list, TooltipContext context) {
-		list.add(new TranslatableText("tooltip.thehallow.pumpkin_ring").formatted(Formatting.GRAY));
+		list.add(new TranslatableText("text.thehallow.pumpkin_ring").formatted(Formatting.GRAY));
 		super.appendTooltip(itemStack, world, list, context);
 	}
 }
