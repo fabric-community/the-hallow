@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:jack_o_lantern",
+		"thehallow:red_jack_o_lantern",
+		"thehallow:blue_jack_o_lantern",
+		"thehallow:yellow_jack_o_lantern",
+		"thehallow:tan_jack_o_lantern",
+		"thehallow:white_jack_o_lantern",
+		"thehallow:witched_jack_o_lantern",
+		"thehallow:rainbow_jack_o_lantern"
+	]
+}

@@ -26,7 +26,7 @@ public class PumpkinPatchBiome extends HallowedBaseBiome {
 		
 		HallowedBiomeFeatures.addGrass(this);
 		HallowedBiomeFeatures.addLakes(this);
-		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowedFeatures.PUMPKIN, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(10)));
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowedFeatures.COLORED_PUMPKIN, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(10)));
 		HallowedBiomeFeatures.addDefaultHallowedTrees(this);
 		
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(HallowedEntities.PUMPCOWN, 8, 4, 8));

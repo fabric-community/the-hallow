@@ -1,5 +1,7 @@
 package com.fabriccommunity.thehallow.registry;
 
+import com.fabriccommunity.thehallow.world.feature.ColoredPumpkinFeature;
+import com.fabriccommunity.thehallow.world.feature.RandomizedWildCropFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -32,7 +34,7 @@ public class HallowedFeatures {
 	public static final TernarySurfaceConfig HALLOWED_MARSH = new TernarySurfaceConfig(HallowedBlocks.DECEASED_MOSS.getDefaultState(), HallowedBlocks.DECEASED_DIRT.getDefaultState(), HallowedBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final TernarySurfaceConfig GHASTLY_DESERT = new TernarySurfaceConfig(HallowedBlocks.TAINTED_SAND.getDefaultState(), HallowedBlocks.TAINTED_SAND.getDefaultState(), HallowedBlocks.TAINTED_GRAVEL.getDefaultState());
 	public static final Feature<HallowedOreFeatureConfig> ORE = register("ore", new HallowedOreFeature(HallowedOreFeatureConfig::deserialize));
-	public static final Feature<DefaultFeatureConfig> PUMPKIN = register("pumpkin", new DeceasedWildCropFeature(DefaultFeatureConfig::deserialize, Blocks.PUMPKIN.getDefaultState()));
+	public static final Feature<DefaultFeatureConfig> COLORED_PUMPKIN = register("colored_pumpkin", new RandomizedWildCropFeature(DefaultFeatureConfig::deserialize, ColoredPumpkinFeature.COLORED_PUMPKINS));
 	public static final Feature<DefaultFeatureConfig> RESTLESS_CACTUS = register("restless_cactus", new HallowedCactusFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> DEADER_BUSH = register("deader_bush", new DeaderBushFeature(DefaultFeatureConfig::deserialize, HallowedBlocks.DEADER_BUSH.getDefaultState()));
 	public static final Feature<DefaultFeatureConfig> BRAMBLES = register("brambles", new DeaderBushFeature(DefaultFeatureConfig::deserialize, HallowedBlocks.BRAMBLES.getDefaultState()));

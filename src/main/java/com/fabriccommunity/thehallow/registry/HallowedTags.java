@@ -14,6 +14,10 @@ public class HallowedTags {
 	public static final Tag<Item> COSTUMES = item("costumes");
 	public static final Tag<Block> GATE_CIRCLE = block("gate_circle");
 	public static final Tag<Item> PUMPKIN_FOODS = item("pumpkin_foods");
+  public static final Tag<Block> PUMPKINS = block("pumpkins");
+	public static final Tag<Block> CARVED_PUMPKINS = block("carved_pumpkins");
+	public static final Tag<Block> JACK_O_LANTERNS = block("jack_o_lanterns");
+  public static final Tag<Item> COMMON_PUMPKINS = item("common_pumpkins");
 	
 	private HallowedTags() {
 		// NO-OP

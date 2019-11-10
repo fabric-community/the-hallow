@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:pumpkin",
+		"thehallow:red_pumpkin",
+		"thehallow:blue_pumpkin",
+		"thehallow:yellow_pumpkin",
+		"thehallow:tan_pumpkin",
+		"thehallow:white_pumpkin"
+	]
+}

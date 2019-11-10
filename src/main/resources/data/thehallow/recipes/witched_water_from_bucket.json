@@ -1,0 +1,11 @@
+{
+	"type": "thehallow:witch_water_recipe",
+	"input": [
+		{
+			"item": "minecraft:water_bucket"
+		}
+	],
+	"result": {
+		"item": "thehallow:witch_water_bucket"
+	}
+}
