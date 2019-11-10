@@ -36,6 +36,7 @@ public class SmallSkeletalTreeFeature extends AbstractTreeFeature<DefaultFeature
 		});
 	}
 	
+	@Override
 	public boolean generate(Set<BlockPos> set, ModifiableTestableWorld world, Random random, BlockPos pos, MutableIntBoundingBox mibb) {
 		if (!isPlantableOn(world, pos.down())) {
 			return false;

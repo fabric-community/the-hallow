@@ -21,6 +21,7 @@ public class DeaderBushFeature extends Feature<DefaultFeatureConfig> {
 		this.state = state;
 	}
 	
+	@Override
 	public boolean generate(IWorld world, ChunkGenerator<? extends ChunkGeneratorConfig> generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 		for (BlockState state1 = world.getBlockState(pos); (state1.isAir() || state1.matches(BlockTags.LEAVES)) && pos.getY() > 0; state1 = world.getBlockState(pos)) {
 			pos = pos.down();

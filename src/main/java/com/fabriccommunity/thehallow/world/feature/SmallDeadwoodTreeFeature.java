@@ -41,6 +41,7 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 		});
 	}
 	
+	@Override
 	public boolean generate(Set<BlockPos> posSet, ModifiableTestableWorld world, Random random, BlockPos pos, MutableIntBoundingBox bb) {
 		int height = random.nextInt(4) + 5;
 		pos = world.getTopPosition(Heightmap.Type.OCEAN_FLOOR, pos);
