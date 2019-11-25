@@ -3,9 +3,10 @@ package com.fabriccommunity.thehallow.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
@@ -15,9 +16,9 @@ public class TaintedSandBlock extends FallingBlock {
 	}
 	
 	@Override
-	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random rand) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
 		WitchWaterBubbleColumnBlock.update(world, pos.up(), false);
-		super.onScheduledTick(state, world, pos, rand);
+		super.scheduledTick(state, world, pos, rand);
 	}
 	
 	@Override
@@ -26,7 +27,7 @@ public class TaintedSandBlock extends FallingBlock {
 	}
 	
 	@Override
-	public int getTickRate(ViewableWorld viewableworld) {
+	public int getTickRate(WorldView viewableworld) {
 		return 2;
 	}
 	

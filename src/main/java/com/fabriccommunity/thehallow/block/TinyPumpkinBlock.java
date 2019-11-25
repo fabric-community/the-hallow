@@ -2,7 +2,6 @@ package com.fabriccommunity.thehallow.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.Waterloggable;
@@ -13,8 +12,9 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
@@ -68,13 +68,14 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		return Y_SHAPE;
 	}
 	
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
+	//@Override
+	//public BlockRenderLayer getRenderLayer() {
+	//	return BlockRenderLayer.CUTOUT;
+	//}
+	//FIXME TinyPumpkinBlock render layer: CUTOUT
 	
 	@Override
-	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(HorizontalFacingBlock.FACING);
 		
 		if (HallowedConfig.TinyPumpkin.waterloggable) {
@@ -111,12 +112,12 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 	}
 	
 	@Override
-	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		BlockEntity be = world.getBlockEntity(pos);
 		if (be instanceof TinyPumpkinBlockEntity) {
 			return ((TinyPumpkinBlockEntity) be).use(player, hand, hit);
 		}
-		return false;
+		return ActionResult.PASS;
 	}
 	
 	@Override

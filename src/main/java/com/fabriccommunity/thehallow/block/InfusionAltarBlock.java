@@ -5,7 +5,6 @@ import net.fabricmc.api.Environment;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -120,7 +120,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	}
 
 	@Override
-	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
+	public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity) world.getBlockEntity(blockPos);
 		if (playerEntity.isSneaking()) {
 			if (altarEntity != null) {
@@ -151,7 +151,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 			}
 		}
 
-		return true;
+		return ActionResult.SUCCESS;
 	}
 
 	@Override
@@ -160,11 +160,12 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
 
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-
+	//@Override
+	//public BlockRenderLayer getRenderLayer() {
+	//	return BlockRenderLayer.CUTOUT;
+	//}
+	//FIXME InfusionAltarBlock render layer: CUTOUT
+	
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPosition, EntityContext entityContext) {
 		return SHAPE;

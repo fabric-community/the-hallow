@@ -8,6 +8,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.WoodType;
+
 import com.fabriccommunity.thehallow.registry.HallowedBiomes;
 import com.fabriccommunity.thehallow.registry.HallowedBlockEntities;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -33,7 +35,8 @@ public class TheHallow implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("The Hallow");
 	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(HallowedItems.REAPERS_SCYTHE));
 	public static final ItemGroup PUMPKINS = FabricItemGroupBuilder.build(id("pumpkins"), () -> new ItemStack(HallowedBlocks.WITCHED_PUMPKIN));
-
+	public static final WoodType HALLOWED_WOOD_TYPE = new WoodTypeAccess("thehallow:hallowed");
+	
 	public static Identifier id(String name) {
 		return new Identifier(MOD_ID, name);
 	}
@@ -64,6 +67,12 @@ public class TheHallow implements ModInitializer {
 
 		if (FabricLoader.getInstance().isModLoaded("libcd")) {
 			HallowTweaker.init();
+		}
+	}
+	
+	private static class WoodTypeAccess extends WoodType {
+		public WoodTypeAccess(String name) {
+			super(name);
 		}
 	}
 }

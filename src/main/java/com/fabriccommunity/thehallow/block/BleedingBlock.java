@@ -9,8 +9,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedTags;
@@ -23,7 +23,7 @@ public class BleedingBlock extends Block {
 	}
 	
 	@Override
-	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random rand) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
 		WitchWaterBubbleColumnBlock.update(world, pos.up(), true);
 	}
 	
@@ -37,7 +37,7 @@ public class BleedingBlock extends Block {
 	}
 	
 	@Override
-	public void onRandomTick(BlockState state, World world, BlockPos pos1, Random rand) {
+	public void randomTick(BlockState state, ServerWorld world, BlockPos pos1, Random rand) {
 		BlockPos pos2 = pos1.up();
 		if (world.getFluidState(pos1).matches(HallowedTags.Fluids.WITCH_WATER)) {
 			world.playSound(null, pos1, SoundEvents.ENTITY_DROWNED_HURT_WATER, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.random.nextFloat() - world.random.nextFloat()) * 0.8F);
@@ -48,7 +48,7 @@ public class BleedingBlock extends Block {
 	}
 	
 	@Override
-	public int getTickRate(ViewableWorld viewableworld) {
+	public int getTickRate(WorldView viewableworld) {
 		return 20;
 	}
 	

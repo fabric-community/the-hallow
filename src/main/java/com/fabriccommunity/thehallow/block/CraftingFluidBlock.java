@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Optional;
-
 import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
 
 public abstract class CraftingFluidBlock extends FluidBlock {
@@ -29,7 +28,7 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 	public void onEntityCollision(BlockState blockState, World world, BlockPos pos, Entity entity) {
 		super.onEntityCollision(blockState, world, pos, entity);
 		if(entity instanceof ItemEntity) {
-			List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos));
+			List<ItemEntity> entities = world.getEntities(ItemEntity.class, new Box(pos), e -> true);
 			BasicInventory inventory = new BasicInventory(entities.size());
 			
 			entities.forEach(itemEntity -> { //required for multi-input recipes
@@ -45,7 +44,7 @@ public abstract class CraftingFluidBlock extends FluidBlock {
 
 				for (Ingredient ingredient : match.get().getIngredients()) {
 					for (ItemEntity testEntity : entities) {
-						if (ingredient.method_8093(testEntity.getStack())) {
+						if (ingredient.test(testEntity.getStack())) {
 							testEntity.getStack().decrement(1);
 							break;
 						}

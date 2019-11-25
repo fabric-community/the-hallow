@@ -28,9 +28,9 @@ public class WitchWaterBlock extends CraftingFluidBlock {
 			if (entity instanceof LivingEntity) {
 				LivingEntity livingEntity = (LivingEntity) entity;
 				if (!livingEntity.isUndead() && !(livingEntity instanceof PumpcownEntity) && !(livingEntity instanceof WitchEntity)) {
-					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.POISON, 100));
-					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100));
-					livingEntity.addPotionEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100));
+					livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100));
+					livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100));
+					livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100));
 				}
 				if (pos.equals(entity.getBlockPos())) {
 					if (entity.getType() == EntityType.SKELETON) {

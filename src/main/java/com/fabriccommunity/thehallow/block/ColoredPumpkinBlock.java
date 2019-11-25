@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -24,8 +25,9 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 		super(settings);
 		this.color = color;
 	}
-
-	public boolean activate(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
+	
+	@Override
+	public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		ItemStack stack = playerEntity.getStackInHand(hand);
 
 		if (stack.getItem() == Items.SHEARS) {
@@ -44,10 +46,10 @@ public class ColoredPumpkinBlock extends PumpkinBlock {
 				});
 			}
 
-			return true;
+			return ActionResult.SUCCESS;
 		}
 
-		return super.activate(blockState, world, blockPos, playerEntity, hand, blockHitResult);
+		return super.onUse(blockState, world, blockPos, playerEntity, hand, blockHitResult);
 	}
 
 	public enum PumpkinColor {

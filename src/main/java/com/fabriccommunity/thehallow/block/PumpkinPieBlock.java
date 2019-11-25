@@ -12,8 +12,9 @@ import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -22,8 +23,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 public class PumpkinPieBlock extends Block {
 	public static final IntProperty BITES = IntProperty.of("bites", 1, 4);
@@ -35,7 +36,7 @@ public class PumpkinPieBlock extends Block {
 	
 	public PumpkinPieBlock(Settings settings) {
 		super(settings);
-		this.setDefaultState(this.stateFactory.getDefaultState().with(BITES, 4));
+		this.setDefaultState(this.stateManager.getDefaultState().with(BITES, 4));
 	}
 	
 	@Override
@@ -44,17 +45,20 @@ public class PumpkinPieBlock extends Block {
 	}
 	
 	@Override
-	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
 		if (!world.isClient) {
 			return this.tryEat(world, pos, state, player);
 		}
 		ItemStack stack = player.getStackInHand(hand);
-		return this.tryEat(world, pos, state, player) || stack.isEmpty();
+		if(stack.isEmpty()) {
+			return ActionResult.PASS;
+		}
+		return this.tryEat(world, pos, state, player);
 	}
 	
-	private boolean tryEat(IWorld iWorld, BlockPos pos, BlockState state, PlayerEntity player) {
+	private ActionResult tryEat(IWorld iWorld, BlockPos pos, BlockState state, PlayerEntity player) {
 		if (!player.canConsume(false)) {
-			return false;
+			return ActionResult.PASS;
 		}
 		float saturation = 0.1F;
 		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(player);
@@ -68,9 +72,9 @@ public class PumpkinPieBlock extends Block {
 		if (bites > 1) {
 			iWorld.setBlockState(pos, state.with(BITES, bites - 1), 3);
 		} else {
-			iWorld.clearBlockState(pos, false);
+			iWorld.removeBlock(pos, false);
 		}
-		return true;
+		return ActionResult.SUCCESS;
 	}
 	
 	@Override
@@ -79,7 +83,7 @@ public class PumpkinPieBlock extends Block {
 	}
 	
 	@Override
-	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		return world.getBlockState(pos.down()).getMaterial().isSolid();
 	}
 	
@@ -89,7 +93,7 @@ public class PumpkinPieBlock extends Block {
 	}
 	
 	@Override
-	protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactoryBuilder) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> stateFactoryBuilder) {
 		stateFactoryBuilder.add(BITES);
 	}
 	
