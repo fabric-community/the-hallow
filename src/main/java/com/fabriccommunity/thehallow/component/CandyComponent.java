@@ -37,7 +37,7 @@ public interface CandyComponent extends Component {
 		public void fromTag(CompoundTag tag) {
 			ListTag list = tag.getList("entities", 10);
 			for (int i = 0; i < list.size(); i++) {
-				CompoundTag item = list.getCompoundTag(i);
+				CompoundTag item = list.getCompound(i);
 				lastGivenCandy.put(item.getUuid("uuid"), item.getLong("time"));
 			}
 		}

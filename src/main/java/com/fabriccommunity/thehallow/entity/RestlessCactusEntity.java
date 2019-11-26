@@ -17,8 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 import com.fabriccommunity.thehallow.block.RestlessCactusBlock;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -66,10 +66,10 @@ public class RestlessCactusEntity extends MobEntityWithAi {
 			}
 			
 			if (hop > 0) {
-				double moveX = (x - landPos.getX() - 0.5F) / hop;
-				double moveZ = (z - landPos.getZ() - 0.5F) / hop;
+				double moveX = (getX() - landPos.getX() - 0.5F) / hop;
+				double moveZ = (getZ() - landPos.getZ() - 0.5F) / hop;
 				float moveAngle = ((yaw - 90) % 360.0F) / hop;
-				setPositionAndAngles(x - moveX, y, z - moveZ, yaw - moveAngle, this.pitch);
+				setPositionAndAngles(getX() - moveX, getY(), getZ() - moveZ, yaw - moveAngle, this.pitch);
 				
 				if (hop == 1) {
 					int i;
@@ -141,7 +141,7 @@ public class RestlessCactusEntity extends MobEntityWithAi {
 	}
 	
 	@Override
-	public float getPathfindingFavor(BlockPos pos, ViewableWorld world) {
+	public float getPathfindingFavor(BlockPos pos, WorldView world) {
 		return world.getBlockState(pos.down()).getBlock() == HallowedBlocks.TAINTED_SAND ? 10.0F : 1.0F;
 	}
 	

@@ -13,8 +13,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkStatus;
 
@@ -76,7 +76,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 		World world = this.stepAndDestroyMob.world;
 		BlockPos blockPos = new BlockPos(this.stepAndDestroyMob);
 		BlockPos blockPos2 = this.tweakToProperPos(blockPos, world);
-		Random random = this.stepAndDestroyMob.getRand();
+		Random random = this.stepAndDestroyMob.getRandom();
 		if (this.hasReached() && blockPos2 != null) {
 			Vec3d vec3d2;
 			double double2;
@@ -98,7 +98,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 			}
 			
 			if (this.counter > 60) {
-				world.clearBlockState(blockPos2, false);
+				world.removeBlock(blockPos2, false);
 				if (!world.isClient) {
 					for (int i = 0; i < 20; ++i) {
 						double2 = random.nextGaussian() * 0.02D;
@@ -136,7 +136,7 @@ public class EatBreadcrumbsGoal extends MoveToTargetPosGoal {
 	}
 	
 	@Override
-	protected boolean isTargetPos(ViewableWorld world, BlockPos pos) {
+	protected boolean isTargetPos(WorldView world, BlockPos pos) {
 		Chunk chunk1 = world.getChunk(pos.getX() >> 4, pos.getZ() >> 4, ChunkStatus.FULL, false);
 		if (chunk1 == null) {
 			return false;

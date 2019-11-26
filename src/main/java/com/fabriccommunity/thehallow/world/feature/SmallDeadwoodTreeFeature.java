@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.VineBlock;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableIntBoundingBox;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.BranchedTreeFeatureConfig;
 import com.mojang.datafixers.Dynamic;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -19,12 +19,12 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeatureConfig> {
+public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<BranchedTreeFeatureConfig> {
 	private static final BlockState LOG = HallowedBlocks.DEADWOOD_LOG.getDefaultState();
 	private static final BlockState LEAVES = HallowedBlocks.DEADWOOD_LEAVES.getDefaultState();
 	
-	public SmallDeadwoodTreeFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function, boolean emitBlockUpdates) {
-		super(function, emitBlockUpdates);
+	public SmallDeadwoodTreeFeature(Function<Dynamic<?>, ? extends BranchedTreeFeatureConfig> function) {
+		super(function);
 	}
 	
 	protected static boolean isNaturalDirt(TestableWorld world, BlockPos pos) {
@@ -34,15 +34,8 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 		});
 	}
 	
-	protected static boolean isNaturalDirtOrGrass(TestableWorld world, BlockPos pos) {
-		return world.testBlockState(pos, (state) -> {
-			Block block = state.getBlock();
-			return block == HallowedBlocks.DECEASED_DIRT || block == HallowedBlocks.DECEASED_GRASS_BLOCK;
-		});
-	}
-	
 	@Override
-	public boolean generate(Set<BlockPos> posSet, ModifiableTestableWorld world, Random random, BlockPos pos, MutableIntBoundingBox bb) {
+	public boolean generate(ModifiableTestableWorld world, Random random, BlockPos pos, Set<BlockPos> logPositions, Set<BlockPos> leavesPositions, BlockBox bb, BranchedTreeFeatureConfig config) {
 		int height = random.nextInt(4) + 5;
 		pos = world.getTopPosition(Heightmap.Type.OCEAN_FLOOR, pos);
 		boolean bool = true;
@@ -103,7 +96,8 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 							if (Math.abs(genZ) != leafSize || Math.abs(offsetZ) != leafSize || random.nextInt(2) != 0 && localY != 0) {
 								genPos = new BlockPos(genX, genY, curZ);
 								if (isAirOrLeaves(world, genPos) || isReplaceablePlant(world, genPos)) {
-									this.setBlockState(posSet, world, genPos, LEAVES, bb);
+									leavesPositions.add(genPos);
+									this.setBlockState(world, genPos, LEAVES, bb);
 								}
 							}
 						}
@@ -113,7 +107,8 @@ public class SmallDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 				for (genY = 0; genY < height; ++genY) {
 					BlockPos upPos = pos.up(genY);
 					if (isAirOrLeaves(world, upPos) || isWater(world, upPos)) {
-						this.setBlockState(posSet, world, upPos, LOG, bb);
+						logPositions.add(upPos);
+						this.setBlockState(world, upPos, LOG, bb);
 					}
 				}
 				

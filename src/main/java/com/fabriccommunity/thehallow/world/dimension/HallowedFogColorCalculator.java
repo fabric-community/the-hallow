@@ -29,8 +29,8 @@ public class HallowedFogColorCalculator implements FogColorCalculator {
 			for (int z = 0; z < radius; z++) {
 				BlockPos pos = player.getBlockPos().add(x - (radius / 2), 0, z - (radius / 2));
 				
-				if (world.getBiome(pos) instanceof HallowedBiomeInfo) {
-					HallowedBiomeInfo biomeInfo = (HallowedBiomeInfo) world.getBiome(pos);
+				if (world.getBiomeAccess().getBiome(pos) instanceof HallowedBiomeInfo) {
+					HallowedBiomeInfo biomeInfo = (HallowedBiomeInfo) world.getBiomeAccess().getBiome(pos);
 					
 					totalR += Math.pow(biomeInfo.getFogColor().x, 2);
 					totalG += Math.pow(biomeInfo.getFogColor().y, 2);

@@ -52,7 +52,7 @@ public class TemptBirdGoal extends Goal {
 	}
 	
 	protected boolean isTemptedBy(ItemStack stack) {
-		return this.food.method_8093(stack);
+		return this.food.test(stack);
 	}
 	
 	@Override
@@ -67,9 +67,9 @@ public class TemptBirdGoal extends Goal {
 					return false;
 				}
 			} else {
-				this.lastPlayerX = this.closestPlayer.x;
-				this.lastPlayerY = this.closestPlayer.y;
-				this.lastPlayerZ = this.closestPlayer.z;
+				this.lastPlayerX = this.closestPlayer.getX();
+				this.lastPlayerY = this.closestPlayer.getY();
+				this.lastPlayerZ = this.closestPlayer.getZ();
 			}
 			
 			this.lastPlayerPitch = this.closestPlayer.pitch;
@@ -85,9 +85,9 @@ public class TemptBirdGoal extends Goal {
 	
 	@Override
 	public void start() {
-		this.lastPlayerX = this.closestPlayer.x;
-		this.lastPlayerY = this.closestPlayer.y;
-		this.lastPlayerZ = this.closestPlayer.z;
+		this.lastPlayerX = this.closestPlayer.getX();
+		this.lastPlayerY = this.closestPlayer.getY();
+		this.lastPlayerZ = this.closestPlayer.getZ();
 		this.active = true;
 	}
 	

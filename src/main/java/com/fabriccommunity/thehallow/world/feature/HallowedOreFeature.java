@@ -40,7 +40,7 @@ public class HallowedOreFeature extends Feature<HallowedOreFeatureConfig> {
 		
 		for (int x = startX; x <= startX + xSize; ++x) {
 			for (int z = startZ; z <= startZ + xSize; ++z) {
-				if (y <= world.getTop(Type.OCEAN_FLOOR_WG, x, z)) {
+				if (y <= world.getTopY(Type.OCEAN_FLOOR_WG, x, z)) {
 					return this.generateVeinPart(world, random, oreFeatureConfig, positiveX, negativeX, positiveZ, negativeZ, positiveY, negativeY, startX, y, startZ, xSize, int_7);
 				}
 			}

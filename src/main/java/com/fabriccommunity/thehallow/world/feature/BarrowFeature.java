@@ -40,7 +40,7 @@ public class BarrowFeature extends Feature<DefaultFeatureConfig> implements Feat
 	public boolean generate(IWorld world, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
 		final BiomeSource source = chunkGenerator.getBiomeSource();
 		
-		return this.generate(world, rand, pos, (x, z) -> source.getBiome(x, z).getSurfaceConfig());
+		return this.generate(world, rand, pos, (x, z) -> source.getStoredBiome(x, 63, z).getSurfaceConfig());
 	}
 	
 	private boolean generate(IWorld world, Random rand, BlockPos pos, Coordinate2iFunction<SurfaceConfig> configFunction) {

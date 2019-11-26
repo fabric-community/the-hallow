@@ -51,7 +51,7 @@ public class HallowedEntities {
 	
 	public static void init() {
 		@SuppressWarnings("unused") Object classloading = SpawnRestriction.class;
-		SpawnRestrictionInvoker.invokeSetRestrictions(HallowedEntities.MUMMY, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::method_20680);
+		SpawnRestrictionInvoker.invokeSetRestrictions(HallowedEntities.MUMMY, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
 		EntityComponentCallback.event(VillagerEntity.class).register((player, components) -> components.put(CANDY, new VillagerCandyComponent()));
 	}
 	

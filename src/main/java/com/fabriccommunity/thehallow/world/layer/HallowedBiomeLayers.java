@@ -4,7 +4,6 @@ import net.minecraft.world.biome.layer.AddRiversLayer;
 import net.minecraft.world.biome.layer.BiomeLayerSampler;
 import net.minecraft.world.biome.layer.CachingLayerContext;
 import net.minecraft.world.biome.layer.CachingLayerSampler;
-import net.minecraft.world.biome.layer.CellScaleLayer;
 import net.minecraft.world.biome.layer.LayerFactory;
 import net.minecraft.world.biome.layer.LayerSampleContext;
 import net.minecraft.world.biome.layer.LayerSampler;

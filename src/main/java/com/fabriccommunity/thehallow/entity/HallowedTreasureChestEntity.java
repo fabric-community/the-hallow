@@ -9,6 +9,10 @@ import net.minecraft.entity.MovementType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Packet;
 import net.minecraft.particle.ParticleEffect;
@@ -19,11 +23,6 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.loot.LootSupplier;
-import net.minecraft.world.loot.context.LootContext;
-import net.minecraft.world.loot.context.LootContextParameters;
-import net.minecraft.world.loot.context.LootContextTypes;
-
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import io.netty.buffer.Unpooled;
@@ -58,15 +57,13 @@ public class HallowedTreasureChestEntity extends Entity {
 	public HallowedTreasureChestEntity(World world, double x, double y, double z, boolean shouldReplace, float initialRotation) {
 		super(HallowedEntities.HALLOWED_TREASURE_CHEST, world);
 		
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		this.setPos(x, y, z);
 		
 		this.rotation = initialRotation;
 		this.shouldReplace = shouldReplace;
 		
 		if (world.isClient()) {
-			this.updateTrackedPosition(this.x, this.y, this.z);
+			this.updateTrackedPosition(this.getX(), this.getY(), this.getZ());
 		}
 	}
 	
@@ -119,13 +116,13 @@ public class HallowedTreasureChestEntity extends Entity {
 		}
 		
 		// particles to ground
-		world.addParticle(ParticleTypes.SMOKE, x, y, z, 0, -.1, 0);
+		world.addParticle(ParticleTypes.SMOKE, getX(), getY(), getZ(), 0, -.1, 0);
 	}
 	
 	// todo: add spooky treasure chest custom loot table
 	private void dropLoot(ServerWorld serverWorld) {
 		// set up loot objects
-		LootSupplier supplier = serverWorld.getServer().getLootManager().getSupplier(new Identifier(TheHallow.MOD_ID, "gameplay/treasure_chest_common"));
+		LootTable supplier = serverWorld.getServer().getLootManager().getSupplier(new Identifier(TheHallow.MOD_ID, "gameplay/treasure_chest_common"));
 		LootContext.Builder builder =
 			new LootContext.Builder(serverWorld)
 				.setRandom(serverWorld.random)
@@ -142,9 +139,9 @@ public class HallowedTreasureChestEntity extends Entity {
 		double velY = 1;
 		double velZ = 0;
 		
-		double startX = x - .275f;
-		double startY = y;
-		double startZ = z - .275f;
+		double startX = getX() - .275f;
+		double startY = getY();
+		double startZ = getZ() - .275f;
 		
 		for (int i = 0; i < 10; i++) {
 			double frontX = .5f * random.nextDouble();
@@ -204,9 +201,9 @@ public class HallowedTreasureChestEntity extends Entity {
 	public Packet<?> createSpawnPacket() {
 		PacketByteBuf packet = new PacketByteBuf(Unpooled.buffer());
 		
-		packet.writeDouble(x);
-		packet.writeDouble(y);
-		packet.writeDouble(z);
+		packet.writeDouble(getX());
+		packet.writeDouble(getY());
+		packet.writeDouble(getZ());
 		
 		packet.writeBoolean(shouldReplace);
 		packet.writeFloat(rotation);

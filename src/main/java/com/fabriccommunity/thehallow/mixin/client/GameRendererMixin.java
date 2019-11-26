@@ -32,8 +32,8 @@ public class GameRendererMixin
 				for (int z = 0; z < radius; z++) {
 					final BlockPos pos = player.getBlockPos().add(x - (radius / 2), 0, z - (radius / 2));
 					
-					if (world.getBiome(pos) instanceof HallowedBiomeInfo) {
-						final HallowedBiomeInfo biomeInfo = (HallowedBiomeInfo) world.getBiome(pos);
+					if (world.getBiomeAccess().getBiome(pos) instanceof HallowedBiomeInfo) {
+						final HallowedBiomeInfo biomeInfo = (HallowedBiomeInfo) world.getBiomeAccess().getBiome(pos);
 						totalIntensity += biomeInfo.getFogIntensity();
 						count++;
 					}

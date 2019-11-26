@@ -2,7 +2,7 @@ package com.fabriccommunity.thehallow.world;
 
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.SystemUtil;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkGeneratorConfig> {
 	
-	private static final float[] BIOME_WEIGHT_TABLE = SystemUtil.consume(new float[25], (array) -> {
+	private static final float[] BIOME_WEIGHT_TABLE = Util.create(new float[25], (array) -> {
 		for (int xOffset = -2; xOffset <= 2; ++xOffset) {
 			for (int zOffset = -2; zOffset <= 2; ++zOffset) {
 				float value = 10.0F / MathHelper.sqrt((float) (xOffset * xOffset + zOffset * zOffset) + 0.2F);
@@ -35,14 +35,14 @@ public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkG
 	public HallowedChunkGenerator(IWorld world, BiomeSource biomeSource, HallowedChunkGeneratorConfig chunkGeneratorConfig) {
 		super(world, biomeSource, 4, 8, 256, chunkGeneratorConfig, true);
 		this.random.consume(2620);
-		this.noiseSampler = new OctavePerlinNoiseSampler(this.random, 16);
+		this.noiseSampler = new OctavePerlinNoiseSampler(this.random, 15, 0);
 	}
 	
 	@Override
 	public void populateEntities(ChunkRegion region) {
 		int centreX = region.getCenterChunkX();
 		int centreZ = region.getCenterChunkZ();
-		Biome biome = region.getChunk(centreX, centreZ).getBiomeArray()[0];
+		Biome biome = region.getChunk(centreX, centreZ).getBiomeArray().getStoredBiome(0, getSeaLevel(), 0);
 		ChunkRandom rand = new ChunkRandom();
 		rand.setSeed(region.getSeed(), centreX << 4, centreZ << 4);
 		SpawnHelper.populateEntities(region, biome, centreX, centreZ, rand);
@@ -69,11 +69,11 @@ public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkG
 		float scaleResult = 0.0F;
 		float depthResult = 0.0F;
 		float divisor = 0.0F;
-		float someBiomeDepth = this.biomeSource.getBiomeForNoiseGen(x, z).getDepth();
+		float someBiomeDepth = ((HallowedBiomeSource) this.biomeSource).getBiomeForNoiseGen(x, z).getDepth();
 		
 		for (int xOffset = -2; xOffset <= 2; ++xOffset) {
 			for (int zOffset = -2; zOffset <= 2; ++zOffset) {
-				Biome biome = this.biomeSource.getBiomeForNoiseGen(x + xOffset, z + zOffset);
+				Biome biome = ((HallowedBiomeSource) this.biomeSource).getBiomeForNoiseGen(x + xOffset, z + zOffset);
 				float depth = biome.getDepth();
 				float scale = biome.getScale();
 				
