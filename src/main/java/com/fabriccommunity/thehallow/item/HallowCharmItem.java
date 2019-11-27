@@ -96,7 +96,7 @@ public class HallowCharmItem extends Item implements ITrinket {
 		if (!(user instanceof PlayerEntity)) return stack;
 		PlayerEntity player = (PlayerEntity)user;
 		CompoundTag tag = stack.getOrCreateTag();
-		if (tag.containsKey("PortalLoc", NbtType.COMPOUND)) {
+		if (tag.contains("PortalLoc", NbtType.COMPOUND)) {
 			CompoundTag locTag = tag.getCompound("PortalLoc");
 			BlockPos pos = new BlockPos(locTag.getInt("x"), locTag.getInt("y"), locTag.getInt("z"));
 			tag.remove("PortalLoc");
@@ -113,7 +113,7 @@ public class HallowCharmItem extends Item implements ITrinket {
 
 	@Override
 	public boolean hasEnchantmentGlint(ItemStack stack) {
-		return stack.getOrCreateTag().containsKey("PortalLoc");
+		return stack.getOrCreateTag().contains("PortalLoc");
 	}
 
 	@Override

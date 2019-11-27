@@ -1,9 +1,13 @@
 package com.fabriccommunity.thehallow.client.render;
 
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.util.math.Quaternion;
 
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.client.model.TreasureChestModel;
@@ -11,6 +15,7 @@ import com.fabriccommunity.thehallow.entity.HallowedTreasureChestEntity;
 
 public class HallowedTreasureChestEntityRenderer extends EntityRenderer<HallowedTreasureChestEntity> {
 	private static final Identifier TEXTURE = new Identifier(TheHallow.MOD_ID, "textures/entity/treasure_chest/default_chest.png");
+	private static final Quaternion INITIAL_ROTATION = new Quaternion(180, 1, 0, 0);
 	private final TreasureChestModel chestModel = new TreasureChestModel();
 	
 	public HallowedTreasureChestEntityRenderer(EntityRenderDispatcher dispatcher) {
@@ -18,37 +23,37 @@ public class HallowedTreasureChestEntityRenderer extends EntityRenderer<Hallowed
 	}
 	
 	@Override
-	public void render(HallowedTreasureChestEntity chest, double x, double y, double z, float partialTicks, float float_2) {
-		GlStateManager.pushMatrix();
+	public void render(HallowedTreasureChestEntity chest, float yaw, float tickDelta, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light) {
+		matrixStack.push();
 		
 		// initial size and position
-		GlStateManager.translatef((float) x - .275f, (float) y + .57f, (float) z + .275f);
-		GlStateManager.rotatef(180, 1, 0, 0);
-		GlStateManager.scalef(.57f, .57f, .57f);
+		matrixStack.translate(0.275, 0.57, 0.275);
+		matrixStack.multiply(INITIAL_ROTATION);
+		matrixStack.scale(0.57f, 0.57f, 0.57f);
 		
 		// calculate interpolated render rotation from last rotation
-		double interpolated = chest.previousRotation + (chest.rotation - chest.previousRotation) * partialTicks;
+		float interpolated = chest.previousRotation + (chest.rotation - chest.previousRotation) * tickDelta;
 		
-		GlStateManager.translatef(0.5F, 0.5F, 0.5F);
-		GlStateManager.rotated(interpolated, 0, 1, 0);
-		GlStateManager.translatef(-0.5F, -0.5F, -0.5F);
+		matrixStack.translate(0.5, 0.5, 0.5);
+		matrixStack.multiply(new Quaternion(interpolated, 0f, 1f, 0f));
+		matrixStack.translate(-0.5, -0.5, -0.5);
 		
 		// jiggle after finishing spin
 		if (chest.getEndProgress() != 0) {
-			GlStateManager.translatef(0.5F, 0.5F, 0.5F);
-			GlStateManager.rotatef((float) Math.sin(chest.getEndProgress()), 0, 0, 1);
-			GlStateManager.translatef(-0.5F, -0.5F, -0.5F);
+			matrixStack.translate(0.5, 0.5, 0.5);
+			matrixStack.multiply(new Quaternion((float) Math.sin(chest.getEndProgress()), 0f, 0f, 1f));
+			matrixStack.translate(-0.5f, -0.5f, -0.5f);
 		}
 		
 		
 		// render chest
-		bindTexture(TEXTURE);
+		//renderManager.textureManager.bindTexture(TEXTURE);
 		updateHingeProgress(chest, chestModel);
-		chestModel.render();
+		chestModel.render(matrixStack, vertexConsumerProvider.getBuffer(RenderLayer.getEntityCutout(TEXTURE)), light, OverlayTexture.DEFAULT_UV, 1f, 1f, 1f, 1f);
 		
 		
 		// finish
-		GlStateManager.popMatrix();
+		matrixStack.pop();
 	}
 	
 	private void updateHingeProgress(HallowedTreasureChestEntity chest, TreasureChestModel chestModel) {
@@ -58,7 +63,7 @@ public class HallowedTreasureChestEntityRenderer extends EntityRenderer<Hallowed
 	}
 	
 	@Override
-	protected Identifier getTexture(HallowedTreasureChestEntity spookyTreasureChestEntity) {
-		return null;
+	public Identifier getTexture(HallowedTreasureChestEntity spookyTreasureChestEntity) {
+		return TEXTURE;
 	}
 }

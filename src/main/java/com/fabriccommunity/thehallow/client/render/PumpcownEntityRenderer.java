@@ -18,7 +18,7 @@ public class PumpcownEntityRenderer extends MobEntityRenderer<PumpcownEntity, Co
 	}
 	
 	@Override
-	protected Identifier getTexture(PumpcownEntity pumpcown) {
+	public Identifier getTexture(PumpcownEntity pumpcown) {
 		return SKIN;
 	}
 }

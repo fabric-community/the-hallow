@@ -28,7 +28,7 @@ public class HallowedItems {
 	
 	public static final ToolMaterial HALLOWED = new HallowedMaterial();
 	
-	public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(newSettings().maxCount(1)));
+	//public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(newSettings().maxCount(1)));
 	public static final Item CARAMEL_APPLE = register("caramel_apple", new CandyItem(newSettings(), 5, 0.3F));
 	public static final Item PUMPKIN_CANDY = register("pumpkin_candy", new CandyItem(newSettings(), 2, 0.3F));
 	public static final Item RARE_CANDY = register("rare_candy", new CandyItem(newSettings(), 3, 0.3F));
@@ -57,7 +57,7 @@ public class HallowedItems {
 	public static final Item PAPER_BAG = register("paper_bag", new PaperBagItem(newSettings().maxCount(1)));
 	public static final Item BLACK_FEATHER = register("black_feather", new Item(newSettings()));
 	public static final Item OLD_CLOTH = register("old_cloth", new Item(newSettings()));
-	public static final Item HALLOW_CHARM = register("hallow_charm", new HallowCharmItem(newSettings().maxCount(1)));
+	//public static final Item HALLOW_CHARM = register("hallow_charm", new HallowCharmItem(newSettings().maxCount(1)));
 	
 	private HallowedItems() {
 		// NO-OP

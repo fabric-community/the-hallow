@@ -4,33 +4,41 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
-import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.Quaternion;
 
 import com.fabriccommunity.thehallow.block.entity.InfusionPillarBlockEntity;
 
 @Environment(EnvType.CLIENT)
 public class InfusionPillarBlockEntityRenderer extends BlockEntityRenderer<InfusionPillarBlockEntity> {
-	public double rotation = 0;
+
+	public float rotation = 0;
 	
 	private boolean rotationMode = false;
 	
 	private long nanosA = 0;
 	private long nanosB = 0;
 	
+	public InfusionPillarBlockEntityRenderer(BlockEntityRenderDispatcher blockEntityRenderDispatcher) {
+		super(blockEntityRenderDispatcher);
+	}
+	
 	@Override
-	public void render(InfusionPillarBlockEntity pillar, double x, double y, double z, float delta, int breakingStage) {
+	public void render(InfusionPillarBlockEntity pillar, float partialTicks, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
 		ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 		
 		if (!pillar.storedStack.isEmpty()) {
-			GlStateManager.pushMatrix();
-			GlStateManager.translated(x + 0.5d, y + 1.250 + Math.sin(rotation / 2) / 32, z + 0.5d);
-			GlStateManager.rotated(rotation * 2, 0, 1, 0);
-			GlStateManager.scaled(0.5, 0.5, 0.5);
-			itemRenderer.renderItem(pillar.storedStack, ModelTransformation.Type.FIXED);
-			GlStateManager.popMatrix();
+			matrixStack.push();
+			matrixStack.translate(0.5, 1.25 + Math.sin(rotation / 2) / 32, 0.5);
+			matrixStack.multiply(new Quaternion(rotation * 2, 0f, 1f, 0f));
+			matrixStack.scale(0.5f, 0.5f, 0.5f);
+			itemRenderer.method_23178(pillar.storedStack, ModelTransformation.Type.FIXED, i, j, matrixStack, vertexConsumerProvider);
+			matrixStack.push();
 		}
 		
 		nanosA = System.nanoTime();
