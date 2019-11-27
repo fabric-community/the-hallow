@@ -11,6 +11,7 @@ import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.world.HallowedBiomeSource;
 import com.fabriccommunity.thehallow.world.HallowedChunkGeneratorConfig;
 import com.fabriccommunity.thehallow.world.HallowedChunkGeneratorType;
+import com.fabriccommunity.thehallow.world.dimension.HallowedBackgroundColorCalculator;
 import com.fabriccommunity.thehallow.world.dimension.HallowedFogColorCalculator;
 import com.fabriccommunity.thehallow.world.dimension.HallowedSkyAngleCalculator;
 import com.github.draylar.worldtraveler.api.dimension.DimensionBuilder;
@@ -23,6 +24,7 @@ public class HallowedDimensions {
 		.factory((world, type) -> new DimensionBuilder()
 			.hasThickFog(true)
 			.fogColor(new HallowedFogColorCalculator())
+			.backgroundColor(new HallowedBackgroundColorCalculator())
 			.visibleSky(true)
 			.skyAngle(new HallowedSkyAngleCalculator())
 			.setChunkGenerator(HallowedChunkGeneratorType.INSTANCE.create(world, new HallowedBiomeSource(world.getSeed()), new HallowedChunkGeneratorConfig()))
