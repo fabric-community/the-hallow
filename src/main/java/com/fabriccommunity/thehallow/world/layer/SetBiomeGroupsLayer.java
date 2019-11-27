@@ -1,7 +1,7 @@
 package com.fabriccommunity.thehallow.world.layer;
 
-import net.minecraft.world.biome.layer.InitLayer;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.type.InitLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 
 import com.fabriccommunity.thehallow.world.HallowedBiomeGroup;
 

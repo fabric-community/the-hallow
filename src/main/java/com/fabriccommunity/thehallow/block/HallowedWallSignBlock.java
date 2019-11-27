@@ -9,7 +9,7 @@ public class HallowedWallSignBlock extends WallSignBlock implements HallowedSign
 	private final Identifier texture;
 	
 	public HallowedWallSignBlock(Identifier texture, Settings settings) {
-		super(settings, TheHallow.HALLOWED_WOOD_TYPE);
+		super(settings, TheHallow.HALLOWED_SIGN_TYPE);
 		this.texture = texture;
 	}
 	

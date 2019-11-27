@@ -1,5 +1,11 @@
 package com.fabriccommunity.thehallow.world.feature;
 
+import java.util.Random;
+
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+import com.fabriccommunity.thehallow.util.noise.OctaveOpenSimplexNoise;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -8,18 +14,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
-
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.util.noise.OctaveOpenSimplexNoise;
-
-import java.util.Random;
 
 public class BarrowFeature extends Feature<DefaultFeatureConfig> implements FeatureUtils {
 	
@@ -38,12 +37,12 @@ public class BarrowFeature extends Feature<DefaultFeatureConfig> implements Feat
 	
 	@Override
 	public boolean generate(IWorld world, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
-		final BiomeSource source = chunkGenerator.getBiomeSource();
+		//final BiomeSource source = chunkGenerator.getBiomeSource();
 		
-		return this.generate(world, rand, pos, (x, z) -> source.getStoredBiome(x, 63, z).getSurfaceConfig());
+		return this.generate(world, rand, pos, (blockpos) -> world.getBiome(blockpos).getSurfaceConfig());
 	}
 	
-	private boolean generate(IWorld world, Random rand, BlockPos pos, Coordinate2iFunction<SurfaceConfig> configFunction) {
+	private boolean generate(IWorld world, Random rand, BlockPos pos, CoordinateFunction<SurfaceConfig> configFunction) {
 		int centreX = pos.getX() + rand.nextInt(16) - 8;
 		int centreZ = pos.getZ() + rand.nextInt(16) - 8;
 		int lowY = pos.getY() - 3;
@@ -73,7 +72,7 @@ public class BarrowFeature extends Feature<DefaultFeatureConfig> implements Feat
 					posMutable.setX(x);
 					posMutable.setZ(z);
 					
-					this.generateBarrowColumn(world, rand, lowY, heightOffset, posMutable, configFunction.get(x, z));
+					this.generateBarrowColumn(world, rand, lowY, heightOffset, posMutable, configFunction.get(posMutable));
 				}
 			}
 		}
@@ -101,8 +100,8 @@ public class BarrowFeature extends Feature<DefaultFeatureConfig> implements Feat
 		}
 	}
 	
-	private interface Coordinate2iFunction<T> {
-		T get(int x, int z);
+	private interface CoordinateFunction<T> {
+		T get(BlockPos pos);
 	}
 	
 }
