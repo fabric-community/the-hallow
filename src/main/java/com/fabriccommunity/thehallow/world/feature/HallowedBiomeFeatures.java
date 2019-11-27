@@ -1,5 +1,10 @@
 package com.fabriccommunity.thehallow.world.feature;
 
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+import com.fabriccommunity.thehallow.registry.HallowedFeatures;
+import com.fabriccommunity.thehallow.world.biome.HallowedForestBiome;
+import com.google.common.collect.Lists;
+
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
@@ -17,18 +22,12 @@ import net.minecraft.world.gen.feature.DiskFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.FlowerFeature;
-import net.minecraft.world.gen.feature.FlowerFeatureConfig;
 import net.minecraft.world.gen.feature.MegaTreeFeatureConfig;
+import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleStateProvider;
-
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedFeatures;
-import com.fabriccommunity.thehallow.world.biome.HallowedForestBiome;
-
-import com.google.common.collect.Lists;
 
 public class HallowedBiomeFeatures {
 	
@@ -97,12 +96,12 @@ public class HallowedBiomeFeatures {
 	}
 	
 	public static void addGrass(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(Feature.RANDOM_PATCH, new FlowerFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.EERIE_GRASS.getDefaultState()), new SimpleBlockPlacer()).method_23417(32).method_23424(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
-		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(Feature.RANDOM_PATCH, new FlowerFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.TALL_EERIE_GRASS.getDefaultState()), new SimpleBlockPlacer()).method_23417(64).method_23419().method_23424(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(Feature.RANDOM_PATCH, new RandomPatchFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.EERIE_GRASS.getDefaultState()), new SimpleBlockPlacer()).tries(32).build(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(Feature.RANDOM_PATCH, new RandomPatchFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.TALL_EERIE_GRASS.getDefaultState()), new SimpleBlockPlacer()).tries(64).cannotProject().build(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
 	}
 	
 	public static void addGloomshrooms(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(Feature.RANDOM_PATCH, new FlowerFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.GLOOMSHROOM.getDefaultState()), new SimpleBlockPlacer()).method_23417(32).method_23424(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(Feature.RANDOM_PATCH, new RandomPatchFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.GLOOMSHROOM.getDefaultState()), new SimpleBlockPlacer()).tries(32).build(), Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(1)));
 	}
 	
 	public static void addDecoration(Biome biome) {

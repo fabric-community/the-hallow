@@ -2,8 +2,8 @@ package com.fabriccommunity.thehallow.world.layer;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
-import net.minecraft.world.biome.layer.SouthEastSamplingLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.type.SouthEastSamplingLayer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

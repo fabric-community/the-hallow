@@ -1,24 +1,22 @@
 package com.fabriccommunity.thehallow.world.layer;
 
+import java.util.function.LongFunction;
+
 import net.minecraft.world.biome.layer.AddRiversLayer;
-import net.minecraft.world.biome.layer.BiomeLayerSampler;
-import net.minecraft.world.biome.layer.CachingLayerContext;
-import net.minecraft.world.biome.layer.CachingLayerSampler;
-import net.minecraft.world.biome.layer.LayerFactory;
-import net.minecraft.world.biome.layer.LayerSampleContext;
-import net.minecraft.world.biome.layer.LayerSampler;
 import net.minecraft.world.biome.layer.NoiseToRiverLayer;
 import net.minecraft.world.biome.layer.ScaleLayer;
 import net.minecraft.world.biome.layer.SimpleLandNoiseLayer;
 import net.minecraft.world.biome.layer.SmoothenShorelineLayer;
-
-import com.google.common.collect.ImmutableList;
-import java.util.function.LongFunction;
+import net.minecraft.world.biome.layer.util.CachingLayerContext;
+import net.minecraft.world.biome.layer.util.LayerFactory;
+import net.minecraft.world.biome.layer.util.LayerSampleContext;
+import net.minecraft.world.biome.layer.util.LayerSampler;
+import net.minecraft.world.biome.source.BiomeLayerSampler;
 
 public class HallowedBiomeLayers {
 	private static final int biomeSize = 4; // 3 should be the *minimum* value for this
 	
-	private static <R extends LayerSampler, T extends LayerSampleContext<R>> ImmutableList<LayerFactory<R>> create(LongFunction<T> contextProvider) {
+	private static <R extends LayerSampler, T extends LayerSampleContext<R>> LayerFactory<R> create(LongFunction<T> contextProvider) {
 		// Biome Groups
 		LayerFactory<R> biomeInit = SetBiomeGroupsLayer.INSTANCE.create(contextProvider.apply(1L));
 		biomeInit = ScaleLayer.NORMAL.create(contextProvider.apply(100L), biomeInit);
@@ -61,22 +59,11 @@ public class HallowedBiomeLayers {
 		// Mix rivers with biomes
 		biomes = AddRiversLayer.INSTANCE.create(contextProvider.apply(102L), biomes, rivers);
 		
-		// Voronoi cell 4x zoom for normal biome sampling
-		
-		// NOTE FOR UPDATING TO 1.15:
-		// in 1.15 snapshots this logic is moved to another class
-		LayerFactory<R> voronoi = CellScaleLayer.INSTANCE.create(contextProvider.apply(4L), biomes);
-		
-		return ImmutableList.of(biomes, voronoi);
+		return biomes;
 	}
 	
-	public static BiomeLayerSampler[] build(long seed) {
-		ImmutableList<LayerFactory<CachingLayerSampler>> list = create((salt) -> new CachingLayerContext(25, seed, salt));
-		
-		BiomeLayerSampler noiseLayer = new BiomeLayerSampler(list.get(0));
-		BiomeLayerSampler biomeLayer = new BiomeLayerSampler(list.get(1));
-		
-		return new BiomeLayerSampler[]{noiseLayer, biomeLayer};
+	public static BiomeLayerSampler build(long seed) {
+		return new BiomeLayerSampler(create((salt) -> new CachingLayerContext(25, seed, salt)));
 	}
 }
 
