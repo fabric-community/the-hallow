@@ -1,9 +1,5 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.thehallow.registry.HallowedItems;
-
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlacementEnvironment;
 import net.minecraft.block.BlockState;
@@ -61,12 +57,12 @@ public class PumpkinPieBlock extends Block {
 			return ActionResult.PASS;
 		}
 		float saturation = 0.1F;
-		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(player);
+		/*TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(player);
 		ItemStack mainHandStack = trinketPlayer.getStack("hand:ring");
 		ItemStack offHandStack = trinketPlayer.getStack("offhand:ring");
 		if (mainHandStack.getItem().equals(HallowedItems.PUMPKIN_RING) || offHandStack.getItem().equals(HallowedItems.PUMPKIN_RING)) {
 			saturation = 0.3F;
-		}
+		}*/
 		player.getHungerManager().add(2, saturation);
 		int bites = state.get(BITES);
 		if (bites > 1) {

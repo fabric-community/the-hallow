@@ -3,20 +3,9 @@ package com.fabriccommunity.thehallow.item;
 import com.fabriccommunity.thehallow.block.HallowedGateBlock;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedDimensions;
-import com.fabriccommunity.thehallow.registry.HallowedItems;
-import com.mojang.blaze3d.platform.GlStateManager;
-import dev.emi.trinkets.api.ITrinket;
-import dev.emi.trinkets.api.SlotGroups;
-import dev.emi.trinkets.api.Slots;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.entity.model.PlayerEntityModel;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -36,10 +25,10 @@ import net.minecraft.world.dimension.DimensionType;
 
 import java.util.Random;
 
-public class HallowCharmItem extends Item implements ITrinket {
+public class HallowCharmItem extends Item /*implements ITrinket*/ {
 	public HallowCharmItem(Settings settings) {
 		super(settings);
-		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
+		//DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
 
 	@Override
@@ -75,7 +64,8 @@ public class HallowCharmItem extends Item implements ITrinket {
 			player.playSound(SoundEvents.BLOCK_PORTAL_TRIGGER, 1F, 1F);
 			return new TypedActionResult<>(ActionResult.SUCCESS, player.getActiveItem());
 		} else {
-			return ITrinket.equipTrinket(player, hand);
+			return new TypedActionResult<>(ActionResult.PASS, player.getActiveItem());
+			//return ITrinket.equipTrinket(player, hand);
 		}
 	}
 
@@ -116,7 +106,7 @@ public class HallowCharmItem extends Item implements ITrinket {
 		return stack.getOrCreateTag().contains("PortalLoc");
 	}
 
-	@Override
+	/*@Override
 	public boolean canWearInSlot(String group, String slot) {
 		return group.contains(SlotGroups.HEAD) && slot.contains(Slots.NECKLACE);
 	}
@@ -131,7 +121,7 @@ public class HallowCharmItem extends Item implements ITrinket {
 		GlStateManager.rotatef(-180F, 0.0F, 0.0F, 1.0F);
 		renderer.renderItem(new ItemStack(HallowedItems.HALLOW_CHARM), ModelTransformation.Type.FIXED);
 		GlStateManager.popMatrix();
-	}
+	}*/
 
 	@Override
 	public void usageTick(World world, LivingEntity user, ItemStack stack, int ticksLeft) {

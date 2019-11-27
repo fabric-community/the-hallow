@@ -11,7 +11,6 @@ import net.minecraft.entity.ai.brain.task.LookTargetUtil;
 import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContext;
@@ -31,9 +30,6 @@ import net.minecraft.world.World;
 import com.fabriccommunity.thehallow.HallowedConfig;
 import com.fabriccommunity.thehallow.component.CandyComponent;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
-import com.fabriccommunity.thehallow.registry.HallowedTags;
-import dev.emi.trinkets.api.TrinketsApi;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -100,14 +96,14 @@ public abstract class ServerPlayNetworkHandlerMixin {
 	}
 	
 	private boolean isPlayerWearingCostume(PlayerEntity player) {
-		for (int i = 0; i < 4; i++) {
+		/*for (int i = 0; i < 4; i++) {
 			if (HallowedTags.Items.COSTUMES.contains(player.inventory.armor.get(i).getItem()))
 				return true;
 		}
 		Inventory inv = TrinketsApi.getTrinketsInventory(player);
 		for (int i = 0; i < inv.getInvSize(); i++) {
 			if (HallowedTags.Items.COSTUMES.contains(inv.getInvStack(i).getItem())) return true;
-		}
+		}*/
 		return false;
 	}
 }
