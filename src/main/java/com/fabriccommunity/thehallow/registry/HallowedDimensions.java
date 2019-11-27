@@ -21,7 +21,7 @@ public class HallowedDimensions {
 	public static final FabricDimensionType THE_HALLOW = FabricDimensionType.builder()
 		.skyLight(true)
 		.factory((world, type) -> new DimensionBuilder()
-			.renderFog(true)
+			.hasThickFog(true)
 			.fogColor(new HallowedFogColorCalculator())
 			.visibleSky(true)
 			.skyAngle(new HallowedSkyAngleCalculator())
