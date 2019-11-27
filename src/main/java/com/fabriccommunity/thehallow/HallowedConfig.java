@@ -6,7 +6,7 @@ import io.github.indicode.fabric.tinyconfig.ModConfig;
  * @author Indigo Amann
  */
 public class HallowedConfig {
-	private static ModConfig modConfig = new ModConfig(TheHallow.MOD_ID);
+	/*private static ModConfig modConfig = new ModConfig(TheHallow.MOD_ID);
 	
 	public static void sync(boolean overwrite) {
 		modConfig.configure(overwrite, config -> {
@@ -36,7 +36,7 @@ public class HallowedConfig {
 				Tweaks.pumpkinPieBlock = tweaks.getBool("pumpkin_pie_block", Tweaks.pumpkinPieBlock, "If true, allows placing pumpkin pie blocks using the vanilla pumpkin pie item");
 			});
 		});
-	}
+	}*/
 	
 	public static class HallowedWeather {
 		public static int thunderModifier = 80;
