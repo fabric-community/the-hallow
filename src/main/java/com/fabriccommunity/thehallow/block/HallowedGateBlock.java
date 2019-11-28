@@ -45,12 +45,6 @@ public class HallowedGateBlock extends Block {
 		return getDefaultState().with(FACING, context.getPlayerFacing().getOpposite());
 	}
 
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.TRANSLUCENT;
-	//}
-	//FIXME HallowedGateBlock BlockRenderLayer: TRANSLUCENT
-
 	@Override
 	public int getLuminance(BlockState state) {
 		return 6;

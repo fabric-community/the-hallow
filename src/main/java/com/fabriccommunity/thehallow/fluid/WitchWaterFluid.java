@@ -44,12 +44,6 @@ public class WitchWaterFluid extends BaseFluid {
 		return true;
 	}
 	
-	//@Override
-	//protected BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.SOLID;
-	//}
-	//FIXME WitchWaterFluid render layer: SOLID
-	
 	@Override
 	public Item getBucketItem() {
 		return HallowedItems.WITCH_WATER_BUCKET;

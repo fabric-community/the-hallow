@@ -52,12 +52,6 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 		return SHAPES.get(state.get(FACING));
 	}
 
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME TombstoneBlock render layer: CUTOUT
-
 	@Override
 	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		BlockPos down = pos.down();

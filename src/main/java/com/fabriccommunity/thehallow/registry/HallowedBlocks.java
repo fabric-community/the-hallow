@@ -47,7 +47,6 @@ import net.minecraft.block.LogBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
 import net.minecraft.block.OreBlock;
-import net.minecraft.block.PaneBlock;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
@@ -99,8 +98,8 @@ public class HallowedBlocks {
 	public static final Block INFESTED_CRACKED_TAINTED_STONE_BRICKS = register("infested_cracked_tainted_stone_bricks", new HallowedInfestedBlock(CRACKED_TAINTED_STONE_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_CRACKED_STONE_BRICKS).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block TAINTED_SAND = register("tainted_sand", new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block TAINTED_GRAVEL = register("tainted_gravel", new FallingBlock(FabricBlockSettings.copy(Blocks.GRAVEL).materialColor(MaterialColor.PURPLE).build()));
-	public static final Block TAINTED_GLASS = register("tainted_glass", new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.PURPLE).build())); //FIXME add to bad hashmap
-	public static final Block TAINTED_GLASS_PANE = register("tainted_glass_pane", new HallowedPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build())); //FIXME add to bad hashmap
+	public static final Block TAINTED_GLASS = register("tainted_glass", new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block TAINTED_GLASS_PANE = register("tainted_glass_pane", new HallowedPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build()));
 	public static final Block TAINTED_SANDSTONE = register("tainted_sandstone", new Block(FabricBlockSettings.copy(Blocks.SANDSTONE).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block SMOOTH_TAINTED_SANDSTONE = register("smooth_tainted_sandstone", new Block(FabricBlockSettings.copy(Blocks.SMOOTH_SANDSTONE).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block CUT_TAINTED_SANDSTONE = register("cut_tainted_sandstone", new Block(FabricBlockSettings.copy(Blocks.CUT_SANDSTONE).materialColor(MaterialColor.PURPLE).build()));
@@ -111,8 +110,8 @@ public class HallowedBlocks {
 	public static final Block SMOOTH_TAINTED_SANDSTONE_SLAB = register("smooth_tainted_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(Blocks.SMOOTH_SANDSTONE_SLAB).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block CUT_TAINTED_SANDSTONE_SLAB = register("cut_tainted_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(Blocks.CUT_SANDSTONE_SLAB).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block TAINTED_SANDSTONE_WALL = register("tainted_sandstone_wall", new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL).materialColor(MaterialColor.PURPLE).build()));
-	public static final Block SOUL_GLASS = register("soul_glass", new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.BROWN).build())); //FIXME add to bad hashmap
-	public static final Block SOUL_GLASS_PANE = register("soul_glass_pane", new HallowedPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build())); //FIXME add to bad hashmap
+	public static final Block SOUL_GLASS = register("soul_glass", new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.BROWN).build()));
+	public static final Block SOUL_GLASS_PANE = register("soul_glass_pane", new HallowedPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build()));
 	public static final Block HALLOWED_ORE = register("hallowed_ore", new OreBlock(FabricBlockSettings.copy(Blocks.IRON_ORE).build()), new Item.Settings().group(TheHallow.GROUP).rarity(Rarity.EPIC));
 	public static final Block HALLOWED_BLOCK = register("hallowed_block", new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).materialColor(MaterialColor.RED).build()), new Item.Settings().group(TheHallow.GROUP).rarity(Rarity.EPIC));
 	public static final Block WITCH_WATER_BLOCK = register("witch_water", new WitchWaterBlock(HallowedFluids.WITCH_WATER, FabricBlockSettings.copy(Blocks.WATER).build()), (BlockItem) null);

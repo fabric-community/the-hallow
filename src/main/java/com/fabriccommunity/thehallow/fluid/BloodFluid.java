@@ -41,12 +41,6 @@ public class BloodFluid extends BaseFluid {
 		return false;
 	}
 	
-	//@Override
-	//protected BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.SOLID;
-	//}
-	//FIXME BloodFluid render layer: SOLID
-	
 	@Override
 	public Item getBucketItem() {
 		return HallowedItems.BLOOD_BUCKET;

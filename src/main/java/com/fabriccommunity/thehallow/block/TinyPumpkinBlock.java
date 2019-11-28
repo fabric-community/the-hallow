@@ -68,12 +68,6 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		return Y_SHAPE;
 	}
 	
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME TinyPumpkinBlock render layer: CUTOUT
-	
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(HorizontalFacingBlock.FACING);

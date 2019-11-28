@@ -13,14 +13,10 @@ import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.CowEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
-import net.minecraft.util.math.Quaternion;
-
 import com.fabriccommunity.thehallow.entity.PumpcownEntity;
 
 @Environment(EnvType.CLIENT)
 public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends FeatureRenderer<T, CowEntityModel<T>> {
-	
-	private static final Quaternion FIRST_ROTATION = new Quaternion(42f, 0f, 1f, 0f);
 	
 	public PumpcownStemFeatureRenderer(FeatureRendererContext<T, CowEntityModel<T>> rendererContext) {
 		super(rendererContext);

@@ -10,9 +10,8 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Quaternion;
-
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -30,8 +29,8 @@ public class HallowedCactusEntityRenderer extends MobEntityRenderer<RestlessCact
 		BlockState state = HallowedBlocks.RESTLESS_CACTUS.getDefaultState();
 		renderManager.textureManager.bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
 		matrixStack.push();
-		matrixStack.multiply(new Quaternion(yaw, 0.0f, -1.0f, 0.0f));
-		matrixStack.translate(-0.5f, 0.0f, 0.5f);
+		matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-yaw));
+		matrixStack.translate(-0.5f, 0.0f, -0.5f);
 		
 		for (int i = 0; i < entity.getCactusHeight(); i++) {
 			manager.renderBlockAsEntity(state, matrixStack, vertexConsumerProvider, light, OverlayTexture.DEFAULT_UV);

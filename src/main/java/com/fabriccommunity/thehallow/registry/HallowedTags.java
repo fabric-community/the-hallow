@@ -3,7 +3,6 @@ package com.fabriccommunity.thehallow.registry;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;

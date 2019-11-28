@@ -15,7 +15,7 @@ import com.fabriccommunity.thehallow.entity.HallowedTreasureChestBlockEntity;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
 @Mixin(BuiltinModelItemRenderer.class)
-public class ItemDynamicRendererMixin {
+public class BuiltinModelItemRendererMixin {
 	private final HallowedTreasureChestBlockEntity chestEntity = new HallowedTreasureChestBlockEntity();
 	
 	@Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/item/ItemStack;)V", cancellable = true)

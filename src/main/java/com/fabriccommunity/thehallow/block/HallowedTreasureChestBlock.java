@@ -67,12 +67,6 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 		return BlockRenderType.INVISIBLE;
 	}
 	
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME HallowedTreasureChest render layer: CUTOUT
-	
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return SHAPE;

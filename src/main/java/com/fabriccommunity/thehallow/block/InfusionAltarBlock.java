@@ -159,12 +159,6 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		Block.dropStack(world, blockPos, ((InfusionAltarBlockEntity) blockEntity).storedStack);
 		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
-
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME InfusionAltarBlock render layer: CUTOUT
 	
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPosition, EntityContext entityContext) {

@@ -72,12 +72,6 @@ public class InfusionPillarBlock extends Block implements BlockEntityProvider {
 		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
 	
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME InfusionPillarBlock render layer: CUTOUT
-	
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPosition, EntityContext entityContext) {
 		return SHAPE;

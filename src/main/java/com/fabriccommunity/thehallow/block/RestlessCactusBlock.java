@@ -124,12 +124,6 @@ public class RestlessCactusBlock extends Block {
 		entity.damage(DamageSource.CACTUS, 1.0F);
 	}
 	
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME RestlessCactusBlock render layer: CUTOUT
-	
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(AGE);

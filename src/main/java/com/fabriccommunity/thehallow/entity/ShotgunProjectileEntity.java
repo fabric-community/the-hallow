@@ -93,7 +93,7 @@ public class ShotgunProjectileEntity extends Entity {
 		if (world.isClient()) {
 			updateTrackedPosition(getX(), getY(), getZ());
 		}
-
+		
 		super.tick();
 	}
 

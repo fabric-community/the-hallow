@@ -39,10 +39,4 @@ public class BreadCrumbsBlock extends Block {
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState state2, IWorld world, BlockPos pos, BlockPos pos2) {
 		return !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, state2, world, pos, pos2);
 	}
-	
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
-	//FIXME BreadCrumbsBlock renderlayer: CUTOUT
 }

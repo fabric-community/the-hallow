@@ -5,8 +5,6 @@ import net.minecraft.client.render.entity.ZombieEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.Identifier;
-import com.mojang.blaze3d.platform.GlStateManager;
-
 import com.fabriccommunity.thehallow.TheHallow;
 
 public class MummyEntityRenderer extends ZombieEntityRenderer {
@@ -18,8 +16,7 @@ public class MummyEntityRenderer extends ZombieEntityRenderer {
 	
 	@Override
 	protected void scale(ZombieEntity entity, MatrixStack matrixStack, float f1) {
-		GlStateManager.scalef(1.2f, 1.2f, 1.2f);
-		super.scale(entity, matrixStack, f1);
+		super.scale(entity, matrixStack, f1 * 1.2f);
 	}
 	
 	@Override

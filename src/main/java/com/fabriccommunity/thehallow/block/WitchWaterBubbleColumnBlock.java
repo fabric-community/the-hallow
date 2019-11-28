@@ -150,12 +150,6 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 		return VoxelShapes.empty();
 	}
 	
-	//@Override
-	//public BlockRenderLayer getRenderLayer() {
-	//	return BlockRenderLayer.TRANSLUCENT;
-	//}
-	//FIXME WitchWaterBubbleColumnBlock render layer: TRANSLUCENT
-	
 	@Override
 	public BlockRenderType getRenderType(BlockState state) {
 		return BlockRenderType.INVISIBLE;
