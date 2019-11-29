@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+//TODO commented-out trinket
 public class PaperBagItem extends Item /*implements ITrinket*/ {
 	public PaperBagItem(Settings settings) {
 		super(settings);

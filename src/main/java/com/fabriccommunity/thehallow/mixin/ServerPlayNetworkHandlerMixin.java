@@ -30,6 +30,8 @@ import net.minecraft.world.World;
 import com.fabriccommunity.thehallow.HallowedConfig;
 import com.fabriccommunity.thehallow.component.CandyComponent;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -96,11 +98,11 @@ public abstract class ServerPlayNetworkHandlerMixin {
 	}
 	
 	private boolean isPlayerWearingCostume(PlayerEntity player) {
-		/*for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) {
 			if (HallowedTags.Items.COSTUMES.contains(player.inventory.armor.get(i).getItem()))
 				return true;
 		}
-		Inventory inv = TrinketsApi.getTrinketsInventory(player);
+		/*Inventory inv = TrinketsApi.getTrinketsInventory(player); TODO commented-out trinket
 		for (int i = 0; i < inv.getInvSize(); i++) {
 			if (HallowedTags.Items.COSTUMES.contains(inv.getInvStack(i).getItem())) return true;
 		}*/

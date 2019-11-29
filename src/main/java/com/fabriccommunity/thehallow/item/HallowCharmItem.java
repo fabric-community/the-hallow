@@ -25,6 +25,7 @@ import net.minecraft.world.dimension.DimensionType;
 
 import java.util.Random;
 
+//TODO commented-out trinket
 public class HallowCharmItem extends Item /*implements ITrinket*/ {
 	public HallowCharmItem(Settings settings) {
 		super(settings);

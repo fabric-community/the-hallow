@@ -2,6 +2,7 @@ package com.fabriccommunity.thehallow.item;
 
 import net.minecraft.item.Item;
 
+//TODO commented-out trinket
 public class SkirtCostume extends Item /*implements ITrinket*/ {
 	public SkirtCostume(Settings settings) {
 		super(settings);

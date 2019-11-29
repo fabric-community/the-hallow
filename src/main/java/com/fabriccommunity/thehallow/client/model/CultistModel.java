@@ -68,13 +68,12 @@ public class CultistModel extends BipedEntityModel<CultistEntity> implements Mod
 	
 	@Override
 	public void render(MatrixStack matrixStack, VertexConsumer vertexConsumer, int i, int j, float r, float g, float b, float f) {
-		super.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
-		//head.render(f5);
-		//body.render(f5);
-		//leftArm.render(f5);
-		//rightArm.render(f5);
-		//leftLeg.render(f5);
-		//rightLeg.render(f5);
+		head.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
+		torso.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
+		leftArm.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
+		rightArm.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
+		leftLeg.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
+		rightLeg.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
 		cape.render(matrixStack, vertexConsumer, i, j, r, g, b, f);
 	}
 	

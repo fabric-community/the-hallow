@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+//TODO commented-out trinket
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
 	@Shadow

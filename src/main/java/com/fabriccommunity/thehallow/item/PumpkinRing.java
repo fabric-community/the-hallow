@@ -10,6 +10,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
+//TODO commented-out trinket
 public class PumpkinRing extends Item /*implements ITrinket*/ {
 	public PumpkinRing(Settings settings) {
 		super(settings);
