@@ -75,10 +75,10 @@ dependencies {
 	}
 	include "com.github.NerdHubMC.Cardinal-Components-API:cardinal-components-entity:${cardinal_components_version}"
 	
-	//modImplementation("com.github.emilyploszaj:trinkets:${trinkets_version}") {
-	//	transitive = false
-	//}
-	//include "com.github.emilyploszaj:trinkets:${trinkets_version}"
+	modImplementation("com.github.emilyploszaj:trinkets:${trinkets_version}") {
+		transitive = false
+	}
+	include "com.github.emilyploszaj:trinkets:${trinkets_version}"
 	
 	modImplementation ("com.github.indi-code:TinyConfig:${project.tiny_config_version}") {
 		transitive = false

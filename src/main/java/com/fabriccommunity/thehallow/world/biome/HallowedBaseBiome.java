@@ -65,7 +65,7 @@ public abstract class HallowedBaseBiome extends Biome implements HallowedBiomeIn
 	}
 	
 	@Override
-	public int getFoliageColorAt() {
+	public int getFoliageColor() {
 		return FOLIAGE_COLOR;
 	}
 }

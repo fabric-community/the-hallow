@@ -37,7 +37,7 @@ public class InfusionAltarBlockEntityRenderer extends BlockEntityRenderer<Infusi
 			matrixStack.translate(0.5, 1.25 + MathHelper.sin(rotation / 2) / 32, 0.5);
 			matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(rotation * 2));
 			matrixStack.scale(0.5f, 0.5f, 0.5f);
-			itemRenderer.method_23178(altar.storedStack, ModelTransformation.Type.FIXED, i, j, matrixStack, vertexConsumerProvider);
+			itemRenderer.renderItem(altar.storedStack, ModelTransformation.Type.FIXED, i, j, matrixStack, vertexConsumerProvider);
 			matrixStack.pop();
 		}
 		

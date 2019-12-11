@@ -29,9 +29,9 @@ public class BramblesBlock extends PlantBlock {
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity && entity.getType() != HallowedEntities.CROW && entity.getType() != HallowedEntities.PUMPCOWN) {
 			entity.slowMovement(state, new Vec3d(0.800000011920929D, 0.75D, 0.800000011920929D));
-			if (!world.isClient && (entity.prevRenderX != entity.getX() || entity.prevRenderZ != entity.getZ())) {
-				double entityX = Math.abs(entity.getX() - entity.prevRenderX);
-				double entityZ = Math.abs(entity.getZ() - entity.prevRenderZ);
+			if (!world.isClient && (entity.lastRenderX != entity.getX() || entity.lastRenderZ != entity.getZ())) {
+				double entityX = Math.abs(entity.getX() - entity.lastRenderX);
+				double entityZ = Math.abs(entity.getZ() - entity.lastRenderZ);
 				if (entityX >= 0.003000000026077032D || entityZ >= 0.003000000026077032D) {
 					entity.damage(DAMAGE_SOURCE, 1.0F);
 				}

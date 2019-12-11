@@ -12,10 +12,10 @@ import net.minecraft.world.gen.decorator.CountDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorConfig;
-import net.minecraft.world.gen.decorator.LakeDecoratorConfig;
+import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.BranchedTreeFeatureConfig;
-import net.minecraft.world.gen.feature.BushFeatureConfig;
+import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.DiskFeatureConfig;
@@ -55,30 +55,30 @@ public class HallowedBiomeFeatures {
 	}
 	
 	public static void addDisks(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, configureFeature(net.minecraft.world.gen.feature.Feature.DISK, new DiskFeatureConfig(HallowedBlocks.TAINTED_SAND.getDefaultState(), 7, 2, Lists.newArrayList(HallowedBlocks.DECEASED_DIRT.getDefaultState(), HallowedBlocks.DECEASED_GRASS_BLOCK.getDefaultState())), Decorator.COUNT_TOP_SOLID, new CountDecoratorConfig(3)));
-		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, configureFeature(net.minecraft.world.gen.feature.Feature.DISK, new DiskFeatureConfig(HallowedBlocks.TAINTED_GRAVEL.getDefaultState(), 6, 2, Lists.newArrayList(HallowedBlocks.DECEASED_DIRT.getDefaultState(), HallowedBlocks.DECEASED_GRASS_BLOCK.getDefaultState())), Decorator.COUNT_TOP_SOLID, new CountDecoratorConfig(1)));
+		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, configureFeature(Feature.DISK, new DiskFeatureConfig(HallowedBlocks.TAINTED_SAND.getDefaultState(), 7, 2, Lists.newArrayList(HallowedBlocks.DECEASED_DIRT.getDefaultState(), HallowedBlocks.DECEASED_GRASS_BLOCK.getDefaultState())), Decorator.COUNT_TOP_SOLID, new CountDecoratorConfig(3)));
+		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, configureFeature(Feature.DISK, new DiskFeatureConfig(HallowedBlocks.TAINTED_GRAVEL.getDefaultState(), 6, 2, Lists.newArrayList(HallowedBlocks.DECEASED_DIRT.getDefaultState(), HallowedBlocks.DECEASED_GRASS_BLOCK.getDefaultState())), Decorator.COUNT_TOP_SOLID, new CountDecoratorConfig(1)));
 	}
 	
 	public static void addDefaultUplandsGeneration(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, configureFeature(HallowedFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new LakeDecoratorConfig(160)));
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, configureFeature(HallowedFeatures.STONE_CIRCLE, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(160)));
 	}
 	
 	public static void addLakes(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new BushFeatureConfig(HallowedBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(4)));
-		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new BushFeatureConfig(HallowedBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(40)));
+		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new SingleStateFeatureConfig(HallowedBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new ChanceDecoratorConfig(4)));
+		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new SingleStateFeatureConfig(HallowedBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new ChanceDecoratorConfig(40)));
 	}
 	
 	public static void addExtraLakes(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new BushFeatureConfig(HallowedBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(2)));
-		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new BushFeatureConfig(HallowedBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new LakeDecoratorConfig(20)));
+		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new SingleStateFeatureConfig(HallowedBlocks.WITCH_WATER_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new ChanceDecoratorConfig(2)));
+		biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, configureFeature(Feature.LAKE, new SingleStateFeatureConfig(HallowedBlocks.BLOOD_BLOCK.getDefaultState()), Decorator.WATER_LAKE, new ChanceDecoratorConfig(20)));
 	}
 	
 	public static void addWells(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, configureFeature(HallowedFeatures.WITCH_WELL, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new LakeDecoratorConfig(300)));
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, configureFeature(HallowedFeatures.WITCH_WELL, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(300)));
 	}
 	
 	public static void addLairs(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, configureFeature(HallowedFeatures.SPIDER_LAIR, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new LakeDecoratorConfig(230)));
+		biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, configureFeature(HallowedFeatures.SPIDER_LAIR, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP, new ChanceDecoratorConfig(230)));
 	}
 	
 	public static void addBarrows(Biome biome) {
@@ -110,6 +110,6 @@ public class HallowedBiomeFeatures {
 	}
 	
 	public static void addColoredPumpkins(Biome biome) {
-		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(HallowedFeatures.COLORED_PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new LakeDecoratorConfig(32)));
+		biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, configureFeature(HallowedFeatures.COLORED_PUMPKIN, FeatureConfig.DEFAULT, Decorator.CHANCE_HEIGHTMAP_DOUBLE, new ChanceDecoratorConfig(32)));
 	}
 }

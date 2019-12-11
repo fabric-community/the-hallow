@@ -19,7 +19,7 @@ import java.util.List;
 
 public class HallowedChunkGenerator extends SurfaceChunkGenerator<HallowedChunkGeneratorConfig> {
 
-	private static final float[] BIOME_WEIGHT_TABLE = Util.create(new float[25], (array) -> {
+	private static final float[] BIOME_WEIGHT_TABLE = Util.make(new float[25], (array) -> {
 		for (int xOffset = -2; xOffset <= 2; ++xOffset) {
 			for (int zOffset = -2; zOffset <= 2; ++zOffset) {
 				float value = 10.0F / MathHelper.sqrt((float) (xOffset * xOffset + zOffset * zOffset) + 0.2F);

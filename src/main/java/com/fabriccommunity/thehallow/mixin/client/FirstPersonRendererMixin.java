@@ -6,15 +6,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.FirstPersonRenderer;
 import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 
 import com.fabriccommunity.thehallow.item.tool.ClubItem;
 
-@Mixin(FirstPersonRenderer.class)
+@Mixin(HeldItemRenderer.class)
 public class FirstPersonRendererMixin {
 	
 	@Inject(method = "renderFirstPersonItem(Lnet/minecraft/client/network/AbstractClientPlayerEntity;FFLnet/minecraft/util/Hand;FLnet/minecraft/item/ItemStack;F)V", at = @At("HEAD"), cancellable = true)

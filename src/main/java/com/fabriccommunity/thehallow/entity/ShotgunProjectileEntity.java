@@ -65,9 +65,9 @@ public class ShotgunProjectileEntity extends Entity {
 	@Override
 	public void tick() {
 		super.tick();
-		this.prevRenderX = getX();
-		this.prevRenderY = getY();
-		this.prevRenderZ = getZ();
+		this.lastRenderX = getX();
+		this.lastRenderY = getY();
+		this.lastRenderZ = getZ();
 
 		this.age();
 

@@ -33,7 +33,7 @@ public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends Featu
 		if (!pumpcown.isBaby() && !pumpcown.isInvisible()) {
 			BlockRenderManager blockRenderManager = MinecraftClient.getInstance().getBlockRenderManager();
 			BlockState blockState = PumpcownEntity.STEM_FEATURE;
-			int m = LivingEntityRenderer.method_23622(pumpcown, 0.0F);
+			int m = LivingEntityRenderer.getOverlay(pumpcown, 0.0F);
 			matrixStack.push();
 			matrixStack.translate(0.2, -0.35, 0.5);
 			matrixStack.multiply(MINUS_48_YAW);
@@ -51,7 +51,7 @@ public class PumpcownStemFeatureRenderer<T extends PumpcownEntity> extends Featu
 			blockRenderManager.renderBlockAsEntity(blockState, matrixStack, vertexConsumerProvider, i, m);
 			matrixStack.pop();
 			matrixStack.push();
-			((CowEntityModel)this.getModel()).getHead().rotate(matrixStack);
+			((CowEntityModel)this.getContextModel()).getHead().rotate(matrixStack);
 			matrixStack.translate(0, -0.7, -0.2);
 			matrixStack.multiply(MINUS_78_YAW);
 			matrixStack.scale(-1.0F, -1.0F, 1.0F);
