@@ -6,12 +6,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import com.fabriccommunity.thehallow.registry.HallowedItems;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
+
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-//TODO commented-out trinket
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
 	@Shadow
@@ -23,7 +29,7 @@ public abstract class PlayerEntityMixin {
 		shift = At.Shift.AFTER
 	), method = "eatFood(Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;")
 	private void addPumpkinRingBonus(World world, ItemStack itemStack, CallbackInfoReturnable<ItemStack> info) {
-		/*PlayerEntity playerEntity = (PlayerEntity) (Object) this;
+		PlayerEntity playerEntity = (PlayerEntity) (Object) this;
 		TrinketComponent trinketPlayer = TrinketsApi.getTrinketComponent(playerEntity);
 		
 		ItemStack mainHandStack = trinketPlayer.getStack("hand:ring");
@@ -38,6 +44,6 @@ public abstract class PlayerEntityMixin {
 					this.hungerManager.add(extraHunger, 1);
 				}
 			}
-		}*/
+		}
 	}
 }

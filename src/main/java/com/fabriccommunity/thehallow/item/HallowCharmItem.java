@@ -3,9 +3,20 @@ package com.fabriccommunity.thehallow.item;
 import com.fabriccommunity.thehallow.block.HallowedGateBlock;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedDimensions;
+import com.fabriccommunity.thehallow.registry.HallowedItems;
+
+import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
+import net.minecraft.client.render.item.ItemRenderer;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -25,11 +36,10 @@ import net.minecraft.world.dimension.DimensionType;
 
 import java.util.Random;
 
-//TODO commented-out trinket
-public class HallowCharmItem extends Item /*implements ITrinket*/ {
+public class HallowCharmItem extends Item implements ITrinket {
 	public HallowCharmItem(Settings settings) {
 		super(settings);
-		//DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
+		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
 
 	@Override
@@ -107,7 +117,7 @@ public class HallowCharmItem extends Item /*implements ITrinket*/ {
 		return stack.getOrCreateTag().contains("PortalLoc");
 	}
 
-	/*@Override
+	@Override
 	public boolean canWearInSlot(String group, String slot) {
 		return group.contains(SlotGroups.HEAD) && slot.contains(Slots.NECKLACE);
 	}
@@ -115,14 +125,14 @@ public class HallowCharmItem extends Item /*implements ITrinket*/ {
 	@Override
 	public void render(String slot, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
 		ItemRenderer renderer = MinecraftClient.getInstance().getItemRenderer();
-		GlStateManager.pushMatrix();
+		GlStateManager.pushMatrix(); //TODO rendering
 		ITrinket.translateToChest(model, player, headYaw, headPitch);
 		GlStateManager.translatef(0.0F, -0.15F, 0.0F);
 		GlStateManager.scalef(0.5F, 0.5F, 0.5F);
 		GlStateManager.rotatef(-180F, 0.0F, 0.0F, 1.0F);
-		renderer.renderItem(new ItemStack(HallowedItems.HALLOW_CHARM), ModelTransformation.Type.FIXED);
+		renderer.renderItem(new ItemStack(HallowedItems.HALLOW_CHARM), ModelTransformation.Type.FIXED, maxCount, maxCount, null, null);
 		GlStateManager.popMatrix();
-	}*/
+	}
 
 	@Override
 	public void usageTick(World world, LivingEntity user, ItemStack stack, int ticksLeft) {

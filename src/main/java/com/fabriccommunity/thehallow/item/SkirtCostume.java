@@ -1,15 +1,31 @@
 package com.fabriccommunity.thehallow.item;
 
+import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
+import net.minecraft.client.render.item.ItemRenderer;
+import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
-//TODO commented-out trinket
-public class SkirtCostume extends Item /*implements ITrinket*/ {
+public class SkirtCostume extends Item implements ITrinket {
 	public SkirtCostume(Settings settings) {
 		super(settings);
-		//DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
+		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
 	
-	/*@Override
+	@Override
 	public TypedActionResult<ItemStack> use(World world_1, PlayerEntity playerEntity, Hand hand) {
 		return ITrinket.equipTrinket(playerEntity, hand);
 	}
@@ -27,7 +43,7 @@ public class SkirtCostume extends Item /*implements ITrinket*/ {
 		ITrinket.translateToChest(model, player, headYaw, headPitch);
 		GlStateManager.translatef(0.25F, 0.65F, 0.0F);
 		GlStateManager.scalef(0.5F, 0.5F, 0.5F);
-		GlStateManager.rotatef(-45F, 0.0F, 0.0F, 1.0F);
+		GlStateManager.rotatef(-45F, 0.0F, 0.0F, 1.0F); //TODO rendering
 		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED);
 		GlStateManager.popMatrix();
 		GlStateManager.pushMatrix();
@@ -44,5 +60,5 @@ public class SkirtCostume extends Item /*implements ITrinket*/ {
 		GlStateManager.rotatef(-45F, 0.0F, 0.0F, 1.0F);
 		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED);
 		GlStateManager.popMatrix();
-	}*/
+	}
 }
