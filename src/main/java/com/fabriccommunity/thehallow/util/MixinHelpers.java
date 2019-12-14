@@ -7,6 +7,8 @@ import net.minecraft.item.Items;
 
 import java.util.Random;
 
+import com.fabriccommunity.thehallow.HallowedConfig;
+
 /**
  * @author Indigo Amann
  */
@@ -18,7 +20,7 @@ public class MixinHelpers {
 			return entity.getEquippedStack(slot);
 		}
 		ItemStack stack = entity.getEquippedStack(EquipmentSlot.HEAD);
-		if (stack.isEmpty()) {
+		if (stack.isEmpty() && HallowedConfig.PumpkinMobs.headArmor) {
 			if (RANDOM.nextInt(10) == 0) {
 				stack = new ItemStack(RANDOM.nextBoolean() ? Items.CARVED_PUMPKIN : Items.JACK_O_LANTERN);
 				entity.equipStack(EquipmentSlot.HEAD, stack);

@@ -44,7 +44,7 @@ public class TheHallow implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		//HallowedConfig.sync(false);
+		HallowedConfig.sync();
 		HallowedEntities.init();
 		HallowedBlocks.init();
 		HallowedItems.init();
