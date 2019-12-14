@@ -14,9 +14,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -31,17 +35,21 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Quaternion;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 
 import java.util.Random;
 
 public class HallowCharmItem extends Item implements ITrinket {
+	
+	private static final Quaternion ROTATION_CONSTANT = Vector3f.POSITIVE_Z.getDegreesQuaternion(-180);
+	
 	public HallowCharmItem(Settings settings) {
 		super(settings);
 		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
-
+	
 	@Override
 	public ActionResult useOnBlock(ItemUsageContext context) {
 		PlayerEntity player = context.getPlayer();
@@ -75,8 +83,7 @@ public class HallowCharmItem extends Item implements ITrinket {
 			player.playSound(SoundEvents.BLOCK_PORTAL_TRIGGER, 1F, 1F);
 			return new TypedActionResult<>(ActionResult.SUCCESS, player.getActiveItem());
 		} else {
-			return new TypedActionResult<>(ActionResult.PASS, player.getActiveItem());
-			//return ITrinket.equipTrinket(player, hand);
+			return ITrinket.equipTrinket(player, hand);
 		}
 	}
 
@@ -123,15 +130,15 @@ public class HallowCharmItem extends Item implements ITrinket {
 	}
 
 	@Override
-	public void render(String slot, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
+	public void render(String slot, MatrixStack matrix, VertexConsumerProvider vertexConsumer, int light, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
 		ItemRenderer renderer = MinecraftClient.getInstance().getItemRenderer();
-		GlStateManager.pushMatrix(); //TODO rendering
-		ITrinket.translateToChest(model, player, headYaw, headPitch);
-		GlStateManager.translatef(0.0F, -0.15F, 0.0F);
-		GlStateManager.scalef(0.5F, 0.5F, 0.5F);
-		GlStateManager.rotatef(-180F, 0.0F, 0.0F, 1.0F);
-		renderer.renderItem(new ItemStack(HallowedItems.HALLOW_CHARM), ModelTransformation.Type.FIXED, maxCount, maxCount, null, null);
-		GlStateManager.popMatrix();
+		matrix.push();
+		translateToChest(model, player, headYaw, headPitch, matrix); //TODO switch back to trinkets version once it's fixed
+		matrix.translate(0, -0.15, 0);
+		matrix.scale(0.5F, 0.5F, 0.5F);
+		matrix.multiply(ROTATION_CONSTANT);
+		renderer.renderItem(new ItemStack(HallowedItems.HALLOW_CHARM), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		matrix.pop();
 	}
 
 	@Override
@@ -145,5 +152,14 @@ public class HallowCharmItem extends Item implements ITrinket {
 		double velY = (random.nextFloat() - 0.5D) * 0.5D;
 		double velZ = (random.nextFloat() - 0.5D) * 0.5D;
 		world.addParticle(ParticleTypes.PORTAL, x, y, z, velX, velY, velZ);
+	}
+	
+	public static void translateToChest(PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch, MatrixStack matrix) {
+		if (player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
+			matrix.translate(0, 0.2, 0);
+			matrix.multiply(Vector3f.POSITIVE_X.getDegreesQuaternion(model.torso.pitch * 57.5f));
+		}
+		matrix.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(model.torso.yaw * 57.5f));
+		matrix.translate(0, 0.4, -0.16);
 	}
 }

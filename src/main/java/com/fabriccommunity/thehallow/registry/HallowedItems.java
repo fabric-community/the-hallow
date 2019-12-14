@@ -6,6 +6,9 @@ import com.fabriccommunity.thehallow.item.tool.ClubItem;
 import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
 import com.fabriccommunity.thehallow.item.tool.ScytheItem;
 
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
+import dev.emi.trinkets.api.TrinketSlots;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -14,6 +17,7 @@ import net.minecraft.item.MushroomStewItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
@@ -63,10 +67,10 @@ public class HallowedItems {
 	}
 	
 	public static void init() {
-		/*TrinketSlots.addSlot(SlotGroups.LEGS, Slots.BELT, new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
+		TrinketSlots.addSlot(SlotGroups.LEGS, Slots.BELT, new Identifier("trinkets", "textures/item/empty_trinket_slot_belt.png"));
 		TrinketSlots.addSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
 		TrinketSlots.addSlot(SlotGroups.HEAD, Slots.MASK, new Identifier("trinkets", "textures/item/empty_trinket_slot_mask.png"));
-		TrinketSlots.addSlot(SlotGroups.HEAD, Slots.NECKLACE, new Identifier("trinkets", "textures/item/empty_trinket_slot_necklace.png"));*/
+		TrinketSlots.addSlot(SlotGroups.HEAD, Slots.NECKLACE, new Identifier("trinkets", "textures/item/empty_trinket_slot_necklace.png"));
 	}
 	
 	protected static <T extends Item> T register(String name, T item) {
