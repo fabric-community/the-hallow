@@ -27,7 +27,7 @@ public class LifestealEnchantment extends Enchantment {
 			LivingEntity attacker = (LivingEntity) damageSource.getSource();
 			int enchantmentLevel = EnchantmentHelper.getEquipmentLevel(HallowedEnchantments.LIFESTEAL, attacker);
 			float stolenHealth = damage * STEAL_MULTIPLIER.get(enchantmentLevel);
-			return Math.min(attacker.getHealthMaximum(), attacker.getHealth() + stolenHealth);
+			return Math.min(attacker.getMaximumHealth(), attacker.getHealth() + stolenHealth);
 		} else {
 			return 0;
 		}

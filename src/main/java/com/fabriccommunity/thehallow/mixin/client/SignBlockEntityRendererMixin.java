@@ -14,7 +14,7 @@ import com.fabriccommunity.thehallow.block.HallowedSign;
 @Mixin(SignBlockEntityRenderer.class)
 public class SignBlockEntityRendererMixin {
 	@Inject(method = "getModelTexture(Lnet/minecraft/block/Block;)Lnet/minecraft/util/Identifier;", at = @At("HEAD"), cancellable = true)
-	private void getModelTexture(Block block, CallbackInfoReturnable<Identifier> info) {
+	private static void getModelTexture(Block block, CallbackInfoReturnable<Identifier> info) {
 		if (block instanceof HallowedSign) {
 			info.setReturnValue(((HallowedSign) block).getTexture());
 		}

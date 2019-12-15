@@ -16,7 +16,7 @@ public class CrowEntityRenderer extends MobEntityRenderer<CrowEntity, CrowEntity
 	}
 	
 	@Override
-	protected Identifier getTexture(CrowEntity crow) {
+	public Identifier getTexture(CrowEntity crow) {
 		return SKIN;
 	}
 }

@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.MushroomPlantBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.ViewableWorld;
+import net.minecraft.world.WorldView;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
@@ -15,7 +15,7 @@ public class HallowedMushroomPlantBlock extends MushroomPlantBlock {
 	}
 	
 	@Override
-	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		if (super.canPlaceAt(state, world, pos)) return true;
 		BlockPos downPos = pos.down();
 		BlockState downState = world.getBlockState(downPos);

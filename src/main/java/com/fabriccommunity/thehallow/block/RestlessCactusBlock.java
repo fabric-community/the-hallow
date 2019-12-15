@@ -2,14 +2,14 @@ package com.fabriccommunity.thehallow.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlacementEnvironment;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.state.StateFactory;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.FluidTags;
@@ -18,8 +18,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -35,11 +35,11 @@ public class RestlessCactusBlock extends Block {
 	
 	public RestlessCactusBlock(Block.Settings settings) {
 		super(settings);
-		this.setDefaultState(this.stateFactory.getDefaultState().with(AGE, 0));
+		this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
 	}
 	
 	@Override
-	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random random) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		if (!state.canPlaceAt(world, pos)) {
 			world.breakBlock(pos, true);
 		} else {
@@ -91,11 +91,6 @@ public class RestlessCactusBlock extends Block {
 	}
 	
 	@Override
-	public boolean isOpaque(BlockState state) {
-		return true;
-	}
-	
-	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState state2, IWorld world, BlockPos pos, BlockPos pos2) {
 		if (!state.canPlaceAt(world, pos)) {
 			world.getBlockTickScheduler().schedule(pos, this, 1);
@@ -105,7 +100,7 @@ public class RestlessCactusBlock extends Block {
 	}
 	
 	@Override
-	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		Iterator<Direction> iterator = Direction.Type.HORIZONTAL.iterator();
 		
 		Direction direction;
@@ -130,12 +125,7 @@ public class RestlessCactusBlock extends Block {
 	}
 	
 	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-	
-	@Override
-	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(AGE);
 	}
 	

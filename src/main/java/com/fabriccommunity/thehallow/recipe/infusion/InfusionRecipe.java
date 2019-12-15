@@ -36,9 +36,9 @@ public class InfusionRecipe implements Recipe<Inventory> {
 		if (infusionInventory.target == null) {
 			return false;
 		}
-		if (infusionInventory.target.getItem() != target.getStackArray()[0].getItem()
-			|| infusionInventory.target.getCount() != target.getStackArray()[0].getCount()
-			|| infusionInventory.target.getTag() != target.getStackArray()[0].getTag()) {
+		if (infusionInventory.target.getItem() != target.getMatchingStacksClient()[0].getItem()
+			|| infusionInventory.target.getCount() != target.getMatchingStacksClient()[0].getCount()
+			|| infusionInventory.target.getTag() != target.getMatchingStacksClient()[0].getTag()) {
 			return false;
 		}
 		for (int i = 0; i < infusionInventory.input.length; ++i) {
@@ -56,7 +56,7 @@ public class InfusionRecipe implements Recipe<Inventory> {
 			List<ItemStack> treeA = new ArrayList<ItemStack>();
 			List<ItemStack> treeB = new ArrayList<ItemStack>();
 			
-			treeA.addAll(Arrays.asList(input.getStackArray()));
+			treeA.addAll(Arrays.asList(input.getMatchingStacksClient()));
 			
 			for (int i = 0; i < infusionInventory.input.length; ++i) {
 				if (!infusionInventory.input[i].isEmpty()) {

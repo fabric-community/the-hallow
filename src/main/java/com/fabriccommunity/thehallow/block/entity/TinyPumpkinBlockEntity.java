@@ -7,6 +7,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -27,11 +28,11 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 		super(HallowedBlockEntities.TINY_PUMPKIN);
 	}
 	
-	public boolean use(PlayerEntity player, Hand hand, BlockHitResult hit) {
+	public ActionResult use(PlayerEntity player, Hand hand, BlockHitResult hit) {
 		Direction facing = getCachedState().get(HorizontalFacingBlock.FACING);
 		Direction hitSide = hit.getSide();
 		if (hitSide != facing.rotateYClockwise() && hitSide != facing.rotateYCounterclockwise()) {
-			return false;
+			return ActionResult.PASS;
 		}
 		
 		if (!world.isClient) {
@@ -61,7 +62,7 @@ public class TinyPumpkinBlockEntity extends BlockEntity implements BlockEntityCl
 			}
 		}
 		
-		return true;
+		return ActionResult.SUCCESS;
 	}
 	
 	@Nonnull

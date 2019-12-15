@@ -1,6 +1,5 @@
 package com.fabriccommunity.thehallow.client.screen;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
@@ -8,6 +7,7 @@ import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.NarratorManager;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -36,7 +36,7 @@ public class HallowedLoadingScreen extends Screen {
 	
 	private final Identifier backgroundTexture;
 	private final String message;
-	private final BlockState pumpkinState;
+	private final ItemStack pumpkinStack;
 	
 	private int floatingTick = 0;
 	private float rotation = 0f;
@@ -45,7 +45,7 @@ public class HallowedLoadingScreen extends Screen {
 		super(NarratorManager.EMPTY);
 		this.backgroundTexture = BACKGROUNDS[ThreadLocalRandom.current().nextInt(BACKGROUNDS.length)];
 		this.message = MESSAGES[ThreadLocalRandom.current().nextInt(MESSAGES.length)];
-		this.pumpkinState = HallowedBlocks.TINY_PUMPKIN.getDefaultState();
+		this.pumpkinStack = new ItemStack(HallowedBlocks.TINY_PUMPKIN);
 	}
 	
 	@Override
@@ -75,7 +75,7 @@ public class HallowedLoadingScreen extends Screen {
 		GlStateManager.rotatef(rotation, 0, 1, 0);
 		
 		minecraft.getTextureManager().bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
-		minecraft.getBlockRenderManager().renderDynamic(pumpkinState, 1f);
+		minecraft.getItemRenderer().renderGuiItem(pumpkinStack, 0, 0);
 		
 		GlStateManager.popMatrix();
 	}
@@ -86,11 +86,11 @@ public class HallowedLoadingScreen extends Screen {
 		GlStateManager.disableLighting();
 		GlStateManager.disableFog();
 		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder builder = tessellator.getBufferBuilder();
+		BufferBuilder builder = tessellator.getBuffer();
 		minecraft.getTextureManager().bindTexture(backgroundTexture);
 		int brightness = 130;
 		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-		builder.begin(7, VertexFormats.POSITION_UV_COLOR);
+		builder.begin(7, VertexFormats.POSITION_TEXTURE_COLOR);
 		builder.vertex(0, height, 0).texture(0, height / 32.0F + i).color(brightness, brightness, brightness, 255).next();
 		builder.vertex(width, height, 0).texture(width / 32.0F, height / 32.0F + i).color(brightness, brightness, brightness, 255).next();
 		builder.vertex(width, 0, 0).texture(width / 32.0F, i).color(brightness, brightness, brightness, 255).next();

@@ -1,5 +1,7 @@
 package com.fabriccommunity.thehallow.block;
 
+import com.fabriccommunity.thehallow.TheHallow;
+
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.util.Identifier;
 
@@ -7,7 +9,7 @@ public class HallowedWallSignBlock extends WallSignBlock implements HallowedSign
 	private final Identifier texture;
 	
 	public HallowedWallSignBlock(Identifier texture, Settings settings) {
-		super(settings);
+		super(settings, TheHallow.HALLOWED_SIGN_TYPE);
 		this.texture = texture;
 	}
 	

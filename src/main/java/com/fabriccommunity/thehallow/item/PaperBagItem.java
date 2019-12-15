@@ -13,11 +13,11 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 import dev.emi.trinkets.api.ITrinket;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
-
-import java.util.List;
 
 public class PaperBagItem extends Item implements ITrinket {
 	public PaperBagItem(Settings settings) {

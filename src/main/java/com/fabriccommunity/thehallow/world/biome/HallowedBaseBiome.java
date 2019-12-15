@@ -2,7 +2,6 @@ package com.fabriccommunity.thehallow.world.biome;
 
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -41,7 +40,7 @@ public abstract class HallowedBaseBiome extends Biome implements HallowedBiomeIn
 	}
 	
 	@Override
-	public int getSkyColor(float temperature) {
+	public int getSkyColor() {
 		return 0x360063;
 	}
 	
@@ -61,12 +60,12 @@ public abstract class HallowedBaseBiome extends Biome implements HallowedBiomeIn
 	}
 	
 	@Override
-	public int getGrassColorAt(BlockPos blockPos_1) {
+	public int getGrassColorAt(double x, double z) {
 		return GRASS_COLOR;
 	}
 	
 	@Override
-	public int getFoliageColorAt(BlockPos blockPos_1) {
+	public int getFoliageColor() {
 		return FOLIAGE_COLOR;
 	}
 }

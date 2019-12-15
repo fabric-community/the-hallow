@@ -21,7 +21,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
@@ -44,7 +43,7 @@ public class ShotgunProjectileEntity extends Entity {
 	}
 
 	public ShotgunProjectileEntity(World world, Entity entity, Vec3d vel) {
-		this(world, entity, entity.x, entity.y + entity.getEyeHeight(entity.getPose()), entity.z,
+		this(world, entity, entity.getX(), entity.getY() + entity.getEyeHeight(entity.getPose()), entity.getZ(),
 			entity.yaw, entity.pitch,
 			vel.x, vel.y, vel.z);
 	}
@@ -66,9 +65,9 @@ public class ShotgunProjectileEntity extends Entity {
 	@Override
 	public void tick() {
 		super.tick();
-		this.prevRenderX = x;
-		this.prevRenderY = y;
-		this.prevRenderZ = z;
+		this.lastRenderX = getX();
+		this.lastRenderY = getY();
+		this.lastRenderZ = getZ();
 
 		this.age();
 
@@ -89,16 +88,12 @@ public class ShotgunProjectileEntity extends Entity {
 		}
 
 		Vec3d vel = getVelocity();
-		x += vel.x;
-		y += vel.y;
-		z += vel.z;
+		setPosition(getX() + vel.x, getY() + vel.y, getZ() + vel.z);
 
 		if (world.isClient()) {
-			updateTrackedPosition(x, y, z);
+			updateTrackedPosition(getX(), getY(), getZ());
 		}
-
-		setPosition(x, y, z);
-
+		
 		super.tick();
 	}
 
@@ -111,13 +106,13 @@ public class ShotgunProjectileEntity extends Entity {
 
 	@Override
 	protected void readCustomDataFromTag(CompoundTag compoundTag) {
-		if(compoundTag.containsKey("damage")) {
+		if(compoundTag.contains("damage")) {
 			this.setDamage(compoundTag.getFloat("damage"));
 		}
-		if(compoundTag.containsKey("age")) {
+		if(compoundTag.contains("age")) {
 			this.setAge(compoundTag.getInt("age"));
 		}
-		if(compoundTag.containsKey("lifetime")) {
+		if(compoundTag.contains("lifetime")) {
 			this.setLifetime(compoundTag.getInt("lifetime"));
 		}
 	}
@@ -133,9 +128,9 @@ public class ShotgunProjectileEntity extends Entity {
 	public Packet<?> createSpawnPacket() {
 		PacketByteBuf packet = new PacketByteBuf(Unpooled.buffer());
 
-		packet.writeDouble(x);
-		packet.writeDouble(y);
-		packet.writeDouble(z);
+		packet.writeDouble(getX());
+		packet.writeDouble(getY());
+		packet.writeDouble(getZ());
 
 		packet.writeFloat(yaw);
 		packet.writeFloat(pitch);

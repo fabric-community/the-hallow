@@ -2,13 +2,13 @@ package com.fabriccommunity.thehallow.world.feature;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MutableIntBoundingBox;
 import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.MegaTreeFeatureConfig;
 import com.mojang.datafixers.Dynamic;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -17,12 +17,12 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeatureConfig> {
+public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<MegaTreeFeatureConfig> {
 	private static final BlockState LOG = HallowedBlocks.DEADWOOD_LOG.getDefaultState();
 	private static final BlockState LEAVES = HallowedBlocks.DEADWOOD_LEAVES.getDefaultState();
 	
-	public LargeDeadwoodTreeFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> function, boolean emitBlockUpdates) {
-		super(function, emitBlockUpdates);
+	public LargeDeadwoodTreeFeature(Function<Dynamic<?>, ? extends MegaTreeFeatureConfig> function) {
+		super(function);
 	}
 	
 	protected static boolean isNaturalDirt(TestableWorld world, BlockPos pos) {
@@ -32,7 +32,7 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 		});
 	}
 	
-	protected static boolean isNaturalDirtOrGrass(TestableWorld world, BlockPos pos) {
+	public static boolean isNaturalDirtOrGrass(TestableWorld world, BlockPos pos) {
 		return world.testBlockState(pos, (state) -> {
 			Block block = state.getBlock();
 			return block == HallowedBlocks.DECEASED_DIRT || block == HallowedBlocks.DECEASED_GRASS_BLOCK;
@@ -40,7 +40,7 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 	}
 	
 	@Override
-	public boolean generate(Set<BlockPos> posSet, ModifiableTestableWorld world, Random random, BlockPos pos, MutableIntBoundingBox bb) {
+	public boolean generate(ModifiableTestableWorld world, Random random, BlockPos pos, Set<BlockPos> logPositions, Set<BlockPos> leavesPositions, BlockBox bb, MegaTreeFeatureConfig config) {
 		int height = random.nextInt(3) + random.nextInt(2) + 6;
 		int x = pos.getX();
 		int y = pos.getY();
@@ -73,41 +73,41 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 					int localY = y + localHeight;
 					BlockPos trunkPos = new BlockPos(startX, localY, startZ);
 					if (isAirOrLeaves(world, trunkPos)) {
-						this.addLog(posSet, world, trunkPos, bb);
-						this.addLog(posSet, world, trunkPos.east(), bb);
-						this.addLog(posSet, world, trunkPos.south(), bb);
-						this.addLog(posSet, world, trunkPos.east().south(), bb);
+						this.addLog(logPositions, world, trunkPos, bb);
+						this.addLog(logPositions, world, trunkPos.east(), bb);
+						this.addLog(logPositions, world, trunkPos.south(), bb);
+						this.addLog(logPositions, world, trunkPos.east().south(), bb);
 					}
 				}
 				
 				for (int xOffset = -2; xOffset <= 0; ++xOffset) {
 					for (int zOffset = -2; zOffset <= 0; ++zOffset) {
 						int yOffset = -1;
-						this.addLeaves(world, startX + xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
-						this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
-						this.addLeaves(world, startX + xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
-						this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
+						this.addLeaves(world, startX + xOffset, startY + yOffset, startZ + zOffset, bb, leavesPositions);
+						this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, startZ + zOffset, bb, leavesPositions);
+						this.addLeaves(world, startX + xOffset, startY + yOffset, 1 + startZ - zOffset, bb, leavesPositions);
+						this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, 1 + startZ - zOffset, bb, leavesPositions);
 						if ((xOffset > -2 || zOffset > -1) && (xOffset != -1 || zOffset != -2)) {
 							yOffset = 1;
-							this.addLeaves(world, startX + xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
-							this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, startZ + zOffset, bb, posSet);
-							this.addLeaves(world, startX + xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
-							this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, 1 + startZ - zOffset, bb, posSet);
+							this.addLeaves(world, startX + xOffset, startY + yOffset, startZ + zOffset, bb, leavesPositions);
+							this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, startZ + zOffset, bb, leavesPositions);
+							this.addLeaves(world, startX + xOffset, startY + yOffset, 1 + startZ - zOffset, bb, leavesPositions);
+							this.addLeaves(world, 1 + startX - xOffset, startY + yOffset, 1 + startZ - zOffset, bb, leavesPositions);
 						}
 					}
 				}
 				
 				if (random.nextBoolean()) {
-					this.addLeaves(world, startX, startY + 2, startZ, bb, posSet);
-					this.addLeaves(world, startX + 1, startY + 2, startZ, bb, posSet);
-					this.addLeaves(world, startX + 1, startY + 2, startZ + 1, bb, posSet);
-					this.addLeaves(world, startX, startY + 2, startZ + 1, bb, posSet);
+					this.addLeaves(world, startX, startY + 2, startZ, bb, leavesPositions);
+					this.addLeaves(world, startX + 1, startY + 2, startZ, bb, leavesPositions);
+					this.addLeaves(world, startX + 1, startY + 2, startZ + 1, bb, leavesPositions);
+					this.addLeaves(world, startX, startY + 2, startZ + 1, bb, leavesPositions);
 				}
 				
 				for (int xOffset = -3; xOffset <= 4; ++xOffset) {
 					for (int zOffset = -3; zOffset <= 4; ++zOffset) {
 						if ((xOffset != -3 || zOffset != -3) && (xOffset != -3 || zOffset != 4) && (xOffset != 4 || zOffset != -3) && (xOffset != 4 || zOffset != 4) && (Math.abs(xOffset) < 3 || Math.abs(zOffset) < 3)) {
-							this.addLeaves(world, startX + xOffset, startY, startZ + zOffset, bb, posSet);
+							this.addLeaves(world, startX + xOffset, startY, startZ + zOffset, bb, leavesPositions);
 						}
 					}
 				}
@@ -118,19 +118,19 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 							int trunkHeight = random.nextInt(3) + 2;
 							
 							for (int localY = 0; localY < trunkHeight; ++localY) {
-								this.addLog(posSet, world, new BlockPos(x + xOffset, startY - localY - 1, z + zOffset), bb);
+								this.addLog(logPositions, world, new BlockPos(x + xOffset, startY - localY - 1, z + zOffset), bb);
 							}
 							
 							for (int localX = -1; localX <= 1; ++localX) {
 								for (int localZ = -1; localZ <= 1; ++localZ) {
-									this.addLeaves(world, startX + xOffset + localX, startY, startZ + zOffset + localZ, bb, posSet);
+									this.addLeaves(world, startX + xOffset + localX, startY, startZ + zOffset + localZ, bb, leavesPositions);
 								}
 							}
 							
 							for (int localX = -2; localX <= 2; ++localX) {
 								for (int localZ = -2; localZ <= 2; ++localZ) {
 									if (Math.abs(localX) != 2 || Math.abs(localZ) != 2) {
-										this.addLeaves(world, startX + xOffset + localX, startY - 1, startZ + zOffset + localZ, bb, posSet);
+										this.addLeaves(world, startX + xOffset + localX, startY - 1, startZ + zOffset + localZ, bb, leavesPositions);
 									}
 								}
 							}
@@ -171,17 +171,19 @@ public class LargeDeadwoodTreeFeature extends AbstractTreeFeature<DefaultFeature
 		return true;
 	}
 	
-	private void addLog(Set<BlockPos> posSet, ModifiableTestableWorld world, BlockPos pos, MutableIntBoundingBox bb) {
+	private void addLog(Set<BlockPos> posSet, ModifiableTestableWorld world, BlockPos pos, BlockBox bb) {
 		if (canTreeReplace(world, pos)) {
-			this.setBlockState(posSet, world, pos, LOG, bb);
+			this.setBlockState(world, pos, LOG, bb);
+			posSet.add(pos.toImmutable());
 		}
 		
 	}
 	
-	private void addLeaves(ModifiableTestableWorld world, int x, int y, int z, MutableIntBoundingBox bb, Set<BlockPos> posSet) {
+	private void addLeaves(ModifiableTestableWorld world, int x, int y, int z, BlockBox bb, Set<BlockPos> posSet) {
 		BlockPos pos = new BlockPos(x, y, z);
 		if (isAir(world, pos)) {
-			this.setBlockState(posSet, world, pos, LEAVES, bb);
+			this.setBlockState(world, pos, LEAVES, bb);
+			posSet.add(pos.toImmutable());
 		}
 		
 	}

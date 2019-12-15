@@ -1,11 +1,11 @@
 package com.fabriccommunity.thehallow.entity;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Bird;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.control.ParrotMoveControl;
+import net.minecraft.entity.Flutterer;
+import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FlyAroundGoal;
 import net.minecraft.entity.ai.goal.FollowMobGoal;
@@ -34,7 +34,7 @@ import com.fabriccommunity.thehallow.registry.HallowedSounds;
 
 import javax.annotation.Nullable;
 
-public class CrowEntity extends AnimalEntity implements Bird {
+public class CrowEntity extends AnimalEntity implements Flutterer {
 	public float f1;
 	public float f2;
 	public float f3;
@@ -43,7 +43,7 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	
 	public CrowEntity(EntityType<? extends CrowEntity> entityType, World world) {
 		super(entityType, world);
-		this.moveControl = new ParrotMoveControl(this);
+		this.moveControl = new FlightMoveControl(this, 10, false);
 	}
 	
 	@Override
@@ -60,7 +60,7 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	@Override
 	protected void initAttributes() {
 		super.initAttributes();
-		this.getAttributeContainer().register(EntityAttributes.FLYING_SPEED);
+		this.getAttributes().register(EntityAttributes.FLYING_SPEED);
 		this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(6.0D);
 		this.getAttributeInstance(EntityAttributes.FLYING_SPEED).setBaseValue(0.4000000059604645D);
 		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.20000000298023224D);
@@ -86,7 +86,8 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	}
 	
 	@Override
-	public void handleFallDamage(float fallDistance, float damageModifier) {
+	public boolean handleFallDamage(float fallDistance, float damageModifier) {
+		return false;
 	}
 	
 	@Override
@@ -129,7 +130,7 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	}
 	
 	@Override
-	protected float calculateAerialStepDelta(float distanceWalked) {
+	protected float playFlySound(float distanceWalked) {
 		this.playSound(SoundEvents.ENTITY_PARROT_FLY, 0.15F, 1.0F);
 		return distanceWalked + this.f2 / 2.0F;
 	}
@@ -145,7 +146,7 @@ public class CrowEntity extends AnimalEntity implements Bird {
 	}
 	
 	@Override
-	protected boolean method_5776() {
+	protected boolean hasWings() {
 		return true;
 	}
 	

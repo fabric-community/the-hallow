@@ -4,12 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.GrassBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.ViewableWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
@@ -25,14 +25,14 @@ public class DeceasedGrassBlock extends GrassBlock {
 		super(settings);
 	}
 	
-	private static boolean canSurvive(BlockState blockState, ViewableWorld viewableWorld, BlockPos blockPos) {
+	private static boolean canSurvive(BlockState blockState, WorldView viewableWorld, BlockPos blockPos) {
 		BlockPos upPos = blockPos.up();
 		BlockState upBlockState = viewableWorld.getBlockState(upPos);
-		int lightLevel = ChunkLightProvider.method_20049(viewableWorld, blockState, blockPos, upBlockState, upPos, Direction.UP, upBlockState.getLightSubtracted(viewableWorld, upPos));
+		int lightLevel = ChunkLightProvider.getRealisticOpacity(viewableWorld, blockState, blockPos, upBlockState, upPos, Direction.UP, upBlockState.getOpacity(viewableWorld, upPos));
 		return lightLevel < viewableWorld.getMaxLightLevel();
 	}
 	
-	private static boolean canSpread(BlockState blockState, ViewableWorld viewableWorld, BlockPos blockPos) {
+	private static boolean canSpread(BlockState blockState, WorldView viewableWorld, BlockPos blockPos) {
 		BlockPos upPos = blockPos.up();
 		return canSurvive(blockState, viewableWorld, blockPos) && !viewableWorld.getFluidState(upPos).matches(FluidTags.WATER);
 	}
@@ -43,7 +43,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 	}
 	
 	@Override
-	public void grow(World world, Random random, BlockPos blockPos, BlockState blockState) {
+	public void grow(ServerWorld world, Random random, BlockPos blockPos, BlockState blockState) {
 		BlockPos upPos = blockPos.up();
 		BlockState grassBlock = HallowedBlocks.DECEASED_GRASS_BLOCK.getDefaultState();
 		
@@ -53,7 +53,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 			
 			for (int j = 0; j < i / 16; ++j) {
 				randomPos = randomPos.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-				if (world.getBlockState(randomPos.down()).getBlock() != this || world.getBlockState(randomPos).method_21743(world, randomPos)) {
+				if (world.getBlockState(randomPos.down()).getBlock() != this || world.getBlockState(randomPos).isFullCube(world, randomPos)) {
 					continue label48;
 				}
 			}
@@ -66,12 +66,11 @@ public class DeceasedGrassBlock extends GrassBlock {
 			if (randomBlockState.isAir()) {
 				BlockState stateToPlace;
 				if (random.nextInt(8) == 0) {
-					List<ConfiguredFeature<?>> list = world.getBiome(randomPos).getFlowerFeatures();
+					List<ConfiguredFeature<?, ?>> list = world.getBiomeAccess().getBiome(randomPos).getFlowerFeatures();
 					if (list.isEmpty()) {
 						continue;
 					}
-					
-					stateToPlace = ((FlowerFeature) ((DecoratedFeatureConfig) (list.get(0)).config).feature.feature).getFlowerToPlace(random, randomPos);
+					stateToPlace = ((FlowerFeature) ((DecoratedFeatureConfig) (list.get(0)).config).feature.feature).getFlowerToPlace(random, randomPos, list.get(0).config);
 				} else {
 					stateToPlace = grassBlock;
 				}
@@ -84,7 +83,7 @@ public class DeceasedGrassBlock extends GrassBlock {
 	}
 	
 	@Override
-	public void onScheduledTick(BlockState blockState, World world, BlockPos blockPos, Random random) {
+	public void scheduledTick(BlockState blockState, ServerWorld world, BlockPos blockPos, Random random) {
 		if (!world.isClient) {
 			if (!canSurvive(blockState, world, blockPos)) {
 				world.setBlockState(blockPos, HallowedBlocks.DECEASED_DIRT.getDefaultState());

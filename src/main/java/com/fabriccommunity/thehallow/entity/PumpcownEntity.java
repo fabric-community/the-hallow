@@ -57,17 +57,17 @@ public class PumpcownEntity extends CowEntity {
 	public boolean interactMob(PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.getItem() == Items.SHEARS && this.getBreedingAge() >= 0) {
-			this.world.addParticle(ParticleTypes.EXPLOSION, this.x, this.y + (double) (this.getHeight() / 2.0F), this.z, 0.0D, 0.0D, 0.0D);
+			this.world.addParticle(ParticleTypes.EXPLOSION, this.getX(), this.getY() + (double) (this.getHeight() / 2.0F), this.getZ(), 0.0D, 0.0D, 0.0D);
 			if (!this.world.isClient) {
 				this.remove();
 				
 				if (this.world.getDimension().getType() == HallowedDimensions.THE_HALLOW) {
-					this.world.createExplosion(this, this.x, this.y, this.z, 3.0F, Explosion.DestructionType.BREAK);
+					this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 3.0F, Explosion.DestructionType.BREAK);
 				} else {
 					CowEntity cow = EntityType.COW.create(this.world);
-					cow.setPositionAndAngles(this.x, this.y, this.z, this.yaw, this.pitch);
+					cow.setPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.yaw, this.pitch);
 					cow.setHealth(this.getHealth());
-					cow.field_6283 = this.field_6283;
+					cow.bodyYaw = this.bodyYaw;
 					if (this.hasCustomName()) {
 						cow.setCustomName(this.getCustomName());
 					}
@@ -75,7 +75,7 @@ public class PumpcownEntity extends CowEntity {
 				}
 				
 				for (int i = 0; i < 5; ++i) {
-					this.world.spawnEntity(new ItemEntity(this.world, this.x, this.y + (double) this.getHeight(), this.z, new ItemStack(STEM_FEATURE.getBlock())));
+					this.world.spawnEntity(new ItemEntity(this.world, this.getX(), this.getY() + (double) this.getHeight(), this.getZ(), new ItemStack(STEM_FEATURE.getBlock())));
 				}
 				
 				stack.damage(1, player, ((player_1) -> {

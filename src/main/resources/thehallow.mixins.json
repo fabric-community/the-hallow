@@ -21,7 +21,7 @@
 		"SpawnRestrictionInvoker"
 	],
 	"client": [
-		"client.ItemDynamicRendererMixin",
+		"client.BuiltinModelItemRendererMixin",
 		"client.ClientPlayNetworkHandlerMixin",
 		"client.MinecraftClientMixin",
 		"client.FirstPersonRendererMixin",

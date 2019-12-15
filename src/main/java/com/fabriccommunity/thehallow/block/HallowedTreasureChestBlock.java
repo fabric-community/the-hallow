@@ -2,7 +2,6 @@ package com.fabriccommunity.thehallow.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -10,7 +9,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -31,7 +31,7 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 	}
 	
 	@Override
-	public boolean activate(BlockState blockState, World world, BlockPos pos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
+	public ActionResult onUse(BlockState blockState, World world, BlockPos pos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		if (hand == Hand.MAIN_HAND) {
 			float x = pos.getX() + .49f;
 			float y = pos.getY();
@@ -41,10 +41,10 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 			entity.setPosition(x, y, z);
 			world.spawnEntity(entity);
 			
-			return true;
+			return ActionResult.SUCCESS;
 		}
 		
-		return false;
+		return ActionResult.PASS;
 	}
 	
 	@Override
@@ -58,18 +58,13 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 	}
 	
 	@Override
-	protected void appendProperties(StateFactory.Builder<Block, BlockState> factory) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> factory) {
 		factory.add(FACING);
 	}
 	
 	@Override
 	public BlockRenderType getRenderType(BlockState blockState) {
 		return BlockRenderType.INVISIBLE;
-	}
-	
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
 	}
 	
 	@Override

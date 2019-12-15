@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -22,10 +23,10 @@ public class HallowedLogBlock extends LogBlock {
 	}
 	
 	@Override
-	public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.isEmpty() || !(stack.getItem() instanceof MiningToolItem)) {
-			return false;
+			return ActionResult.PASS;
 		}
 		
 		MiningToolItem tool = (MiningToolItem) stack.getItem();
@@ -36,9 +37,9 @@ public class HallowedLogBlock extends LogBlock {
 				world.setBlockState(pos, target);
 				stack.damage(1, player, consumedPlayer -> consumedPlayer.sendToolBreakStatus(hand));
 			}
-			return true;
+			return ActionResult.SUCCESS;
 		}
-		return false;
+		return ActionResult.PASS;
 	}
 	
 	public void setStripped(Block stripped) {

@@ -3,10 +3,9 @@ package com.fabriccommunity.thehallow.block;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedTags;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +19,7 @@ public class HallowedGateBlock extends Block {
 
 	public HallowedGateBlock(Settings settings) {
 		super(settings);
-		setDefaultState(getStateFactory().getDefaultState().with(FACING, Direction.NORTH));
+		setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));
 	}
 
 	public static boolean isValid(World world, BlockPos pos, BlockState state) {
@@ -36,7 +35,7 @@ public class HallowedGateBlock extends Block {
 	}
 
 	@Override
-	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
 
@@ -44,16 +43,6 @@ public class HallowedGateBlock extends Block {
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		return getDefaultState().with(FACING, context.getPlayerFacing().getOpposite());
-	}
-
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.TRANSLUCENT;
-	}
-
-	@Override
-	public boolean isOpaque(BlockState state) {
-		return false;
 	}
 
 	@Override

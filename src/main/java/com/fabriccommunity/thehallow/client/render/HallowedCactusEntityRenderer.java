@@ -2,14 +2,16 @@ package com.fabriccommunity.thehallow.client.render;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
-import com.mojang.blaze3d.platform.GlStateManager;
-
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.entity.RestlessCactusEntity;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -22,28 +24,23 @@ public class HallowedCactusEntityRenderer extends MobEntityRenderer<RestlessCact
 	}
 	
 	@Override
-	public void render(RestlessCactusEntity entity, double x, double y, double z, float float_1, float float_2) {
+	public void render(RestlessCactusEntity entity, float yaw, float tickDelta, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light) {
 		BlockRenderManager manager = MinecraftClient.getInstance().getBlockRenderManager();
 		BlockState state = HallowedBlocks.RESTLESS_CACTUS.getDefaultState();
-		this.bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
-		
-		GlStateManager.pushMatrix();
-		GlStateManager.translated(x, y, z);
-		GlStateManager.rotatef(entity.yaw, 0.0F, -1.0F, 0.0F);
-		GlStateManager.translated(-0.5F, 0.0F, 0.5F);
+		renderManager.textureManager.bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
+		matrixStack.push();
+		matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-yaw));
+		matrixStack.translate(-0.5f, 0.0f, -0.5f);
 		
 		for (int i = 0; i < entity.getCactusHeight(); i++) {
-			GlStateManager.pushMatrix();
-			manager.renderDynamic(state, 1.0F);
-			GlStateManager.popMatrix();
-			GlStateManager.translated(0.0F, 1.0F, 0.0F);
+			manager.renderBlockAsEntity(state, matrixStack, vertexConsumerProvider, light, OverlayTexture.DEFAULT_UV);
+			matrixStack.translate(0.0F, 1.0F, 0.0F);
 		}
-		
-		GlStateManager.popMatrix();
+		matrixStack.pop();
 	}
 	
 	@Override
-	protected Identifier getTexture(RestlessCactusEntity cactus) {
+	public Identifier getTexture(RestlessCactusEntity cactus) {
 		return SKIN;
 	}
 }

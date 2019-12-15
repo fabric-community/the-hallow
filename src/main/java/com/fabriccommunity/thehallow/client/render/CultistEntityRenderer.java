@@ -16,7 +16,7 @@ public class CultistEntityRenderer extends BipedEntityRenderer<CultistEntity, Cu
 	}
 	
 	@Override
-	protected Identifier method_3982(CultistEntity entity) {
+	public Identifier getTexture(CultistEntity entity) {
 		return SKIN;
 	}
 }

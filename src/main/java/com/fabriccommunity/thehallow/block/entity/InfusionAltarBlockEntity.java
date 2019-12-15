@@ -66,7 +66,7 @@ public class InfusionAltarBlockEntity extends BlockEntity implements BlockEntity
 	@Override
 	public void fromTag(CompoundTag entityTag) {
 		super.fromTag(entityTag);
-		if (entityTag.containsKey("stored_item")) {
+		if (entityTag.contains("stored_item")) {
 			this.storedStack = new ItemStack(Registry.ITEM.getOrEmpty(new Identifier(entityTag.getString("stored_item"))).get());
 		}
 	}

@@ -1,7 +1,6 @@
 package com.fabriccommunity.thehallow.world.biome;
 
 import net.minecraft.entity.EntityCategory;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -22,11 +21,12 @@ public class PumpkinPatchBiome extends HallowedBaseBiome {
 		GRASS_COLOR = 0xC9C92A;
 		FOLIAGE_COLOR = 0xC9C92A;
 		
-		this.addStructureFeature(Feature.MINESHAFT, new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL));
+		this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL)));
 		
 		HallowedBiomeFeatures.addGrass(this);
 		HallowedBiomeFeatures.addLakes(this);
-		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Biome.configureFeature(HallowedFeatures.COLORED_PUMPKIN, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(10)));
+		//is not the same as other biome pumpkins, do not use HallowedBiomeFeatures pumpkins
+		this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, HallowedBiomeFeatures.configureFeature(HallowedFeatures.COLORED_PUMPKIN, FeatureConfig.DEFAULT, Decorator.COUNT_HEIGHTMAP_DOUBLE, new CountDecoratorConfig(10)));
 		HallowedBiomeFeatures.addDefaultHallowedTrees(this);
 		
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(HallowedEntities.PUMPCOWN, 8, 4, 8));

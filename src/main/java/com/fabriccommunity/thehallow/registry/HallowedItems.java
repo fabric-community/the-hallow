@@ -9,7 +9,6 @@ import com.fabriccommunity.thehallow.item.tool.ScytheItem;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
 import dev.emi.trinkets.api.TrinketSlots;
-
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;

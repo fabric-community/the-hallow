@@ -45,7 +45,7 @@ public class FluidRecipe implements Recipe<BasicInventory> {
 		for (Ingredient ingredient : ingredients) {
 			boolean hasIngredient = false;
 			for (ItemStack potentialIngredient : toCheck) {
-				if (ingredient.method_8093(potentialIngredient)) {
+				if (ingredient.test(potentialIngredient)) {
 					toCheck.remove(potentialIngredient);
 					hasIngredient = true;
 					break;

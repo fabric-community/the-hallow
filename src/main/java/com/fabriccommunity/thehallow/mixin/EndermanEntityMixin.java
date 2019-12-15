@@ -5,12 +5,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.entity.mob.EndermanEntity;
-import net.minecraft.entity.player.PlayerEntity;
-
 import com.fabriccommunity.thehallow.registry.HallowedItems;
+
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
+import net.minecraft.entity.mob.EndermanEntity;
+import net.minecraft.entity.player.PlayerEntity;
 
 @Mixin(EndermanEntity.class)
 public class EndermanEntityMixin {

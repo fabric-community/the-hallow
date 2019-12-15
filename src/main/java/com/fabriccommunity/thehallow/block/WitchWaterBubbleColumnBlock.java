@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -17,7 +16,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateFactory.Builder;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -26,8 +25,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import com.fabriccommunity.thehallow.registry.HallowedFluids;
@@ -43,7 +42,7 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 	
 	public WitchWaterBubbleColumnBlock(Settings settings) {
 		super(settings);
-		this.setDefaultState((this.stateFactory.getDefaultState()).with(DRAG, true));
+		this.setDefaultState((this.stateManager.getDefaultState()).with(DRAG, true));
 	}
 	
 	public static void update(IWorld world, BlockPos pos, boolean bool) {
@@ -91,7 +90,7 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 	}
 	
 	@Override
-	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random rand) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
 		update(world, pos.up(), calculateDrag(world, pos));
 	}
 	
@@ -101,7 +100,7 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 	}
 	
 	@Override
-	public int getTickRate(ViewableWorld world) {
+	public int getTickRate(WorldView world) {
 		return 5;
 	}
 	
@@ -141,7 +140,7 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 	}
 	
 	@Override
-	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		Block block = world.getBlockState(pos.down()).getBlock();
 		return block == HallowedBlocks.WITCH_WATER_BUBBLE_COLUMN || block == HallowedBlocks.BLEEDING_BLOCK || block == HallowedBlocks.TAINTED_SAND;
 	}
@@ -152,17 +151,12 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 	}
 	
 	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.TRANSLUCENT;
-	}
-	
-	@Override
 	public BlockRenderType getRenderType(BlockState state) {
 		return BlockRenderType.INVISIBLE;
 	}
 	
 	@Override
-	protected void appendProperties(Builder<Block, BlockState> stateFactory$Builder_1) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> stateFactory$Builder_1) {
 		stateFactory$Builder_1.add(DRAG);
 	}
 	

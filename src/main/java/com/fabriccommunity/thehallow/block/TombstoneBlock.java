@@ -4,15 +4,17 @@ import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
+
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Random;
@@ -40,7 +42,7 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 	}
 
 	@Override
-	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(HorizontalFacingBlock.FACING);
 		builder.add(Properties.AGE_1);
 	}
@@ -51,12 +53,7 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 	}
 
 	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-
-	@Override
-	public boolean canPlaceAt(BlockState state, ViewableWorld world, BlockPos pos) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		BlockPos down = pos.down();
 		return Block.isFaceFullSquare(world.getBlockState(down).getCollisionShape(world, down), Direction.UP);
 	}
@@ -77,7 +74,7 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 	}
 
 	@Override
-	public void grow(World world, Random random, BlockPos pos, BlockState state) {
+	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
 		if (state.get(AGE) == 0 && (isPlacedOnSoil(world, pos))) {
 			world.setBlockState(pos, state.with(AGE, 1));
 		}
@@ -85,8 +82,10 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 
 	private boolean isPlacedOnSoil(World world, BlockPos pos) {
 		Block block = world.getBlockState(pos.down()).getBlock();
-
-		return (isNaturalDirt(block)
+		
+		return (block == Blocks.DIRT 
+			|| block == Blocks.COARSE_DIRT 
+			|| block == Blocks.PODZOL
 			|| block == HallowedBlocks.DECEASED_DIRT
 			|| block == HallowedBlocks.DECEASED_GRASS_BLOCK
 			|| block == Blocks.GRASS_BLOCK

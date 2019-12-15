@@ -13,6 +13,10 @@ import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -24,15 +28,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import net.minecraft.world.loot.LootSupplier;
-import net.minecraft.world.loot.context.LootContext;
-import net.minecraft.world.loot.context.LootContextParameters;
-import net.minecraft.world.loot.context.LootContextTypes;
-
 import com.fabriccommunity.thehallow.HallowedConfig;
 import com.fabriccommunity.thehallow.component.CandyComponent;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import com.fabriccommunity.thehallow.registry.HallowedTags;
+
 import dev.emi.trinkets.api.TrinketsApi;
 
 import java.util.Iterator;
@@ -53,8 +53,8 @@ public abstract class ServerPlayNetworkHandlerMixin {
 		if (packet.getChatMessage().toLowerCase().contains("trick or treat")) {
 			if (isPlayerWearingCostume(player)) {
 				World world = player.getEntityWorld();
-				Box box = new Box(player.x - 3, player.y - 3, player.z - 3, player.x + 3, player.y + 3, player.z + 3);
-				List<VillagerEntity> villagers = world.getEntities(VillagerEntity.class, box);
+				Box box = new Box(player.getX() - 3, player.getY() - 3, player.getZ() - 3, player.getX() + 3, player.getY() + 3, player.getZ() + 3);
+				List<VillagerEntity> villagers = world.getNonSpectatingEntities(VillagerEntity.class, box);
 				Iterator<VillagerEntity> iterator = villagers.iterator();
 				if (iterator.hasNext()) {
 					boolean trick = HallowedConfig.TrickOrTreating.enableTricks && world.random.nextInt(HallowedConfig.TrickOrTreating.trickChance) == 0;
@@ -78,10 +78,10 @@ public abstract class ServerPlayNetworkHandlerMixin {
 								CandyComponent comp = HallowedEntities.CANDY.get(entity);
 								if (comp.canGiveCandy(player)) {
 									comp.setLastCandyTime(player, world.getTime());
-									LootSupplier supplier = world.getServer().getLootManager().getSupplier(new Identifier("thehallow", "gameplay/trick_or_treat_candy"));
+									LootTable supplier = world.getServer().getLootManager().getSupplier(new Identifier("thehallow", "gameplay/trick_or_treat_candy"));
 									LootContext context = (new LootContext.Builder((ServerWorld) world))
 										.put(LootContextParameters.POSITION, new BlockPos(entity))
-										.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRand())
+										.put(LootContextParameters.THIS_ENTITY, entity).setRandom(entity.getRandom())
 										.build(LootContextTypes.GIFT);
 									List<ItemStack> stacks = supplier.getDrops(context);
 									for (ItemStack stack : stacks) {

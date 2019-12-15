@@ -1,28 +1,33 @@
 package com.fabriccommunity.thehallow.item;
 
+import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.Quaternion;
 import net.minecraft.world.World;
-import com.mojang.blaze3d.platform.GlStateManager;
-
-import dev.emi.trinkets.api.ITrinket;
-import dev.emi.trinkets.api.SlotGroups;
-import dev.emi.trinkets.api.Slots;
 
 public class SkirtCostume extends Item implements ITrinket {
+	
+	private static final Quaternion ROTATION_CONSTANT = Vector3f.POSITIVE_Z.getDegreesQuaternion(-45f);
+	
 	public SkirtCostume(Settings settings) {
 		super(settings);
 		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
@@ -40,28 +45,37 @@ public class SkirtCostume extends Item implements ITrinket {
 	
 	@Override
 	@Environment(EnvType.CLIENT)
-	public void render(String slot, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
+	public void render(String slot, MatrixStack matrix, VertexConsumerProvider vertexConsumer, int light, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
 		ItemRenderer renderer = MinecraftClient.getInstance().getItemRenderer();
-		GlStateManager.pushMatrix();
-		ITrinket.translateToChest(model, player, headYaw, headPitch);
-		GlStateManager.translatef(0.25F, 0.65F, 0.0F);
-		GlStateManager.scalef(0.5F, 0.5F, 0.5F);
-		GlStateManager.rotatef(-45F, 0.0F, 0.0F, 1.0F);
-		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED);
-		GlStateManager.popMatrix();
-		GlStateManager.pushMatrix();
-		ITrinket.translateToChest(model, player, headYaw, headPitch);
-		GlStateManager.translatef(-0.25F, 0.65F, 0.0F);
-		GlStateManager.scalef(0.5F, 0.5F, 0.5F);
-		GlStateManager.rotatef(-45F, 0.0F, 0.0F, 1.0F);
-		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED);
-		GlStateManager.popMatrix();
-		GlStateManager.pushMatrix();
-		ITrinket.translateToChest(model, player, headYaw, headPitch);
-		GlStateManager.translatef(0.0F, 0.65F, 0.325F);
-		GlStateManager.scalef(0.5F, 0.5F, 0.5F);
-		GlStateManager.rotatef(-45F, 0.0F, 0.0F, 1.0F);
-		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED);
-		GlStateManager.popMatrix();
+		matrix.push();
+		translateToChest(model, player, headYaw, headPitch, matrix); //TODO switch back to trinkets version once it's fixed
+		matrix.push();
+		matrix.translate(0.25, 0.65, 0);
+		matrix.scale(0.5F, 0.5F, 0.5F);
+		matrix.multiply(ROTATION_CONSTANT);
+		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		matrix.pop();
+		matrix.push();
+		matrix.translate(-0.25, 0.65, 0);
+		matrix.scale(0.5F, 0.5F, 0.5F);
+		matrix.multiply(ROTATION_CONSTANT);
+		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		matrix.pop();
+		matrix.push();
+		matrix.translate(0, 0.65, 0.325);
+		matrix.scale(0.5F, 0.5F, 0.5F);
+		matrix.multiply(ROTATION_CONSTANT);
+		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		matrix.pop();
+		matrix.pop();
+	}
+	
+	public static void translateToChest(PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch, MatrixStack matrix) {
+		if (player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
+			matrix.translate(0, 0.2, 0);
+			matrix.multiply(Vector3f.POSITIVE_X.getDegreesQuaternion(model.torso.pitch * 57.5f));
+		}
+		matrix.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(model.torso.yaw * 57.5f));
+		matrix.translate(0, 0.4, -0.16);
 	}
 }

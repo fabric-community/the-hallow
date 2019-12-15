@@ -30,9 +30,9 @@ public class AnvilBlockMixin {
 		Block anvilBlock = world.getBlockState(upPosition).getBlock();
 		if (checkBlock instanceof PumpkinBlock) {
 			Block.dropStack(world, upPosition, anvilBlock.getPickStack(world, upPosition, world.getBlockState(downPosition)));
-			world.clearBlockState(upPosition, true);
+			world.removeBlock(upPosition, true);
 			Block.dropStack(world, downPosition, new ItemStack(HallowedBlocks.TINY_PUMPKIN));
-			world.clearBlockState(downPosition, true);
+			world.removeBlock(downPosition, true);
 		}
 	}
 }
