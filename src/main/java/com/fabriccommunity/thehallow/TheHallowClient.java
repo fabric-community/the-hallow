@@ -33,32 +33,19 @@ public class TheHallowClient implements ClientModInitializer {
 		BlockEntityRendererRegistry.INSTANCE.register(HallowedBlockEntities.INFUSION_ALTAR_BLOCK_ENTITY, InfusionAltarBlockEntityRenderer::new);
 		BlockEntityRendererRegistry.INSTANCE.register(HallowedBlockEntities.HALLOWED_TREASURE_CHEST_BE, HallowedTreasureChestBlockEntityRenderer::new);
 
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.TAINTED_GLASS, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.TAINTED_GLASS_PANE, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.SOUL_GLASS, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.SOUL_GLASS_PANE, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.BREAD_CRUMBS, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.HALLOWED_GATE, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.HALLOWED_TREASURE_CHEST, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.INFUSION_ALTAR_BLOCK, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.INFUSION_PILLAR_BLOCK, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.RESTLESS_CACTUS, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.TINY_PUMPKIN, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.TOMBSTONE, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.WITCH_WATER_BUBBLE_COLUMN, RenderLayer.getTranslucent());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.BRAMBLES, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.DEADER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.GLOOMSHROOM, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.EERIE_GRASS, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.TALL_EERIE_GRASS, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.DEADWOOD_DOOR, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.DEADWOOD_TRAPDOOR, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HallowedBlocks.DEADWOOD_VINES, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), HallowedBlocks.TAINTED_GLASS, HallowedBlocks.TAINTED_GLASS_PANE, 
+				HallowedBlocks.SOUL_GLASS, HallowedBlocks.SOUL_GLASS_PANE, HallowedBlocks.HALLOWED_GATE,
+				HallowedBlocks.WITCH_WATER_BUBBLE_COLUMN);
 		
-		BlockRenderLayerMap.INSTANCE.putFluid(HallowedFluids.BLOOD, RenderLayer.getSolid());
-		BlockRenderLayerMap.INSTANCE.putFluid(HallowedFluids.FLOWING_BLOOD, RenderLayer.getSolid());
-		BlockRenderLayerMap.INSTANCE.putFluid(HallowedFluids.WITCH_WATER, RenderLayer.getSolid());
-		BlockRenderLayerMap.INSTANCE.putFluid(HallowedFluids.FLOWING_WITCH_WATER, RenderLayer.getSolid());
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), HallowedBlocks.BREAD_CRUMBS, HallowedBlocks.HALLOWED_TREASURE_CHEST,
+				HallowedBlocks.INFUSION_ALTAR_BLOCK, HallowedBlocks.INFUSION_PILLAR_BLOCK, HallowedBlocks.RESTLESS_CACTUS,
+				HallowedBlocks.TINY_PUMPKIN, HallowedBlocks.TOMBSTONE, HallowedBlocks.BRAMBLES,
+				HallowedBlocks.DEADER_BUSH, HallowedBlocks.GLOOMSHROOM, HallowedBlocks.EERIE_GRASS,
+				HallowedBlocks.TALL_EERIE_GRASS, HallowedBlocks.DEADWOOD_DOOR, HallowedBlocks.DEADWOOD_TRAPDOOR,
+				HallowedBlocks.DEADWOOD_VINES);
+		
+		BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getSolid(), HallowedFluids.BLOOD, HallowedFluids.FLOWING_BLOOD,
+				HallowedFluids.WITCH_WATER, HallowedFluids.FLOWING_WITCH_WATER);
 		
 		HallowedClientNetworking.init();
 		HallowedColors.init();
