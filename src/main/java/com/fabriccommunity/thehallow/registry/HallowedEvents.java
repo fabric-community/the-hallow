@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.ActionResult;
+
 import com.fabriccommunity.thehallow.event.WitchTickCallback;
 
 public class HallowedEvents {

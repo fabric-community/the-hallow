@@ -23,6 +23,7 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import io.netty.buffer.Unpooled;

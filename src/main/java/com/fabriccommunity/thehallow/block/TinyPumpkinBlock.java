@@ -49,11 +49,13 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		return blockState;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public FluidState getFluidState(BlockState blockState) {
 		return blockState.contains(Properties.WATERLOGGED) && blockState.get(Properties.WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(blockState);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState otherState, IWorld world, BlockPos pos, BlockPos otherPos) {
 		if (state.contains(Properties.WATERLOGGED) && state.get(Properties.WATERLOGGED)) {
@@ -63,6 +65,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		return super.getStateForNeighborUpdate(state, direction, otherState, world, pos, otherPos);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPosition, EntityContext entityContext) {
 		return Y_SHAPE;
@@ -105,6 +108,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		return new TinyPumpkinBlockEntity();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		BlockEntity be = world.getBlockEntity(pos);
@@ -114,6 +118,7 @@ public class TinyPumpkinBlock extends HorizontalFacingBlock implements BlockEnti
 		return ActionResult.PASS;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onBlockRemoved(BlockState state1, World world, BlockPos pos, BlockState state2, boolean flag) {
 		if (state1.getBlock() != state2.getBlock()) {

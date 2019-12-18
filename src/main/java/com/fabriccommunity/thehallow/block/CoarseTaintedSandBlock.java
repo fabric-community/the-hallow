@@ -10,8 +10,8 @@ import net.minecraft.world.WorldView;
 
 import java.util.Random;
 
-public class TaintedSandBlock extends FallingBlock {
-	public TaintedSandBlock(Block.Settings settings) {
+public class CoarseTaintedSandBlock extends FallingBlock {
+	public CoarseTaintedSandBlock(Block.Settings settings) {
 		super(settings);
 	}
 	
@@ -21,6 +21,7 @@ public class TaintedSandBlock extends FallingBlock {
 		super.scheduledTick(state, world, pos, rand);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos pos2, boolean bool) {
 		world.getBlockTickScheduler().schedule(pos, this, this.getTickRate(world));

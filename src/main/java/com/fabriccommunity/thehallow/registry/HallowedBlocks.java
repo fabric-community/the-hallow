@@ -1,5 +1,36 @@
 package com.fabriccommunity.thehallow.registry;
 
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.GlassBlock;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.LogBlock;
+import net.minecraft.block.Material;
+import net.minecraft.block.MaterialColor;
+import net.minecraft.block.OreBlock;
+import net.minecraft.block.PillarBlock;
+import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.VineBlock;
+import net.minecraft.block.WallBlock;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.SignItem;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.Rarity;
+import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.block.BleedingBlock;
 import com.fabriccommunity.thehallow.block.BloodBlock;
 import com.fabriccommunity.thehallow.block.BramblesBlock;
@@ -30,44 +61,15 @@ import com.fabriccommunity.thehallow.block.InfusionAltarBlock;
 import com.fabriccommunity.thehallow.block.InfusionPillarBlock;
 import com.fabriccommunity.thehallow.block.PumpkinPieBlock;
 import com.fabriccommunity.thehallow.block.RestlessCactusBlock;
+import com.fabriccommunity.thehallow.block.CoarseTaintedSandBlock;
 import com.fabriccommunity.thehallow.block.TinyPumpkinBlock;
 import com.fabriccommunity.thehallow.block.TombstoneBlock;
 import com.fabriccommunity.thehallow.block.WitchWaterBlock;
 import com.fabriccommunity.thehallow.block.WitchWaterBubbleColumnBlock;
-import com.google.common.collect.ImmutableMap;
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.GlassBlock;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.LogBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
-import net.minecraft.block.OreBlock;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.TallPlantBlock;
-import net.minecraft.block.VineBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.SignItem;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
-import net.minecraft.util.Rarity;
-import net.minecraft.util.registry.Registry;
-
-import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.item.WitchedPumpkinItem;
 import com.fabriccommunity.thehallow.world.DeadwoodSaplingGenerator;
 
+import com.google.common.collect.ImmutableMap;
 import java.util.function.Function;
 
 public class HallowedBlocks {
@@ -97,6 +99,7 @@ public class HallowedBlocks {
 	public static final Block INFESTED_CHISELED_TAINTED_STONE_BRICKS = register("infested_chiseled_tainted_stone_bricks", new HallowedInfestedBlock(CHISELED_TAINTED_STONE_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_CHISELED_STONE_BRICKS).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block INFESTED_CRACKED_TAINTED_STONE_BRICKS = register("infested_cracked_tainted_stone_bricks", new HallowedInfestedBlock(CRACKED_TAINTED_STONE_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_CRACKED_STONE_BRICKS).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block TAINTED_SAND = register("tainted_sand", new FallingBlock(FabricBlockSettings.copy(Blocks.SAND).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block COARSE_TAINTED_SAND = register("coarse_tainted_sand", new CoarseTaintedSandBlock(FabricBlockSettings.copy(TAINTED_SAND).build()));
 	public static final Block TAINTED_GRAVEL = register("tainted_gravel", new FallingBlock(FabricBlockSettings.copy(Blocks.GRAVEL).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block TAINTED_GLASS = register("tainted_glass", new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block TAINTED_GLASS_PANE = register("tainted_glass_pane", new HallowedPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE).build()));
@@ -144,8 +147,8 @@ public class HallowedBlocks {
 	public static final Block DEADWOOD_BUTTON = register("deadwood_button", new HallowedButtonBlock(true, FabricBlockSettings.copy(Blocks.OAK_BUTTON).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_DOOR = register("deadwood_door", new HallowedDoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_TRAPDOOR = register("deadwood_trapdoor", new HallowedTrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).materialColor(MaterialColor.PURPLE).build()));
-	public static final Block DEADWOOD_WALL_SIGN = register("deadwood_wall_sign", new HallowedWallSignBlock(TheHallow.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
-	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new HallowedSignBlock(TheHallow.id("textures/entity/signs/deadwood.png"), FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), block -> new SignItem(new Item.Settings().group(TheHallow.GROUP).maxCount(16), block, DEADWOOD_WALL_SIGN));
+	public static final Block DEADWOOD_WALL_SIGN = register("deadwood_wall_sign", new HallowedWallSignBlock(TheHallow.id("entity/signs/deadwood"), TheHallow.DEADWOOD_SIGN_TYPE, FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
+	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new HallowedSignBlock(TheHallow.id("entity/signs/deadwood"), TheHallow.DEADWOOD_SIGN_TYPE, FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), block -> new SignItem(new Item.Settings().group(TheHallow.GROUP).maxCount(16), block, DEADWOOD_WALL_SIGN));
 	public static final Block EERIE_GRASS = register("eerie_grass", new HallowedFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
 	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
 	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));

@@ -1,5 +1,17 @@
 package com.fabriccommunity.thehallow.registry;
 
+import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCategory;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnRestriction;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.passive.VillagerEntity;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
+
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.component.CandyComponent;
 import com.fabriccommunity.thehallow.component.CandyComponent.VillagerCandyComponent;
@@ -14,16 +26,6 @@ import com.fabriccommunity.thehallow.mixin.SpawnRestrictionInvoker;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.event.EntityComponentCallback;
-import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCategory;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnRestriction;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
 
 public class HallowedEntities {
 	public static final ComponentType<CandyComponent> CANDY = ComponentRegistry.INSTANCE.registerIfAbsent(TheHallow.id("candy"), CandyComponent.class);

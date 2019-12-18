@@ -1,11 +1,5 @@
 package com.fabriccommunity.thehallow.world.feature;
 
-import java.util.Random;
-
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.util.noise.OctaveOpenSimplexNoise;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -19,6 +13,12 @@ import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
+
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+import com.fabriccommunity.thehallow.util.noise.OctaveOpenSimplexNoise;
+
+import java.util.Random;
 
 public class BarrowFeature extends Feature<DefaultFeatureConfig> implements FeatureUtils {
 	

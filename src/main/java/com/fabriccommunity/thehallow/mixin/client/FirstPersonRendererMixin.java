@@ -17,7 +17,7 @@ import com.fabriccommunity.thehallow.item.tool.ClubItem;
 @Mixin(HeldItemRenderer.class)
 public class FirstPersonRendererMixin {
 	
-	@Inject(method = "renderFirstPersonItem(Lnet/minecraft/client/network/AbstractClientPlayerEntity;FFLnet/minecraft/util/Hand;FLnet/minecraft/item/ItemStack;F)V", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "renderFirstPersonItem(Lnet/minecraft/client/network/AbstractClientPlayerEntity;FFLnet/minecraft/util/Hand;FLnet/minecraft/item/ItemStack;FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At("HEAD"), cancellable = true)
 	private void dontRenderOffHandItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float f, ItemStack item, float equipProgress, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo info) {
 		if(hand == Hand.OFF_HAND && player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof ClubItem) {
 			info.cancel();

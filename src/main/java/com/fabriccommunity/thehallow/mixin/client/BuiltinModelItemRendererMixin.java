@@ -18,10 +18,10 @@ import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 public class BuiltinModelItemRendererMixin {
 	private final HallowedTreasureChestBlockEntity chestEntity = new HallowedTreasureChestBlockEntity();
 	
-	@Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/item/ItemStack;)V", cancellable = true)
+	@Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;II)V", cancellable = true)
 	private void renderTreasureChest(final ItemStack itemStack, MatrixStack matrix, VertexConsumerProvider vertexConsumerProvider, int light, int overlay, final CallbackInfo info) {
 		if (itemStack.getItem().equals(HallowedBlocks.HALLOWED_TREASURE_CHEST.asItem())) {
-			BlockEntityRenderDispatcher.INSTANCE.renderEntity(this.chestEntity, matrix);
+			BlockEntityRenderDispatcher.INSTANCE.renderEntity(this.chestEntity, matrix, vertexConsumerProvider, light, overlay);
 			info.cancel();
 		}
 	}

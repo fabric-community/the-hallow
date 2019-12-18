@@ -28,11 +28,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+
 import com.fabriccommunity.thehallow.HallowedConfig;
 import com.fabriccommunity.thehallow.component.CandyComponent;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import com.fabriccommunity.thehallow.registry.HallowedTags;
-
 import dev.emi.trinkets.api.TrinketsApi;
 
 import java.util.Iterator;

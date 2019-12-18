@@ -1,12 +1,13 @@
 package com.fabriccommunity.thehallow.world;
 
-import com.fabriccommunity.thehallow.registry.HallowedBiomes;
-import com.fabriccommunity.thehallow.world.layer.HallowedBiomeLayers;
-import com.google.common.collect.ImmutableSet;
-
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
+
+import com.fabriccommunity.thehallow.registry.HallowedBiomes;
+import com.fabriccommunity.thehallow.world.layer.HallowedBiomeLayers;
+
+import com.google.common.collect.ImmutableSet;
 
 public class HallowedBiomeSource extends BiomeSource {
 	

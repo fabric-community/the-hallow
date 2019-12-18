@@ -1,12 +1,13 @@
 package com.fabriccommunity.thehallow.registry;
 
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.util.registry.Registry;
+
 import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
 import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipeSerializer;
 import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
 import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipeSerializer;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.util.registry.Registry;
 
 public class HallowedRecipes {
 	public static final RecipeSerializer<InfusionRecipe> INFUSION_RECIPE_SERIALIZER = Registry.register(

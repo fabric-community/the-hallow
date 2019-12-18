@@ -1,6 +1,5 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.block.PumpkinBlock;
@@ -16,6 +15,8 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
 public class ColoredPumpkinBlock extends PumpkinBlock {
 

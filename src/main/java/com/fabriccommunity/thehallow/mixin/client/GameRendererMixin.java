@@ -5,15 +5,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.fabriccommunity.thehallow.HallowedConfig;
-import com.fabriccommunity.thehallow.api.HallowedBiomeInfo;
-import com.fabriccommunity.thehallow.registry.HallowedDimensions;
-
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.thehallow.HallowedConfig;
+import com.fabriccommunity.thehallow.api.HallowedBiomeInfo;
+import com.fabriccommunity.thehallow.registry.HallowedDimensions;
 
 @Mixin(GameRenderer.class)
 public class GameRendererMixin

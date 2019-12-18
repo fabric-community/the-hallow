@@ -1,7 +1,5 @@
 package com.fabriccommunity.thehallow.world.layer;
 
-import java.util.function.LongFunction;
-
 import net.minecraft.world.biome.layer.AddRiversLayer;
 import net.minecraft.world.biome.layer.NoiseToRiverLayer;
 import net.minecraft.world.biome.layer.ScaleLayer;
@@ -12,6 +10,8 @@ import net.minecraft.world.biome.layer.util.LayerFactory;
 import net.minecraft.world.biome.layer.util.LayerSampleContext;
 import net.minecraft.world.biome.layer.util.LayerSampler;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
+
+import java.util.function.LongFunction;
 
 public class HallowedBiomeLayers {
 	private static final int biomeSize = 4; // 3 should be the *minimum* value for this

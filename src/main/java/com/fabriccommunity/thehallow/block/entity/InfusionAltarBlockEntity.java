@@ -33,8 +33,7 @@ public class InfusionAltarBlockEntity extends BlockEntity implements BlockEntity
 	
 	public ItemStack putStack(ItemStack insertStack) {
 		if (storedStack.isEmpty() && insertStack.getCount() >= 1) {
-			storedStack = new ItemStack(insertStack.getItem(), 1);
-			insertStack.decrement(1);
+			storedStack = insertStack.split(1);
 		}
 		return insertStack;
 	}

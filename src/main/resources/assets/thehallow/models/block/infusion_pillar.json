@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/block",
 	"textures": {
 		"0": "thehallow:block/pillar_block",
 		"particle": "thehallow:block/pillar_block"

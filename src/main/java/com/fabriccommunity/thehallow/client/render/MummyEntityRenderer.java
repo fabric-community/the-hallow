@@ -5,6 +5,7 @@ import net.minecraft.client.render.entity.ZombieEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.Identifier;
+
 import com.fabriccommunity.thehallow.TheHallow;
 
 public class MummyEntityRenderer extends ZombieEntityRenderer {

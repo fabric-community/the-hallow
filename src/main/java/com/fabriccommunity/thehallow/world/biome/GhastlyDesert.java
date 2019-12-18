@@ -1,8 +1,5 @@
 package com.fabriccommunity.thehallow.world.biome;
 
-import com.fabriccommunity.thehallow.registry.HallowedFeatures;
-import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
-
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.CountDecoratorConfig;
@@ -11,6 +8,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
+
+import com.fabriccommunity.thehallow.registry.HallowedFeatures;
+import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 
 public class GhastlyDesert extends HallowedBaseBiome {
 	public GhastlyDesert() {

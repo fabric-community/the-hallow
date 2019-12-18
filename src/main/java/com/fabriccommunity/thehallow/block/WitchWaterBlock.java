@@ -1,8 +1,5 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.thehallow.entity.PumpcownEntity;
-import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
-import com.fabriccommunity.thehallow.registry.HallowedEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -16,6 +13,10 @@ import net.minecraft.fluid.BaseFluid;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.thehallow.entity.PumpcownEntity;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
+import com.fabriccommunity.thehallow.registry.HallowedEntities;
 
 public class WitchWaterBlock extends CraftingFluidBlock {
 	public WitchWaterBlock(BaseFluid fluid, Settings settings) {

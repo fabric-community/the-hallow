@@ -1,7 +1,10 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Fertilizable;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
@@ -14,6 +17,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -46,18 +51,21 @@ public class TombstoneBlock extends HorizontalFacingBlock implements Fertilizabl
 		builder.add(HorizontalFacingBlock.FACING);
 		builder.add(Properties.AGE_1);
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView blockView, BlockPos pos, EntityContext context) {
 		return SHAPES.get(state.get(FACING));
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		BlockPos down = pos.down();
 		return Block.isFaceFullSquare(world.getBlockState(down).getCollisionShape(world, down), Direction.UP);
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return SHAPES.get(state.get(FACING));

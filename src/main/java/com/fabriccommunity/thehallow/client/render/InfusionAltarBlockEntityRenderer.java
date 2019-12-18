@@ -12,6 +12,7 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.math.MathHelper;
+
 import com.fabriccommunity.thehallow.block.entity.InfusionAltarBlockEntity;
 
 @Environment(EnvType.CLIENT)

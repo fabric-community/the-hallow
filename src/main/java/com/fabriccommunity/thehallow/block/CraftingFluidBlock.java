@@ -12,9 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
+
 import java.util.List;
 import java.util.Optional;
-import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
 
 public abstract class CraftingFluidBlock extends FluidBlock {
 	public final FluidRecipe.Type recipeType;

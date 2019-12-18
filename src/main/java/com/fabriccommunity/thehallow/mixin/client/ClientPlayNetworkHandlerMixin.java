@@ -1,14 +1,16 @@
 package com.fabriccommunity.thehallow.mixin.client;
 
-import com.fabriccommunity.thehallow.client.screen.HallowedLoadingScreen;
-import com.fabriccommunity.thehallow.registry.HallowedDimensions;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.packet.PlayerRespawnS2CPacket;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+
+import com.fabriccommunity.thehallow.client.screen.HallowedLoadingScreen;
+import com.fabriccommunity.thehallow.registry.HallowedDimensions;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {

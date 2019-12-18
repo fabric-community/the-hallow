@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"thehallow:tainted_sand",
+		"thehallow:coarse_tainted_sand",
 		"thehallow:tainted_gravel"
 	]
 }

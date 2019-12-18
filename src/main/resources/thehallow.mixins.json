@@ -26,7 +26,8 @@
 		"client.MinecraftClientMixin",
 		"client.FirstPersonRendererMixin",
 		"client.GameRendererMixin",
-		"client.SignBlockEntityRendererMixin"
+		"client.SignBlockEntityRendererMixin",
+		"client.TexturedRenderLayersMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

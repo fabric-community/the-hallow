@@ -1,7 +1,5 @@
 package com.fabriccommunity.thehallow.registry;
 
-import com.fabriccommunity.thehallow.HallowedConfig;
-
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponents;
 import net.minecraft.item.Item;
@@ -9,6 +7,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.thehallow.HallowedConfig;
 
 /**
  * This registry class is used to overwrite existing registry entries, here vanilla items

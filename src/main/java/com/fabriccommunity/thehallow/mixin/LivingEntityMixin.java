@@ -31,9 +31,6 @@ import com.fabriccommunity.thehallow.registry.HallowedBlocks;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 	@Shadow
-	public abstract void sendToolBreakStatus(Hand hand_1);
-	
-	@Shadow
 	public abstract Hand getActiveHand();
 	
 	@Inject(method = "drop(Lnet/minecraft/entity/damage/DamageSource;)V", at = @At("HEAD"))
@@ -80,11 +77,11 @@ public abstract class LivingEntityMixin {
 	
 	@Inject(method = "isClimbing", at = @At("RETURN"), cancellable = true)
 	public void isClimbing(CallbackInfoReturnable<Boolean> info) {
-		BlockState inState = this.method_16212();
+		BlockState inState = this.getBlockState();
 		Block inBlock = inState.getBlock();
 		if (inBlock == HallowedBlocks.DEADWOOD_VINES) info.setReturnValue(true);
 	}
 	
 	@Shadow
-	protected abstract BlockState method_16212();
+	protected abstract BlockState getBlockState();
 }

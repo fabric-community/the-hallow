@@ -11,7 +11,6 @@ import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
-
 import com.mojang.datafixers.Dynamic;
 
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;

@@ -30,6 +30,7 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 		this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public ActionResult onUse(BlockState blockState, World world, BlockPos pos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		if (hand == Hand.MAIN_HAND) {
@@ -62,16 +63,19 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 		factory.add(FACING);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockRenderType getRenderType(BlockState blockState) {
 		return BlockRenderType.INVISIBLE;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return SHAPE;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getCollisionShape(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityContext entityContext) {
 		return SHAPE;

@@ -38,6 +38,7 @@ public class RestlessCactusBlock extends Block {
 		this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		if (!state.canPlaceAt(world, pos)) {
@@ -80,16 +81,19 @@ public class RestlessCactusBlock extends Block {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return COLLISION_SHAPE;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return OUTLINE_SHAPE;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState state2, IWorld world, BlockPos pos, BlockPos pos2) {
 		if (!state.canPlaceAt(world, pos)) {
@@ -99,6 +103,7 @@ public class RestlessCactusBlock extends Block {
 		return super.getStateForNeighborUpdate(state, direction, state2, world, pos, pos2);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		Iterator<Direction> iterator = Direction.Type.HORIZONTAL.iterator();
@@ -119,6 +124,7 @@ public class RestlessCactusBlock extends Block {
 		return false;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		entity.damage(DamageSource.CACTUS, 1.0F);
@@ -129,6 +135,7 @@ public class RestlessCactusBlock extends Block {
 		builder.add(AGE);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canPlaceAtSide(BlockState state, BlockView view, BlockPos pos, BlockPlacementEnvironment environment) {
 		return false;

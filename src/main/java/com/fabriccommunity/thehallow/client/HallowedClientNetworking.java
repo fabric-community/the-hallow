@@ -1,15 +1,17 @@
 package com.fabriccommunity.thehallow.client;
 
-import com.fabriccommunity.thehallow.entity.HallowedTreasureChestEntity;
-import com.fabriccommunity.thehallow.entity.ShotgunProjectileEntity;
-import com.fabriccommunity.thehallow.registry.HallowedNetworking;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.thehallow.entity.HallowedTreasureChestEntity;
+import com.fabriccommunity.thehallow.entity.ShotgunProjectileEntity;
+import com.fabriccommunity.thehallow.registry.HallowedNetworking;
 
 @Environment(EnvType.CLIENT)
 public class HallowedClientNetworking {

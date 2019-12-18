@@ -8,8 +8,8 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
 
 import com.fabriccommunity.thehallow.command.ContibutorsCommand;
-import com.fabriccommunity.thehallow.command.SpooktoberCommand;
 import com.fabriccommunity.thehallow.command.HallowedCommand;
+import com.fabriccommunity.thehallow.command.SpooktoberCommand;
 
 import static net.minecraft.server.command.CommandManager.literal;
 
