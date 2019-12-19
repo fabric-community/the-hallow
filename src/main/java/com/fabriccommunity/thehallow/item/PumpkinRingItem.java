@@ -18,8 +18,8 @@ import dev.emi.trinkets.api.Slots;
 
 import java.util.List;
 
-public class PumpkinRing extends Item implements ITrinket {
-	public PumpkinRing(Settings settings) {
+public class PumpkinRingItem extends Item implements ITrinket {
+	public PumpkinRingItem(Settings settings) {
 		super(settings);
 		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}

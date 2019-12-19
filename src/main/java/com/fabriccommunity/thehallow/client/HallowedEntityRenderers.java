@@ -8,7 +8,6 @@ import com.fabriccommunity.thehallow.client.render.HallowedCactusEntityRenderer;
 import com.fabriccommunity.thehallow.client.render.HallowedTreasureChestEntityRenderer;
 import com.fabriccommunity.thehallow.client.render.MummyEntityRenderer;
 import com.fabriccommunity.thehallow.client.render.PumpcownEntityRenderer;
-import com.fabriccommunity.thehallow.client.render.ShotgunProjectileEntityRenderer;
 import com.fabriccommunity.thehallow.registry.HallowedEntities;
 
 public class HallowedEntityRenderers {
@@ -19,6 +18,5 @@ public class HallowedEntityRenderers {
 		EntityRendererRegistry.INSTANCE.register(HallowedEntities.RESTLESS_CACTUS, (dispatcher, context) -> new HallowedCactusEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(HallowedEntities.MUMMY, (dispatcher, context) -> new MummyEntityRenderer(dispatcher));
 		EntityRendererRegistry.INSTANCE.register(HallowedEntities.CULTIST, (dispatcher, context) -> new CultistEntityRenderer(dispatcher));
-		EntityRendererRegistry.INSTANCE.register(HallowedEntities.SHOTGUN_PROJECTILE, (dispatcher, context) -> new ShotgunProjectileEntityRenderer(dispatcher));
 	}
 }

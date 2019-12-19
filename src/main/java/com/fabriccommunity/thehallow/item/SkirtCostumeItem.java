@@ -26,11 +26,11 @@ import dev.emi.trinkets.api.ITrinket;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
 
-public class SkirtCostume extends Item implements ITrinket {
+public class SkirtCostumeItem extends Item implements ITrinket {
 	
 	private static final Quaternion ROTATION_CONSTANT = Vector3f.POSITIVE_Z.getDegreesQuaternion(-45f);
 	
-	public SkirtCostume(Settings settings) {
+	public SkirtCostumeItem(Settings settings) {
 		super(settings);
 		DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
 	}
