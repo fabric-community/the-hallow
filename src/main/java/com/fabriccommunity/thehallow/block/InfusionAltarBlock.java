@@ -118,7 +118,8 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 	public BlockEntity createBlockEntity(BlockView world) {
 		return new InfusionAltarBlockEntity();
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 		InfusionAltarBlockEntity altarEntity = (InfusionAltarBlockEntity) world.getBlockEntity(blockPos);
@@ -160,6 +161,7 @@ public class InfusionAltarBlock extends Block implements BlockEntityProvider {
 		super.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, itemStack);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPosition, EntityContext entityContext) {
 		return SHAPE;

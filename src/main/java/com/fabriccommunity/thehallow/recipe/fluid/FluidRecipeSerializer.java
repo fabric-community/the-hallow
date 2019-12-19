@@ -1,17 +1,5 @@
 package com.fabriccommunity.thehallow.recipe.fluid;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.exception.InvalidJsonException;
-import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -20,6 +8,17 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.exception.InvalidJsonException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+import java.util.ArrayList;
+import java.util.Optional;
 
 public class FluidRecipeSerializer implements RecipeSerializer<FluidRecipe> {
 

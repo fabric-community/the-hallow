@@ -1,8 +1,5 @@
 package com.fabriccommunity.thehallow.entity;
 
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.registry.HallowedEntities;
-import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 
 import net.minecraft.block.Material;
@@ -24,6 +21,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.registry.HallowedEntities;
+import io.netty.buffer.Unpooled;
 
 public class ShotgunProjectileEntity extends Entity {
 	public static final Identifier ENTITY_ID = TheHallow.id("shotgun_projectile");

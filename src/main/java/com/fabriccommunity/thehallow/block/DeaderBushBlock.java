@@ -18,6 +18,7 @@ public class DeaderBushBlock extends PlantBlock {
 		super(settings);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return SHAPE;

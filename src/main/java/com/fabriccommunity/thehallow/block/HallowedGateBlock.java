@@ -1,7 +1,5 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
@@ -11,6 +9,9 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
 
 import javax.annotation.Nullable;
 
@@ -44,7 +45,8 @@ public class HallowedGateBlock extends Block {
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		return getDefaultState().with(FACING, context.getPlayerFacing().getOpposite());
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public int getLuminance(BlockState state) {
 		return 6;

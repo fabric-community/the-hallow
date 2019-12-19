@@ -1,6 +1,5 @@
 package com.fabriccommunity.thehallow.recipe.infusion;
 
-import com.google.gson.JsonObject;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -14,6 +13,7 @@ import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.inventory.InfusionInventory;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;

@@ -1,10 +1,10 @@
 package com.fabriccommunity.thehallow.world.biome;
 
-import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
-
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
+
+import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 
 // TODO
 public class HauntedMoorBiome extends HallowedBaseBiome {

@@ -1,8 +1,5 @@
 package com.fabriccommunity.thehallow.recipe.fluid;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.inventory.BasicInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -11,6 +8,9 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FluidRecipe implements Recipe<BasicInventory> {
 	private final List<Ingredient> ingredients;

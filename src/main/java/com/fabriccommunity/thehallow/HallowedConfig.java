@@ -1,16 +1,17 @@
 package com.fabriccommunity.thehallow;
 
+import blue.endless.jankson.Jankson;
+import blue.endless.jankson.JsonElement;
+import blue.endless.jankson.JsonGrammar;
+import blue.endless.jankson.JsonObject;
+import blue.endless.jankson.api.SyntaxError;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import blue.endless.jankson.Jankson;
-import blue.endless.jankson.JsonElement;
-import blue.endless.jankson.JsonGrammar;
-import blue.endless.jankson.JsonObject;
-import blue.endless.jankson.api.SyntaxError;
 
 public class HallowedConfig {
 	

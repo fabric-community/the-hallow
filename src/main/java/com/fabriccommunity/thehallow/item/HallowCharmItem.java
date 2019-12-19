@@ -1,15 +1,8 @@
 package com.fabriccommunity.thehallow.item;
 
-import com.fabriccommunity.thehallow.block.HallowedGateBlock;
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedDimensions;
-import com.fabriccommunity.thehallow.registry.HallowedItems;
-
-import dev.emi.trinkets.api.ITrinket;
-import dev.emi.trinkets.api.SlotGroups;
-import dev.emi.trinkets.api.Slots;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.util.NbtType;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.MinecraftClient;
@@ -38,6 +31,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Quaternion;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
+
+import com.fabriccommunity.thehallow.block.HallowedGateBlock;
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+import com.fabriccommunity.thehallow.registry.HallowedDimensions;
+import com.fabriccommunity.thehallow.registry.HallowedItems;
+import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
 
 import java.util.Random;
 

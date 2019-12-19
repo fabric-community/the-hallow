@@ -10,7 +10,7 @@ import net.minecraft.client.util.NarratorManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.registry.HallowedBlocks;
@@ -68,28 +68,28 @@ public class HallowedLoadingScreen extends Screen {
 		this.drawCenteredString(font, I18n.translate(message), width / 2, height / 2 - 50, 0xFFFFFF);
 		
 		float scale = 100f;
-		GlStateManager.pushMatrix();
-		GlStateManager.translatef(width / 2f, height / 2f + 65 + MathHelper.sin(floatingTick / 6.5f) * 25, 500f);
-		GlStateManager.scalef(scale, scale, scale);
-		GlStateManager.rotatef(180, 1, 0, 0);
-		GlStateManager.rotatef(rotation, 0, 1, 0);
+		RenderSystem.pushMatrix();
+		RenderSystem.translatef(width / 2f, height / 2f + 65 + MathHelper.sin(floatingTick / 6.5f) * 25, 500f);
+		RenderSystem.scalef(scale, scale, scale);
+		RenderSystem.rotatef(180, 1, 0, 0);
+		RenderSystem.rotatef(rotation, 0, 1, 0);
 		
 		minecraft.getTextureManager().bindTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEX);
 		minecraft.getItemRenderer().renderGuiItem(pumpkinStack, 0, 0);
 		
-		GlStateManager.popMatrix();
+		RenderSystem.popMatrix();
 	}
 	
 	@Override
 	public void renderDirtBackground(int i) {
 		// Copied mostly from renderDirtBackground()
-		GlStateManager.disableLighting();
-		GlStateManager.disableFog();
+		RenderSystem.disableLighting();
+		RenderSystem.disableFog();
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder builder = tessellator.getBuffer();
 		minecraft.getTextureManager().bindTexture(backgroundTexture);
 		int brightness = 130;
-		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		builder.begin(7, VertexFormats.POSITION_TEXTURE_COLOR);
 		builder.vertex(0, height, 0).texture(0, height / 32.0F + i).color(brightness, brightness, brightness, 255).next();
 		builder.vertex(width, height, 0).texture(width / 32.0F, height / 32.0F + i).color(brightness, brightness, brightness, 255).next();

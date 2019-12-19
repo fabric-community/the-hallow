@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "coarse_tainted_sand",
+	"pattern": [
+		"S#",
+		"#S"
+	],
+	"key": {
+		"#": {
+			"item": "thehallow:tainted_gravel"
+		},
+		"S": {
+			"item": "thehallow:tainted_sand"
+		}
+	},
+	"result": {
+		"item": "thehallow:coarse_tainted_sand",
+		"count": 4
+	}
+}

@@ -1,15 +1,14 @@
 package com.fabriccommunity.thehallow.block;
 
-import com.fabriccommunity.thehallow.TheHallow;
-
 import net.minecraft.block.SignBlock;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.SignType;
 
 public class HallowedSignBlock extends SignBlock implements HallowedSign {
 	private final Identifier texture;
 	
-	public HallowedSignBlock(Identifier texture, Settings settings) {
-		super(settings, TheHallow.HALLOWED_SIGN_TYPE);
+	public HallowedSignBlock(Identifier texture, SignType type, Settings settings) {
+		super(settings, type);
 		this.texture = texture;
 	}
 	

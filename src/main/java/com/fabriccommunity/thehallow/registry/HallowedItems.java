@@ -1,14 +1,5 @@
 package com.fabriccommunity.thehallow.registry;
 
-import com.fabriccommunity.thehallow.item.*;
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.item.tool.ClubItem;
-import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
-import com.fabriccommunity.thehallow.item.tool.ScytheItem;
-
-import dev.emi.trinkets.api.SlotGroups;
-import dev.emi.trinkets.api.Slots;
-import dev.emi.trinkets.api.TrinketSlots;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -20,6 +11,22 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.item.CandyItem;
+import com.fabriccommunity.thehallow.item.GoldenCandyCornItem;
+import com.fabriccommunity.thehallow.item.HallowCharmItem;
+import com.fabriccommunity.thehallow.item.PaperBagItem;
+import com.fabriccommunity.thehallow.item.PumpkinRing;
+import com.fabriccommunity.thehallow.item.ShotgunItem;
+import com.fabriccommunity.thehallow.item.SkirtCostume;
+import com.fabriccommunity.thehallow.item.TrumpetItem;
+import com.fabriccommunity.thehallow.item.tool.ClubItem;
+import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
+import com.fabriccommunity.thehallow.item.tool.ScytheItem;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
+import dev.emi.trinkets.api.TrinketSlots;
 
 public class HallowedItems {
 	public static final BucketItem WITCH_WATER_BUCKET = register("witch_water_bucket", new BucketItem(HallowedFluids.WITCH_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).group(TheHallow.GROUP).maxCount(1)));

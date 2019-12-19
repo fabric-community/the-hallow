@@ -62,10 +62,11 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 		if (block == HallowedBlocks.WITCH_WATER_BUBBLE_COLUMN) {
 			return state.get(DRAG);
 		} else {
-			return block != HallowedBlocks.TAINTED_SAND;
+			return block != HallowedBlocks.COARSE_TAINTED_SAND;
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		BlockState state2 = world.getBlockState(pos.up());
@@ -84,16 +85,19 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState state2, boolean bool) {
 		update(world, pos.up(), calculateDrag(world, pos.down()));
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
 		update(world, pos.up(), calculateDrag(world, pos));
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public FluidState getFluidState(BlockState state) {
 		return HallowedFluids.WITCH_WATER.getStill(false);
@@ -124,6 +128,7 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction dir, BlockState state2, IWorld world, BlockPos pos, BlockPos pos2) {
 		if (!state.canPlaceAt(world, pos)) {
@@ -139,17 +144,20 @@ public class WitchWaterBubbleColumnBlock extends Block implements FluidDrainable
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		Block block = world.getBlockState(pos.down()).getBlock();
-		return block == HallowedBlocks.WITCH_WATER_BUBBLE_COLUMN || block == HallowedBlocks.BLEEDING_BLOCK || block == HallowedBlocks.TAINTED_SAND;
+		return block == HallowedBlocks.WITCH_WATER_BUBBLE_COLUMN || block == HallowedBlocks.BLEEDING_BLOCK || block == HallowedBlocks.COARSE_TAINTED_SAND;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return VoxelShapes.empty();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockRenderType getRenderType(BlockState state) {
 		return BlockRenderType.INVISIBLE;

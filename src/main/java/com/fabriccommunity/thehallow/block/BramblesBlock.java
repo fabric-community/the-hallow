@@ -25,6 +25,7 @@ public class BramblesBlock extends PlantBlock {
 		super(settings);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity && entity.getType() != HallowedEntities.CROW && entity.getType() != HallowedEntities.PUMPCOWN) {
@@ -39,6 +40,7 @@ public class BramblesBlock extends PlantBlock {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
 		return SHAPE;

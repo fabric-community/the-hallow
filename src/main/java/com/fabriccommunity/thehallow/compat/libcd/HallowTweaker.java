@@ -1,14 +1,15 @@
 package com.fabriccommunity.thehallow.compat.libcd;
 
-import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
-import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipeSerializer;
-import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
-import io.github.cottonmc.libcd.tweaker.RecipeParser;
-import io.github.cottonmc.libcd.tweaker.RecipeTweaker;
-import io.github.cottonmc.libcd.tweaker.Tweaker;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
+
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipe;
+import com.fabriccommunity.thehallow.recipe.fluid.FluidRecipeSerializer;
+import com.fabriccommunity.thehallow.recipe.infusion.InfusionRecipe;
+import io.github.cottonmc.libcd.api.tweaker.TweakerManager;
+import io.github.cottonmc.libcd.api.tweaker.recipe.RecipeParser;
+import io.github.cottonmc.libcd.api.tweaker.recipe.RecipeTweaker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,6 @@ public class HallowTweaker {
 	}
 
 	public static void init() {
-		Tweaker.addAssistant("HallowTweaker", INSTANCE);
+		TweakerManager.INSTANCE.addAssistant("HallowTweaker", INSTANCE);
 	}
 }

@@ -1,10 +1,5 @@
 package com.fabriccommunity.thehallow.item;
 
-import java.util.List;
-
-import dev.emi.trinkets.api.ITrinket;
-import dev.emi.trinkets.api.SlotGroups;
-import dev.emi.trinkets.api.Slots;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,6 +11,12 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+
+import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
+
+import java.util.List;
 
 public class PumpkinRing extends Item implements ITrinket {
 	public PumpkinRing(Settings settings) {

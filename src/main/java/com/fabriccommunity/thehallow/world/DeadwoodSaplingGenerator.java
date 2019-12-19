@@ -6,6 +6,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.MegaTreeFeatureConfig;
 
 import com.fabriccommunity.thehallow.registry.HallowedFeatures;
+
 import java.util.Random;
 
 public class DeadwoodSaplingGenerator extends LargeTreeSaplingGenerator {

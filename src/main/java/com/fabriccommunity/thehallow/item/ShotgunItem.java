@@ -1,8 +1,5 @@
 package com.fabriccommunity.thehallow.item;
 
-import com.fabriccommunity.thehallow.entity.ShotgunProjectileEntity;
-import com.fabriccommunity.thehallow.registry.HallowedItems;
-import com.fabriccommunity.thehallow.registry.HallowedSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +9,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import com.fabriccommunity.thehallow.entity.ShotgunProjectileEntity;
+import com.fabriccommunity.thehallow.registry.HallowedItems;
+import com.fabriccommunity.thehallow.registry.HallowedSounds;
 
 public class ShotgunItem extends Item {
 	public static final int MAX_PELLETS = 6;

@@ -5,9 +5,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
-import java.util.Random;
-
 import com.fabriccommunity.thehallow.HallowedConfig;
+
+import java.util.Random;
 
 /**
  * @author Indigo Amann

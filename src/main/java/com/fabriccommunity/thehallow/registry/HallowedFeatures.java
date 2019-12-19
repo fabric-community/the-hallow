@@ -1,7 +1,5 @@
 package com.fabriccommunity.thehallow.registry;
 
-import com.fabriccommunity.thehallow.world.feature.ColoredPumpkinFeature;
-import com.fabriccommunity.thehallow.world.feature.RandomizedWildCropFeature;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.BranchedTreeFeatureConfig;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -15,15 +13,17 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.world.feature.BarrowFeature;
+import com.fabriccommunity.thehallow.world.feature.ColoredPumpkinFeature;
 import com.fabriccommunity.thehallow.world.feature.DeaderBushFeature;
-import com.fabriccommunity.thehallow.world.feature.LargeDeadwoodTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.LargeSkeletalTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.SmallDeadwoodTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.SmallSkeletalTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.SpiderLairFeature;
 import com.fabriccommunity.thehallow.world.feature.HallowedCactusFeature;
 import com.fabriccommunity.thehallow.world.feature.HallowedOreFeature;
 import com.fabriccommunity.thehallow.world.feature.HallowedOreFeatureConfig;
+import com.fabriccommunity.thehallow.world.feature.LargeDeadwoodTreeFeature;
+import com.fabriccommunity.thehallow.world.feature.LargeSkeletalTreeFeature;
+import com.fabriccommunity.thehallow.world.feature.RandomizedWildCropFeature;
+import com.fabriccommunity.thehallow.world.feature.SmallDeadwoodTreeFeature;
+import com.fabriccommunity.thehallow.world.feature.SmallSkeletalTreeFeature;
+import com.fabriccommunity.thehallow.world.feature.SpiderLairFeature;
 import com.fabriccommunity.thehallow.world.feature.StoneCircleFeature;
 import com.fabriccommunity.thehallow.world.feature.WitchWellFeature;
 

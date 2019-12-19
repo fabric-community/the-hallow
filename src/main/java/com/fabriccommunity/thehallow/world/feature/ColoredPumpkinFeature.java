@@ -1,10 +1,12 @@
 package com.fabriccommunity.thehallow.world.feature;
 
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+
+import com.google.common.collect.ImmutableList;
 
 public class ColoredPumpkinFeature {
 	private ColoredPumpkinFeature(){

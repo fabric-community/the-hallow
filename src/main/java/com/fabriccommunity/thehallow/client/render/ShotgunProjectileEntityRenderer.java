@@ -1,7 +1,5 @@
 package com.fabriccommunity.thehallow.client.render;
 
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.entity.ShotgunProjectileEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -11,6 +9,9 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Quaternion;
+
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.entity.ShotgunProjectileEntity;
 
 public class ShotgunProjectileEntityRenderer extends EntityRenderer<ShotgunProjectileEntity> {
 	private static final Identifier SKIN = TheHallow.id("textures/entity/bullet.png");

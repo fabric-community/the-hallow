@@ -7,10 +7,6 @@ import net.minecraft.world.biome.Biome;
 
 import com.fabriccommunity.thehallow.TheHallow;
 import com.fabriccommunity.thehallow.world.biome.GhastlyDesert;
-import com.fabriccommunity.thehallow.world.biome.HauntedMoorBiome;
-import com.fabriccommunity.thehallow.world.biome.HauntedUplandsBiome;
-import com.fabriccommunity.thehallow.world.biome.LowlandBarrowsBiome;
-import com.fabriccommunity.thehallow.world.biome.PumpkinPatchBiome;
 import com.fabriccommunity.thehallow.world.biome.HallowedBaseBiome;
 import com.fabriccommunity.thehallow.world.biome.HallowedForestBiome;
 import com.fabriccommunity.thehallow.world.biome.HallowedLowlandsBiome;
@@ -18,6 +14,10 @@ import com.fabriccommunity.thehallow.world.biome.HallowedRiverBiome;
 import com.fabriccommunity.thehallow.world.biome.HallowedSeaBiome;
 import com.fabriccommunity.thehallow.world.biome.HallowedShoreBiome;
 import com.fabriccommunity.thehallow.world.biome.HallowedSwampBiome;
+import com.fabriccommunity.thehallow.world.biome.HauntedMoorBiome;
+import com.fabriccommunity.thehallow.world.biome.HauntedUplandsBiome;
+import com.fabriccommunity.thehallow.world.biome.LowlandBarrowsBiome;
+import com.fabriccommunity.thehallow.world.biome.PumpkinPatchBiome;
 
 public class HallowedBiomes {
 	// Hallowed Forest
