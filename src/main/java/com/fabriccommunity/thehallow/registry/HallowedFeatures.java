@@ -1,31 +1,14 @@
 package com.fabriccommunity.thehallow.registry;
 
+import com.fabriccommunity.thehallow.TheHallow;
+import com.fabriccommunity.thehallow.world.feature.*;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.BranchedTreeFeatureConfig;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.MegaTreeFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.stateprovider.SimpleStateProvider;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-
-import com.fabriccommunity.thehallow.TheHallow;
-import com.fabriccommunity.thehallow.world.feature.BarrowFeature;
-import com.fabriccommunity.thehallow.world.feature.ColoredPumpkinFeature;
-import com.fabriccommunity.thehallow.world.feature.DeaderBushFeature;
-import com.fabriccommunity.thehallow.world.feature.HallowedCactusFeature;
-import com.fabriccommunity.thehallow.world.feature.HallowedOreFeature;
-import com.fabriccommunity.thehallow.world.feature.HallowedOreFeatureConfig;
-import com.fabriccommunity.thehallow.world.feature.LargeDeadwoodTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.LargeSkeletalTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.RandomizedWildCropFeature;
-import com.fabriccommunity.thehallow.world.feature.SmallDeadwoodTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.SmallSkeletalTreeFeature;
-import com.fabriccommunity.thehallow.world.feature.SpiderLairFeature;
-import com.fabriccommunity.thehallow.world.feature.StoneCircleFeature;
-import com.fabriccommunity.thehallow.world.feature.WitchWellFeature;
 
 /**
  * @author Indigo Amann
@@ -47,7 +30,10 @@ public class HallowedFeatures {
 	public static final Feature<DefaultFeatureConfig> STONE_CIRCLE = register("stone_circle", new StoneCircleFeature());
 	public static final Feature<BranchedTreeFeatureConfig> SMALL_DEADWOOD_TREE = register("small_deadwood_tree", new SmallDeadwoodTreeFeature(BranchedTreeFeatureConfig::deserialize2));
 	public static final Feature<MegaTreeFeatureConfig> LARGE_DEADWOOD_TREE = register("large_deadwood_tree", new LargeDeadwoodTreeFeature(MegaTreeFeatureConfig::method_23408));
-	
+
+	public static final BranchedTreeFeatureConfig SMALL_DEADWOOD_TREE_CONFIG = (new BranchedTreeFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.DEADWOOD_LOG.getDefaultState()), new SimpleStateProvider(HallowedBlocks.DEADWOOD_LEAVES.getDefaultState()), new BlobFoliagePlacer(2, 0))).baseHeight(4).heightRandA(2).foliageHeight(3).noVines().build();
+	public static final MegaTreeFeatureConfig LARGE_DEADWOOD_TREE_CONFIG = (new MegaTreeFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.DEADWOOD_LOG.getDefaultState()), new SimpleStateProvider(HallowedBlocks.DEADWOOD_LEAVES.getDefaultState()))).baseHeight(6).build();
+
 	private HallowedFeatures() {
 		// NO-OP
 	}

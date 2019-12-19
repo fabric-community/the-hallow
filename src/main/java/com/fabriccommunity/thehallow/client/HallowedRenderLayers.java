@@ -19,8 +19,8 @@ public class HallowedRenderLayers {
 			HallowedBlocks.INFUSION_ALTAR_BLOCK, HallowedBlocks.INFUSION_PILLAR_BLOCK, HallowedBlocks.RESTLESS_CACTUS,
 			HallowedBlocks.TINY_PUMPKIN, HallowedBlocks.TOMBSTONE, HallowedBlocks.BRAMBLES,
 			HallowedBlocks.DEADER_BUSH, HallowedBlocks.GLOOMSHROOM, HallowedBlocks.EERIE_GRASS,
-			HallowedBlocks.TALL_EERIE_GRASS, HallowedBlocks.DEADWOOD_DOOR, HallowedBlocks.DEADWOOD_TRAPDOOR,
-			HallowedBlocks.DEADWOOD_VINES);
+			HallowedBlocks.TALL_EERIE_GRASS, HallowedBlocks.DEADWOOD_SAPLING, HallowedBlocks.DEADWOOD_DOOR,
+			HallowedBlocks.DEADWOOD_TRAPDOOR, HallowedBlocks.DEADWOOD_VINES);
 		
 		BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getSolid(), HallowedFluids.BLOOD, HallowedFluids.FLOWING_BLOOD);
 		
