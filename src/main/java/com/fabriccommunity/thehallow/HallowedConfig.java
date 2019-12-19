@@ -112,6 +112,9 @@ public class HallowedConfig {
 		
 	//serializer
 	public static void saveTo(JsonObject obj) {
+		JsonObject dimension = defaultPutButNotNull("dimension", new JsonObject(), obj);
+		dimension.putDefault("water_vaporizes", HallowedDimension.waterVaporizes, "Changed whether or not water vaporizes in The Hallow");
+
 		JsonObject weather = defaultPutButNotNull("weather", new JsonObject(), obj);
 		weather.putDefault("thunder_modifier", HallowedWeather.thunderModifier, "Amount the thunder time is divided by. Set to 1 to disable");
 		weather.putDefault("less_clear_skies", HallowedWeather.lessClearSkies, "Make it so there are less clear skies, more rain and thunder");
