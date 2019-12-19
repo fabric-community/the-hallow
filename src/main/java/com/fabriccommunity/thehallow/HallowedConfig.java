@@ -42,6 +42,10 @@ public class HallowedConfig {
 			TheHallow.LOGGER.error("The Hallow config could not be written. This probably won't cause any problems, but it shouldn't happen.", e);
 		}
 	}
+
+	public static class HallowedDimension {
+		public static boolean waterVaporizes = true;
+	}
 	
 	public static class HallowedWeather {
 		public static int thunderModifier = 80;
@@ -77,6 +81,9 @@ public class HallowedConfig {
 	
 	//deserializer
 	public static void loadFrom(JsonObject obj) {
+		JsonObject dimension = getObjectOrEmpty("dimension", obj);
+		HallowedDimension.waterVaporizes = dimension.getBoolean("water_vaporizes", HallowedDimension.waterVaporizes);
+
 		JsonObject weather = getObjectOrEmpty("weather", obj);
 		HallowedWeather.thunderModifier = weather.getInt("thunder_modifier", HallowedWeather.thunderModifier);
 		HallowedWeather.lessClearSkies = weather.getBoolean("less_clear_skies", HallowedWeather.lessClearSkies);

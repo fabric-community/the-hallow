@@ -1,5 +1,6 @@
 package com.fabriccommunity.thehallow.registry;
 
+import com.fabriccommunity.thehallow.HallowedConfig;
 import net.fabricmc.fabric.api.dimension.v1.EntityPlacer;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensionType;
 
@@ -29,6 +30,7 @@ public class HallowedDimensions {
 			.skyAngle(new HallowedSkyAngleCalculator())
 			.setChunkGenerator(HallowedChunkGeneratorType.INSTANCE.create(world, new HallowedBiomeSource(world.getSeed()), new HallowedChunkGeneratorConfig()))
 			.setLightLevelsToBrightness(getLightLevels())
+			.doesWaterVaporize(HallowedConfig.HallowedDimension.waterVaporizes)
 			.build(world, type))
 		.defaultPlacer(FIND_SURFACE)
 		.buildAndRegister(TheHallow.id("the_hallow"));
