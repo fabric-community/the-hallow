@@ -17,6 +17,6 @@ public class ClubItem extends SwordItem {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		ItemStack stack = player.getStackInHand(hand);
-		return new TypedActionResult<>(ActionResult.SUCCESS, stack);
+		return new TypedActionResult<>(ActionResult.CONSUME, stack);
 	}
 }

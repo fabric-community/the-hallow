@@ -17,9 +17,8 @@ import com.fabriccommunity.thehallow.item.CandyItem;
 import com.fabriccommunity.thehallow.item.GoldenCandyCornItem;
 import com.fabriccommunity.thehallow.item.HallowCharmItem;
 import com.fabriccommunity.thehallow.item.PaperBagItem;
-import com.fabriccommunity.thehallow.item.PumpkinRing;
-import com.fabriccommunity.thehallow.item.ShotgunItem;
-import com.fabriccommunity.thehallow.item.SkirtCostume;
+import com.fabriccommunity.thehallow.item.PumpkinRingItem;
+import com.fabriccommunity.thehallow.item.SkirtCostumeItem;
 import com.fabriccommunity.thehallow.item.TrumpetItem;
 import com.fabriccommunity.thehallow.item.tool.ClubItem;
 import com.fabriccommunity.thehallow.item.tool.HallowedMaterial;
@@ -34,7 +33,7 @@ public class HallowedItems {
 	
 	public static final ToolMaterial HALLOWED = new HallowedMaterial();
 	
-	public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostume(newSettings().maxCount(1)));
+	public static final Item BLAZE_SKIRT = register("blaze_skirt", new SkirtCostumeItem(newSettings().maxCount(1)));
 	public static final Item CARAMEL_APPLE = register("caramel_apple", new CandyItem(newSettings(), 5, 0.3F));
 	public static final Item PUMPKIN_CANDY = register("pumpkin_candy", new CandyItem(newSettings(), 2, 0.3F));
 	public static final Item RARE_CANDY = register("rare_candy", new CandyItem(newSettings(), 3, 0.3F));
@@ -46,10 +45,8 @@ public class HallowedItems {
 	public static final Item HALLOWED_NUGGET = register("hallowed_nugget", new Item(newSettings().rarity(Rarity.EPIC)));
 	public static final Item REAPERS_SCYTHE = register("reapers_scythe", new ScytheItem(HALLOWED, 3, -2.0F, newSettings().maxCount(1).rarity(Rarity.EPIC)));
 	public static final Item SOUL_BOTTLE = register("soul_bottle", new Item(newSettings()));
-	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRing(newSettings().maxCount(1)));
+	public static final Item PUMPKIN_RING = register("pumpkin_ring", new PumpkinRingItem(newSettings().maxCount(1)));
 	public static final Item TRUMPET = register("trumpet", new TrumpetItem(newSettings()));
-	public static final Item SHOTGUN = register("shotgun", new ShotgunItem(newSettings().maxCount(1).maxDamage(9)));
-	public static final Item SHOTGUN_SHELL = register("shotgun_shell", new Item(newSettings()));
 	public static final Item PUMPCOWN_SPAWN_EGG = register("pumpcown_spawn_egg", new SpawnEggItem(HallowedEntities.PUMPCOWN, 0x7E3D0E, 0xE38A1D, newSettings()));
 	public static final Item CROW_SPAWN_EGG = register("crow_spawn_egg", new SpawnEggItem(HallowedEntities.CROW, 0x161616, 0x454545, newSettings()));
 	public static final Item MUMMY_SPAWN_EGG = register("mummy_spawn_egg", new SpawnEggItem(HallowedEntities.MUMMY, 0xCBBBAD, 0x463C34, newSettings()));

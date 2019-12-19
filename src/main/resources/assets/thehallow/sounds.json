@@ -13,27 +13,6 @@
 		],
 		"subtitle": "subtitle.thehallow.trumpet.megaladoot"
 	},
-	"shotgun.shot": {
-		"category": "players",
-		"sounds": [
-			"thehallow:shotgun/shot"
-		],
-		"subtitle": "subtitle.thehallow.shotgun.shot"
-	},
-	"shotgun.no_ammo": {
-		"category": "players",
-		"sounds": [
-			"thehallow:shotgun/no_ammo"
-		],
-		"subtitle": "subtitle.thehallow.shotgun.no_ammo"
-	},
-	"shotgun.shell_reload": {
-		"category": "players",
-		"sounds": [
-			"thehallow:shotgun/shell_reload"
-		],
-		"subtitle": "subtitle.thehallow.shotgun.shell_reload"
-	},
 	"entity.crow.ambient": {
 		"category": "neutral",
 		"sounds": [
