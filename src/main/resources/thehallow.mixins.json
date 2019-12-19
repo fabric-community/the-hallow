@@ -27,7 +27,8 @@
 		"client.FirstPersonRendererMixin",
 		"client.GameRendererMixin",
 		"client.SignBlockEntityRendererMixin",
-		"client.TexturedRenderLayersMixin"
+		"client.TexturedRenderLayersMixin",
+		"client.BiomeMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,8 +1,12 @@
 package com.fabriccommunity.thehallow.fluid;
 
+import com.fabriccommunity.thehallow.api.HallowedFluidInfo;
+import com.fabriccommunity.thehallow.registry.HallowedBlocks;
+import com.fabriccommunity.thehallow.registry.HallowedFluids;
+import com.fabriccommunity.thehallow.registry.HallowedItems;
+import com.fabriccommunity.thehallow.registry.HallowedTags;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidBlock;
@@ -20,12 +24,12 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.WorldView;
 
-import com.fabriccommunity.thehallow.registry.HallowedBlocks;
-import com.fabriccommunity.thehallow.registry.HallowedFluids;
-import com.fabriccommunity.thehallow.registry.HallowedItems;
-import com.fabriccommunity.thehallow.registry.HallowedTags;
+public class BloodFluid extends BaseFluid implements HallowedFluidInfo {
+	@Override
+	public int getFogColor() {
+		return 0xBB0A1E;
+	}
 
-public class BloodFluid extends BaseFluid {
 	@Override
 	public Fluid getFlowing() {
 		return HallowedFluids.FLOWING_BLOOD;
