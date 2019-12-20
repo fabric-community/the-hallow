@@ -28,7 +28,7 @@ import dev.emi.trinkets.api.Slots;
 
 public class SkirtCostumeItem extends Item implements ITrinket {
 	
-	private static final Quaternion ROTATION_CONSTANT = Vector3f.POSITIVE_Z.getDegreesQuaternion(-45f);
+	private static final Quaternion ROTATION_CONSTANT = new Quaternion(Vector3f.POSITIVE_Z, -45f, true);
 	
 	public SkirtCostumeItem(Settings settings) {
 		super(settings);

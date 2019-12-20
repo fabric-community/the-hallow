@@ -44,7 +44,7 @@ import java.util.Random;
 
 public class HallowCharmItem extends Item implements ITrinket {
 	
-	private static final Quaternion ROTATION_CONSTANT = Vector3f.POSITIVE_Z.getDegreesQuaternion(-180);
+	private static final Quaternion ROTATION_CONSTANT = new Quaternion(Vector3f.POSITIVE_Z, -180f, true);
 	
 	public HallowCharmItem(Settings settings) {
 		super(settings);
