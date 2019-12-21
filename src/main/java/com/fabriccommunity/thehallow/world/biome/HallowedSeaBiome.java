@@ -9,7 +9,7 @@ import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 // TODO
 public class HallowedSeaBiome extends HallowedBaseBiome {
 	public HallowedSeaBiome() {
-		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.OCEAN).depth(-1.2f).scale(0.1f).temperature(0.5f).downfall(0.8f).waterColor(4159204).waterFogColor(329011));
+		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.OCEAN).depth(-1.2f).scale(0.1f).temperature(0.5f).downfall(0.8f).waterColor(0x3F76E4).waterFogColor(0x050533));
 		
 		this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL)));
 		

@@ -16,7 +16,7 @@ import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 // TODO
 public class PumpkinPatchBiome extends HallowedBaseBiome {
 	public PumpkinPatchBiome() {
-		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.PLAINS).depth(0.125f).scale(0.07f).temperature(0.7f).downfall(0.8f).waterColor(4159204).waterFogColor(329011));
+		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.PLAINS).depth(0.125f).scale(0.07f).temperature(0.7f).downfall(0.8f).waterColor(0x3F76E4).waterFogColor(0x050533));
 		
 		GRASS_COLOR = 0xC9C92A;
 		FOLIAGE_COLOR = 0xC9C92A;
