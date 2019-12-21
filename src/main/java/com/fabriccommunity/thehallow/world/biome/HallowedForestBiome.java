@@ -9,7 +9,7 @@ import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 // TODO
 public class HallowedForestBiome extends HallowedBaseBiome {
 	public HallowedForestBiome(float depth, float scale) {
-		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.FOREST).depth(depth).scale(scale).temperature(0.7f).downfall(0.8f).waterColor(0x5900A3).waterFogColor(0x5900A3));
+		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.FOREST).depth(depth).scale(scale).temperature(0.7f).downfall(0.8f).waterColor(0x3F76E4).waterFogColor(0x050533));
 		
 		GRASS_COLOR = 0x6B6B6B;
 		FOLIAGE_COLOR = 0x6B6B6B;

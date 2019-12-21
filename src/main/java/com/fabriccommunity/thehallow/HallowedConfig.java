@@ -42,6 +42,10 @@ public class HallowedConfig {
 			TheHallow.LOGGER.error("The Hallow config could not be written. This probably won't cause any problems, but it shouldn't happen.", e);
 		}
 	}
+
+	public static class HallowedDimension {
+		public static boolean waterVaporizes = true;
+	}
 	
 	public static class HallowedWeather {
 		public static int thunderModifier = 80;
@@ -77,6 +81,9 @@ public class HallowedConfig {
 	
 	//deserializer
 	public static void loadFrom(JsonObject obj) {
+		JsonObject dimension = getObjectOrEmpty("dimension", obj);
+		HallowedDimension.waterVaporizes = dimension.getBoolean("water_vaporizes", HallowedDimension.waterVaporizes);
+
 		JsonObject weather = getObjectOrEmpty("weather", obj);
 		HallowedWeather.thunderModifier = weather.getInt("thunder_modifier", HallowedWeather.thunderModifier);
 		HallowedWeather.lessClearSkies = weather.getBoolean("less_clear_skies", HallowedWeather.lessClearSkies);
@@ -105,6 +112,9 @@ public class HallowedConfig {
 		
 	//serializer
 	public static void saveTo(JsonObject obj) {
+		JsonObject dimension = defaultPutButNotNull("dimension", new JsonObject(), obj);
+		dimension.putDefault("water_vaporizes", HallowedDimension.waterVaporizes, "Changed whether or not water vaporizes in The Hallow");
+
 		JsonObject weather = defaultPutButNotNull("weather", new JsonObject(), obj);
 		weather.putDefault("thunder_modifier", HallowedWeather.thunderModifier, "Amount the thunder time is divided by. Set to 1 to disable");
 		weather.putDefault("less_clear_skies", HallowedWeather.lessClearSkies, "Make it so there are less clear skies, more rain and thunder");

@@ -9,7 +9,7 @@ import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 // TODO
 public class HallowedSwampBiome extends HallowedBaseBiome {
 	public HallowedSwampBiome() {
-		super(new Settings().surfaceBuilder(MARSH_SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.SWAMP).depth(-0.2f).scale(0.18f).temperature(0.7f).downfall(0.8f).waterColor(0xBB0A1E).waterFogColor(0xBB0A1E));
+		super(new Settings().surfaceBuilder(MARSH_SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.SWAMP).depth(-0.2f).scale(0.18f).temperature(0.7f).downfall(0.8f).waterColor(0x3F76E4).waterFogColor(0x050533));
 		
 		GRASS_COLOR = 0x2A2A2A;
 		FOLIAGE_COLOR = 0x2A2A2A;

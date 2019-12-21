@@ -9,7 +9,7 @@ import com.fabriccommunity.thehallow.world.feature.HallowedBiomeFeatures;
 // TODO
 public class HauntedUplandsBiome extends HallowedBaseBiome {
 	public HauntedUplandsBiome() {
-		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.PLAINS).depth(1.75f).scale(0.03f).temperature(0.5f).downfall(0.4f).waterColor(0xBB0A1E).waterFogColor(0xBB0A1E));
+		super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(Precipitation.NONE).category(Category.PLAINS).depth(1.75f).scale(0.03f).temperature(0.5f).downfall(0.4f).waterColor(0x3F76E4).waterFogColor(0x050533));
 		
 		this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftFeatureConfig(0.004D, MineshaftFeature.Type.NORMAL)));
 		
