@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "thehallow:restless_cactus"
+  },
+  "result": "minecraft:brown_dye",
+  "experience": 1.0,
+  "cookingtime": 200
+}

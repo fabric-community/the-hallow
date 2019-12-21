@@ -22,22 +22,20 @@ public class ColoredPumpkinFeature {
 		.build();
 
 	public static final RandomBlockSelector COLORED_PUMPKINS = (random, targetPos) -> {
-		int sel = random.nextInt(100);
-		if(sel < 60) {
+		int sel = random.nextInt(200);
+		if(sel < 140) {
 			return Blocks.PUMPKIN.getDefaultState();
-		} else if (sel >=60 && sel <99) {
+		} else if (sel < 195) {
 			int selection = random.nextInt(5);
 			BlockState state = COMMON_PUMPKIN_TYPES.get(selection).getDefaultState();
 			if(state == null) {
 				return Blocks.PUMPKIN.getDefaultState();
 			}
 			return state;
+		} else if (sel < 199) {
+			return HallowedBlocks.WITCHED_PUMPKIN.getDefaultState();
 		} else {
-			if(random.nextBoolean()) {
-				return HallowedBlocks.TINY_WITCHED_PUMPKIN.getDefaultState();
-			} else {
-				return HallowedBlocks.RAINBOW_PUMPKIN.getDefaultState();
-			}
+			return HallowedBlocks.RAINBOW_PUMPKIN.getDefaultState();
 		}
 	};
 }
