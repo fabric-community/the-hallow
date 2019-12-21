@@ -76,8 +76,10 @@ public class HallowedBlocks {
 	// TODO Sort into categories
 	public static final Block TINY_PUMPKIN = register("tiny_pumpkin", new TinyPumpkinBlock(FabricBlockSettings.copy(Blocks.PUMPKIN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.LANTERN).build()), new Item.Settings().group(TheHallow.GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
 	public static final Block TINY_WITCHED_PUMPKIN = register("tiny_witched_pumpkin", new TinyPumpkinBlock(Block.Settings.copy(TINY_PUMPKIN)), block -> new WitchedPumpkinItem(block, new Item.Settings().group(TheHallow.GROUP).food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200), 1).hunger(1).saturationModifier(0.1f).alwaysEdible().build())));
+	
 	public static final Block DECEASED_DIRT = register("deceased_dirt", new Block(FabricBlockSettings.copy(Blocks.DIRT).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DECEASED_GRASS_BLOCK = register("deceased_grass_block", new DeceasedGrassBlock(FabricBlockSettings.copy(Blocks.GRASS_BLOCK).materialColor(MaterialColor.PURPLE).build()));
+	
 	public static final Block TAINTED_STONE = register("tainted_stone", new Block(FabricBlockSettings.copy(Blocks.STONE).build()));
 	public static final Block TAINTED_COBBLESTONE = register("tainted_cobblestone", new Block(FabricBlockSettings.copy(Blocks.COBBLESTONE).build()));
 	public static final Block SMOOTH_TAINTED_STONE = register("smooth_tainted_stone", new Block(FabricBlockSettings.copy(Blocks.SMOOTH_STONE).build()));
@@ -132,6 +134,15 @@ public class HallowedBlocks {
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.RED).sounds(BlockSoundGroup.SLIME).build()));
 	public static final Block BRAIN_MATTER = register("brain_matter", new Block(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.PINK).sounds(BlockSoundGroup.SLIME).build()));
 	public static final Block CONGEALED_BLOOD = register("congealed_blood", new CongealedBloodBlock(FabricBlockSettings.copy(Blocks.NETHER_WART_BLOCK).materialColor(MaterialColor.RED).sounds(BlockSoundGroup.SLIME).build()));
+	public static final Block EERIE_GRASS = register("eerie_grass", new HallowedFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
+	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
+	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
+	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
+	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
+	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
+	public static final Block HALLOWED_GATE = register("hallowed_gate", new HallowedGateBlock(FabricBlockSettings.copy(Blocks.ENCHANTING_TABLE).materialColor(MaterialColor.BROWN).build().nonOpaque()));
+	public static final Block PUMPKIN_PIE = register("pumpkin_pie", new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()), (BlockItem) null);
+	
 	public static final Block DEADWOOD_LOG = register("deadwood_log", new HallowedLogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.OAK_LOG).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block STRIPPED_DEADWOOD_LOG = register("stripped_deadwood_log", new LogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_WOOD = register("deadwood_wood", new HallowedLogBlock(MaterialColor.PURPLE, FabricBlockSettings.copy(Blocks.OAK_WOOD).materialColor(MaterialColor.PURPLE).build()));
@@ -149,13 +160,7 @@ public class HallowedBlocks {
 	public static final Block DEADWOOD_TRAPDOOR = register("deadwood_trapdoor", new HallowedTrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).materialColor(MaterialColor.PURPLE).build()));
 	public static final Block DEADWOOD_WALL_SIGN = register("deadwood_wall_sign", new HallowedWallSignBlock(TheHallow.id("entity/signs/deadwood"), TheHallow.DEADWOOD_SIGN_TYPE, FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN).materialColor(MaterialColor.PURPLE).build()), (BlockItem) null);
 	public static final Block DEADWOOD_SIGN = register("deadwood_sign", new HallowedSignBlock(TheHallow.id("entity/signs/deadwood"), TheHallow.DEADWOOD_SIGN_TYPE, FabricBlockSettings.copy(Blocks.OAK_SIGN).materialColor(MaterialColor.PURPLE).build()), block -> new SignItem(new Item.Settings().group(TheHallow.GROUP).maxCount(16), block, DEADWOOD_WALL_SIGN));
-	public static final Block EERIE_GRASS = register("eerie_grass", new HallowedFernBlock(FabricBlockSettings.copy(Blocks.GRASS).build()));
-	public static final Block TALL_EERIE_GRASS = register("tall_eerie_grass", new TallPlantBlock(FabricBlockSettings.copy(Blocks.TALL_GRASS).build()));
-	public static final Block BRAMBLES = register("brambles", new BramblesBlock(FabricBlockSettings.copy(Blocks.DEAD_BUSH).build()));
-	public static final Block DEADWOOD_VINES = register("deadwood_vines", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
-	public static final Block GLOOMSHROOM = register("gloomshroom", new HallowedMushroomPlantBlock(FabricBlockSettings.copy(Blocks.VINE).build()));
-	public static final Block DECEASED_MOSS = register("deceased_moss", new Block(FabricBlockSettings.copy(Blocks.PODZOL).materialColor(MaterialColor.PURPLE).build()));
-
+	
 	public static final Block RAINBOW_PUMPKIN = register("rainbow_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.copy(Blocks.PUMPKIN).materialColor(MaterialColor.LIME).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
 	public static final Block RAINBOW_CARVED_PUMPKIN = register("rainbow_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.copy(Blocks.CARVED_PUMPKIN).materialColor(MaterialColor.LIME).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
 	public static final Block RAINBOW_JACK_O_LANTERN = register("rainbow_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.copy(Blocks.JACK_O_LANTERN).materialColor(MaterialColor.LIME).build(), PumpkinColor.RAINBOW), new Item.Settings().group(TheHallow.PUMPKINS).rarity(Rarity.UNCOMMON));
@@ -183,9 +188,7 @@ public class HallowedBlocks {
 	public static final Block WITCHED_PUMPKIN = register("witched_pumpkin", new ColoredPumpkinBlock(FabricBlockSettings.copy(Blocks.PUMPKIN).materialColor(MaterialColor.PURPLE).build(), PumpkinColor.WITCHED), new Item.Settings().group(TheHallow.PUMPKINS));
 	public static final Block WITCHED_CARVED_PUMPKIN = register("witched_carved_pumpkin", new ColoredCarvedPumpkinBlock(FabricBlockSettings.copy(Blocks.CARVED_PUMPKIN).materialColor(MaterialColor.PURPLE).build(), PumpkinColor.WITCHED), new Item.Settings().group(TheHallow.PUMPKINS));
 	public static final Block WITCHED_JACK_O_LANTERN = register("witched_jack_o_lantern", new ColoredCarvedPumpkinBlock(FabricBlockSettings.copy(Blocks.JACK_O_LANTERN).materialColor(MaterialColor.PURPLE).build(), PumpkinColor.WITCHED), new Item.Settings().group(TheHallow.PUMPKINS));
-
-	public static final Block HALLOWED_GATE = register("hallowed_gate", new HallowedGateBlock(FabricBlockSettings.copy(Blocks.ENCHANTING_TABLE).materialColor(MaterialColor.BROWN).build().nonOpaque()));
-	public static final Block PUMPKIN_PIE = register("pumpkin_pie", new PumpkinPieBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOL).build()), (BlockItem) null);
+	
 	public static final Block WHITE_CLOTH = register("white_cloth", new Block(FabricBlockSettings.copy(Blocks.WHITE_WOOL).build()));
 	public static final Block ORANGE_CLOTH = register("orange_cloth", new Block(FabricBlockSettings.copy(Blocks.ORANGE_WOOL).build()));
 	public static final Block MAGENTA_CLOTH = register("magenta_cloth", new Block(FabricBlockSettings.copy(Blocks.MAGENTA_WOOL).build()));
@@ -202,6 +205,7 @@ public class HallowedBlocks {
 	public static final Block GREEN_CLOTH = register("green_cloth", new Block(FabricBlockSettings.copy(Blocks.GREEN_WOOL).build()));
 	public static final Block RED_CLOTH = register("red_cloth", new Block(FabricBlockSettings.copy(Blocks.RED_WOOL).build()));
 	public static final Block BLACK_CLOTH = register("black_cloth", new Block(FabricBlockSettings.copy(Blocks.BLACK_WOOL).build()));
+	
 	public static final Block WHITE_RUG = register("white_rug", new HallowedCarpetBlock(DyeColor.WHITE, FabricBlockSettings.copy(Blocks.WHITE_CARPET).build()));
 	public static final Block ORANGE_RUG = register("orange_rug", new HallowedCarpetBlock(DyeColor.ORANGE, FabricBlockSettings.copy(Blocks.ORANGE_CARPET).build()));
 	public static final Block MAGENTA_RUG = register("magenta_rug", new HallowedCarpetBlock(DyeColor.MAGENTA, FabricBlockSettings.copy(Blocks.MAGENTA_CARPET).build()));
