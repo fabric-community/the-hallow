@@ -1,3 +1,5 @@
+# [This mod has been moved to a different repository. Do not create issues or PRs here. Go the repository linked here instead](https://github.com/AllOfFabric/The-Hallow/)
+
 # The Hallow
 A mysterious adventure brought to you by the Fabric Community team.
 
