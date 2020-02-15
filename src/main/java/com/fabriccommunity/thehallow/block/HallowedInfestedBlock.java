@@ -22,7 +22,7 @@ public class HallowedInfestedBlock extends InfestedBlock {
 	public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
 		if (!world.isClient && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
 			EndermiteEntity endermite = (EndermiteEntity) EntityType.ENDERMITE.create(world);
-			endermite.setPositionAndAngles(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
+			endermite.updatePositionAndAngles(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
 			world.spawnEntity(endermite);
 			endermite.playSpawnEffects();
 		}

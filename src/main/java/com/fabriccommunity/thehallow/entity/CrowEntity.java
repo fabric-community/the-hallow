@@ -7,7 +7,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Flutterer;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.FlyAroundGoal;
 import net.minecraft.entity.ai.goal.FollowMobGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -53,7 +52,6 @@ public class CrowEntity extends AnimalEntity implements Flutterer {
 		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
 		this.goalSelector.add(2, new EatBreadcrumbsGoal(HallowedBlocks.BREAD_CRUMBS, this, 1.25D, 40, 80));
 		this.goalSelector.add(2, new TemptBirdGoal(this, 1.25D, false, Ingredient.ofItems(HallowedBlocks.BREAD_CRUMBS)));
-		this.goalSelector.add(2, new FlyAroundGoal(this, 1.0D));
 		this.goalSelector.add(3, new FollowMobGoal(this, 1.0D, 3.0F, 7.0F));
 	}
 	

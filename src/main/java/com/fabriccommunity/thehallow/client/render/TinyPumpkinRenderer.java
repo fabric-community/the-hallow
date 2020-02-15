@@ -39,13 +39,13 @@ public class TinyPumpkinRenderer extends BlockEntityRenderer<TinyPumpkinBlockEnt
 		matrixStack.push();
 		matrixStack.translate(0.25, 0, 0);
 		matrixStack.multiply(MINUS_NINETY_DEG_Y);
-		renderer.renderItem(pumpkin.getLeftItem(), ModelTransformation.Type.FIXED, i, j, matrixStack, vertexConsumerProvider);
+		renderer.renderItem(pumpkin.getLeftItem(), ModelTransformation.Mode.FIXED, i, j, matrixStack, vertexConsumerProvider);
 		matrixStack.pop();
 		
 		matrixStack.push();
 		matrixStack.translate(-0.25, 0, 0);
 		matrixStack.multiply(MINUS_NINETY_DEG_Y);
-		renderer.renderItem(pumpkin.getRightItem(), ModelTransformation.Type.FIXED, i, j, matrixStack, vertexConsumerProvider);
+		renderer.renderItem(pumpkin.getRightItem(), ModelTransformation.Mode.FIXED, i, j, matrixStack, vertexConsumerProvider);
 		matrixStack.pop();
 		
 		matrixStack.pop();

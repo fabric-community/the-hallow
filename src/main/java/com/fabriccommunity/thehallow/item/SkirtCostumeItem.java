@@ -55,19 +55,19 @@ public class SkirtCostumeItem extends Item implements ITrinket {
 		matrix.translate(0.25, 0.65, 0);
 		matrix.scale(0.5F, 0.5F, 0.5F);
 		matrix.multiply(ROTATION_CONSTANT);
-		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Mode.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
 		matrix.pop();
 		matrix.push();
 		matrix.translate(-0.25, 0.65, 0);
 		matrix.scale(0.5F, 0.5F, 0.5F);
 		matrix.multiply(ROTATION_CONSTANT);
-		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Mode.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
 		matrix.pop();
 		matrix.push();
 		matrix.translate(0, 0.65, 0.325);
 		matrix.scale(0.5F, 0.5F, 0.5F);
 		matrix.multiply(ROTATION_CONSTANT);
-		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Type.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
+		renderer.renderItem(new ItemStack(Items.BLAZE_ROD), ModelTransformation.Mode.FIXED, light, OverlayTexture.DEFAULT_UV, matrix, vertexConsumer);
 		matrix.pop();
 		matrix.pop();
 	}

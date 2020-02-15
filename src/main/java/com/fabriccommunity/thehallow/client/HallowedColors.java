@@ -1,7 +1,6 @@
 package com.fabriccommunity.thehallow.client;
 
-import net.fabricmc.fabric.api.client.render.ColorProviderRegistry;
-
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.color.block.BlockColorProvider;
 

@@ -39,7 +39,7 @@ public class HallowedTreasureChestBlock extends HorizontalFacingBlock implements
 			float z = pos.getZ() + .51f;
 			
 			HallowedTreasureChestEntity entity = new HallowedTreasureChestEntity(world, x, y, z, true, blockState.get(FACING).asRotation());
-			entity.setPosition(x, y, z);
+			entity.updatePosition(x, y, z);
 			world.spawnEntity(entity);
 			
 			return ActionResult.SUCCESS;

@@ -65,7 +65,7 @@ public class PumpcownEntity extends CowEntity {
 					this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 3.0F, Explosion.DestructionType.BREAK);
 				} else {
 					CowEntity cow = EntityType.COW.create(this.world);
-					cow.setPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.yaw, this.pitch);
+					cow.updatePositionAndAngles(this.getX(), this.getY(), this.getZ(), this.yaw, this.pitch);
 					cow.setHealth(this.getHealth());
 					cow.bodyYaw = this.bodyYaw;
 					if (this.hasCustomName()) {

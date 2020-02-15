@@ -69,7 +69,7 @@ public class RestlessCactusEntity extends MobEntityWithAi {
 				double moveX = (getX() - landPos.getX() - 0.5F) / hop;
 				double moveZ = (getZ() - landPos.getZ() - 0.5F) / hop;
 				float moveAngle = ((yaw - 90) % 360.0F) / hop;
-				setPositionAndAngles(getX() - moveX, getY(), getZ() - moveZ, yaw - moveAngle, this.pitch);
+				updatePositionAndAngles(getX() - moveX, getY(), getZ() - moveZ, yaw - moveAngle, this.pitch);
 				
 				if (hop == 1) {
 					int i;

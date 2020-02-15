@@ -28,8 +28,8 @@ public class HallowedFeatures {
 	public static final Feature<DefaultFeatureConfig> WITCH_WELL = register("witch_well", new WitchWellFeature(DefaultFeatureConfig::deserialize));
 	public static final Feature<DefaultFeatureConfig> BARROW = register("barrow", new BarrowFeature());
 	public static final Feature<DefaultFeatureConfig> STONE_CIRCLE = register("stone_circle", new StoneCircleFeature());
-	public static final Feature<BranchedTreeFeatureConfig> SMALL_DEADWOOD_TREE = register("small_deadwood_tree", new SmallDeadwoodTreeFeature(BranchedTreeFeatureConfig::deserialize2));
-	public static final Feature<MegaTreeFeatureConfig> LARGE_DEADWOOD_TREE = register("large_deadwood_tree", new LargeDeadwoodTreeFeature(MegaTreeFeatureConfig::method_23408));
+	public static final Feature<BranchedTreeFeatureConfig> SMALL_DEADWOOD_TREE = register("small_deadwood_tree", new SmallDeadwoodTreeFeature(BranchedTreeFeatureConfig::deserialize));
+	public static final Feature<MegaTreeFeatureConfig> LARGE_DEADWOOD_TREE = register("large_deadwood_tree", new LargeDeadwoodTreeFeature(MegaTreeFeatureConfig::deserialize));
 
 	public static final BranchedTreeFeatureConfig SMALL_DEADWOOD_TREE_CONFIG = (new BranchedTreeFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.DEADWOOD_LOG.getDefaultState()), new SimpleStateProvider(HallowedBlocks.DEADWOOD_LEAVES.getDefaultState()), new BlobFoliagePlacer(2, 0))).baseHeight(4).heightRandA(2).foliageHeight(3).noVines().build();
 	public static final MegaTreeFeatureConfig LARGE_DEADWOOD_TREE_CONFIG = (new MegaTreeFeatureConfig.Builder(new SimpleStateProvider(HallowedBlocks.DEADWOOD_LOG.getDefaultState()), new SimpleStateProvider(HallowedBlocks.DEADWOOD_LEAVES.getDefaultState()))).baseHeight(6).build();

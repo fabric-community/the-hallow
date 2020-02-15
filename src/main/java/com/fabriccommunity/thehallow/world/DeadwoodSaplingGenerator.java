@@ -11,10 +11,10 @@ import java.util.Random;
 
 public class DeadwoodSaplingGenerator extends LargeTreeSaplingGenerator {
 	@Override
-	protected ConfiguredFeature<BranchedTreeFeatureConfig, ?> createTreeFeature(Random rand) {
+	protected ConfiguredFeature<BranchedTreeFeatureConfig, ?> createTreeFeature(Random rand, boolean bool) {
 		return HallowedFeatures.SMALL_DEADWOOD_TREE.configure(HallowedFeatures.SMALL_DEADWOOD_TREE_CONFIG);
 	}
-	
+
 	@Override
 	protected ConfiguredFeature<MegaTreeFeatureConfig, ?> createLargeTreeFeature(Random var1) {
 		return HallowedFeatures.LARGE_DEADWOOD_TREE.configure(HallowedFeatures.LARGE_DEADWOOD_TREE_CONFIG);

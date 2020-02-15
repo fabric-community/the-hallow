@@ -73,7 +73,7 @@ public class RestlessCactusBlock extends Block {
 				}
 				
 				RestlessCactusEntity entity = new RestlessCactusEntity(HallowedEntities.RESTLESS_CACTUS, world);
-				entity.setPosition(pos.getX() + 0.5f, pos.getY(), pos.getZ() + 0.5f);
+				entity.updatePosition(pos.getX() + 0.5f, pos.getY(), pos.getZ() + 0.5f);
 				entity.setCactusHeight(height);
 				entity.age = age;
 				world.spawnEntity(entity);

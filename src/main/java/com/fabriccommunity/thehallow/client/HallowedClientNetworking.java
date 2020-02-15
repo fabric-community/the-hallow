@@ -41,7 +41,7 @@ public class HallowedClientNetworking {
 			packetContext.getTaskQueue().execute(() -> {
 				HallowedTreasureChestEntity treasureChest = new HallowedTreasureChestEntity(MinecraftClient.getInstance().world, x, y, z, shouldReplace, initialRotation);
 				treasureChest.setEntityId(entityId);
-				treasureChest.setPosition(x, y, z);
+				treasureChest.updatePosition(x, y, z);
 				MinecraftClient.getInstance().world.addEntity(treasureChest.getEntityId(), treasureChest);
 			});
 		});
